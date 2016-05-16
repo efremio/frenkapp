@@ -23,7 +23,13 @@ class GestureManager {
         self.referenceGestures = referenceGestures
     }
     
-    func scroll(event: NSEvent) {
+    func scrollLocal(event : NSEvent) -> NSEvent {
+        print("local scroll")
+        scroll(event)
+        return event
+    }
+    
+    func scroll(event : NSEvent) {
         if(event.phase == NSEventPhase.Began) {
             let newGesture = Gesture()
             newGesture.timeStart = event.timestamp
