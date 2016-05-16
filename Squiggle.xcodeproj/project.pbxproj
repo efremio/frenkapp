@@ -1,0 +1,520 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		220D91141C1B133400FF6AC2 /* CatmullSpline.swift in Sources */ = {isa = PBXBuildFile; fileRef = 220D91131C1B133400FF6AC2 /* CatmullSpline.swift */; };
+		221CAD841C1999C500F57E62 /* StatusMenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 221CAD831C1999C500F57E62 /* StatusMenuController.swift */; };
+		22593E9C1C18BCF9003CFCF2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22593E9B1C18BCF9003CFCF2 /* AppDelegate.swift */; };
+		22593E9E1C18BCF9003CFCF2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 22593E9D1C18BCF9003CFCF2 /* Assets.xcassets */; };
+		22593EA11C18BCF9003CFCF2 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22593E9F1C18BCF9003CFCF2 /* MainMenu.xib */; };
+		22593EAC1C18BCF9003CFCF2 /* SquiggleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22593EAB1C18BCF9003CFCF2 /* SquiggleTests.swift */; };
+		22593EB71C18BCF9003CFCF2 /* SquiggleUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22593EB61C18BCF9003CFCF2 /* SquiggleUITests.swift */; };
+		225C14F91CE8D4F600A12030 /* GestureManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 225C14F81CE8D4F600A12030 /* GestureManager.swift */; };
+		225C14FB1CE8D65600A12030 /* Gesture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 225C14FA1CE8D65600A12030 /* Gesture.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		22593EA81C18BCF9003CFCF2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 22593E901C18BCF9003CFCF2 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 22593E971C18BCF9003CFCF2;
+			remoteInfo = Squiggle;
+		};
+		22593EB31C18BCF9003CFCF2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 22593E901C18BCF9003CFCF2 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 22593E971C18BCF9003CFCF2;
+			remoteInfo = Squiggle;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		220D91131C1B133400FF6AC2 /* CatmullSpline.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CatmullSpline.swift; sourceTree = "<group>"; };
+		221CAD831C1999C500F57E62 /* StatusMenuController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusMenuController.swift; sourceTree = "<group>"; };
+		22593E981C18BCF9003CFCF2 /* Squiggle.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Squiggle.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		22593E9B1C18BCF9003CFCF2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		22593E9D1C18BCF9003CFCF2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		22593EA01C18BCF9003CFCF2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		22593EA21C18BCF9003CFCF2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		22593EA71C18BCF9003CFCF2 /* SquiggleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SquiggleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		22593EAB1C18BCF9003CFCF2 /* SquiggleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SquiggleTests.swift; sourceTree = "<group>"; };
+		22593EAD1C18BCF9003CFCF2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		22593EB21C18BCF9003CFCF2 /* SquiggleUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SquiggleUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		22593EB61C18BCF9003CFCF2 /* SquiggleUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SquiggleUITests.swift; sourceTree = "<group>"; };
+		22593EB81C18BCF9003CFCF2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		22593EC41C18D483003CFCF2 /* Squiggle.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Squiggle.entitlements; sourceTree = "<group>"; };
+		225C14F81CE8D4F600A12030 /* GestureManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GestureManager.swift; sourceTree = "<group>"; };
+		225C14FA1CE8D65600A12030 /* Gesture.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Gesture.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		22593E951C18BCF9003CFCF2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		22593EA41C18BCF9003CFCF2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		22593EAF1C18BCF9003CFCF2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		22593E8F1C18BCF9003CFCF2 = {
+			isa = PBXGroup;
+			children = (
+				22593E9A1C18BCF9003CFCF2 /* Squiggle */,
+				22593EAA1C18BCF9003CFCF2 /* SquiggleTests */,
+				22593EB51C18BCF9003CFCF2 /* SquiggleUITests */,
+				22593E991C18BCF9003CFCF2 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		22593E991C18BCF9003CFCF2 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				22593E981C18BCF9003CFCF2 /* Squiggle.app */,
+				22593EA71C18BCF9003CFCF2 /* SquiggleTests.xctest */,
+				22593EB21C18BCF9003CFCF2 /* SquiggleUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		22593E9A1C18BCF9003CFCF2 /* Squiggle */ = {
+			isa = PBXGroup;
+			children = (
+				22593EC41C18D483003CFCF2 /* Squiggle.entitlements */,
+				22593E9B1C18BCF9003CFCF2 /* AppDelegate.swift */,
+				22593E9D1C18BCF9003CFCF2 /* Assets.xcassets */,
+				22593E9F1C18BCF9003CFCF2 /* MainMenu.xib */,
+				22593EA21C18BCF9003CFCF2 /* Info.plist */,
+				221CAD831C1999C500F57E62 /* StatusMenuController.swift */,
+				220D91131C1B133400FF6AC2 /* CatmullSpline.swift */,
+				225C14F81CE8D4F600A12030 /* GestureManager.swift */,
+				225C14FA1CE8D65600A12030 /* Gesture.swift */,
+			);
+			path = Squiggle;
+			sourceTree = "<group>";
+		};
+		22593EAA1C18BCF9003CFCF2 /* SquiggleTests */ = {
+			isa = PBXGroup;
+			children = (
+				22593EAB1C18BCF9003CFCF2 /* SquiggleTests.swift */,
+				22593EAD1C18BCF9003CFCF2 /* Info.plist */,
+			);
+			path = SquiggleTests;
+			sourceTree = "<group>";
+		};
+		22593EB51C18BCF9003CFCF2 /* SquiggleUITests */ = {
+			isa = PBXGroup;
+			children = (
+				22593EB61C18BCF9003CFCF2 /* SquiggleUITests.swift */,
+				22593EB81C18BCF9003CFCF2 /* Info.plist */,
+			);
+			path = SquiggleUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		22593E971C18BCF9003CFCF2 /* Squiggle */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 22593EBB1C18BCF9003CFCF2 /* Build configuration list for PBXNativeTarget "Squiggle" */;
+			buildPhases = (
+				22593E941C18BCF9003CFCF2 /* Sources */,
+				22593E951C18BCF9003CFCF2 /* Frameworks */,
+				22593E961C18BCF9003CFCF2 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Squiggle;
+			productName = Squiggle;
+			productReference = 22593E981C18BCF9003CFCF2 /* Squiggle.app */;
+			productType = "com.apple.product-type.application";
+		};
+		22593EA61C18BCF9003CFCF2 /* SquiggleTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 22593EBE1C18BCF9003CFCF2 /* Build configuration list for PBXNativeTarget "SquiggleTests" */;
+			buildPhases = (
+				22593EA31C18BCF9003CFCF2 /* Sources */,
+				22593EA41C18BCF9003CFCF2 /* Frameworks */,
+				22593EA51C18BCF9003CFCF2 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				22593EA91C18BCF9003CFCF2 /* PBXTargetDependency */,
+			);
+			name = SquiggleTests;
+			productName = SquiggleTests;
+			productReference = 22593EA71C18BCF9003CFCF2 /* SquiggleTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		22593EB11C18BCF9003CFCF2 /* SquiggleUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 22593EC11C18BCF9003CFCF2 /* Build configuration list for PBXNativeTarget "SquiggleUITests" */;
+			buildPhases = (
+				22593EAE1C18BCF9003CFCF2 /* Sources */,
+				22593EAF1C18BCF9003CFCF2 /* Frameworks */,
+				22593EB01C18BCF9003CFCF2 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				22593EB41C18BCF9003CFCF2 /* PBXTargetDependency */,
+			);
+			name = SquiggleUITests;
+			productName = SquiggleUITests;
+			productReference = 22593EB21C18BCF9003CFCF2 /* SquiggleUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		22593E901C18BCF9003CFCF2 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0720;
+				LastUpgradeCheck = 0720;
+				ORGANIZATIONNAME = "Efrem Agnilleri";
+				TargetAttributes = {
+					22593E971C18BCF9003CFCF2 = {
+						CreatedOnToolsVersion = 7.2;
+						SystemCapabilities = {
+							com.apple.Sandbox = {
+								enabled = 0;
+							};
+						};
+					};
+					22593EA61C18BCF9003CFCF2 = {
+						CreatedOnToolsVersion = 7.2;
+						TestTargetID = 22593E971C18BCF9003CFCF2;
+					};
+					22593EB11C18BCF9003CFCF2 = {
+						CreatedOnToolsVersion = 7.2;
+						TestTargetID = 22593E971C18BCF9003CFCF2;
+					};
+				};
+			};
+			buildConfigurationList = 22593E931C18BCF9003CFCF2 /* Build configuration list for PBXProject "Squiggle" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 22593E8F1C18BCF9003CFCF2;
+			productRefGroup = 22593E991C18BCF9003CFCF2 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				22593E971C18BCF9003CFCF2 /* Squiggle */,
+				22593EA61C18BCF9003CFCF2 /* SquiggleTests */,
+				22593EB11C18BCF9003CFCF2 /* SquiggleUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		22593E961C18BCF9003CFCF2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				22593E9E1C18BCF9003CFCF2 /* Assets.xcassets in Resources */,
+				22593EA11C18BCF9003CFCF2 /* MainMenu.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		22593EA51C18BCF9003CFCF2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		22593EB01C18BCF9003CFCF2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		22593E941C18BCF9003CFCF2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				220D91141C1B133400FF6AC2 /* CatmullSpline.swift in Sources */,
+				225C14F91CE8D4F600A12030 /* GestureManager.swift in Sources */,
+				225C14FB1CE8D65600A12030 /* Gesture.swift in Sources */,
+				221CAD841C1999C500F57E62 /* StatusMenuController.swift in Sources */,
+				22593E9C1C18BCF9003CFCF2 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		22593EA31C18BCF9003CFCF2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				22593EAC1C18BCF9003CFCF2 /* SquiggleTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		22593EAE1C18BCF9003CFCF2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				22593EB71C18BCF9003CFCF2 /* SquiggleUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		22593EA91C18BCF9003CFCF2 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 22593E971C18BCF9003CFCF2 /* Squiggle */;
+			targetProxy = 22593EA81C18BCF9003CFCF2 /* PBXContainerItemProxy */;
+		};
+		22593EB41C18BCF9003CFCF2 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 22593E971C18BCF9003CFCF2 /* Squiggle */;
+			targetProxy = 22593EB31C18BCF9003CFCF2 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		22593E9F1C18BCF9003CFCF2 /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				22593EA01C18BCF9003CFCF2 /* Base */,
+			);
+			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		22593EB91C18BCF9003CFCF2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		22593EBA1C18BCF9003CFCF2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		22593EBC1C18BCF9003CFCF2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = Squiggle/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = efremius.Squiggle;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		22593EBD1C18BCF9003CFCF2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = Squiggle/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = efremius.Squiggle;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		22593EBF1C18BCF9003CFCF2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = SquiggleTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = efremius.SquiggleTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Squiggle.app/Contents/MacOS/Squiggle";
+			};
+			name = Debug;
+		};
+		22593EC01C18BCF9003CFCF2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = SquiggleTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = efremius.SquiggleTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Squiggle.app/Contents/MacOS/Squiggle";
+			};
+			name = Release;
+		};
+		22593EC21C18BCF9003CFCF2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = SquiggleUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = efremius.SquiggleUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = Squiggle;
+				USES_XCTRUNNER = YES;
+			};
+			name = Debug;
+		};
+		22593EC31C18BCF9003CFCF2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = SquiggleUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = efremius.SquiggleUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = Squiggle;
+				USES_XCTRUNNER = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		22593E931C18BCF9003CFCF2 /* Build configuration list for PBXProject "Squiggle" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				22593EB91C18BCF9003CFCF2 /* Debug */,
+				22593EBA1C18BCF9003CFCF2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		22593EBB1C18BCF9003CFCF2 /* Build configuration list for PBXNativeTarget "Squiggle" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				22593EBC1C18BCF9003CFCF2 /* Debug */,
+				22593EBD1C18BCF9003CFCF2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		22593EBE1C18BCF9003CFCF2 /* Build configuration list for PBXNativeTarget "SquiggleTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				22593EBF1C18BCF9003CFCF2 /* Debug */,
+				22593EC01C18BCF9003CFCF2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		22593EC11C18BCF9003CFCF2 /* Build configuration list for PBXNativeTarget "SquiggleUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				22593EC21C18BCF9003CFCF2 /* Debug */,
+				22593EC31C18BCF9003CFCF2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 22593E901C18BCF9003CFCF2 /* Project object */;
+}
