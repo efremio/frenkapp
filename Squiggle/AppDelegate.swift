@@ -15,7 +15,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     
     let statusItem = NSStatusBar.systemStatusBar().statusItemWithLength(-1) //get the system status bar
     
-    //let gestureWindow = NSWindow(contentRect: NSMakeRect(0,0,640,480), styleMask: NSBorderlessWindowMask, backing: NSBackingStoreType.Buffered, defer: false)
     let gestureWindow = NSWindow()
     
     func applicationDidFinishLaunching(aNotification: NSNotification) {
@@ -50,13 +49,12 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         visualEffectView.maskImage = maskImage(cornerRadius: 8.0)
         gestureWindow.contentView = visualEffectView //add the visual effect
         
-        
+        gestureWindow.titleVisibility = .Visible
+        gestureWindow.titlebarAppearsTransparent = true
         gestureWindow.movableByWindowBackground = true
         gestureWindow.styleMask = NSBorderlessWindowMask
-        gestureWindow.titlebarAppearsTransparent = true
         gestureWindow.setContentSize(NSSize(width:450, height:300))
         gestureWindow.center()
-        //gestureWindow.appearance = NSAppearance(named: NSAppearanceNameAqua)
         
         
         
