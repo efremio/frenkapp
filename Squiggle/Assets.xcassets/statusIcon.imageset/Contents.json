@@ -2,12 +2,12 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "frenk16.png",
+      "filename" : "frenk2_16.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "frenk32.png",
+      "filename" : "frenk2_32.png",
       "scale" : "2x"
     },
     {

@@ -24,8 +24,29 @@ class GestureManager {
     }
     
     func scrollLocal(event : NSEvent) -> NSEvent {
-        print("local scroll")
-        scroll(event)
+        if(event.phase == NSEventPhase.Began) {
+            let newGesture = Gesture()
+            newGesture.timeStart = event.timestamp
+            gestures.append(newGesture)
+            lastGestureTimer.invalidate()
+            x = 0
+            y = 0
+            print("gesture recording started")
+        } else if(event.phase == NSEventPhase.Changed) {
+            x += event.deltaX
+            y += event.deltaY
+            gestures.last?.xPoints.append(x)
+            gestures.last?.yPoints.append(y)
+            
+        } else if(event.phase == NSEventPhase.Ended) {
+            gestures.last?.timeEnd = event.timestamp
+            print("gesture recording ended, last one?")
+            
+            //gesture ended, last one?
+            lastGestureTimer.invalidate()
+            lastGestureTimer = NSTimer.scheduledTimerWithTimeInterval(0.5, target: self, selector: #selector(self.lastGestureRecordingTimerFired(_:)), userInfo: nil, repeats: false)
+        }
+
         return event
     }
     
@@ -54,11 +75,11 @@ class GestureManager {
             
             //gesture ended, last one?
             lastGestureTimer.invalidate()
-            lastGestureTimer = NSTimer.scheduledTimerWithTimeInterval(0.5, target: self, selector: #selector(self.lastGestureTimerFired(_:)), userInfo: nil, repeats: false)
+            lastGestureTimer = NSTimer.scheduledTimerWithTimeInterval(0.5, target: self, selector: #selector(self.lastGestureUnlockTimerFired(_:)), userInfo: nil, repeats: false)
         }
     }
     
-    @objc private func lastGestureTimerFired(timer : NSTimer!) {
+    @objc private func lastGestureUnlockTimerFired(timer : NSTimer!) {
         print(" yes, last gesture")
         //it was the last gesture
         
@@ -75,6 +96,16 @@ class GestureManager {
         } else {
             print("  no, the screen is not locked")
         }
+        
+        //delete gestures
+        gestures.removeAll()
+    }
+    
+    @objc private func lastGestureRecordingTimerFired(timer : NSTimer!) {
+        print(" yes, last gesture recording")
+        //it was the last gesture
+        
+        //store gestures... TODO
         
         //delete gestures
         gestures.removeAll()

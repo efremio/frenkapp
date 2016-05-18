@@ -14,8 +14,9 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     @IBOutlet weak var statusMenu: NSMenu!
     
     let statusItem = NSStatusBar.systemStatusBar().statusItemWithLength(-1) //get the system status bar
-    
     let gestureWindow = NSWindow()
+    let darkMode = NSUserDefaults.standardUserDefaults().stringForKey("AppleInterfaceStyle") == "Dark"
+
     
     func applicationDidFinishLaunching(aNotification: NSNotification) {
         // Insert code here to initialize your application
@@ -37,45 +38,37 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     @IBAction func menuSetGesture(sender: NSMenuItem) {
         //+++++++++++++ VISUAL EFFECTS +++++++++++++++++++++++++++++++++
         let visualEffectView = NSVisualEffectView(frame: NSMakeRect(0, 0, 0, 0))
-        let darkMode = NSUserDefaults.standardUserDefaults().stringForKey("AppleInterfaceStyle") == "Dark"
-        print(darkMode)
-        if(darkMode) {
-            visualEffectView.material = NSVisualEffectMaterial.UltraDark
-        } else {
-            visualEffectView.material = NSVisualEffectMaterial.Light
-        }
+        darkMode == true ? (visualEffectView.material = NSVisualEffectMaterial.UltraDark) : (visualEffectView.material = NSVisualEffectMaterial.Light)
         visualEffectView.blendingMode = NSVisualEffectBlendingMode.BehindWindow
         visualEffectView.state = NSVisualEffectState.Active
-        visualEffectView.maskImage = maskImage(cornerRadius: 8.0)
         gestureWindow.contentView = visualEffectView //add the visual effect
-        
-        gestureWindow.titleVisibility = .Visible
+        gestureWindow.styleMask = NSFullSizeContentViewWindowMask | NSTitledWindowMask | NSClosableWindowMask | NSMiniaturizableWindowMask
+        gestureWindow.titleVisibility = .Hidden
         gestureWindow.titlebarAppearsTransparent = true
         gestureWindow.movableByWindowBackground = true
-        gestureWindow.styleMask = NSBorderlessWindowMask
         gestureWindow.setContentSize(NSSize(width:450, height:300))
         gestureWindow.center()
+        gestureWindow.releasedWhenClosed = false
+        
+        
+        
+        
+        let textField = NSTextView(frame: NSMakeRect(0, 0, 180, 30))
+        
+        textField.string = "Some Text"
+        textField.editable = false
+        textField.backgroundColor = NSColor.brownColor()
+        textField.selectable = false
+        gestureWindow.contentView!.addSubview(textField)
         
         
         
         
         
         
+        gestureWindow.makeKeyAndOrderFront(nil) //show itself and make it the frontmost window
         
-        gestureWindow.makeKeyAndOrderFront(nil) //tells the window to show itself and make it the frontmost window
-    }
-    
-    func maskImage(cornerRadius cornerRadius: CGFloat) -> NSImage {
-        let edgeLength = 2.0 * cornerRadius + 1.0
-        let maskImage = NSImage(size: NSSize(width: edgeLength, height: edgeLength), flipped: false) { rect in
-            let bezierPath = NSBezierPath(roundedRect: rect, xRadius: cornerRadius, yRadius: cornerRadius)
-            NSColor.blackColor().set()
-            bezierPath.fill()
-            return true
-        }
-        maskImage.capInsets = NSEdgeInsets(top: cornerRadius, left: cornerRadius, bottom: cornerRadius, right: cornerRadius)
-        maskImage.resizingMode = .Stretch
-        return maskImage
+        
     }
     
 }
