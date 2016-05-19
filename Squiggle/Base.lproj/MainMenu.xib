@@ -15,8 +15,6 @@
         <customObject id="zfS-2i-lxk" userLabel="StatusMenuController" customClass="StatusMenuController" customModule="Squiggle" customModuleProvider="target"/>
         <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModule="Squiggle" customModuleProvider="target">
             <connections>
-                <outlet property="setGestureView" destination="BEt-Ie-rUH" id="bxS-lG-DCQ"/>
-                <outlet property="setGestureWindow" destination="uJm-na-I4y" id="j54-MK-wD5"/>
                 <outlet property="statusMenu" destination="TJy-2w-Kgx" id="yDZ-uH-YTj"/>
             </connections>
         </customObject>
@@ -38,18 +36,7 @@
                     </connections>
                 </menuItem>
             </items>
-            <point key="canvasLocation" x="15" y="307.5"/>
+            <point key="canvasLocation" x="13.5" y="222.5"/>
         </menu>
-        <window title="Set Gesture" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" id="uJm-na-I4y">
-            <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
-            <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
-            <rect key="contentRect" x="109" y="131" width="480" height="270"/>
-            <rect key="screenRect" x="0.0" y="0.0" width="1280" height="777"/>
-            <view key="contentView" id="BEt-Ie-rUH">
-                <rect key="frame" x="49" y="77" width="480" height="270"/>
-                <autoresizingMask key="autoresizingMask"/>
-            </view>
-            <point key="canvasLocation" x="416" y="206"/>
-        </window>
     </objects>
 </document>

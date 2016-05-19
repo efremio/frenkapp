@@ -33,7 +33,7 @@ class StatusMenuController: NSObject {
         var gestureArrayTest = [Gesture]()
         gestureArrayTest.append(gestureTest1)
         gestureArrayTest.append(gestureTest2)
-        gestureArrayTest.append(gestureTest3)
+        //gestureArrayTest.append(gestureTest3)
         
         gestureManager = GestureManager(referenceGestures: gestureArrayTest)
         
