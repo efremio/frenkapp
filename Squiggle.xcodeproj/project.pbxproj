@@ -10,6 +10,7 @@
 		220D91141C1B133400FF6AC2 /* CatmullSpline.swift in Sources */ = {isa = PBXBuildFile; fileRef = 220D91131C1B133400FF6AC2 /* CatmullSpline.swift */; };
 		221CAD841C1999C500F57E62 /* StatusMenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 221CAD831C1999C500F57E62 /* StatusMenuController.swift */; };
 		2237D8731CEDE3A8003845B5 /* frenk_logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 2237D8721CEDE3A8003845B5 /* frenk_logo.png */; };
+		2237D87B1CEE917B003845B5 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2237D87A1CEE917B003845B5 /* Security.framework */; };
 		22593E9C1C18BCF9003CFCF2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22593E9B1C18BCF9003CFCF2 /* AppDelegate.swift */; };
 		22593E9E1C18BCF9003CFCF2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 22593E9D1C18BCF9003CFCF2 /* Assets.xcassets */; };
 		22593EA11C18BCF9003CFCF2 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22593E9F1C18BCF9003CFCF2 /* MainMenu.xib */; };
@@ -40,6 +41,8 @@
 		220D91131C1B133400FF6AC2 /* CatmullSpline.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CatmullSpline.swift; sourceTree = "<group>"; };
 		221CAD831C1999C500F57E62 /* StatusMenuController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusMenuController.swift; sourceTree = "<group>"; };
 		2237D8721CEDE3A8003845B5 /* frenk_logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = frenk_logo.png; sourceTree = "<group>"; };
+		2237D8741CEE8D7A003845B5 /* ApplicationServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ApplicationServices.framework; path = System/Library/Frameworks/ApplicationServices.framework; sourceTree = SDKROOT; };
+		2237D87A1CEE917B003845B5 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		22593E981C18BCF9003CFCF2 /* Squiggle.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Squiggle.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		22593E9B1C18BCF9003CFCF2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		22593E9D1C18BCF9003CFCF2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -61,6 +64,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2237D87B1CEE917B003845B5 /* Security.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -84,6 +88,8 @@
 		22593E8F1C18BCF9003CFCF2 = {
 			isa = PBXGroup;
 			children = (
+				2237D87A1CEE917B003845B5 /* Security.framework */,
+				2237D8741CEE8D7A003845B5 /* ApplicationServices.framework */,
 				22593E9A1C18BCF9003CFCF2 /* Squiggle */,
 				22593EAA1C18BCF9003CFCF2 /* SquiggleTests */,
 				22593EB51C18BCF9003CFCF2 /* SquiggleUITests */,

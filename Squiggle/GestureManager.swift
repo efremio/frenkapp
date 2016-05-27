@@ -8,10 +8,12 @@
 
 import Cocoa
 import Foundation
+import Security
 
 class GestureManager {
     //variables initialization
     var gestures = [Gesture]()
+
     private var referenceGestures : [Gesture]
     private var isScreenLocked = false
     var lastGestureTimer = NSTimer.init()
@@ -23,6 +25,7 @@ class GestureManager {
         self.referenceGestures = referenceGestures
     }
     
+    //used to record the gesture
     func scrollLocal(event : NSEvent) -> NSEvent {
         if(event.phase == NSEventPhase.Began) {
             let newGesture = Gesture()
@@ -101,12 +104,14 @@ class GestureManager {
         gestures.removeAll()
     }
     
+    //used to save a new gesture
     @objc private func lastGestureRecordingTimerFired(timer : NSTimer!) {
         print(" yes, last gesture recording")
         //it was the last gesture
         
         //store gestures... TODO
-        
+        referenceGestures = gestures
+                
         //delete gestures
         gestures.removeAll()
     }
@@ -137,10 +142,11 @@ class GestureManager {
     
     private func unlock() {
         let pwd = "calmasino"
-        let unlockScript = "tell application \"System Events\"\n if name of every process contains \"ScreenSaverEngine\" then\n tell application \"ScreenSaverEngine\"\n quit\n end tell\n end if\n set pword to \""+pwd+"\"\nrepeat 50 times\n tell application \"System Events\" to keystroke (ASCII character 8)\n end repeat\n tell application \"System Events\"\n keystroke pword\n keystroke return\n end tell\n end tell"
+        let unlockScript = "tell application \"System Events\"\n if name of every process contains \"ScreenSaverEngine\" then\n tell application \"ScreenSaverEngine\"\n quit\n end tell\n end if\n set pword to \""+pwd+"\"\nrepeat 40 times\n tell application \"System Events\" to keystroke (ASCII character 8)\n end repeat\n tell application \"System Events\"\n keystroke pword\n keystroke return\n end tell\n end tell"
         
         let scriptObject = NSAppleScript(source: unlockScript)
         scriptObject?.executeAndReturnError(nil)
+        
     }
 
 }

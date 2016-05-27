@@ -9,13 +9,55 @@
 import Cocoa
 import AppKit
 import Foundation
+import Security
+import Security.Authorization
 
 class StatusMenuController: NSObject {
     
     var lastTimestamp = 0.0
     var gestureManager : GestureManager
     
+    weak var appDelegate = NSApplication.sharedApplication().delegate as? AppDelegate
+    
     override init() {
+        
+        
+        
+        
+        
+        
+        //TODO delete
+        /*var envItems = [AuthorizationItem]()
+        
+        
+        let bufferPass = UnsafeMutablePointer<Int8>(("calmasino" as NSString).UTF8String)
+        let bufferUser = UnsafeMutablePointer<Int8>(("efrem" as NSString).UTF8String)
+        
+        
+        
+        let ai1 = AuthorizationItem(name: kAuthorizationEnvironmentPassword, valueLength: 9, value: bufferPass, flags: 0)
+        
+        let ai2 = AuthorizationItem(name: kAuthorizationEnvironmentUsername, valueLength: 5, value: bufferUser, flags: 0)
+        envItems.append(ai1)
+        envItems.append(ai2)
+        
+        let bufferEnvItems = UnsafeMutablePointer<AuthorizationItem>(envItems)
+        
+        var env = AuthorizationItemSet(count: 2, items: bufferEnvItems)
+        
+        
+        let err = AuthorizationCreate(nil, &env, AuthorizationFlags(), nil);
+        print(err)
+        */
+        
+        
+        
+        
+        
+        
+        
+        
+        
         
         //test
         let gestureTest1 = Gesture()
@@ -46,9 +88,14 @@ class StatusMenuController: NSObject {
                 self.gestureManager.scroll(event)
         })
         
-        NSEvent.addLocalMonitorForEventsMatchingMask(
+        /*NSEvent.addLocalMonitorForEventsMatchingMask(
             NSEventMask.ScrollWheelMask, handler: {(event: NSEvent) in
                 self.gestureManager.scrollLocal(event)
+        })*/
+        
+        NSEvent.addLocalMonitorForEventsMatchingMask(
+            NSEventMask.ScrollWheelMask, handler: {(event: NSEvent) in
+                self.appDelegate!.recordngGesture(event)
         })
         
         NSDistributedNotificationCenter.defaultCenter().addObserver(self, selector: #selector(self.lockedEvent), name: "com.apple.screenIsLocked", object: nil)

@@ -21,13 +21,16 @@
         <customObject id="YLy-65-1bz" customClass="NSFontManager"/>
         <menu id="TJy-2w-Kgx">
             <items>
-                <menuItem title="Setup Frenk" id="XdE-io-Q6i">
+                <menuItem title="Setup a gesture" id="XdE-io-Q6i">
                     <modifierMask key="keyEquivalentModifierMask"/>
                     <connections>
                         <action selector="menuSetGesture:" target="Voe-Tx-rLC" id="tgS-ts-A9b"/>
                     </connections>
                 </menuItem>
-                <menuItem title="About" id="02V-7H-cuf">
+                <menuItem title="Change password" id="02V-7H-cuf">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                </menuItem>
+                <menuItem title="About Frenk" id="kRI-u9-KoL">
                     <modifierMask key="keyEquivalentModifierMask"/>
                 </menuItem>
                 <menuItem title="Quit" keyEquivalent="q" id="TPI-4X-lCs">

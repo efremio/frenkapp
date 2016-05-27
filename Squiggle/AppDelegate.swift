@@ -7,6 +7,7 @@
 //
 
 import Cocoa
+import AppKit
 
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
@@ -17,6 +18,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     let heightSetup : CGFloat = 300
     let statusItem = NSStatusBar.systemStatusBar().statusItemWithLength(-1) //get the system status bar
     let gestureWindow = NSWindow()
+    let settingsWindow = NSWindow()
     
     
     func applicationDidFinishLaunching(aNotification: NSNotification) {
@@ -39,7 +41,9 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     @IBAction func menuSetGesture(sender: NSMenuItem) {
         if(gestureWindow.miniaturized) { //if it is miniaturized, deminiaturize
             gestureWindow.deminiaturize(gestureWindow)
+            gestureWindow.orderFrontRegardless()
         } else if(gestureWindow.visible){ //if it is somewhere already open, show to the front
+            gestureWindow.collectionBehavior = .MoveToActiveSpace
             gestureWindow.orderFrontRegardless()
         } else { //otherwise it was not open, so create a new one
             let darkMode = NSUserDefaults.standardUserDefaults().stringForKey("AppleInterfaceStyle") == "Dark"
@@ -105,8 +109,15 @@ class AppDelegate: NSObject, NSApplicationDelegate {
          gestureWindow.contentView!.addSubview(textField)*/
     }
     
+    internal func recordngGesture(event : NSEvent) -> NSEvent {
+        
+        print("fefefefeefefefefefefefefe")
+        return NSEvent()
+    }
+    
     /*let checkURL = NSURL(string: "http://www.google.com")
      NSWorkspace.sharedWorkspace().openURL(checkURL!)*/
+    
     
 }
 
