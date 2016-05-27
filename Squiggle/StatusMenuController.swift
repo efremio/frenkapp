@@ -88,14 +88,9 @@ class StatusMenuController: NSObject {
                 self.gestureManager.scroll(event)
         })
         
-        /*NSEvent.addLocalMonitorForEventsMatchingMask(
-            NSEventMask.ScrollWheelMask, handler: {(event: NSEvent) in
-                self.gestureManager.scrollLocal(event)
-        })*/
-        
         NSEvent.addLocalMonitorForEventsMatchingMask(
             NSEventMask.ScrollWheelMask, handler: {(event: NSEvent) in
-                self.appDelegate!.recordngGesture(event)
+                self.gestureManager.scrollLocal(event)
         })
         
         NSDistributedNotificationCenter.defaultCenter().addObserver(self, selector: #selector(self.lockedEvent), name: "com.apple.screenIsLocked", object: nil)

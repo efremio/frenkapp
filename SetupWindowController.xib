@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+    <dependencies>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="10117"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner" customClass="SetupWindowController" customModule="Squiggle" customModuleProvider="target">
+            <connections>
+                <outlet property="logoImageView" destination="W3N-bl-O9F" id="FHq-Lk-SA8"/>
+                <outlet property="settingsWindow" destination="F0z-JX-Cv5" id="aqy-ga-1zD"/>
+            </connections>
+        </customObject>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
+        <window title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" animationBehavior="default" id="F0z-JX-Cv5">
+            <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES"/>
+            <rect key="contentRect" x="419" y="204" width="480" height="270"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="1280" height="777"/>
+            <view key="contentView" id="se5-gp-TjO">
+                <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="W3N-bl-O9F">
+                        <rect key="frame" x="225" y="240" width="30" height="30"/>
+                        <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="frenk_logo" id="F7A-Nd-Faq"/>
+                    </imageView>
+                    <tabView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KW5-sd-8qx">
+                        <rect key="frame" x="13" y="10" width="454" height="228"/>
+                        <font key="font" metaFont="system"/>
+                        <tabViewItems>
+                            <tabViewItem label="Tab" identifier="1" id="NvK-Nz-3aE">
+                                <view key="view" id="dGM-BU-xlt">
+                                    <rect key="frame" x="10" y="33" width="434" height="182"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bHs-Cs-NHm">
+                                            <rect key="frame" x="108" y="118" width="43" height="17"/>
+                                            <buttonCell key="cell" type="inline" title="Inline" bezelStyle="inline" alignment="center" borderStyle="border" inset="2" id="eXM-y3-2Zb">
+                                                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                <font key="font" metaFont="smallSystemBold"/>
+                                            </buttonCell>
+                                        </button>
+                                    </subviews>
+                                </view>
+                            </tabViewItem>
+                            <tabViewItem label="View" identifier="2" id="z7P-TO-mIl">
+                                <view key="view" ambiguous="YES" id="2LC-B6-15A">
+                                    <rect key="frame" x="10" y="33" width="434" height="182"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <slider verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KJf-Q5-AWc">
+                                            <rect key="frame" x="140" y="132" width="96" height="20"/>
+                                            <sliderCell key="cell" state="on" alignment="left" maxValue="100" doubleValue="50" tickMarkPosition="above" sliderType="linear" id="LxK-u9-fe6"/>
+                                        </slider>
+                                    </subviews>
+                                </view>
+                            </tabViewItem>
+                        </tabViewItems>
+                    </tabView>
+                </subviews>
+            </view>
+            <connections>
+                <outlet property="delegate" destination="-2" id="0bl-1N-AYu"/>
+            </connections>
+            <point key="canvasLocation" x="271" y="195"/>
+        </window>
+    </objects>
+    <resources>
+        <image name="frenk_logo" width="256" height="256"/>
+    </resources>
+</document>
