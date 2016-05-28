@@ -54,34 +54,36 @@ class GestureManager {
     }
     
     func scroll(event : NSEvent) {
-        if(event.phase == NSEventPhase.Began) {
-            let newGesture = Gesture()
-            newGesture.timeStart = event.timestamp
-            gestures.append(newGesture)
-            lastGestureTimer.invalidate()
-            x = 0
-            y = 0
-            print("gesture started")
-        } else if(event.phase == NSEventPhase.Changed) {
-            
-            x += event.deltaX
-            y += event.deltaY
-            gestures.last?.xPoints.append(x)
-            gestures.last?.yPoints.append(y)
-            
-        } else if(event.phase == NSEventPhase.Ended) {
-            gestures.last?.timeEnd = event.timestamp
-            print("gesture ended, last one?")
-            
-            //anticipate the unlock
-            if(gestures.count == referenceGestures.count) {
-                manageUnlock()
-            } else {
-                
-                //gesture ended, last one?
+        if(isScreenLocked) {
+            if(event.phase == NSEventPhase.Began) {
+                let newGesture = Gesture()
+                newGesture.timeStart = event.timestamp
+                gestures.append(newGesture)
                 lastGestureTimer.invalidate()
-                lastGestureTimer = NSTimer.scheduledTimerWithTimeInterval((KeychainManager.getGestureTime() as Double)/1000, target: self, selector: #selector(self.lastGestureUnlockTimerFired(_:)), userInfo: nil, repeats: false)
+                x = 0
+                y = 0
+                print("gesture started")
+            } else if(event.phase == NSEventPhase.Changed) {
                 
+                x += event.deltaX
+                y += event.deltaY
+                gestures.last?.xPoints.append(x)
+                gestures.last?.yPoints.append(y)
+                
+            } else if(event.phase == NSEventPhase.Ended) {
+                gestures.last?.timeEnd = event.timestamp
+                print("gesture ended, last one?")
+                
+                //anticipate the unlock
+                if(gestures.count == referenceGestures.count) {
+                    manageUnlock()
+                } else {
+                    
+                    //gesture ended, last one?
+                    lastGestureTimer.invalidate()
+                    lastGestureTimer = NSTimer.scheduledTimerWithTimeInterval((KeychainManager.getGestureTime() as Double)/1000, target: self, selector: #selector(self.lastGestureUnlockTimerFired(_:)), userInfo: nil, repeats: false)
+                    
+                }
             }
         }
     }
@@ -150,8 +152,14 @@ class GestureManager {
     }
     
     private func unlock() {
-        let pwd = "calmasino"
-        let unlockScript = "tell application \"System Events\"\n if name of every process contains \"ScreenSaverEngine\" then\n tell application \"ScreenSaverEngine\"\n quit\n end tell\n end if\n set pword to \""+pwd+"\"\nrepeat 40 times\n tell application \"System Events\" to keystroke (ASCII character 8)\n end repeat\n tell application \"System Events\"\n keystroke pword\n keystroke return\n end tell\n end tell"
+        //get password
+        let pwd = KeychainManager.getPassword()
+        
+        if(pwd == nil) {
+            return
+        }
+        
+        let unlockScript = "tell application \"System Events\"\n if name of every process contains \"ScreenSaverEngine\" then\n tell application \"ScreenSaverEngine\"\n quit\n end tell\n end if\n set pword to \""+(pwd as String)+"\"\nrepeat 40 times\n tell application \"System Events\" to keystroke (ASCII character 8)\n end repeat\n tell application \"System Events\"\n keystroke pword\n keystroke return\n end tell\n end tell"
         
         let scriptObject = NSAppleScript(source: unlockScript)
         scriptObject?.executeAndReturnError(nil)

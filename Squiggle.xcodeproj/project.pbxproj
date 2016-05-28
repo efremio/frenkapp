@@ -10,8 +10,10 @@
 		11E549BEED6975A69838D1EB /* Pods_Squiggle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0EB79640569400AA1BB936A0 /* Pods_Squiggle.framework */; };
 		220D91141C1B133400FF6AC2 /* CatmullSpline.swift in Sources */ = {isa = PBXBuildFile; fileRef = 220D91131C1B133400FF6AC2 /* CatmullSpline.swift */; };
 		221BB2191CF9BCE400A78F5F /* KeychainManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 221BB2181CF9BCE400A78F5F /* KeychainManager.swift */; };
+		221BB21D1CFA133400A78F5F /* thumbs_up.png in Resources */ = {isa = PBXBuildFile; fileRef = 221BB21C1CFA133400A78F5F /* thumbs_up.png */; };
+		221BB2211CFA175000A78F5F /* frenk_logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 221BB2201CFA175000A78F5F /* frenk_logo.png */; };
+		221BB2231CFA18F800A78F5F /* scroll.png in Resources */ = {isa = PBXBuildFile; fileRef = 221BB2221CFA18F800A78F5F /* scroll.png */; };
 		221CAD841C1999C500F57E62 /* StatusMenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 221CAD831C1999C500F57E62 /* StatusMenuController.swift */; };
-		2237D8731CEDE3A8003845B5 /* frenk_logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 2237D8721CEDE3A8003845B5 /* frenk_logo.png */; };
 		2237D87B1CEE917B003845B5 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2237D87A1CEE917B003845B5 /* Security.framework */; };
 		22593E9C1C18BCF9003CFCF2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22593E9B1C18BCF9003CFCF2 /* AppDelegate.swift */; };
 		22593E9E1C18BCF9003CFCF2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 22593E9D1C18BCF9003CFCF2 /* Assets.xcassets */; };
@@ -47,8 +49,10 @@
 		0EB79640569400AA1BB936A0 /* Pods_Squiggle.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Squiggle.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		220D91131C1B133400FF6AC2 /* CatmullSpline.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CatmullSpline.swift; path = Squiggle/CatmullSpline.swift; sourceTree = "<group>"; };
 		221BB2181CF9BCE400A78F5F /* KeychainManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeychainManager.swift; sourceTree = "<group>"; };
+		221BB21C1CFA133400A78F5F /* thumbs_up.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = thumbs_up.png; sourceTree = "<group>"; };
+		221BB2201CFA175000A78F5F /* frenk_logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = frenk_logo.png; sourceTree = "<group>"; };
+		221BB2221CFA18F800A78F5F /* scroll.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = scroll.png; sourceTree = "<group>"; };
 		221CAD831C1999C500F57E62 /* StatusMenuController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StatusMenuController.swift; path = Squiggle/StatusMenuController.swift; sourceTree = "<group>"; };
-		2237D8721CEDE3A8003845B5 /* frenk_logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = frenk_logo.png; path = Squiggle/frenk_logo.png; sourceTree = "<group>"; };
 		2237D8741CEE8D7A003845B5 /* ApplicationServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ApplicationServices.framework; path = System/Library/Frameworks/ApplicationServices.framework; sourceTree = SDKROOT; };
 		2237D87A1CEE917B003845B5 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		22593E981C18BCF9003CFCF2 /* Squiggle.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Squiggle.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -119,7 +123,9 @@
 				22B83ABA1CF8EA010010A52B /* SetupWindowController.xib */,
 				2260B8ED1CF920BE008416B3 /* AboutWindowController.swift */,
 				2260B8EE1CF920BE008416B3 /* AboutWindowController.xib */,
-				2237D8721CEDE3A8003845B5 /* frenk_logo.png */,
+				221BB2201CFA175000A78F5F /* frenk_logo.png */,
+				221BB2221CFA18F800A78F5F /* scroll.png */,
+				221BB21C1CFA133400A78F5F /* thumbs_up.png */,
 				22593EC41C18D483003CFCF2 /* Squiggle.entitlements */,
 				22593E9B1C18BCF9003CFCF2 /* AppDelegate.swift */,
 				221CAD831C1999C500F57E62 /* StatusMenuController.swift */,
@@ -296,9 +302,11 @@
 			files = (
 				22593E9E1C18BCF9003CFCF2 /* Assets.xcassets in Resources */,
 				22593EA11C18BCF9003CFCF2 /* MainMenu.xib in Resources */,
-				2237D8731CEDE3A8003845B5 /* frenk_logo.png in Resources */,
+				221BB2211CFA175000A78F5F /* frenk_logo.png in Resources */,
 				2260B8F01CF920BE008416B3 /* AboutWindowController.xib in Resources */,
+				221BB2231CFA18F800A78F5F /* scroll.png in Resources */,
 				22B83ABC1CF8EA010010A52B /* SetupWindowController.xib in Resources */,
+				221BB21D1CFA133400A78F5F /* thumbs_up.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

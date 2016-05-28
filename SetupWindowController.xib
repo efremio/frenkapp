@@ -9,14 +9,20 @@
             <connections>
                 <outlet property="gestureTimeSliderCell" destination="yT0-gg-Gme" id="v4S-ym-eEl"/>
                 <outlet property="logoImageView" destination="W3N-bl-O9F" id="FHq-Lk-SA8"/>
+                <outlet property="passwordAlertTextField" destination="8Li-kF-7OY" id="Om2-x9-1xJ"/>
+                <outlet property="passwordField" destination="WUW-lv-gGt" id="mqd-Nw-vbt"/>
+                <outlet property="passwordOkField" destination="rBe-qo-kb3" id="ym0-h8-Goo"/>
+                <outlet property="passwordTabViewItem" destination="z7P-TO-mIl" id="lfd-iv-zau"/>
                 <outlet property="setGestureImage" destination="gCS-ar-kdn" id="0x3-V1-GEf"/>
                 <outlet property="settingsWindow" destination="F0z-JX-Cv5" id="aqy-ga-1zD"/>
+                <outlet property="thumbsUpImageView" destination="H8S-eW-fWK" id="r4y-1s-YRp"/>
                 <outlet property="timeTextField" destination="yxQ-O9-Qtf" id="Ydq-7x-W3j"/>
+                <outlet property="updatePasswordButton" destination="q5E-7m-xha" id="JKE-jg-cKQ"/>
             </connections>
         </customObject>
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
         <customObject id="-3" userLabel="Application" customClass="NSObject"/>
-        <window title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" animationBehavior="default" id="F0z-JX-Cv5">
+        <window title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" showsToolbarButton="NO" animationBehavior="default" id="F0z-JX-Cv5">
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES"/>
             <rect key="contentRect" x="419" y="204" width="450" height="300"/>
             <rect key="screenRect" x="0.0" y="0.0" width="1280" height="777"/>
@@ -34,8 +40,8 @@
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gCS-ar-kdn">
-                                            <rect key="frame" x="77" y="-3" width="251" height="216"/>
-                                            <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="frenk_logo" imagePosition="only" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="nLu-GO-71N">
+                                            <rect key="frame" x="166" y="85" width="72" height="61"/>
+                                            <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="scroll" imagePosition="only" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="nLu-GO-71N">
                                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                 <font key="font" metaFont="system"/>
                                             </buttonCell>
@@ -52,23 +58,46 @@
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <secureTextField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WUW-lv-gGt">
-                                            <rect key="frame" x="17" y="94" width="175" height="33"/>
-                                            <secureTextFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" drawsBackground="YES" usesSingleLineMode="YES" id="L0y-pu-M8a">
-                                                <font key="font" metaFont="system"/>
-                                                <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
-                                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                            <rect key="frame" x="17" y="136" width="236" height="27"/>
+                                            <secureTextFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" alignment="left" placeholderString="Your password" drawsBackground="YES" usesSingleLineMode="YES" id="L0y-pu-M8a">
+                                                <font key="font" metaFont="system" size="18"/>
+                                                <color key="textColor" white="0.0" alpha="0.75" colorSpace="deviceWhite"/>
+                                                <color key="backgroundColor" red="0.5" green="0.5" blue="0.5" alpha="0.10236591312056738" colorSpace="calibratedRGB"/>
                                                 <allowedInputSourceLocales>
                                                     <string>NSAllRomanInputSourcesLocaleIdentifier</string>
                                                 </allowedInputSourceLocales>
                                             </secureTextFieldCell>
                                         </secureTextField>
-                                        <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="r4k-6c-DIt">
-                                            <rect key="frame" x="206" y="87" width="187" height="32"/>
-                                            <buttonCell key="cell" type="push" title="Update" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Wix-nw-E0G">
+                                        <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gge-HB-iEa">
+                                            <rect key="frame" x="259" y="133" width="130" height="32"/>
+                                            <buttonCell key="cell" type="bevel" title="Set password" bezelStyle="regularSquare" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="q5E-7m-xha">
                                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                 <font key="font" metaFont="system"/>
+                                                <connections>
+                                                    <action selector="updatePassword:" target="-2" id="agz-r0-vqY"/>
+                                                </connections>
                                             </buttonCell>
                                         </button>
+                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8Li-kF-7OY">
+                                            <rect key="frame" x="15" y="85" width="374" height="43"/>
+                                            <textFieldCell key="cell" sendsActionOnEndEditing="YES" id="1xJ-PJ-yZC">
+                                                <font key="font" metaFont="smallSystem"/>
+                                                <color key="textColor" red="0.38506217279999999" green="0.061878694803651761" blue="0.035440644604690701" alpha="0.84999999999999998" colorSpace="calibratedRGB"/>
+                                                <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                            </textFieldCell>
+                                        </textField>
+                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rBe-qo-kb3">
+                                            <rect key="frame" x="15" y="85" width="374" height="43"/>
+                                            <textFieldCell key="cell" sendsActionOnEndEditing="YES" id="ntq-C4-COe">
+                                                <font key="font" metaFont="smallSystem"/>
+                                                <color key="textColor" name="secondaryLabelColor" catalog="System" colorSpace="catalog"/>
+                                                <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                            </textFieldCell>
+                                        </textField>
+                                        <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="H8S-eW-fWK">
+                                            <rect key="frame" x="178" y="17" width="48" height="48"/>
+                                            <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="thumbs_up" id="4qB-NR-DeN"/>
+                                        </imageView>
                                     </subviews>
                                     <gestureRecognizers>
                                         <magnificationGestureRecognizer delaysMagnificationEvents="YES" magnification="0.0" id="L3m-hE-m2d"/>
@@ -130,5 +159,7 @@
     </objects>
     <resources>
         <image name="frenk_logo" width="256" height="256"/>
+        <image name="scroll" width="96" height="96"/>
+        <image name="thumbs_up" width="96" height="96"/>
     </resources>
 </document>

@@ -7,6 +7,7 @@
 //
 
 import Cocoa
+import Collaboration
 
 class SetupWindowController: NSWindowController {
     
@@ -15,8 +16,14 @@ class SetupWindowController: NSWindowController {
     @IBOutlet var timeTextField: NSTextField!
     @IBOutlet var setGestureImage: NSButton!
     @IBOutlet var gestureTimeSliderCell: NSSliderCell!
+    @IBOutlet var updatePasswordButton: NSButtonCell!
+    @IBOutlet var passwordTabViewItem: NSTabViewItem!
     
+    @IBOutlet var passwordField: NSSecureTextField!
     @IBOutlet var logoImageView: NSImageView!
+    @IBOutlet var passwordAlertTextField: NSTextField!
+    @IBOutlet var passwordOkField: NSTextField!
+    @IBOutlet var thumbsUpImageView: NSImageView!
     
     override func showWindow(sender: AnyObject?) {
         if(settingsWindow != nil && settingsWindow.miniaturized) { //if it is miniaturized, deminiaturize
@@ -60,6 +67,9 @@ class SetupWindowController: NSWindowController {
         
         addLogo(darkMode)
         
+        thumbsUpImageView.hidden = true
+        passwordField.bezeled = false
+        passwordField.bezelStyle = NSTextFieldBezelStyle.SquareBezel
         
         //NSTran
         /*let options = [NSTrackingAreaOptions.MouseMoved, NSTrackingAreaOptions.MouseEnteredAndExited, NSTrackingAreaOptions.ActiveInKeyWindow] as NSTrackingAreaOptions
@@ -71,6 +81,15 @@ class SetupWindowController: NSWindowController {
         let time = KeychainManager.getGestureTime()
         updateTimeLabel(time)
         gestureTimeSliderCell.integerValue = time as Int
+        
+        //labels
+        if(KeychainManager.isPasswordSet()) {
+            passwordTabViewItem.label = "Update password"
+            updatePasswordButton.title = "Update password"
+        } else {
+            passwordTabViewItem.label = "Set password"
+            updatePasswordButton.title = "Set password"
+        }
         
     }
     
@@ -115,5 +134,49 @@ class SetupWindowController: NSWindowController {
     
     @IBAction func mouseOverSettingGesture(sender: AnyObject) {
         print("erbwbwbwbwbww")
+    }
+    
+    @IBAction func updatePassword(sender: AnyObject) {
+        print("il pirla ha digitato: "+passwordField.stringValue)
+        
+        //check if the password is correct
+        let identity = CBUserIdentity(posixUID: getuid(), authority: CBIdentityAuthority.defaultIdentityAuthority())
+        let passOk = identity?.authenticateWithPassword(passwordField.stringValue)
+        
+        if(passOk == true) {
+            KeychainManager.setPassword(NSString(string: passwordField.stringValue)) //store the password
+            
+            //update labels
+            passwordAlertTextField.stringValue = ""
+            passwordOkField.stringValue = "Your password has been securely saved. It will be used only to unlock your Mac."
+            
+            //update buttons
+            passwordTabViewItem.label = "Update password"
+            updatePasswordButton.title = "Update password"
+            
+            //thumbs up!
+            thumbsUpImageView.hidden = false
+        } else {
+            //update labels
+            passwordAlertTextField.stringValue = "The given password is not the current user's one."
+            passwordOkField.stringValue = ""
+            
+            //thumbs up!
+            thumbsUpImageView.hidden = true
+            
+            //update buttons
+            if(KeychainManager.isPasswordSet()) {
+                passwordTabViewItem.label = "Update password"
+                updatePasswordButton.title = "Update password"
+            } else {
+                passwordTabViewItem.label = "Set password"
+                updatePasswordButton.title = "Set password"
+            }
+        }
+        
+        //clean
+        passwordField.stringValue = ""
+        
+        
     }
 }
