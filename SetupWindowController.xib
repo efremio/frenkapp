@@ -3,7 +3,6 @@
     <dependencies>
         <deployment identifier="macosx"/>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="10117"/>
-        <capability name="box content view" minToolsVersion="7.0"/>
     </dependencies>
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="SetupWindowController" customModule="Squiggle" customModuleProvider="target">
@@ -31,26 +30,15 @@
                                 <view key="view" id="dGM-BU-xlt">
                                     <rect key="frame" x="10" y="33" width="404" height="216"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                    <subviews>
-                                        <box fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Xz7-W8-m4V">
-                                            <rect key="frame" x="89" y="5" width="227" height="165"/>
-                                            <view key="contentView" id="yzz-7K-u6h">
-                                                <rect key="frame" x="2" y="2" width="223" height="148"/>
-                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                            </view>
-                                            <color key="borderColor" white="0.0" alpha="0.41999999999999998" colorSpace="calibratedWhite"/>
-                                            <color key="fillColor" red="0.60072398560209428" green="0.60072398560209428" blue="0.60072398560209428" alpha="0.0" colorSpace="calibratedRGB"/>
-                                        </box>
-                                    </subviews>
                                 </view>
                             </tabViewItem>
                             <tabViewItem label="Set password" identifier="2" id="z7P-TO-mIl">
-                                <view key="view" id="2LC-B6-15A">
+                                <view key="view" ambiguous="YES" id="2LC-B6-15A">
                                     <rect key="frame" x="10" y="33" width="404" height="216"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <secureTextField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WUW-lv-gGt">
-                                            <rect key="frame" x="17" y="94" width="175" height="21"/>
+                                            <rect key="frame" x="17" y="94" width="175" height="33"/>
                                             <secureTextFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" drawsBackground="YES" usesSingleLineMode="YES" id="L0y-pu-M8a">
                                                 <font key="font" metaFont="system"/>
                                                 <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
@@ -74,7 +62,7 @@
                                 </view>
                             </tabViewItem>
                             <tabViewItem label="Advanced settings" identifier="" id="Wfg-wj-2I2">
-                                <view key="view" ambiguous="YES" id="Uvh-6s-t8y">
+                                <view key="view" id="Uvh-6s-t8y">
                                     <rect key="frame" x="10" y="33" width="404" height="216"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
@@ -96,7 +84,7 @@
                                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yxQ-O9-Qtf">
                                             <rect key="frame" x="130" y="158" width="107" height="14"/>
                                             <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="left" title="Now: 100 ms" id="ZVS-Db-oBC">
-                                                <font key="font" metaFont="system" size="11"/>
+                                                <font key="font" metaFont="smallSystem"/>
                                                 <color key="textColor" red="0.38506217279999999" green="0.38506217279999999" blue="0.38506217279999999" alpha="0.84999999999999998" colorSpace="calibratedRGB"/>
                                                 <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                             </textFieldCell>
@@ -104,7 +92,7 @@
                                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aPH-n8-gpS">
                                             <rect key="frame" x="130" y="142" width="178" height="17"/>
                                             <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="ms. Bla bla bla spiegazione lunga" id="Jd5-Uh-rhd">
-                                                <font key="font" metaFont="system" size="11"/>
+                                                <font key="font" metaFont="smallSystem"/>
                                                 <color key="textColor" red="0.38506217279999999" green="0.38506217279999999" blue="0.38506217279999999" alpha="0.84999999999999998" colorSpace="calibratedRGB"/>
                                                 <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                             </textFieldCell>
