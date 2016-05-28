@@ -13,7 +13,7 @@ import Security
 class GestureManager {
     //variables initialization
     var gestures = [Gesture]()
-
+    
     private var referenceGestures : [Gesture]
     private var isScreenLocked = false
     var lastGestureTimer = NSTimer.init()
@@ -47,9 +47,9 @@ class GestureManager {
             
             //gesture ended, last one?
             lastGestureTimer.invalidate()
-            lastGestureTimer = NSTimer.scheduledTimerWithTimeInterval(0.5, target: self, selector: #selector(self.lastGestureRecordingTimerFired(_:)), userInfo: nil, repeats: false)
+            lastGestureTimer = NSTimer.scheduledTimerWithTimeInterval((KeychainManager.getGestureTime() as Double)/1000, target: self, selector: #selector(self.lastGestureRecordingTimerFired(_:)), userInfo: nil, repeats: false)
         }
-
+        
         return event
     }
     
@@ -73,16 +73,24 @@ class GestureManager {
             gestures.last?.timeEnd = event.timestamp
             print("gesture ended, last one?")
             
-            //print(gestures.last?.xPoints)
-            //print(gestures.last?.yPoints)
-            
-            //gesture ended, last one?
-            lastGestureTimer.invalidate()
-            lastGestureTimer = NSTimer.scheduledTimerWithTimeInterval(0.5, target: self, selector: #selector(self.lastGestureUnlockTimerFired(_:)), userInfo: nil, repeats: false)
+            //anticipate the unlock
+            if(gestures.count == referenceGestures.count) {
+                manageUnlock()
+            } else {
+                
+                //gesture ended, last one?
+                lastGestureTimer.invalidate()
+                lastGestureTimer = NSTimer.scheduledTimerWithTimeInterval((KeychainManager.getGestureTime() as Double)/1000, target: self, selector: #selector(self.lastGestureUnlockTimerFired(_:)), userInfo: nil, repeats: false)
+                
+            }
         }
     }
     
     @objc private func lastGestureUnlockTimerFired(timer : NSTimer!) {
+        manageUnlock()
+    }
+    
+    func manageUnlock() {
         print(" yes, last gesture")
         //it was the last gesture
         
@@ -111,7 +119,8 @@ class GestureManager {
         
         //store gestures... TODO
         referenceGestures = gestures
-                
+        print(gestures)
+        
         //delete gestures
         gestures.removeAll()
     }
@@ -148,5 +157,5 @@ class GestureManager {
         scriptObject?.executeAndReturnError(nil)
         
     }
-
+    
 }

@@ -17,12 +17,16 @@ class StatusMenuController: NSObject {
     var lastTimestamp = 0.0
     var gestureManager : GestureManager
     
+    let defaultGestureTime = NSNumber(int: 450)
+    
     weak var appDelegate = NSApplication.sharedApplication().delegate as? AppDelegate
     
     override init() {
         
         
-        
+        if(!KeychainManager.isGestureTimeSet()) {
+            KeychainManager.setGestureTime(defaultGestureTime)
+        }
         
         
         

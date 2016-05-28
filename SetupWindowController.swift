@@ -10,11 +10,10 @@ import Cocoa
 
 class SetupWindowController: NSWindowController {
     
-    let defaultTime : Int32 = 450
-    
     @IBOutlet var settingsWindow: NSWindow!
     @IBOutlet var prova: NSView!
     @IBOutlet var timeTextField: NSTextField!
+    @IBOutlet var gestureTimeSliderCell: NSSliderCell!
     
     @IBOutlet var logoImageView: NSImageView!
     
@@ -56,14 +55,15 @@ class SetupWindowController: NSWindowController {
         settingsWindow.titlebarAppearsTransparent = true
         settingsWindow.movableByWindowBackground = true
         settingsWindow.releasedWhenClosed = false
- 
-
+        
+        
         addLogo(darkMode)
         
         
-        
-        ////////////
-        updateTimeLabel(defaultTime)
+        //get gesture time
+        let time = KeychainManager.getGestureTime()
+        updateTimeLabel(time)
+        gestureTimeSliderCell.integerValue = time as Int
         
     }
     
@@ -83,13 +83,15 @@ class SetupWindowController: NSWindowController {
     }
     
     @IBAction func timeChanged(sender: NSSlider) {
-        updateTimeLabel(sender.intValue) //update label
+        updateTimeLabel(NSNumber(int: sender.intValue)) //update label
+        
+        //if mouseUp
         if(NSApplication.sharedApplication().currentEvent?.type == NSEventType.LeftMouseUp) {
-            print("salva valore")
+            KeychainManager.setGestureTime(NSNumber(int: sender.intValue))
         }
     }
     
-    func updateTimeLabel(time: Int32) {
+    func updateTimeLabel(time: NSNumber) {
         timeTextField.stringValue = "Now: "+time.description+" ms"
     }
     

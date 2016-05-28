@@ -47,22 +47,22 @@
 		0EB79640569400AA1BB936A0 /* Pods_Squiggle.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Squiggle.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		220D91131C1B133400FF6AC2 /* CatmullSpline.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CatmullSpline.swift; path = Squiggle/CatmullSpline.swift; sourceTree = "<group>"; };
 		221BB2181CF9BCE400A78F5F /* KeychainManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeychainManager.swift; sourceTree = "<group>"; };
-		221CAD831C1999C500F57E62 /* StatusMenuController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusMenuController.swift; sourceTree = "<group>"; };
-		2237D8721CEDE3A8003845B5 /* frenk_logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = frenk_logo.png; sourceTree = "<group>"; };
+		221CAD831C1999C500F57E62 /* StatusMenuController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StatusMenuController.swift; path = Squiggle/StatusMenuController.swift; sourceTree = "<group>"; };
+		2237D8721CEDE3A8003845B5 /* frenk_logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = frenk_logo.png; path = Squiggle/frenk_logo.png; sourceTree = "<group>"; };
 		2237D8741CEE8D7A003845B5 /* ApplicationServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ApplicationServices.framework; path = System/Library/Frameworks/ApplicationServices.framework; sourceTree = SDKROOT; };
 		2237D87A1CEE917B003845B5 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		22593E981C18BCF9003CFCF2 /* Squiggle.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Squiggle.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		22593E9B1C18BCF9003CFCF2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		22593E9D1C18BCF9003CFCF2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		22593E9B1C18BCF9003CFCF2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = Squiggle/AppDelegate.swift; sourceTree = "<group>"; };
+		22593E9D1C18BCF9003CFCF2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = Squiggle/Assets.xcassets; sourceTree = "<group>"; };
 		22593EA01C18BCF9003CFCF2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
-		22593EA21C18BCF9003CFCF2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		22593EA21C18BCF9003CFCF2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = Squiggle/Info.plist; sourceTree = "<group>"; };
 		22593EA71C18BCF9003CFCF2 /* SquiggleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SquiggleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		22593EAB1C18BCF9003CFCF2 /* SquiggleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SquiggleTests.swift; sourceTree = "<group>"; };
 		22593EAD1C18BCF9003CFCF2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		22593EB21C18BCF9003CFCF2 /* SquiggleUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SquiggleUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		22593EB61C18BCF9003CFCF2 /* SquiggleUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SquiggleUITests.swift; sourceTree = "<group>"; };
 		22593EB81C18BCF9003CFCF2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		22593EC41C18D483003CFCF2 /* Squiggle.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Squiggle.entitlements; sourceTree = "<group>"; };
+		22593EC41C18D483003CFCF2 /* Squiggle.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = Squiggle.entitlements; path = Squiggle/Squiggle.entitlements; sourceTree = "<group>"; };
 		225C14F81CE8D4F600A12030 /* GestureManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GestureManager.swift; path = Squiggle/GestureManager.swift; sourceTree = "<group>"; };
 		225C14FA1CE8D65600A12030 /* Gesture.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Gesture.swift; path = Squiggle/Gesture.swift; sourceTree = "<group>"; };
 		2260B8ED1CF920BE008416B3 /* AboutWindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutWindowController.swift; sourceTree = "<group>"; };
@@ -119,9 +119,15 @@
 				22B83ABA1CF8EA010010A52B /* SetupWindowController.xib */,
 				2260B8ED1CF920BE008416B3 /* AboutWindowController.swift */,
 				2260B8EE1CF920BE008416B3 /* AboutWindowController.xib */,
+				2237D8721CEDE3A8003845B5 /* frenk_logo.png */,
+				22593EC41C18D483003CFCF2 /* Squiggle.entitlements */,
+				22593E9B1C18BCF9003CFCF2 /* AppDelegate.swift */,
+				22593E9D1C18BCF9003CFCF2 /* Assets.xcassets */,
+				22593E9F1C18BCF9003CFCF2 /* MainMenu.xib */,
+				22593EA21C18BCF9003CFCF2 /* Info.plist */,
+				221CAD831C1999C500F57E62 /* StatusMenuController.swift */,
 				2237D87A1CEE917B003845B5 /* Security.framework */,
 				2237D8741CEE8D7A003845B5 /* ApplicationServices.framework */,
-				22593E9A1C18BCF9003CFCF2 /* Squiggle */,
 				22593EAA1C18BCF9003CFCF2 /* SquiggleTests */,
 				22593EB51C18BCF9003CFCF2 /* SquiggleUITests */,
 				22593E991C18BCF9003CFCF2 /* Products */,
@@ -138,20 +144,6 @@
 				22593EB21C18BCF9003CFCF2 /* SquiggleUITests.xctest */,
 			);
 			name = Products;
-			sourceTree = "<group>";
-		};
-		22593E9A1C18BCF9003CFCF2 /* Squiggle */ = {
-			isa = PBXGroup;
-			children = (
-				2237D8721CEDE3A8003845B5 /* frenk_logo.png */,
-				22593EC41C18D483003CFCF2 /* Squiggle.entitlements */,
-				22593E9B1C18BCF9003CFCF2 /* AppDelegate.swift */,
-				22593E9D1C18BCF9003CFCF2 /* Assets.xcassets */,
-				22593E9F1C18BCF9003CFCF2 /* MainMenu.xib */,
-				22593EA21C18BCF9003CFCF2 /* Info.plist */,
-				221CAD831C1999C500F57E62 /* StatusMenuController.swift */,
-			);
-			path = Squiggle;
 			sourceTree = "<group>";
 		};
 		22593EAA1C18BCF9003CFCF2 /* SquiggleTests */ = {
@@ -428,6 +420,7 @@
 				22593EA01C18BCF9003CFCF2 /* Base */,
 			);
 			name = MainMenu.xib;
+			path = Squiggle;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

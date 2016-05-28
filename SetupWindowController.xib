@@ -7,6 +7,7 @@
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="SetupWindowController" customModule="Squiggle" customModuleProvider="target">
             <connections>
+                <outlet property="gestureTimeSliderCell" destination="yT0-gg-Gme" id="v4S-ym-eEl"/>
                 <outlet property="logoImageView" destination="W3N-bl-O9F" id="FHq-Lk-SA8"/>
                 <outlet property="settingsWindow" destination="F0z-JX-Cv5" id="aqy-ga-1zD"/>
                 <outlet property="timeTextField" destination="yxQ-O9-Qtf" id="Ydq-7x-W3j"/>
@@ -33,7 +34,7 @@
                                 </view>
                             </tabViewItem>
                             <tabViewItem label="Set password" identifier="2" id="z7P-TO-mIl">
-                                <view key="view" ambiguous="YES" id="2LC-B6-15A">
+                                <view key="view" id="2LC-B6-15A">
                                     <rect key="frame" x="10" y="33" width="404" height="216"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
@@ -62,13 +63,13 @@
                                 </view>
                             </tabViewItem>
                             <tabViewItem label="Advanced settings" identifier="" id="Wfg-wj-2I2">
-                                <view key="view" id="Uvh-6s-t8y">
+                                <view key="view" ambiguous="YES" id="Uvh-6s-t8y">
                                     <rect key="frame" x="10" y="33" width="404" height="216"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <slider verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="USh-qH-NDc">
                                             <rect key="frame" x="130" y="178" width="259" height="20"/>
-                                            <sliderCell key="cell" continuous="YES" alignment="left" minValue="300" maxValue="700" doubleValue="450" tickMarkPosition="above" sliderType="linear" id="yT0-gg-Gme"/>
+                                            <sliderCell key="cell" continuous="YES" state="on" alignment="left" minValue="300" maxValue="700" doubleValue="450" tickMarkPosition="above" sliderType="linear" id="yT0-gg-Gme"/>
                                             <connections>
                                                 <action selector="timeChanged:" target="-2" id="A1I-i6-Ot3"/>
                                             </connections>
