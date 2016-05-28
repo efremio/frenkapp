@@ -1,0 +1,71 @@
+//
+//  AboutWindowController.swift
+//  Squiggle
+//
+//  Created by Efrem Agnilleri on 28/05/16.
+//  Copyright © 2016 Efrem Agnilleri. All rights reserved.
+//
+
+import Cocoa
+
+class AboutWindowController: NSWindowController {
+    
+    @IBOutlet var aboutWindow: NSWindow!
+    @IBOutlet var logoImageView: NSImageView!
+    @IBOutlet var scrollView: NSScrollView!
+    
+    override func showWindow(sender: AnyObject?) {
+    if(aboutWindow != nil && aboutWindow.miniaturized) { //if it is miniaturized, deminiaturize
+        aboutWindow.deminiaturize(aboutWindow)
+        aboutWindow.orderFrontRegardless()
+    } else if(aboutWindow != nil && aboutWindow.visible){ //if it is somewhere already open, show to the front
+        aboutWindow.collectionBehavior = .MoveToActiveSpace
+        aboutWindow.orderFrontRegardless()
+    } else {
+        super.showWindow(sender)
+        aboutWindow.orderFrontRegardless()
+    }
+    }
+
+    override func windowDidLoad() {
+        super.windowDidLoad()
+
+        // Implement this method to handle any initialization after your window controller's window has been loaded from its nib file.
+        
+        let darkMode = NSUserDefaults.standardUserDefaults().stringForKey("AppleInterfaceStyle") == "Dark"
+        
+        let visualEffectView = NSVisualEffectView(frame: NSMakeRect(0, 0, 0, 0))
+        darkMode == true ? (visualEffectView.material = NSVisualEffectMaterial.UltraDark) : (visualEffectView.material = NSVisualEffectMaterial.MediumLight)
+        visualEffectView.blendingMode = NSVisualEffectBlendingMode.BehindWindow
+        visualEffectView.state = NSVisualEffectState.Active
+        
+        let previousContentView = aboutWindow.contentView
+        aboutWindow.contentView = visualEffectView //add the visual effect
+        aboutWindow.contentView?.addSubview(previousContentView!)
+        
+        aboutWindow.styleMask = NSFullSizeContentViewWindowMask | NSTitledWindowMask | NSClosableWindowMask | NSMiniaturizableWindowMask
+        aboutWindow.titleVisibility = .Hidden
+        aboutWindow.titlebarAppearsTransparent = true
+        aboutWindow.movableByWindowBackground = true
+        aboutWindow.releasedWhenClosed = false
+        
+        
+        addLogo(darkMode)
+        
+    }
+    
+    func addLogo(darkMode : Bool) {
+        //tint the logo
+        let logo = logoImageView.image
+        logo!.lockFocus()
+        darkMode == false ? (NSColor(red: 0.25, green: 0.75, blue: 0.793, alpha: 1).set()) : (NSColor(red: 0.75, green: 0.25, blue: 0.193, alpha: 1).set())
+        let imageRect = NSRect(origin: NSZeroPoint, size: logo!.size)
+        NSRectFillUsingOperation(imageRect, NSCompositingOperation.CompositeSourceAtop)
+        logo?.unlockFocus()
+        //the logo is tinted
+        
+        logoImageView.image = logo
+        logoImageView.imageScaling = .ScaleProportionallyUpOrDown
+    }
+    
+}

@@ -10,8 +10,11 @@ import Cocoa
 
 class SetupWindowController: NSWindowController {
     
+    let defaultTime : Int32 = 450
+    
     @IBOutlet var settingsWindow: NSWindow!
     @IBOutlet var prova: NSView!
+    @IBOutlet var timeTextField: NSTextField!
     
     @IBOutlet var logoImageView: NSImageView!
     
@@ -26,6 +29,7 @@ class SetupWindowController: NSWindowController {
             settingsWindow.orderFrontRegardless()
         } else {
             super.showWindow(sender)
+            settingsWindow.orderFrontRegardless()
         }
     }
     
@@ -54,16 +58,21 @@ class SetupWindowController: NSWindowController {
         settingsWindow.releasedWhenClosed = false
  
 
-        addSetupElements(darkMode)
+        addLogo(darkMode)
+        
+        
+        
+        ////////////
+        updateTimeLabel(defaultTime)
         
     }
     
     
-    func addSetupElements(darkMode : Bool) {
+    func addLogo(darkMode : Bool) {
         //tint the logo
-        let logo = NSImage(named: "frenk_logo.png")
+        let logo = logoImageView.image
         logo!.lockFocus()
-        darkMode == true ? (NSColor(red: 0.25, green: 0.75, blue: 0.793, alpha: 1).set()) : (NSColor(red: 0.75, green: 0.25, blue: 0.193, alpha: 1).set())
+        darkMode == false ? (NSColor(red: 0.25, green: 0.75, blue: 0.793, alpha: 1).set()) : (NSColor(red: 0.75, green: 0.25, blue: 0.193, alpha: 1).set())
         let imageRect = NSRect(origin: NSZeroPoint, size: logo!.size)
         NSRectFillUsingOperation(imageRect, NSCompositingOperation.CompositeSourceAtop)
         logo?.unlockFocus()
@@ -71,22 +80,17 @@ class SetupWindowController: NSWindowController {
         
         logoImageView.image = logo
         logoImageView.imageScaling = .ScaleProportionallyUpOrDown
-        
-        
-        //adding the labelsc
-        /*let textField = NSTextView(frame: NSMakeRect(0, heightSetup-60, widthSetup, 30))
-         
-         textField.string = "Password:"
-         textField.editable = false
-         //textField.backgroundColor = NSColor.clearColor()
-         
-         darkMode == true ? (textField.textColor = NSColor.whiteColor()) : (textField.textColor = NSColor.blackColor())
-         //textField.textColor = NSColor(red: 0.25, green: 0.75, blue: 0.793, alpha: 1)
-         textField.font = NSFont(name: "Helvetica", size: 30)
-         textField.selectable = false
-         gestureWindow.contentView!.addSubview(textField)*/
     }
     
+    @IBAction func timeChanged(sender: NSSlider) {
+        updateTimeLabel(sender.intValue) //update label
+        if(NSApplication.sharedApplication().currentEvent?.type == NSEventType.LeftMouseUp) {
+            print("salva valore")
+        }
+    }
     
+    func updateTimeLabel(time: Int32) {
+        timeTextField.stringValue = "Now: "+time.description+" ms"
+    }
     
 }

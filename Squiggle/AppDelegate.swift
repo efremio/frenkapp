@@ -14,6 +14,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     
     @IBOutlet weak var statusMenu: NSMenu!
     var settingsWindow2 = NSWindowController()
+    var aboutWindow = NSWindowController()
     
     
     let widthSetup : CGFloat = 450
@@ -32,7 +33,11 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         statusItem.menu = statusMenu
         
         settingsWindow2 = SetupWindowController(windowNibName: "SetupWindowController")
+        aboutWindow = AboutWindowController(windowNibName: "AboutWindowController")
         
+    }
+    @IBAction func openAbout(sender: AnyObject) {
+        aboutWindow.showWindow(sender)
     }
     
     func applicationWillTerminate(aNotification: NSNotification) {
@@ -43,18 +48,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
     
     @IBAction func openSettings(sender: AnyObject) {
-        /*if(settingsWindow2.window != nil && settingsWindow2.window!.miniaturized) { //if it is miniaturized, deminiaturize
-            print("was miniaturized")
-            settingsWindow2.window!.deminiaturize(settingsWindow2.window)
-            settingsWindow2.window!.orderFrontRegardless()
-        } else if(settingsWindow2.window != nil && settingsWindow2.window!.visible){ //if it is somewhere already open, show to the front
-            print("was visible but in culo")
-            settingsWindow2.window!.collectionBehavior = .MoveToActiveSpace
-            settingsWindow2.window!.orderFrontRegardless()
-        } else {
-            print("was qualcos'altro")
-            settingsWindow2.showWindow(sender)
-        }*/
         settingsWindow2.showWindow(sender)
     
     }
@@ -114,20 +107,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         logoView.image = logo
         logoView.imageScaling = .ScaleProportionallyUpOrDown
         gestureWindow.contentView!.addSubview(logoView)
-        
-        
-        //adding the labelsc
-        /*let textField = NSTextView(frame: NSMakeRect(0, heightSetup-60, widthSetup, 30))
-         
-         textField.string = "Password:"
-         textField.editable = false
-         //textField.backgroundColor = NSColor.clearColor()
-         
-         darkMode == true ? (textField.textColor = NSColor.whiteColor()) : (textField.textColor = NSColor.blackColor())
-         //textField.textColor = NSColor(red: 0.25, green: 0.75, blue: 0.793, alpha: 1)
-         textField.font = NSFont(name: "Helvetica", size: 30)
-         textField.selectable = false
-         gestureWindow.contentView!.addSubview(textField)*/
     }
     
     internal func recordngGesture(event : NSEvent) -> NSEvent {

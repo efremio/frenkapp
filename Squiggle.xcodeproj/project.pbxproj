@@ -18,6 +18,8 @@
 		22593EB71C18BCF9003CFCF2 /* SquiggleUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22593EB61C18BCF9003CFCF2 /* SquiggleUITests.swift */; };
 		225C14F91CE8D4F600A12030 /* GestureManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 225C14F81CE8D4F600A12030 /* GestureManager.swift */; };
 		225C14FB1CE8D65600A12030 /* Gesture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 225C14FA1CE8D65600A12030 /* Gesture.swift */; };
+		2260B8EF1CF920BE008416B3 /* AboutWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2260B8ED1CF920BE008416B3 /* AboutWindowController.swift */; };
+		2260B8F01CF920BE008416B3 /* AboutWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2260B8EE1CF920BE008416B3 /* AboutWindowController.xib */; };
 		22B83ABB1CF8EA010010A52B /* SetupWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22B83AB91CF8EA010010A52B /* SetupWindowController.swift */; };
 		22B83ABC1CF8EA010010A52B /* SetupWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22B83ABA1CF8EA010010A52B /* SetupWindowController.xib */; };
 /* End PBXBuildFile section */
@@ -59,6 +61,8 @@
 		22593EC41C18D483003CFCF2 /* Squiggle.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Squiggle.entitlements; sourceTree = "<group>"; };
 		225C14F81CE8D4F600A12030 /* GestureManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GestureManager.swift; sourceTree = "<group>"; };
 		225C14FA1CE8D65600A12030 /* Gesture.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Gesture.swift; sourceTree = "<group>"; };
+		2260B8ED1CF920BE008416B3 /* AboutWindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutWindowController.swift; sourceTree = "<group>"; };
+		2260B8EE1CF920BE008416B3 /* AboutWindowController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AboutWindowController.xib; sourceTree = "<group>"; };
 		22B83AB91CF8EA010010A52B /* SetupWindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetupWindowController.swift; sourceTree = "<group>"; };
 		22B83ABA1CF8EA010010A52B /* SetupWindowController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SetupWindowController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -94,6 +98,8 @@
 			children = (
 				22B83AB91CF8EA010010A52B /* SetupWindowController.swift */,
 				22B83ABA1CF8EA010010A52B /* SetupWindowController.xib */,
+				2260B8ED1CF920BE008416B3 /* AboutWindowController.swift */,
+				2260B8EE1CF920BE008416B3 /* AboutWindowController.xib */,
 				2237D87A1CEE917B003845B5 /* Security.framework */,
 				2237D8741CEE8D7A003845B5 /* ApplicationServices.framework */,
 				22593E9A1C18BCF9003CFCF2 /* Squiggle */,
@@ -261,6 +267,7 @@
 				22593E9E1C18BCF9003CFCF2 /* Assets.xcassets in Resources */,
 				22593EA11C18BCF9003CFCF2 /* MainMenu.xib in Resources */,
 				2237D8731CEDE3A8003845B5 /* frenk_logo.png in Resources */,
+				2260B8F01CF920BE008416B3 /* AboutWindowController.xib in Resources */,
 				22B83ABC1CF8EA010010A52B /* SetupWindowController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -292,6 +299,7 @@
 				225C14FB1CE8D65600A12030 /* Gesture.swift in Sources */,
 				221CAD841C1999C500F57E62 /* StatusMenuController.swift in Sources */,
 				22593E9C1C18BCF9003CFCF2 /* AppDelegate.swift in Sources */,
+				2260B8EF1CF920BE008416B3 /* AboutWindowController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -35,6 +35,9 @@
                 </menuItem>
                 <menuItem title="About Frenk" id="kRI-u9-KoL">
                     <modifierMask key="keyEquivalentModifierMask"/>
+                    <connections>
+                        <action selector="openAbout:" target="Voe-Tx-rLC" id="F8L-rc-MnV"/>
+                    </connections>
                 </menuItem>
                 <menuItem title="Quit" keyEquivalent="q" id="TPI-4X-lCs">
                     <connections>
