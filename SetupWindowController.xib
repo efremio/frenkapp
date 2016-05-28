@@ -9,6 +9,7 @@
             <connections>
                 <outlet property="gestureTimeSliderCell" destination="yT0-gg-Gme" id="v4S-ym-eEl"/>
                 <outlet property="logoImageView" destination="W3N-bl-O9F" id="FHq-Lk-SA8"/>
+                <outlet property="setGestureImage" destination="gCS-ar-kdn" id="0x3-V1-GEf"/>
                 <outlet property="settingsWindow" destination="F0z-JX-Cv5" id="aqy-ga-1zD"/>
                 <outlet property="timeTextField" destination="yxQ-O9-Qtf" id="Ydq-7x-W3j"/>
             </connections>
@@ -28,9 +29,21 @@
                         <font key="font" metaFont="system"/>
                         <tabViewItems>
                             <tabViewItem label="Set gesture" identifier="1" id="NvK-Nz-3aE">
-                                <view key="view" id="dGM-BU-xlt">
+                                <view key="view" ambiguous="YES" id="dGM-BU-xlt">
                                     <rect key="frame" x="10" y="33" width="404" height="216"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gCS-ar-kdn">
+                                            <rect key="frame" x="77" y="-3" width="251" height="216"/>
+                                            <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="frenk_logo" imagePosition="only" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="nLu-GO-71N">
+                                                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                <font key="font" metaFont="system"/>
+                                            </buttonCell>
+                                            <connections>
+                                                <action selector="mouseOverSettingGesture:" target="-2" id="H92-Q5-eC3"/>
+                                            </connections>
+                                        </button>
+                                    </subviews>
                                 </view>
                             </tabViewItem>
                             <tabViewItem label="Set password" identifier="2" id="z7P-TO-mIl">
@@ -63,7 +76,7 @@
                                 </view>
                             </tabViewItem>
                             <tabViewItem label="Advanced settings" identifier="" id="Wfg-wj-2I2">
-                                <view key="view" ambiguous="YES" id="Uvh-6s-t8y">
+                                <view key="view" id="Uvh-6s-t8y">
                                     <rect key="frame" x="10" y="33" width="404" height="216"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>

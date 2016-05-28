@@ -38,7 +38,7 @@
                         <rect key="frame" x="18" y="44" width="314" height="273"/>
                         <textFieldCell key="cell" allowsUndo="NO" sendsActionOnEndEditing="YES" alignment="center" id="KlZ-Z7-hyg">
                             <font key="font" metaFont="system"/>
-                            <mutableString key="title">blinda la supercazzola Sassaroli antanizzata con pazienza bitumata, concorda
+                            <string key="title">blinda la supercazzola Sassaroli antanizzata con pazienza bitumata, concorda
 Sassaroli o scherziamo?
     voglio il gruppo, Sassaroli
     il gruppo come fosse 1
@@ -55,7 +55,7 @@ Lei ha clacsonato
   mi porga il numero bitumando il vicesindaco, dico, bitumando
   il vicesindaco come fosse un numero
   prematurata la supercazzola antanizzata con il vicesindaco
-  o scherziamo? a posterdati bitumati, pure, o in questura?</mutableString>
+  o scherziamo? a posterdati bitumati, pure, o in questura?</string>
                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="0.75264849290780134" colorSpace="calibratedRGB"/>
                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>

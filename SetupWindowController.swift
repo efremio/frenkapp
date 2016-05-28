@@ -13,6 +13,7 @@ class SetupWindowController: NSWindowController {
     @IBOutlet var settingsWindow: NSWindow!
     @IBOutlet var prova: NSView!
     @IBOutlet var timeTextField: NSTextField!
+    @IBOutlet var setGestureImage: NSButton!
     @IBOutlet var gestureTimeSliderCell: NSSliderCell!
     
     @IBOutlet var logoImageView: NSImageView!
@@ -60,6 +61,12 @@ class SetupWindowController: NSWindowController {
         addLogo(darkMode)
         
         
+        //NSTran
+        /*let options = [NSTrackingAreaOptions.MouseMoved, NSTrackingAreaOptions.MouseEnteredAndExited, NSTrackingAreaOptions.ActiveInKeyWindow] as NSTrackingAreaOptions
+        let trackingArea = NSTrackingArea(rect:, options: options, owner:self, userInfo:nil)
+        setGestureImage.addTrackingArea(trackingArea)
+        */
+        
         //get gesture time
         let time = KeychainManager.getGestureTime()
         updateTimeLabel(time)
@@ -67,6 +74,17 @@ class SetupWindowController: NSWindowController {
         
     }
     
+    override func mouseMoved(event: NSEvent) {
+        print("aaaaa")
+    }
+    
+    override func mouseEntered(theEvent: NSEvent) {
+        print("entered")
+    }
+    
+    override func mouseExited(theEvent: NSEvent) {
+        print("exited")
+    }
     
     func addLogo(darkMode : Bool) {
         //tint the logo
@@ -95,4 +113,7 @@ class SetupWindowController: NSWindowController {
         timeTextField.stringValue = "Now: "+time.description+" ms"
     }
     
+    @IBAction func mouseOverSettingGesture(sender: AnyObject) {
+        print("erbwbwbwbwbww")
+    }
 }

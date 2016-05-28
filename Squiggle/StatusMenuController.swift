@@ -10,7 +10,8 @@ import Cocoa
 import AppKit
 import Foundation
 import Security
-import Security.Authorization
+import Collaboration
+import OpenDirectory
 
 class StatusMenuController: NSObject {
     
@@ -23,41 +24,18 @@ class StatusMenuController: NSObject {
     
     override init() {
         
-        
+        //set the delault values
         if(!KeychainManager.isGestureTimeSet()) {
             KeychainManager.setGestureTime(defaultGestureTime)
         }
         
         
         
-        //TODO delete
-        /*var envItems = [AuthorizationItem]()
         
+
+        let identity = CBUserIdentity(posixUID: getuid(), authority: CBIdentityAuthority.defaultIdentityAuthority())
         
-        let bufferPass = UnsafeMutablePointer<Int8>(("calmasino" as NSString).UTF8String)
-        let bufferUser = UnsafeMutablePointer<Int8>(("efrem" as NSString).UTF8String)
-        
-        
-        
-        let ai1 = AuthorizationItem(name: kAuthorizationEnvironmentPassword, valueLength: 9, value: bufferPass, flags: 0)
-        
-        let ai2 = AuthorizationItem(name: kAuthorizationEnvironmentUsername, valueLength: 5, value: bufferUser, flags: 0)
-        envItems.append(ai1)
-        envItems.append(ai2)
-        
-        let bufferEnvItems = UnsafeMutablePointer<AuthorizationItem>(envItems)
-        
-        var env = AuthorizationItemSet(count: 2, items: bufferEnvItems)
-        
-        
-        let err = AuthorizationCreate(nil, &env, AuthorizationFlags(), nil);
-        print(err)
-        */
-        
-        
-        
-        
-        
+        print(identity?.authenticateWithPassword("calmasino"))
         
         
         
@@ -134,3 +112,4 @@ class StatusMenuController: NSObject {
 
     
 }
+
