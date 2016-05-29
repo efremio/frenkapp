@@ -47,12 +47,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     @IBAction func openSettings(sender: AnyObject) {
         settingsWindow.showWindow(sender)
     
-    }
-    
-
-    /*let checkURL = NSURL(string: "http://www.google.com")
-     NSWorkspace.sharedWorkspace().openURL(checkURL!)*/
-    
+    }    
     
 }
 

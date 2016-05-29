@@ -14,6 +14,8 @@ class AboutWindowController: NSWindowController {
     @IBOutlet var logoImageView: NSImageView!
     @IBOutlet var scrollView: NSScrollView!
     
+    let checkURL = NSURL(string: "http://www.frenkapp.com")
+    
     override func showWindow(sender: AnyObject?) {
     if(aboutWindow != nil && aboutWindow.miniaturized) { //if it is miniaturized, deminiaturize
         aboutWindow.deminiaturize(aboutWindow)
@@ -64,6 +66,9 @@ class AboutWindowController: NSWindowController {
         
         logoImageView.image = logo
         logoImageView.imageScaling = .ScaleProportionallyUpOrDown
+    }
+    @IBAction func goToURL(sender: AnyObject) {
+         NSWorkspace.sharedWorkspace().openURL(checkURL!)
     }
     
 }

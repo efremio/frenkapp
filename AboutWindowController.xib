@@ -33,6 +33,9 @@
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="smallSystemBold"/>
                         </buttonCell>
+                        <connections>
+                            <action selector="goToURL:" target="-2" id="AV5-0e-piZ"/>
+                        </connections>
                     </button>
                     <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fyC-iw-o7a">
                         <rect key="frame" x="18" y="44" width="314" height="273"/>
