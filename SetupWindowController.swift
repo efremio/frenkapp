@@ -18,6 +18,7 @@ class SetupWindowController: NSWindowController {
     @IBOutlet var gestureTimeSliderCell: NSSliderCell!
     @IBOutlet var updatePasswordButton: NSButtonCell!
     @IBOutlet var passwordTabViewItem: NSTabViewItem!
+    @IBOutlet var gesturesTabViewItem: NSTabViewItem!
     
     @IBOutlet var passwordField: NSSecureTextField!
     @IBOutlet var logoImageView: NSImageView!
@@ -27,11 +28,9 @@ class SetupWindowController: NSWindowController {
     
     override func showWindow(sender: AnyObject?) {
         if(settingsWindow != nil && settingsWindow.miniaturized) { //if it is miniaturized, deminiaturize
-            print("was miniaturized")
             settingsWindow.deminiaturize(settingsWindow)
             settingsWindow.orderFrontRegardless()
         } else if(settingsWindow != nil && settingsWindow.visible){ //if it is somewhere already open, show to the front
-            print("was visible but in culo")
             settingsWindow.collectionBehavior = .MoveToActiveSpace
             settingsWindow.orderFrontRegardless()
         } else {
@@ -42,10 +41,6 @@ class SetupWindowController: NSWindowController {
     
     override func windowDidLoad() {
         super.windowDidLoad()
-        
-        // Implement this method to handle any initialization after your window controller's window has been loaded from its nib file.
-        
-        print("fanculo")
         
         let darkMode = NSUserDefaults.standardUserDefaults().stringForKey("AppleInterfaceStyle") == "Dark"
         
@@ -79,8 +74,8 @@ class SetupWindowController: NSWindowController {
         
         //get gesture time
         let time = KeychainManager.getGestureTime()
-        updateTimeLabel(time)
-        gestureTimeSliderCell.integerValue = time as Int
+        updateTimeLabel(time!)
+        gestureTimeSliderCell.integerValue = time as! Int
         
         //labels
         if(KeychainManager.isPasswordSet()) {
@@ -91,6 +86,11 @@ class SetupWindowController: NSWindowController {
             updatePasswordButton.title = "Set password"
         }
         
+        if(KeychainManager.areGesturesSet()) {
+            gesturesTabViewItem.label = "Update gestures"
+        } else {
+            gesturesTabViewItem.label = "Set gestures"
+        }
     }
     
     override func mouseMoved(event: NSEvent) {
@@ -137,8 +137,6 @@ class SetupWindowController: NSWindowController {
     }
     
     @IBAction func updatePassword(sender: AnyObject) {
-        print("il pirla ha digitato: "+passwordField.stringValue)
-        
         //check if the password is correct
         let identity = CBUserIdentity(posixUID: getuid(), authority: CBIdentityAuthority.defaultIdentityAuthority())
         let passOk = identity?.authenticateWithPassword(passwordField.stringValue)

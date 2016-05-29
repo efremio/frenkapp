@@ -15,30 +15,15 @@ import OpenDirectory
 
 class StatusMenuController: NSObject {
     
-    var lastTimestamp = 0.0
     var gestureManager : GestureManager
-    
     let defaultGestureTime = NSNumber(int: 450)
     
-    weak var appDelegate = NSApplication.sharedApplication().delegate as? AppDelegate
-    
     override init() {
-        
         //set the delault values
         if(!KeychainManager.isGestureTimeSet()) {
             KeychainManager.setGestureTime(defaultGestureTime)
         }
-        
-        
-        
-        
-
-        let identity = CBUserIdentity(posixUID: getuid(), authority: CBIdentityAuthority.defaultIdentityAuthority())
-        
-        print(identity?.authenticateWithPassword("calmasino"))
-        
-        
-        
+               
         
         
         //test
@@ -59,7 +44,7 @@ class StatusMenuController: NSObject {
         gestureArrayTest.append(gestureTest2)
         //gestureArrayTest.append(gestureTest3)
         
-        gestureManager = GestureManager(referenceGestures: gestureArrayTest)
+        gestureManager = GestureManager()
         
         super.init()
         

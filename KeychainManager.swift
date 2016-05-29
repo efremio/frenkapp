@@ -11,60 +11,72 @@ import Locksmith
 
 class KeychainManager {
     
+    private static var cachedData : AppData?
+    
     static func setGestureTime(time : NSNumber) {
-        try! Locksmith.updateData(["gestureTime": time], forUserAccount: "frenkapp_gestureTime")
-    }
-    
-    static func isGestureTimeSet() -> Bool {
-        let dictionary = Locksmith.loadDataForUserAccount("frenkapp_gestureTime")
-        if(dictionary != nil) {
-            for obj in dictionary! {
-                if(obj.0 == "gestureTime") {
-                    return true
-                }
-            }
-        }
-        return false
-    }
-    
-    static func getGestureTime() -> NSNumber! {
-        let dictionary = Locksmith.loadDataForUserAccount("frenkapp_gestureTime")
-        if(dictionary != nil) {
-            for obj in dictionary! {
-                if(obj.0 == "gestureTime") {
-                    return obj.1 as! NSNumber
-                }
-            }
-        }
-        return nil
+        let data = getData()
+        data.gestureTime = time
+        saveData(data)
     }
     
     static func setPassword(password : NSString) {
-        try! Locksmith.updateData(["password": password], forUserAccount: "frenkapp_password")
+        let data = getData()
+        data.password = password
+        saveData(data)
+    }
+    
+    static func setGestures(gestures : [Gesture]) {
+        let data = getData()
+        data.gestures = gestures
+        saveData(data)
+    }
+    
+    static func isGestureTimeSet() -> Bool {
+        return getData().password != nil
+
     }
     
     static func isPasswordSet() -> Bool {
-        let dictionary = Locksmith.loadDataForUserAccount("frenkapp_password")
-        if(dictionary != nil) {
-            for obj in dictionary! {
-                if(obj.0 == "password") {
-                    return true
-                }
-            }
-        }
-        return false
+        return getData().password != nil
+
     }
     
-    static func getPassword() -> NSString! {
-        let dictionary = Locksmith.loadDataForUserAccount("frenkapp_password")
-        if(dictionary != nil) {
-            for obj in dictionary! {
-                if(obj.0 == "password") {
-                    return obj.1 as! NSString
-                }
-            }
-        }
-        return nil
+    static func areGesturesSet() -> Bool {
+        return getData().gestures != nil
     }
     
+    static func getGestureTime() -> NSNumber? {
+        return getData().gestureTime
+    }
+    
+    static func getPassword() -> NSString? {
+        return getData().password
+    }
+    
+    static func getGestures() -> [Gesture]? {
+        return getData().gestures
+    }
+    
+    private static func getData() -> AppData {
+        if(cachedData != nil) {
+            return cachedData!
+        } else {
+            let dictionary = Locksmith.loadDataForUserAccount("frenkapp_data")
+            if(dictionary == nil) {
+                return AppData()
+            } else {
+                for obj in dictionary! {
+                    if(obj.0 == "data") {
+                        return obj.1 as! AppData
+                    }
+                }
+                return AppData()
+            }
+        }
+    }
+    
+    private static func saveData(data : AppData) {
+        try! Locksmith.updateData(["data": data], forUserAccount: "frenkapp_data")
+        cachedData = data
+    }
 }

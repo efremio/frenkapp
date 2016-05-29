@@ -10,20 +10,19 @@ import Cocoa
 import Foundation
 import Security
 
-class GestureManager {
+class GestureManager : NSObject {
     //variables initialization
     var gestures = [Gesture]()
     
-    private var referenceGestures : [Gesture]
     private var isScreenLocked = false
     var lastGestureTimer = NSTimer.init()
     
     var x : CGFloat = 0
     var y : CGFloat = 0
     
-    init(referenceGestures : [Gesture]) {
-        self.referenceGestures = referenceGestures
-    }
+    /*init(referenceGestures : [Gesture]) {
+     self.referenceGestures = referenceGestures
+     }*/
     
     //used to record the gesture
     func scrollLocal(event : NSEvent) -> NSEvent {
@@ -47,7 +46,7 @@ class GestureManager {
             
             //gesture ended, last one?
             lastGestureTimer.invalidate()
-            lastGestureTimer = NSTimer.scheduledTimerWithTimeInterval((KeychainManager.getGestureTime() as Double)/1000, target: self, selector: #selector(self.lastGestureRecordingTimerFired(_:)), userInfo: nil, repeats: false)
+            lastGestureTimer = NSTimer.scheduledTimerWithTimeInterval((KeychainManager.getGestureTime() as! Double)/1000, target: self, selector: #selector(self.lastGestureRecordingTimerFired(_:)), userInfo: nil, repeats: false)
         }
         
         return event
@@ -75,13 +74,13 @@ class GestureManager {
                 print("gesture ended, last one?")
                 
                 //anticipate the unlock
-                if(gestures.count == referenceGestures.count) {
+                if(gestures.count == KeychainManager.getGestures()!.count) {
                     manageUnlock()
                 } else {
                     
                     //gesture ended, last one?
                     lastGestureTimer.invalidate()
-                    lastGestureTimer = NSTimer.scheduledTimerWithTimeInterval((KeychainManager.getGestureTime() as Double)/1000, target: self, selector: #selector(self.lastGestureUnlockTimerFired(_:)), userInfo: nil, repeats: false)
+                    lastGestureTimer = NSTimer.scheduledTimerWithTimeInterval((KeychainManager.getGestureTime() as! Double)/1000, target: self, selector: #selector(self.lastGestureUnlockTimerFired(_:)), userInfo: nil, repeats: false)
                     
                 }
             }
@@ -120,8 +119,7 @@ class GestureManager {
         //it was the last gesture
         
         //store gestures... TODO
-        referenceGestures = gestures
-        print(gestures)
+        KeychainManager.setGestures(gestures)
         
         //delete gestures
         gestures.removeAll()
@@ -133,16 +131,16 @@ class GestureManager {
     }
     
     private func areGesturesCorrelated() -> Bool {
-        if(gestures.count == referenceGestures.count) {
+        if(gestures.count == KeychainManager.getGestures()!.count) {
             var correlated = true
             for index in 0...(gestures.count-1) {
-                if(!(getCorrelation(gestures[index].xPoints, s2: referenceGestures[index].xPoints) > 0.85)
-                    || !(getCorrelation(gestures[index].yPoints, s2: referenceGestures[index].yPoints) > 0.85)) {
+                if(!(getCorrelation(gestures[index].xPoints, s2: KeychainManager.getGestures()![index].xPoints) > 0.85)
+                    || !(getCorrelation(gestures[index].yPoints, s2: KeychainManager.getGestures()![index].yPoints) > 0.85)) {
                     correlated = false
                 }
                 print("gesture #", index)
-                print(getCorrelation(gestures[index].xPoints, s2: referenceGestures[index].xPoints))
-                print(getCorrelation(gestures[index].yPoints, s2: referenceGestures[index].yPoints))
+                print(getCorrelation(gestures[index].xPoints, s2: KeychainManager.getGestures()![index].xPoints))
+                print(getCorrelation(gestures[index].yPoints, s2: KeychainManager.getGestures()![index].yPoints))
             }
             if(correlated) {
                 return true
@@ -155,14 +153,13 @@ class GestureManager {
         //get password
         let pwd = KeychainManager.getPassword()
         
-        if(pwd == nil) {
-            return
+        if(pwd != nil) {
+            
+            let unlockScript = "tell application \"System Events\"\n if name of every process contains \"ScreenSaverEngine\" then\n tell application \"ScreenSaverEngine\"\n quit\n end tell\n end if\n set pword to \""+(pwd as! String)+"\"\nrepeat 40 times\n tell application \"System Events\" to keystroke (ASCII character 8)\n end repeat\n tell application \"System Events\"\n keystroke pword\n keystroke return\n end tell\n end tell"
+            
+            let scriptObject = NSAppleScript(source: unlockScript)
+            scriptObject?.executeAndReturnError(nil)
         }
-        
-        let unlockScript = "tell application \"System Events\"\n if name of every process contains \"ScreenSaverEngine\" then\n tell application \"ScreenSaverEngine\"\n quit\n end tell\n end if\n set pword to \""+(pwd as String)+"\"\nrepeat 40 times\n tell application \"System Events\" to keystroke (ASCII character 8)\n end repeat\n tell application \"System Events\"\n keystroke pword\n keystroke return\n end tell\n end tell"
-        
-        let scriptObject = NSAppleScript(source: unlockScript)
-        scriptObject?.executeAndReturnError(nil)
         
     }
     
