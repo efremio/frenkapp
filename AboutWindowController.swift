@@ -13,22 +13,24 @@ class AboutWindowController: NSWindowController {
     @IBOutlet var aboutWindow: NSWindow!
     @IBOutlet var logoImageView: NSImageView!
     @IBOutlet var scrollView: NSScrollView!
+    @IBOutlet var aboutTextField: NSTextField!
     
     let checkURL = NSURL(string: "http://www.frenkapp.com")
+    let versionNumber = NSBundle.mainBundle().infoDictionary?["CFBundleShortVersionString"] as? String
     
     override func showWindow(sender: AnyObject?) {
-    if(aboutWindow != nil && aboutWindow.miniaturized) { //if it is miniaturized, deminiaturize
-        aboutWindow.deminiaturize(aboutWindow)
-        aboutWindow.orderFrontRegardless()
-    } else if(aboutWindow != nil && aboutWindow.visible){ //if it is somewhere already open, show to the front
-        aboutWindow.collectionBehavior = .MoveToActiveSpace
-        aboutWindow.orderFrontRegardless()
-    } else {
-        super.showWindow(sender)
-        aboutWindow.orderFrontRegardless()
+        if(aboutWindow != nil && aboutWindow.miniaturized) { //if it is miniaturized, deminiaturize
+            aboutWindow.deminiaturize(aboutWindow)
+            aboutWindow.orderFrontRegardless()
+        } else if(aboutWindow != nil && aboutWindow.visible){ //if it is somewhere already open, show to the front
+            aboutWindow.collectionBehavior = .MoveToActiveSpace
+            aboutWindow.orderFrontRegardless()
+        } else {
+            super.showWindow(sender)
+            aboutWindow.orderFrontRegardless()
+        }
     }
-    }
-
+    
     override func windowDidLoad() {
         super.windowDidLoad()
         
@@ -43,7 +45,7 @@ class AboutWindowController: NSWindowController {
         aboutWindow.contentView = visualEffectView //add the visual effect
         aboutWindow.contentView?.addSubview(previousContentView!)
         
-        aboutWindow.styleMask = NSFullSizeContentViewWindowMask | NSTitledWindowMask | NSClosableWindowMask | NSMiniaturizableWindowMask
+        aboutWindow.styleMask = NSFullSizeContentViewWindowMask | NSTitledWindowMask | NSClosableWindowMask
         aboutWindow.titleVisibility = .Hidden
         aboutWindow.titlebarAppearsTransparent = true
         aboutWindow.movableByWindowBackground = true
@@ -51,6 +53,18 @@ class AboutWindowController: NSWindowController {
         
         
         addLogo(darkMode)
+        
+        //modify about text
+        var rawText = aboutTextField.stringValue
+        rawText = rawText.stringByReplacingOccurrencesOfString("%VERSION%", withString: versionNumber!)
+        
+        let date = NSDate()
+        let calendar = NSCalendar.currentCalendar()
+        let components = calendar.components([.Day , .Month , .Year], fromDate: date)
+        
+        rawText = rawText.stringByReplacingOccurrencesOfString("%YEAR%", withString: components.year.description)
+
+        aboutTextField.stringValue = rawText
         
     }
     
@@ -69,7 +83,7 @@ class AboutWindowController: NSWindowController {
     }
     
     @IBAction func goToURL(sender: AnyObject) {
-         NSWorkspace.sharedWorkspace().openURL(checkURL!)
+        NSWorkspace.sharedWorkspace().openURL(checkURL!)
     }
     
 }

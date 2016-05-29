@@ -9,7 +9,7 @@
 import Cocoa
 import Collaboration
 
-class SetupWindowController: NSWindowController {
+class SetupWindowController: NSWindowController, NSWindowDelegate {
     
     @IBOutlet var settingsWindow: NSWindow!
     @IBOutlet var prova: NSView!
@@ -20,6 +20,7 @@ class SetupWindowController: NSWindowController {
     @IBOutlet var passwordTabViewItem: NSTabViewItem!
     @IBOutlet var gesturesTabViewItem: NSTabViewItem!
     
+    @IBOutlet var tabView: NSTabView!
     @IBOutlet var passwordField: NSSecureTextField!
     @IBOutlet var logoImageView: NSImageView!
     @IBOutlet var passwordAlertTextField: NSTextField!
@@ -66,6 +67,9 @@ class SetupWindowController: NSWindowController {
         passwordField.bezeled = false
         passwordField.bezelStyle = NSTextFieldBezelStyle.SquareBezel
         
+        
+        tabView.selectFirstTabViewItem(self)
+        
         //NSTran
         /*let options = [NSTrackingAreaOptions.MouseMoved, NSTrackingAreaOptions.MouseEnteredAndExited, NSTrackingAreaOptions.ActiveInKeyWindow] as NSTrackingAreaOptions
         let trackingArea = NSTrackingArea(rect:, options: options, owner:self, userInfo:nil)
@@ -76,6 +80,10 @@ class SetupWindowController: NSWindowController {
         let time = KeychainManager.getGestureTime()
         updateTimeLabel(time!)
         gestureTimeSliderCell.integerValue = time as! Int
+        
+        //text fields
+        passwordAlertTextField.stringValue = ""
+        passwordOkField.stringValue = ""
         
         //labels
         if(KeychainManager.isPasswordSet()) {
@@ -91,6 +99,11 @@ class SetupWindowController: NSWindowController {
         } else {
             gesturesTabViewItem.label = "Set gestures"
         }
+    }
+    
+    func windowWillClose(notification: NSNotification) {
+        //reset stuff, otherwise everything is like the last time when opening the window again
+        windowDidLoad()
     }
     
     override func mouseMoved(event: NSEvent) {

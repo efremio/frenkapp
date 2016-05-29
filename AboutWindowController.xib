@@ -5,8 +5,9 @@
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="10117"/>
     </dependencies>
     <objects>
-        <customObject id="-2" userLabel="File's Owner" customClass="AboutWindowController" customModule="Squiggle" customModuleProvider="target">
+        <customObject id="-2" userLabel="File's Owner" customClass="AboutWindowController" customModule="Frenk" customModuleProvider="target">
             <connections>
+                <outlet property="aboutTextField" destination="fyC-iw-o7a" id="8Jn-7f-kIT"/>
                 <outlet property="aboutWindow" destination="F0z-JX-Cv5" id="TD8-dk-VGX"/>
                 <outlet property="logoImageView" destination="fvJ-Lt-Imh" id="IdW-vt-uMM"/>
                 <outlet property="window" destination="F0z-JX-Cv5" id="gIp-Ho-8D9"/>
@@ -15,7 +16,7 @@
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
         <customObject id="-3" userLabel="Application" customClass="NSObject"/>
         <window title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" animationBehavior="default" id="F0z-JX-Cv5">
-            <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
+            <windowStyleMask key="styleMask" titled="YES" closable="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
             <rect key="contentRect" x="196" y="240" width="350" height="450"/>
             <rect key="screenRect" x="0.0" y="0.0" width="1280" height="777"/>
@@ -38,27 +39,18 @@
                         </connections>
                     </button>
                     <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fyC-iw-o7a">
-                        <rect key="frame" x="18" y="44" width="314" height="273"/>
+                        <rect key="frame" x="25" y="113" width="300" height="204"/>
                         <textFieldCell key="cell" allowsUndo="NO" sendsActionOnEndEditing="YES" alignment="center" id="KlZ-Z7-hyg">
                             <font key="font" metaFont="system"/>
-                            <string key="title">blinda la supercazzola Sassaroli antanizzata con pazienza bitumata, concorda
-Sassaroli o scherziamo?
-    voglio il gruppo, Sassaroli
-    il gruppo come fosse 1
-    che cos'è la pazienza?
-    1: il gruppo come fosse 2 con scappellamento a destra per 1
-    o tarapia tapioco: il gruppo come fosse prematurata la supercazzola
-    antanizzata con pazienza meno 1 o scherziamo? per la pazienza
-    e velocità di esecuzione bitumata! in fretta, e
-    bitumando! se no il gruppo si spacca, e insomma,
-    vaffanzum il gruppo!
+                            <string key="title">Frenk v. 1.0.0
+
 Lei ha clacsonato
   voglio il vicesindaco, Necchi
   voglio il numero, Necchi
   mi porga il numero bitumando il vicesindaco, dico, bitumando
   il vicesindaco come fosse un numero
-  prematurata la supercazzola antanizzata con il vicesindaco
-  o scherziamo? a posterdati bitumati, pure, o in questura?</string>
+
+ © %YEAR% Frenk. All rights reserved.</string>
                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="0.75264849290780134" colorSpace="calibratedRGB"/>
                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
