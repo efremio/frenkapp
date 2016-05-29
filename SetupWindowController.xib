@@ -17,6 +17,7 @@
                 <outlet property="setGestureImage" destination="gCS-ar-kdn" id="0x3-V1-GEf"/>
                 <outlet property="settingsWindow" destination="F0z-JX-Cv5" id="aqy-ga-1zD"/>
                 <outlet property="tabView" destination="KW5-sd-8qx" id="nPi-Ul-Lzm"/>
+                <outlet property="thumbsDownImageView" destination="ctB-kB-SzC" id="GYp-1Q-2zM"/>
                 <outlet property="thumbsUpImageView" destination="H8S-eW-fWK" id="r4y-1s-YRp"/>
                 <outlet property="timeTextField" destination="yxQ-O9-Qtf" id="Ydq-7x-W3j"/>
                 <outlet property="updatePasswordButton" destination="q5E-7m-xha" id="JKE-jg-cKQ"/>
@@ -43,7 +44,7 @@
                                     <subviews>
                                         <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gCS-ar-kdn">
                                             <rect key="frame" x="166" y="-131" width="72" height="61"/>
-                                            <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="6AAE94CD-9570-423E-82DC-3965A7B46266" imagePosition="only" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="nLu-GO-71N">
+                                            <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="4805989D-D57F-4D04-AF01-4DF6B5A573DD" imagePosition="only" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="nLu-GO-71N">
                                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                 <font key="font" metaFont="system"/>
                                             </buttonCell>
@@ -94,14 +95,18 @@
                                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rBe-qo-kb3">
                                             <rect key="frame" x="15" y="85" width="374" height="43"/>
                                             <textFieldCell key="cell" sendsActionOnEndEditing="YES" id="ntq-C4-COe">
-                                                <font key="font" metaFont="system"/>
+                                                <font key="font" metaFont="system" size="11"/>
                                                 <color key="textColor" name="secondaryLabelColor" catalog="System" colorSpace="catalog"/>
                                                 <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                             </textFieldCell>
                                         </textField>
                                         <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="H8S-eW-fWK">
-                                            <rect key="frame" x="178" y="17" width="48" height="48"/>
+                                            <rect key="frame" x="178" y="34" width="48" height="48"/>
                                             <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="thumbs_up" id="4qB-NR-DeN"/>
+                                        </imageView>
+                                        <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ctB-kB-SzC">
+                                            <rect key="frame" x="178" y="22" width="48" height="48"/>
+                                            <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="thumbs_down" id="Trq-qM-GKJ"/>
                                         </imageView>
                                     </subviews>
                                     <gestureRecognizers>
@@ -163,7 +168,7 @@
         </window>
     </objects>
     <resources>
-        <image name="6AAE94CD-9570-423E-82DC-3965A7B46266" width="96" height="96">
+        <image name="4805989D-D57F-4D04-AF01-4DF6B5A573DD" width="96" height="96">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGOjtYJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK0HCBEW
 GxwgISgrLjQ3VSRudWxs1AkKCwwNDg8QViRjbGFzc1xOU0ltYWdlRmxhZ3NWTlNSZXBzV05TQ29sb3KA
@@ -848,6 +853,7 @@ AAAAAAACAQAAAAAAAAA+AAAAAAAAAAAAAAAAAACepw
 </mutableData>
         </image>
         <image name="frenk_logo" width="256" height="256"/>
+        <image name="thumbs_down" width="96" height="96"/>
         <image name="thumbs_up" width="96" height="96"/>
     </resources>
 </document>

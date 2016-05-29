@@ -25,7 +25,9 @@ class SetupWindowController: NSWindowController, NSWindowDelegate {
     @IBOutlet var logoImageView: NSImageView!
     @IBOutlet var passwordAlertTextField: NSTextField!
     @IBOutlet var passwordOkField: NSTextField!
+    
     @IBOutlet var thumbsUpImageView: NSImageView!
+    @IBOutlet var thumbsDownImageView: NSImageView!
     
     override func showWindow(sender: AnyObject?) {
         if(settingsWindow != nil && settingsWindow.miniaturized) { //if it is miniaturized, deminiaturize
@@ -64,6 +66,7 @@ class SetupWindowController: NSWindowController, NSWindowDelegate {
         addLogo(darkMode)
         
         thumbsUpImageView.hidden = true
+        thumbsDownImageView.hidden = true
         passwordField.bezeled = false
         passwordField.bezelStyle = NSTextFieldBezelStyle.SquareBezel
         
@@ -168,6 +171,7 @@ class SetupWindowController: NSWindowController, NSWindowDelegate {
             
             //thumbs up!
             thumbsUpImageView.hidden = false
+            thumbsDownImageView.hidden = true
         } else {
             //update labels
             passwordAlertTextField.stringValue = "The given password is not the current user's one."
@@ -175,6 +179,7 @@ class SetupWindowController: NSWindowController, NSWindowDelegate {
             
             //thumbs up!
             thumbsUpImageView.hidden = true
+            thumbsDownImageView.hidden = false
             
             //update buttons
             if(KeychainManager.isPasswordSet()) {
