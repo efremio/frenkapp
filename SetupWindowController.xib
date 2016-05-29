@@ -43,7 +43,7 @@
                                     <subviews>
                                         <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gCS-ar-kdn">
                                             <rect key="frame" x="166" y="-131" width="72" height="61"/>
-                                            <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="250D818E-1183-4AE0-AA32-0A796B0C66C8" imagePosition="only" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="nLu-GO-71N">
+                                            <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="9FB35549-80F5-4E61-BCA6-1C0A761DE08F" imagePosition="only" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="nLu-GO-71N">
                                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                 <font key="font" metaFont="system"/>
                                             </buttonCell>
@@ -61,17 +61,17 @@
                                     <subviews>
                                         <secureTextField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WUW-lv-gGt">
                                             <rect key="frame" x="17" y="136" width="236" height="27"/>
-                                            <secureTextFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" alignment="left" placeholderString="Your login password" drawsBackground="YES" usesSingleLineMode="YES" id="L0y-pu-M8a">
+                                            <secureTextFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" borderStyle="bezel" alignment="left" placeholderString="Your login password" drawsBackground="YES" usesSingleLineMode="YES" id="L0y-pu-M8a">
                                                 <font key="font" metaFont="system" size="18"/>
                                                 <color key="textColor" white="0.0" alpha="0.75" colorSpace="deviceWhite"/>
                                                 <color key="backgroundColor" red="0.5" green="0.5" blue="0.5" alpha="0.10236591312056738" colorSpace="calibratedRGB"/>
                                                 <allowedInputSourceLocales>
                                                     <string>NSAllRomanInputSourcesLocaleIdentifier</string>
                                                 </allowedInputSourceLocales>
-                                                <connections>
-                                                    <action selector="updatePassword:" target="-2" id="CO4-2Q-1g7"/>
-                                                </connections>
                                             </secureTextFieldCell>
+                                            <connections>
+                                                <action selector="updatePassword:" target="-2" id="TqO-g5-ZeO"/>
+                                            </connections>
                                         </secureTextField>
                                         <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gge-HB-iEa">
                                             <rect key="frame" x="259" y="133" width="130" height="32"/>
@@ -163,7 +163,7 @@
         </window>
     </objects>
     <resources>
-        <image name="250D818E-1183-4AE0-AA32-0A796B0C66C8" width="96" height="96">
+        <image name="9FB35549-80F5-4E61-BCA6-1C0A761DE08F" width="96" height="96">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGOjtYJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK0HCBEW
 GxwgISgrLjQ3VSRudWxs1AkKCwwNDg8QViRjbGFzc1xOU0ltYWdlRmxhZ3NWTlNSZXBzV05TQ29sb3KA

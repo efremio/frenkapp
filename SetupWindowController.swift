@@ -70,6 +70,7 @@ class SetupWindowController: NSWindowController, NSWindowDelegate {
         
         tabView.selectFirstTabViewItem(self)
         
+        
         //NSTran
         /*let options = [NSTrackingAreaOptions.MouseMoved, NSTrackingAreaOptions.MouseEnteredAndExited, NSTrackingAreaOptions.ActiveInKeyWindow] as NSTrackingAreaOptions
         let trackingArea = NSTrackingArea(rect:, options: options, owner:self, userInfo:nil)
@@ -148,7 +149,7 @@ class SetupWindowController: NSWindowController, NSWindowDelegate {
     @IBAction func mouseOverSettingGesture(sender: AnyObject) {
         print("erbwbwbwbwbww")
     }
-    
+   
     @IBAction func updatePassword(sender: AnyObject) {
         //check if the password is correct
         let identity = CBUserIdentity(posixUID: getuid(), authority: CBIdentityAuthority.defaultIdentityAuthority())
