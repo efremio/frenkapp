@@ -44,7 +44,7 @@
                                     <subviews>
                                         <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gCS-ar-kdn">
                                             <rect key="frame" x="166" y="-131" width="72" height="61"/>
-                                            <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="4805989D-D57F-4D04-AF01-4DF6B5A573DD" imagePosition="only" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="nLu-GO-71N">
+                                            <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="BD3FC160-3C23-4FB1-B2C4-60C0969CA3D9" imagePosition="only" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="nLu-GO-71N">
                                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                 <font key="font" metaFont="system"/>
                                             </buttonCell>
@@ -56,7 +56,7 @@
                                 </view>
                             </tabViewItem>
                             <tabViewItem label="Set password" identifier="2" id="z7P-TO-mIl">
-                                <view key="view" ambiguous="YES" id="2LC-B6-15A">
+                                <view key="view" id="2LC-B6-15A">
                                     <rect key="frame" x="10" y="33" width="404" height="216"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
@@ -115,7 +115,7 @@
                                 </view>
                             </tabViewItem>
                             <tabViewItem label="Advanced settings" identifier="" id="Wfg-wj-2I2">
-                                <view key="view" id="Uvh-6s-t8y">
+                                <view key="view" ambiguous="YES" id="Uvh-6s-t8y">
                                     <rect key="frame" x="10" y="33" width="404" height="216"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
@@ -127,8 +127,16 @@
                                             </connections>
                                         </slider>
                                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="06o-x8-A2D">
-                                            <rect key="frame" x="15" y="137" width="99" height="68"/>
-                                            <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="right" title="Time between each gesture:" id="yfU-fB-tOW">
+                                            <rect key="frame" x="15" y="171" width="99" height="34"/>
+                                            <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="right" title="Time between each gesture" id="yfU-fB-tOW">
+                                                <font key="font" metaFont="system"/>
+                                                <color key="textColor" white="0.0" alpha="0.75" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                            </textFieldCell>
+                                        </textField>
+                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Fi6-28-BR1">
+                                            <rect key="frame" x="15" y="84" width="99" height="17"/>
+                                            <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="right" title="Start at login" id="xHB-zg-WH2">
                                                 <font key="font" metaFont="system"/>
                                                 <color key="textColor" white="0.0" alpha="0.75" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
@@ -150,6 +158,13 @@
                                                 <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                             </textFieldCell>
                                         </textField>
+                                        <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zuO-Ap-A1s">
+                                            <rect key="frame" x="130" y="83" width="18" height="18"/>
+                                            <buttonCell key="cell" type="check" bezelStyle="regularSquare" imagePosition="overlaps" enabled="NO" inset="2" id="yJj-nU-eKw">
+                                                <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                                <font key="font" metaFont="system"/>
+                                            </buttonCell>
+                                        </button>
                                     </subviews>
                                 </view>
                             </tabViewItem>
@@ -168,7 +183,7 @@
         </window>
     </objects>
     <resources>
-        <image name="4805989D-D57F-4D04-AF01-4DF6B5A573DD" width="96" height="96">
+        <image name="BD3FC160-3C23-4FB1-B2C4-60C0969CA3D9" width="96" height="96">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGOjtYJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK0HCBEW
 GxwgISgrLjQ3VSRudWxs1AkKCwwNDg8QViRjbGFzc1xOU0ltYWdlRmxhZ3NWTlNSZXBzV05TQ29sb3KA
