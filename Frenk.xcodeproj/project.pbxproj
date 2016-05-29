@@ -63,15 +63,15 @@
 		221CAD831C1999C500F57E62 /* StatusMenuController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StatusMenuController.swift; path = Squiggle/StatusMenuController.swift; sourceTree = "<group>"; };
 		2237D8741CEE8D7A003845B5 /* ApplicationServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ApplicationServices.framework; path = System/Library/Frameworks/ApplicationServices.framework; sourceTree = SDKROOT; };
 		2237D87A1CEE917B003845B5 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
-		22593E981C18BCF9003CFCF2 /* Squiggle.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Squiggle.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		22593E981C18BCF9003CFCF2 /* Frenk.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Frenk.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		22593E9B1C18BCF9003CFCF2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = Squiggle/AppDelegate.swift; sourceTree = "<group>"; };
 		22593E9D1C18BCF9003CFCF2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = Squiggle/Assets.xcassets; sourceTree = "<group>"; };
 		22593EA01C18BCF9003CFCF2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		22593EA21C18BCF9003CFCF2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = Squiggle/Info.plist; sourceTree = "<group>"; };
-		22593EA71C18BCF9003CFCF2 /* SquiggleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SquiggleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		22593EA71C18BCF9003CFCF2 /* Frenk.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Frenk.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		22593EAB1C18BCF9003CFCF2 /* SquiggleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SquiggleTests.swift; sourceTree = "<group>"; };
 		22593EAD1C18BCF9003CFCF2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		22593EB21C18BCF9003CFCF2 /* SquiggleUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SquiggleUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		22593EB21C18BCF9003CFCF2 /* Frenk.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Frenk.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		22593EB61C18BCF9003CFCF2 /* SquiggleUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SquiggleUITests.swift; sourceTree = "<group>"; };
 		22593EB81C18BCF9003CFCF2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		22593EC41C18D483003CFCF2 /* Squiggle.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = Squiggle.entitlements; path = Squiggle/Squiggle.entitlements; sourceTree = "<group>"; };
@@ -157,9 +157,9 @@
 		22593E991C18BCF9003CFCF2 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				22593E981C18BCF9003CFCF2 /* Squiggle.app */,
-				22593EA71C18BCF9003CFCF2 /* SquiggleTests.xctest */,
-				22593EB21C18BCF9003CFCF2 /* SquiggleUITests.xctest */,
+				22593E981C18BCF9003CFCF2 /* Frenk.app */,
+				22593EA71C18BCF9003CFCF2 /* Frenk.xctest */,
+				22593EB21C18BCF9003CFCF2 /* Frenk.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -202,9 +202,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		22593E971C18BCF9003CFCF2 /* Squiggle */ = {
+		22593E971C18BCF9003CFCF2 /* Frenk */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 22593EBB1C18BCF9003CFCF2 /* Build configuration list for PBXNativeTarget "Squiggle" */;
+			buildConfigurationList = 22593EBB1C18BCF9003CFCF2 /* Build configuration list for PBXNativeTarget "Frenk" */;
 			buildPhases = (
 				98C9532E6EEBA3878B1EB8D4 /* 📦 Check Pods Manifest.lock */,
 				22593E941C18BCF9003CFCF2 /* Sources */,
@@ -217,14 +217,14 @@
 			);
 			dependencies = (
 			);
-			name = Squiggle;
+			name = Frenk;
 			productName = Squiggle;
-			productReference = 22593E981C18BCF9003CFCF2 /* Squiggle.app */;
+			productReference = 22593E981C18BCF9003CFCF2 /* Frenk.app */;
 			productType = "com.apple.product-type.application";
 		};
-		22593EA61C18BCF9003CFCF2 /* SquiggleTests */ = {
+		22593EA61C18BCF9003CFCF2 /* FrenkTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 22593EBE1C18BCF9003CFCF2 /* Build configuration list for PBXNativeTarget "SquiggleTests" */;
+			buildConfigurationList = 22593EBE1C18BCF9003CFCF2 /* Build configuration list for PBXNativeTarget "FrenkTests" */;
 			buildPhases = (
 				22593EA31C18BCF9003CFCF2 /* Sources */,
 				22593EA41C18BCF9003CFCF2 /* Frameworks */,
@@ -235,14 +235,14 @@
 			dependencies = (
 				22593EA91C18BCF9003CFCF2 /* PBXTargetDependency */,
 			);
-			name = SquiggleTests;
+			name = FrenkTests;
 			productName = SquiggleTests;
-			productReference = 22593EA71C18BCF9003CFCF2 /* SquiggleTests.xctest */;
+			productReference = 22593EA71C18BCF9003CFCF2 /* Frenk.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		22593EB11C18BCF9003CFCF2 /* SquiggleUITests */ = {
+		22593EB11C18BCF9003CFCF2 /* FrenkUITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 22593EC11C18BCF9003CFCF2 /* Build configuration list for PBXNativeTarget "SquiggleUITests" */;
+			buildConfigurationList = 22593EC11C18BCF9003CFCF2 /* Build configuration list for PBXNativeTarget "FrenkUITests" */;
 			buildPhases = (
 				22593EAE1C18BCF9003CFCF2 /* Sources */,
 				22593EAF1C18BCF9003CFCF2 /* Frameworks */,
@@ -253,9 +253,9 @@
 			dependencies = (
 				22593EB41C18BCF9003CFCF2 /* PBXTargetDependency */,
 			);
-			name = SquiggleUITests;
+			name = FrenkUITests;
 			productName = SquiggleUITests;
-			productReference = 22593EB21C18BCF9003CFCF2 /* SquiggleUITests.xctest */;
+			productReference = 22593EB21C18BCF9003CFCF2 /* Frenk.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
@@ -287,7 +287,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 22593E931C18BCF9003CFCF2 /* Build configuration list for PBXProject "Squiggle" */;
+			buildConfigurationList = 22593E931C18BCF9003CFCF2 /* Build configuration list for PBXProject "Frenk" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -300,9 +300,9 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				22593E971C18BCF9003CFCF2 /* Squiggle */,
-				22593EA61C18BCF9003CFCF2 /* SquiggleTests */,
-				22593EB11C18BCF9003CFCF2 /* SquiggleUITests */,
+				22593E971C18BCF9003CFCF2 /* Frenk */,
+				22593EA61C18BCF9003CFCF2 /* FrenkTests */,
+				22593EB11C18BCF9003CFCF2 /* FrenkUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -427,12 +427,12 @@
 /* Begin PBXTargetDependency section */
 		22593EA91C18BCF9003CFCF2 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 22593E971C18BCF9003CFCF2 /* Squiggle */;
+			target = 22593E971C18BCF9003CFCF2 /* Frenk */;
 			targetProxy = 22593EA81C18BCF9003CFCF2 /* PBXContainerItemProxy */;
 		};
 		22593EB41C18BCF9003CFCF2 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 22593E971C18BCF9003CFCF2 /* Squiggle */;
+			target = 22593E971C18BCF9003CFCF2 /* Frenk */;
 			targetProxy = 22593EB31C18BCF9003CFCF2 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -539,8 +539,8 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				INFOPLIST_FILE = Squiggle/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = efremius.Squiggle;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = efremius.Frenk;
+				PRODUCT_NAME = Frenk;
 			};
 			name = Debug;
 		};
@@ -553,8 +553,8 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				INFOPLIST_FILE = Squiggle/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = efremius.Squiggle;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = efremius.Frenk;
+				PRODUCT_NAME = Frenk;
 			};
 			name = Release;
 		};
@@ -566,8 +566,8 @@
 				INFOPLIST_FILE = SquiggleTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = efremius.SquiggleTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Squiggle.app/Contents/MacOS/Squiggle";
+				PRODUCT_NAME = Frenk;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Frenk.app/Contents/MacOS/Frenk";
 			};
 			name = Debug;
 		};
@@ -579,8 +579,8 @@
 				INFOPLIST_FILE = SquiggleTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = efremius.SquiggleTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Squiggle.app/Contents/MacOS/Squiggle";
+				PRODUCT_NAME = Frenk;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Frenk.app/Contents/MacOS/Frenk";
 			};
 			name = Release;
 		};
@@ -591,7 +591,7 @@
 				INFOPLIST_FILE = SquiggleUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = efremius.SquiggleUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Frenk;
 				TEST_TARGET_NAME = Squiggle;
 				USES_XCTRUNNER = YES;
 			};
@@ -604,7 +604,7 @@
 				INFOPLIST_FILE = SquiggleUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = efremius.SquiggleUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Frenk;
 				TEST_TARGET_NAME = Squiggle;
 				USES_XCTRUNNER = YES;
 			};
@@ -613,7 +613,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		22593E931C18BCF9003CFCF2 /* Build configuration list for PBXProject "Squiggle" */ = {
+		22593E931C18BCF9003CFCF2 /* Build configuration list for PBXProject "Frenk" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				22593EB91C18BCF9003CFCF2 /* Debug */,
@@ -622,7 +622,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		22593EBB1C18BCF9003CFCF2 /* Build configuration list for PBXNativeTarget "Squiggle" */ = {
+		22593EBB1C18BCF9003CFCF2 /* Build configuration list for PBXNativeTarget "Frenk" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				22593EBC1C18BCF9003CFCF2 /* Debug */,
@@ -631,7 +631,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		22593EBE1C18BCF9003CFCF2 /* Build configuration list for PBXNativeTarget "SquiggleTests" */ = {
+		22593EBE1C18BCF9003CFCF2 /* Build configuration list for PBXNativeTarget "FrenkTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				22593EBF1C18BCF9003CFCF2 /* Debug */,
@@ -640,7 +640,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		22593EC11C18BCF9003CFCF2 /* Build configuration list for PBXNativeTarget "SquiggleUITests" */ = {
+		22593EC11C18BCF9003CFCF2 /* Build configuration list for PBXNativeTarget "FrenkUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				22593EC21C18BCF9003CFCF2 /* Debug */,

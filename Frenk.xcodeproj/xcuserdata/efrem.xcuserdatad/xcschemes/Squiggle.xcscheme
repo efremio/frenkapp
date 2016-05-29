@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "22593E971C18BCF9003CFCF2"
-               BuildableName = "Squiggle.app"
-               BlueprintName = "Squiggle"
-               ReferencedContainer = "container:Squiggle.xcodeproj">
+               BuildableName = "Frenk.app"
+               BlueprintName = "Frenk"
+               ReferencedContainer = "container:Frenk.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "22593EA61C18BCF9003CFCF2"
-               BuildableName = "SquiggleTests.xctest"
-               BlueprintName = "SquiggleTests"
-               ReferencedContainer = "container:Squiggle.xcodeproj">
+               BuildableName = "Frenk.xctest"
+               BlueprintName = "FrenkTests"
+               ReferencedContainer = "container:Frenk.xcodeproj">
             </BuildableReference>
          </TestableReference>
          <TestableReference
@@ -43,9 +43,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "22593EB11C18BCF9003CFCF2"
-               BuildableName = "SquiggleUITests.xctest"
-               BlueprintName = "SquiggleUITests"
-               ReferencedContainer = "container:Squiggle.xcodeproj">
+               BuildableName = "Frenk.xctest"
+               BlueprintName = "FrenkUITests"
+               ReferencedContainer = "container:Frenk.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -53,9 +53,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "22593E971C18BCF9003CFCF2"
-            BuildableName = "Squiggle.app"
-            BlueprintName = "Squiggle"
-            ReferencedContainer = "container:Squiggle.xcodeproj">
+            BuildableName = "Frenk.app"
+            BlueprintName = "Frenk"
+            ReferencedContainer = "container:Frenk.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -76,9 +76,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "22593E971C18BCF9003CFCF2"
-            BuildableName = "Squiggle.app"
-            BlueprintName = "Squiggle"
-            ReferencedContainer = "container:Squiggle.xcodeproj">
+            BuildableName = "Frenk.app"
+            BlueprintName = "Frenk"
+            ReferencedContainer = "container:Frenk.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -95,9 +95,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "22593E971C18BCF9003CFCF2"
-            BuildableName = "Squiggle.app"
-            BlueprintName = "Squiggle"
-            ReferencedContainer = "container:Squiggle.xcodeproj">
+            BuildableName = "Frenk.app"
+            BlueprintName = "Frenk"
+            ReferencedContainer = "container:Frenk.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

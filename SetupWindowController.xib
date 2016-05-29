@@ -5,7 +5,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="10117"/>
     </dependencies>
     <objects>
-        <customObject id="-2" userLabel="File's Owner" customClass="SetupWindowController" customModule="Squiggle" customModuleProvider="target">
+        <customObject id="-2" userLabel="File's Owner" customClass="SetupWindowController" customModule="Frenk" customModuleProvider="target">
             <connections>
                 <outlet property="gestureTimeSliderCell" destination="yT0-gg-Gme" id="v4S-ym-eEl"/>
                 <outlet property="gesturesTabViewItem" destination="NvK-Nz-3aE" id="L5Z-48-TjG"/>
@@ -36,13 +36,13 @@
                         <font key="font" metaFont="system"/>
                         <tabViewItems>
                             <tabViewItem label="Set gesture" identifier="1" id="NvK-Nz-3aE">
-                                <view key="view" ambiguous="YES" id="dGM-BU-xlt">
-                                    <rect key="frame" x="10" y="33" width="404" height="216"/>
+                                <view key="view" id="dGM-BU-xlt">
+                                    <rect key="frame" x="10" y="33" width="194" height="0.0"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gCS-ar-kdn">
-                                            <rect key="frame" x="166" y="85" width="72" height="61"/>
-                                            <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="1E863CA4-659D-4C44-8ACD-B85D4CAB438A" imagePosition="only" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="nLu-GO-71N">
+                                            <rect key="frame" x="166" y="-131" width="72" height="61"/>
+                                            <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="1C55E8AC-9278-49FA-B530-7EC54A58745A" imagePosition="only" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="nLu-GO-71N">
                                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                 <font key="font" metaFont="system"/>
                                             </buttonCell>
@@ -106,7 +106,7 @@
                                 </view>
                             </tabViewItem>
                             <tabViewItem label="Advanced settings" identifier="" id="Wfg-wj-2I2">
-                                <view key="view" id="Uvh-6s-t8y">
+                                <view key="view" ambiguous="YES" id="Uvh-6s-t8y">
                                     <rect key="frame" x="10" y="33" width="404" height="216"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
@@ -118,8 +118,8 @@
                                             </connections>
                                         </slider>
                                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="06o-x8-A2D">
-                                            <rect key="frame" x="15" y="171" width="99" height="34"/>
-                                            <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="right" title="Time between gestures:" id="yfU-fB-tOW">
+                                            <rect key="frame" x="15" y="137" width="99" height="68"/>
+                                            <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="right" title="Time between each gesture:" id="yfU-fB-tOW">
                                                 <font key="font" metaFont="system"/>
                                                 <color key="textColor" white="0.0" alpha="0.75" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
@@ -134,8 +134,8 @@
                                             </textFieldCell>
                                         </textField>
                                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aPH-n8-gpS">
-                                            <rect key="frame" x="130" y="142" width="178" height="17"/>
-                                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="ms. Bla bla bla spiegazione lunga" id="Jd5-Uh-rhd">
+                                            <rect key="frame" x="130" y="104" width="259" height="54"/>
+                                            <textFieldCell key="cell" sendsActionOnEndEditing="YES" title="The bigger is it, the more time you have between two consecutive gestures of the same sequence." id="Jd5-Uh-rhd">
                                                 <font key="font" metaFont="smallSystem"/>
                                                 <color key="textColor" red="0.38506217279999999" green="0.38506217279999999" blue="0.38506217279999999" alpha="0.84999999999999998" colorSpace="calibratedRGB"/>
                                                 <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
@@ -155,11 +155,11 @@
             <connections>
                 <outlet property="delegate" destination="-2" id="0bl-1N-AYu"/>
             </connections>
-            <point key="canvasLocation" x="271" y="195"/>
+            <point key="canvasLocation" x="279" y="194"/>
         </window>
     </objects>
     <resources>
-        <image name="1E863CA4-659D-4C44-8ACD-B85D4CAB438A" width="96" height="96">
+        <image name="1C55E8AC-9278-49FA-B530-7EC54A58745A" width="96" height="96">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGOjtYJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK0HCBEW
 GxwgISgrLjQ3VSRudWxs1AkKCwwNDg8QViRjbGFzc1xOU0ltYWdlRmxhZ3NWTlNSZXBzV05TQ29sb3KA

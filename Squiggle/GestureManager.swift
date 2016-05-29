@@ -74,7 +74,7 @@ class GestureManager : NSObject {
                 print("gesture ended, last one?")
                 
                 //anticipate the unlock
-                if(gestures.count == KeychainManager.getGestures()!.count) {
+                if(KeychainManager.areGesturesSet() && gestures.count == KeychainManager.getGestures()!.count) {
                     manageUnlock()
                 } else {
                     
@@ -131,6 +131,10 @@ class GestureManager : NSObject {
     }
     
     private func areGesturesCorrelated() -> Bool {
+        if(!KeychainManager.areGesturesSet()) { //no gestures saved, no correlation!
+            return false
+        }
+        
         if(gestures.count == KeychainManager.getGestures()!.count) {
             var correlated = true
             for index in 0...(gestures.count-1) {
@@ -150,10 +154,8 @@ class GestureManager : NSObject {
     }
     
     private func unlock() {
-        //get password
-        let pwd = KeychainManager.getPassword()
-        
-        if(pwd != nil) {
+        if(KeychainManager.isPasswordSet()) { //unlock if password was set
+            let pwd = KeychainManager.getPassword()
             
             let unlockScript = "tell application \"System Events\"\n if name of every process contains \"ScreenSaverEngine\" then\n tell application \"ScreenSaverEngine\"\n quit\n end tell\n end if\n set pword to \""+(pwd as! String)+"\"\nrepeat 40 times\n tell application \"System Events\" to keystroke (ASCII character 8)\n end repeat\n tell application \"System Events\"\n keystroke pword\n keystroke return\n end tell\n end tell"
             

@@ -67,6 +67,7 @@ class AboutWindowController: NSWindowController {
         logoImageView.image = logo
         logoImageView.imageScaling = .ScaleProportionallyUpOrDown
     }
+    
     @IBAction func goToURL(sender: AnyObject) {
          NSWorkspace.sharedWorkspace().openURL(checkURL!)
     }
