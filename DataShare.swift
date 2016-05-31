@@ -23,4 +23,5 @@ class DataShare {
     }
     
     var canRecord: Bool = false
+    var setupWindowControllerInstance: SetupWindowController? = nil
 }

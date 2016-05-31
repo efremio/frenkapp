@@ -46,6 +46,10 @@ class GestureManager : NSObject {
                 gestures.last?.timeEnd = event.timestamp
                 print("gesture recording ended, last one?")
                 
+                //update the graphics
+                dataShare.setupWindowControllerInstance!.updateGestureNumber(gestures.count)
+                
+                
                 //gesture ended, last one?
                 lastGestureTimer.invalidate()
                 lastGestureTimer = NSTimer.scheduledTimerWithTimeInterval((KeychainManager.getGestureTime() as! Double)/1000, target: self, selector: #selector(self.lastGestureRecordingTimerFired(_:)), userInfo: nil, repeats: false)
@@ -125,6 +129,9 @@ class GestureManager : NSObject {
         
         //delete gestures
         gestures.removeAll()
+        
+        //update the graphics
+        dataShare.setupWindowControllerInstance!.updateGestureNumber(gestures.count)
     }
     
     func isScreenLocked(locked : Bool) {
@@ -138,13 +145,14 @@ class GestureManager : NSObject {
         }
         
         if(gestures.count == KeychainManager.getGestures()!.count) {
+            //TODO optimize: break the loop!
             var correlated = true
             for index in 0...(gestures.count-1) {
-                if(!(getCorrelation(gestures[index].xPoints, s2: KeychainManager.getGestures()![index].xPoints) > 0.85)
-                    || !(getCorrelation(gestures[index].yPoints, s2: KeychainManager.getGestures()![index].yPoints) > 0.85)) {
+                if(!(getCorrelation(gestures[index].xPoints, s2: KeychainManager.getGestures()![index].xPoints) > 0.83)
+                    || !(getCorrelation(gestures[index].yPoints, s2: KeychainManager.getGestures()![index].yPoints) > 0.83)) {
                     correlated = false
                 }
-                print("gesture #", index)
+                print("DEBUG: gesture #", index)
                 print(getCorrelation(gestures[index].xPoints, s2: KeychainManager.getGestures()![index].xPoints))
                 print(getCorrelation(gestures[index].yPoints, s2: KeychainManager.getGestures()![index].yPoints))
             }

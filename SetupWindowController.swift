@@ -32,6 +32,11 @@ class SetupWindowController: NSWindowController, NSWindowDelegate {
     
     @IBOutlet var thumbsUpImageView: NSImageView!
     @IBOutlet var thumbsDownImageView: NSImageView!
+    @IBOutlet var mouseImageView: NSImageView!
+    @IBOutlet var scrollImageView: NSImageView!
+    
+    @IBOutlet var countGesturesButton: NSButton!
+    @IBOutlet var countGesturesLabel: NSTextField!
     
     let dataShare = DataShare.sharedInstance
     
@@ -50,6 +55,9 @@ class SetupWindowController: NSWindowController, NSWindowDelegate {
     
     override func windowDidLoad() {
         super.windowDidLoad()
+        
+        //register itself
+        dataShare.setupWindowControllerInstance = self
         
         let darkMode = NSUserDefaults.standardUserDefaults().stringForKey("AppleInterfaceStyle") == "Dark"
         
@@ -80,14 +88,8 @@ class SetupWindowController: NSWindowController, NSWindowDelegate {
         tabView.selectFirstTabViewItem(self)
         
         
-        //NSTran
-        /*let options = [NSTrackingAreaOptions.MouseMoved, NSTrackingAreaOptions.MouseEnteredAndExited, NSTrackingAreaOptions.ActiveInKeyWindow] as NSTrackingAreaOptions
-        let trackingArea = NSTrackingArea(rect:, options: options, owner:self, userInfo:nil)
-        setGestureImage.addTrackingArea(trackingArea)
-        */
         
         let bounds = gesturesTabViewItem.view?.bounds
-        
         gesturesTabViewItem.view?.addTrackingRect(bounds!, owner: self, userData: nil, assumeInside: true)
         
         
@@ -98,9 +100,15 @@ class SetupWindowController: NSWindowController, NSWindowDelegate {
         updateTimeLabel(time!)
         gestureTimeSliderCell.integerValue = time as! Int
         
-        //text fields
+        //init
         passwordAlertTextField.stringValue = ""
         passwordOkField.stringValue = ""
+        scrollImageView.hidden = true
+        countGesturesButton.hidden = true
+        countGesturesLabel.hidden = true
+        countGesturesButton.title = "0"
+        countGesturesLabel.stringValue = "gestures"
+        
         
         //labels
         if(KeychainManager.isPasswordSet()) {
@@ -199,12 +207,32 @@ class SetupWindowController: NSWindowController, NSWindowDelegate {
     
     //it's a precondition for recording the gesture
     override func mouseEntered(theEvent: NSEvent) {
-        print("entered")
         dataShare.canRecord = true
+        
+        mouseImageView.hidden = true
+        scrollImageView.hidden = false
+        countGesturesButton.hidden = false
+        countGesturesLabel.hidden = false
     }
     
     override func mouseExited(theEvent: NSEvent) {
-        print("exited")
         dataShare.canRecord = false
+        
+        
+        
+        mouseImageView.hidden = false
+        scrollImageView.hidden = true
+        countGesturesButton.hidden = true
+        countGesturesLabel.hidden = true
+        
+    }
+    
+    func updateGestureNumber(number: NSNumber) {
+        countGesturesButton.title = number.description
+        if(number == 1) {
+            countGesturesLabel.stringValue = "gesture"
+        } else {
+            countGesturesLabel.stringValue = "gestures"
+        }
     }
 }
