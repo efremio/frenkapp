@@ -17,10 +17,14 @@ class SetupWindowController: NSWindowController, NSWindowDelegate {
     @IBOutlet var setGestureImage: NSButton!
     @IBOutlet var gestureTimeSliderCell: NSSliderCell!
     @IBOutlet var updatePasswordButton: NSButtonCell!
+    
+    //tab view
+    @IBOutlet var tabView: NSTabView!
+    
+    //tab view items
     @IBOutlet var passwordTabViewItem: NSTabViewItem!
     @IBOutlet var gesturesTabViewItem: NSTabViewItem!
     
-    @IBOutlet var tabView: NSTabView!
     @IBOutlet var passwordField: NSSecureTextField!
     @IBOutlet var logoImageView: NSImageView!
     @IBOutlet var passwordAlertTextField: NSTextField!
@@ -28,6 +32,8 @@ class SetupWindowController: NSWindowController, NSWindowDelegate {
     
     @IBOutlet var thumbsUpImageView: NSImageView!
     @IBOutlet var thumbsDownImageView: NSImageView!
+    
+    let dataShare = DataShare.sharedInstance
     
     override func showWindow(sender: AnyObject?) {
         if(settingsWindow != nil && settingsWindow.miniaturized) { //if it is miniaturized, deminiaturize
@@ -80,6 +86,13 @@ class SetupWindowController: NSWindowController, NSWindowDelegate {
         setGestureImage.addTrackingArea(trackingArea)
         */
         
+        let bounds = gesturesTabViewItem.view?.bounds
+        
+        gesturesTabViewItem.view?.addTrackingRect(bounds!, owner: self, userData: nil, assumeInside: true)
+        
+        
+        
+        
         //get gesture time
         let time = KeychainManager.getGestureTime()
         updateTimeLabel(time!)
@@ -108,18 +121,6 @@ class SetupWindowController: NSWindowController, NSWindowDelegate {
     func windowWillClose(notification: NSNotification) {
         //reset stuff, otherwise everything is like the last time when opening the window again
         windowDidLoad()
-    }
-    
-    override func mouseMoved(event: NSEvent) {
-        print("aaaaa")
-    }
-    
-    override func mouseEntered(theEvent: NSEvent) {
-        print("entered")
-    }
-    
-    override func mouseExited(theEvent: NSEvent) {
-        print("exited")
     }
     
     func addLogo(darkMode : Bool) {
@@ -194,6 +195,16 @@ class SetupWindowController: NSWindowController, NSWindowDelegate {
         //clean
         passwordField.stringValue = ""
         
-        
+    }
+    
+    //it's a precondition for recording the gesture
+    override func mouseEntered(theEvent: NSEvent) {
+        print("entered")
+        dataShare.canRecord = true
+    }
+    
+    override func mouseExited(theEvent: NSEvent) {
+        print("exited")
+        dataShare.canRecord = false
     }
 }

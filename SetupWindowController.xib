@@ -38,19 +38,26 @@
                         <font key="font" metaFont="system"/>
                         <tabViewItems>
                             <tabViewItem label="Set gesture" identifier="1" id="NvK-Nz-3aE">
-                                <view key="view" id="dGM-BU-xlt">
-                                    <rect key="frame" x="10" y="33" width="194" height="0.0"/>
+                                <view key="view" ambiguous="YES" id="dGM-BU-xlt">
+                                    <rect key="frame" x="10" y="33" width="404" height="216"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gCS-ar-kdn">
-                                            <rect key="frame" x="166" y="-131" width="72" height="61"/>
-                                            <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="BD3FC160-3C23-4FB1-B2C4-60C0969CA3D9" imagePosition="only" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="nLu-GO-71N">
+                                            <rect key="frame" x="166" y="85" width="72" height="61"/>
+                                            <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="6A8FD797-0FD9-48E6-BA7E-3D9A3A0F3653" imagePosition="only" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="nLu-GO-71N">
                                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                 <font key="font" metaFont="system"/>
                                             </buttonCell>
                                             <connections>
                                                 <action selector="mouseOverSettingGesture:" target="-2" id="H92-Q5-eC3"/>
                                             </connections>
+                                        </button>
+                                        <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wZb-uB-FEB">
+                                            <rect key="frame" x="192" y="60" width="20" height="17"/>
+                                            <buttonCell key="cell" type="inline" title="3" bezelStyle="inline" alignment="center" borderStyle="border" inset="2" id="qRd-e9-F1e">
+                                                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                <font key="font" metaFont="smallSystemBold"/>
+                                            </buttonCell>
                                         </button>
                                     </subviews>
                                 </view>
@@ -115,7 +122,7 @@
                                 </view>
                             </tabViewItem>
                             <tabViewItem label="Advanced settings" identifier="" id="Wfg-wj-2I2">
-                                <view key="view" ambiguous="YES" id="Uvh-6s-t8y">
+                                <view key="view" id="Uvh-6s-t8y">
                                     <rect key="frame" x="10" y="33" width="404" height="216"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
@@ -135,7 +142,7 @@
                                             </textFieldCell>
                                         </textField>
                                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Fi6-28-BR1">
-                                            <rect key="frame" x="15" y="84" width="99" height="17"/>
+                                            <rect key="frame" x="15" y="78" width="99" height="17"/>
                                             <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="right" title="Start at login" id="xHB-zg-WH2">
                                                 <font key="font" metaFont="system"/>
                                                 <color key="textColor" white="0.0" alpha="0.75" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -159,7 +166,7 @@
                                             </textFieldCell>
                                         </textField>
                                         <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zuO-Ap-A1s">
-                                            <rect key="frame" x="130" y="83" width="18" height="18"/>
+                                            <rect key="frame" x="130" y="77" width="18" height="18"/>
                                             <buttonCell key="cell" type="check" bezelStyle="regularSquare" imagePosition="overlaps" enabled="NO" inset="2" id="yJj-nU-eKw">
                                                 <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                 <font key="font" metaFont="system"/>
@@ -183,7 +190,7 @@
         </window>
     </objects>
     <resources>
-        <image name="BD3FC160-3C23-4FB1-B2C4-60C0969CA3D9" width="96" height="96">
+        <image name="6A8FD797-0FD9-48E6-BA7E-3D9A3A0F3653" width="96" height="96">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGOjtYJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK0HCBEW
 GxwgISgrLjQ3VSRudWxs1AkKCwwNDg8QViRjbGFzc1xOU0ltYWdlRmxhZ3NWTlNSZXBzV05TQ29sb3KA

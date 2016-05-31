@@ -12,8 +12,8 @@
         </customObject>
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
         <customObject id="-3" userLabel="Application" customClass="NSObject"/>
-        <customObject id="zfS-2i-lxk" userLabel="StatusMenuController" customClass="StatusMenuController" customModule="Squiggle" customModuleProvider="target"/>
-        <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModule="Squiggle" customModuleProvider="target">
+        <customObject id="zfS-2i-lxk" userLabel="StatusMenuController" customClass="StatusMenuController" customModule="Frenk" customModuleProvider="target"/>
+        <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModule="Frenk" customModuleProvider="target">
             <connections>
                 <outlet property="statusMenu" destination="TJy-2w-Kgx" id="yDZ-uH-YTj"/>
             </connections>

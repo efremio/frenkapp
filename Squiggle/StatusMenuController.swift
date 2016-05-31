@@ -30,6 +30,7 @@ class StatusMenuController: NSObject {
         
         acquirePrivileges()
         
+        //listeners for scroll
         NSEvent.addGlobalMonitorForEventsMatchingMask(
             NSEventMask.ScrollWheelMask, handler: {(event: NSEvent) in
                 self.gestureManager.scroll(event)
@@ -40,6 +41,7 @@ class StatusMenuController: NSObject {
                 self.gestureManager.scrollLocal(event)
         })
         
+        //listeners for lock/unlock
         NSDistributedNotificationCenter.defaultCenter().addObserver(self, selector: #selector(self.lockedEvent), name: "com.apple.screenIsLocked", object: nil)
         
         NSDistributedNotificationCenter.defaultCenter().addObserver(self, selector: #selector(self.unlockedEvent), name: "com.apple.screenIsUnlocked", object: nil)
@@ -61,6 +63,10 @@ class StatusMenuController: NSObject {
     
     func unlockedEvent() {
         gestureManager.isScreenLocked(false)
+    }
+    
+    internal func getGestureManagerInstance() -> GestureManager {
+        return gestureManager
     }
 }
 

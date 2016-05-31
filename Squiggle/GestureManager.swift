@@ -16,6 +16,7 @@ class GestureManager : NSObject {
     
     private var isScreenLocked = false
     var lastGestureTimer = NSTimer.init()
+    let dataShare = DataShare.sharedInstance
     
     var x : CGFloat = 0
     var y : CGFloat = 0
@@ -26,29 +27,30 @@ class GestureManager : NSObject {
     
     //used to record the gesture
     func scrollLocal(event : NSEvent) -> NSEvent {
-        if(event.phase == NSEventPhase.Began) {
-            let newGesture = Gesture()
-            newGesture.timeStart = event.timestamp
-            gestures.append(newGesture)
-            lastGestureTimer.invalidate()
-            x = 0
-            y = 0
-            print("gesture recording started")
-        } else if(event.phase == NSEventPhase.Changed) {
-            x += event.deltaX
-            y += event.deltaY
-            gestures.last?.xPoints.append(x)
-            gestures.last?.yPoints.append(y)
-            
-        } else if(event.phase == NSEventPhase.Ended) {
-            gestures.last?.timeEnd = event.timestamp
-            print("gesture recording ended, last one?")
-            
-            //gesture ended, last one?
-            lastGestureTimer.invalidate()
-            lastGestureTimer = NSTimer.scheduledTimerWithTimeInterval((KeychainManager.getGestureTime() as! Double)/1000, target: self, selector: #selector(self.lastGestureRecordingTimerFired(_:)), userInfo: nil, repeats: false)
+        if (dataShare.canRecord) {
+            if(event.phase == NSEventPhase.Began) {
+                let newGesture = Gesture()
+                newGesture.timeStart = event.timestamp
+                gestures.append(newGesture)
+                lastGestureTimer.invalidate()
+                x = 0
+                y = 0
+                print("gesture recording started")
+            } else if(event.phase == NSEventPhase.Changed) {
+                x += event.deltaX
+                y += event.deltaY
+                gestures.last?.xPoints.append(x)
+                gestures.last?.yPoints.append(y)
+                
+            } else if(event.phase == NSEventPhase.Ended) {
+                gestures.last?.timeEnd = event.timestamp
+                print("gesture recording ended, last one?")
+                
+                //gesture ended, last one?
+                lastGestureTimer.invalidate()
+                lastGestureTimer = NSTimer.scheduledTimerWithTimeInterval((KeychainManager.getGestureTime() as! Double)/1000, target: self, selector: #selector(self.lastGestureRecordingTimerFired(_:)), userInfo: nil, repeats: false)
+            }
         }
-        
         return event
     }
     
