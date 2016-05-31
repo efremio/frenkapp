@@ -145,7 +145,7 @@
                                     <subviews>
                                         <slider verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="USh-qH-NDc">
                                             <rect key="frame" x="130" y="178" width="259" height="20"/>
-                                            <sliderCell key="cell" continuous="YES" state="on" alignment="left" minValue="500" maxValue="800" doubleValue="500" tickMarkPosition="above" sliderType="linear" id="yT0-gg-Gme"/>
+                                            <sliderCell key="cell" continuous="YES" state="on" alignment="left" minValue="600" maxValue="1000" doubleValue="600" tickMarkPosition="above" sliderType="linear" id="yT0-gg-Gme"/>
                                             <connections>
                                                 <action selector="timeChanged:" target="-2" id="A1I-i6-Ot3"/>
                                             </connections>

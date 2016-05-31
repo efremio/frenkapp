@@ -16,7 +16,7 @@ import OpenDirectory
 class StatusMenuController: NSObject {
     
     var gestureManager : GestureManager
-    let defaultGestureTime = NSNumber(int: 600)
+    let defaultGestureTime = NSNumber(int: 800)
     
     override init() {
         //set the delault values
