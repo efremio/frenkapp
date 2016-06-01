@@ -1,0 +1,6 @@
+framework module Pods_Frenk {
+  umbrella header "Pods-Frenk-umbrella.h"
+
+  export *
+  module * { export * }
+}
