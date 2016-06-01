@@ -32,6 +32,7 @@
 		22E54B891CFB1C63003EA4DB /* thumbs_down.png in Resources */ = {isa = PBXBuildFile; fileRef = 22E54B881CFB1C63003EA4DB /* thumbs_down.png */; };
 		22E54B8B1CFE2CD3003EA4DB /* DataShare.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E54B8A1CFE2CD3003EA4DB /* DataShare.swift */; };
 		22E54B901CFE372F003EA4DB /* mouse.png in Resources */ = {isa = PBXBuildFile; fileRef = 22E54B8F1CFE372F003EA4DB /* mouse.png */; };
+		22EA7C771CFF849000C2EE82 /* LaunchAtLoginManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22EA7C761CFF849000C2EE82 /* LaunchAtLoginManager.swift */; };
 		2DFE97A859DB0FE7FC20DA5F /* Pods_Frenk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C4706A8B66A1454D10CA3E2 /* Pods_Frenk.framework */; };
 		836A9B29DA0D3D3FE9D90800 /* Pods_FrenkTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6FC2175175599A263D15781 /* Pods_FrenkTests.framework */; };
 /* End PBXBuildFile section */
@@ -88,6 +89,7 @@
 		22E54B881CFB1C63003EA4DB /* thumbs_down.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = thumbs_down.png; sourceTree = "<group>"; };
 		22E54B8A1CFE2CD3003EA4DB /* DataShare.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataShare.swift; sourceTree = "<group>"; };
 		22E54B8F1CFE372F003EA4DB /* mouse.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mouse.png; sourceTree = "<group>"; };
+		22EA7C761CFF849000C2EE82 /* LaunchAtLoginManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LaunchAtLoginManager.swift; sourceTree = "<group>"; };
 		4BECA133996901A26BFEB9D2 /* Pods-FrenkTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FrenkTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-FrenkTests/Pods-FrenkTests.release.xcconfig"; sourceTree = "<group>"; };
 		4C4706A8B66A1454D10CA3E2 /* Pods_Frenk.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Frenk.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		62DA12C82E199479A97371F4 /* Pods-FrenkUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FrenkUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-FrenkUITests/Pods-FrenkUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -138,6 +140,7 @@
 				225C14FA1CE8D65600A12030 /* Gesture.swift */,
 				221BB22A1CFA547200A78F5F /* AppData.swift */,
 				22E54B8A1CFE2CD3003EA4DB /* DataShare.swift */,
+				22EA7C761CFF849000C2EE82 /* LaunchAtLoginManager.swift */,
 			);
 			name = HelperClasses;
 			sourceTree = "<group>";
@@ -512,6 +515,7 @@
 				22593E9C1C18BCF9003CFCF2 /* AppDelegate.swift in Sources */,
 				2260B8EF1CF920BE008416B3 /* AboutWindowController.swift in Sources */,
 				221BB2191CF9BCE400A78F5F /* KeychainManager.swift in Sources */,
+				22EA7C771CFF849000C2EE82 /* LaunchAtLoginManager.swift in Sources */,
 				221BB22B1CFA547200A78F5F /* AppData.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

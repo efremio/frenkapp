@@ -31,8 +31,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         
         settingsWindow = SetupWindowController(windowNibName: "SetupWindowController")
         aboutWindow = AboutWindowController(windowNibName: "AboutWindowController")
-        
     }
+    
     @IBAction func openAbout(sender: AnyObject) {
         aboutWindow.showWindow(sender)
     }
@@ -48,6 +48,17 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         settingsWindow.showWindow(sender)
     
     }    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
     
 }
 

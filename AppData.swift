@@ -13,12 +13,14 @@ class AppData: NSObject, NSCoding {
     var gestures : [Gesture]?
     var password : NSString?
     var gestureTime : NSNumber?
+    var launchAtLogin : Bool?
     
-    init?(gestures: [Gesture]?, password: NSString?, gestureTime: NSNumber?) {
+    init?(gestures: [Gesture]?, password: NSString?, gestureTime: NSNumber?, launchAtLogin: Bool?) {
         // Initialize stored properties.
         self.gestures = gestures
         self.password = password
         self.gestureTime = gestureTime
+        self.launchAtLogin = launchAtLogin
         
         super.init()
     }
@@ -28,6 +30,7 @@ class AppData: NSObject, NSCoding {
         self.gestures = nil
         self.password = nil
         self.gestureTime = nil
+        self.launchAtLogin = nil
         
         super.init()
     }
@@ -36,14 +39,16 @@ class AppData: NSObject, NSCoding {
         aCoder.encodeObject(gestures, forKey: PropertyKeyAppData.gesturesKey)
         aCoder.encodeObject(password, forKey: PropertyKeyAppData.passwordKey)
         aCoder.encodeObject(gestureTime, forKey: PropertyKeyAppData.gestureTimeKey)
+        aCoder.encodeObject(launchAtLogin, forKey: PropertyKeyAppData.launchAtLoginKey)
     }
     
     required convenience init?(coder aDecoder: NSCoder) {
         let gestures = aDecoder.decodeObjectForKey(PropertyKeyAppData.gesturesKey) as? [Gesture]
         let password = aDecoder.decodeObjectForKey(PropertyKeyAppData.passwordKey) as? NSString
         let gestureTime = aDecoder.decodeObjectForKey(PropertyKeyAppData.gestureTimeKey) as? NSNumber
+        let launchAtLogin = aDecoder.decodeObjectForKey(PropertyKeyAppData.launchAtLoginKey) as? Bool
         
-        self.init(gestures: gestures, password: password, gestureTime: gestureTime)
+        self.init(gestures: gestures, password: password, gestureTime: gestureTime, launchAtLogin: launchAtLogin)
     }
 }
 
@@ -51,4 +56,5 @@ struct PropertyKeyAppData {
     static let gesturesKey = "gestures"
     static let passwordKey = "password"
     static let gestureTimeKey = "gestureTime"
+    static let launchAtLoginKey = "launchAtLogin"
 }

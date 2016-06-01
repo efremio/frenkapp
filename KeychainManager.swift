@@ -31,6 +31,12 @@ class KeychainManager {
         saveData(data)
     }
     
+    static func setLaunchAtLogin(launchAtLogin : Bool) {
+        let data = getData()
+        data.launchAtLogin = launchAtLogin
+        saveData(data)
+    }
+    
     static func isGestureTimeSet() -> Bool {
         return getData().password != nil
 
@@ -45,6 +51,11 @@ class KeychainManager {
         return getData().gestures != nil
     }
     
+    static func isLaunchAtLoginSet() -> Bool {
+        return getData().launchAtLogin != nil
+        
+    }
+    
     static func getGestureTime() -> NSNumber? {
         return getData().gestureTime
     }
@@ -55,6 +66,10 @@ class KeychainManager {
     
     static func getGestures() -> [Gesture]? {
         return getData().gestures
+    }
+    
+    static func getLaunchAtLogin() -> Bool? {
+        return getData().launchAtLogin
     }
     
     private static func getData() -> AppData {

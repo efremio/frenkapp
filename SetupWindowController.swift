@@ -18,6 +18,8 @@ class SetupWindowController: NSWindowController, NSWindowDelegate {
     @IBOutlet var gestureTimeSliderCell: NSSliderCell!
     @IBOutlet var updatePasswordButton: NSButtonCell!
     
+    @IBOutlet var launchAtLoginButton: NSButton!
+    
     //tab view
     @IBOutlet var tabView: NSTabView!
     
@@ -108,6 +110,11 @@ class SetupWindowController: NSWindowController, NSWindowDelegate {
         countGesturesLabel.hidden = true
         countGesturesButton.title = "0"
         countGesturesLabel.stringValue = "gestures"
+        if KeychainManager.isLaunchAtLoginSet() && KeychainManager.getLaunchAtLogin() == true {
+            launchAtLoginButton.state = NSOnState
+        } else {
+            launchAtLoginButton.state = NSOffState
+        }
         
         
         //labels
@@ -235,4 +242,13 @@ class SetupWindowController: NSWindowController, NSWindowDelegate {
             countGesturesLabel.stringValue = "gestures"
         }
     }
+    
+    @IBAction func startAtLoginToggle(sender: NSButton) {        
+        if launchAtLoginButton.state == NSOnState {
+            LaunchAtLoginManager.setLaunchAtStartup(true)
+        } else {
+            LaunchAtLoginManager.setLaunchAtStartup(false)
+        }
+    }
+    
 }

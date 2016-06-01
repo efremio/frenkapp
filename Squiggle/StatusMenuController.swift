@@ -23,7 +23,15 @@ class StatusMenuController: NSObject {
         if(!KeychainManager.isGestureTimeSet()) {
             KeychainManager.setGestureTime(defaultGestureTime)
         }
-               
+        
+        if(!KeychainManager.isLaunchAtLoginSet()) {
+            print("vaffanculo non è settato il launch")
+            LaunchAtLoginManager.setLaunchAtStartup(true) //this will update KeyChainManager as well
+        }
+        
+        
+        
+        
         gestureManager = GestureManager()
         
         super.init()
