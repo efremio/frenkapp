@@ -15,7 +15,7 @@ class LaunchAtLoginManager {
     }
     
     static func itemReferencesInLoginItems() -> (existingReference: LSSharedFileListItemRef?, lastReference: LSSharedFileListItemRef?) {
-        var itemUrl : UnsafeMutablePointer<Unmanaged<CFURL>?> = UnsafeMutablePointer<Unmanaged<CFURL>?>.alloc(1)
+        let itemUrl : UnsafeMutablePointer<Unmanaged<CFURL>?> = UnsafeMutablePointer<Unmanaged<CFURL>?>.alloc(1)
         if let appUrl : NSURL = NSURL.fileURLWithPath(NSBundle.mainBundle().bundlePath) {
             let loginItemsRef = LSSharedFileListCreate(
                 nil,
@@ -28,7 +28,7 @@ class LaunchAtLoginManager {
                 if(loginItems.count > 0)
                 {
                     let lastItemRef: LSSharedFileListItemRef = loginItems.lastObject as! LSSharedFileListItemRef
-                    for var i = 0; i < loginItems.count; i += 1 {
+                    for i in 0 ..< loginItems.count {
                         let currentItemRef: LSSharedFileListItemRef = loginItems.objectAtIndex(i) as! LSSharedFileListItemRef
                         if LSSharedFileListItemResolve(currentItemRef, 0, itemUrl, nil) == noErr {
                             if let urlRef: NSURL =  itemUrl.memory?.takeRetainedValue() {
