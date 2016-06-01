@@ -25,7 +25,6 @@ class StatusMenuController: NSObject {
         }
         
         if(!KeychainManager.isLaunchAtLoginSet()) {
-            print("vaffanculo non è settato il launch")
             LaunchAtLoginManager.setLaunchAtStartup(true) //this will update KeyChainManager as well
         }
         

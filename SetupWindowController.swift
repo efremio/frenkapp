@@ -110,7 +110,8 @@ class SetupWindowController: NSWindowController, NSWindowDelegate {
         countGesturesLabel.hidden = true
         countGesturesButton.title = "0"
         countGesturesLabel.stringValue = "gestures"
-        if KeychainManager.isLaunchAtLoginSet() && KeychainManager.getLaunchAtLogin() == true {
+        //if KeychainManager.isLaunchAtLoginSet() && KeychainManager.getLaunchAtLogin() == true {
+        if LaunchAtLoginManager.applicationIsInStartUpItems() {
             launchAtLoginButton.state = NSOnState
         } else {
             launchAtLoginButton.state = NSOffState
