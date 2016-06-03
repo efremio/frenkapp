@@ -12,6 +12,7 @@
                 <outlet property="gestureTimeSliderCell" destination="yT0-gg-Gme" id="v4S-ym-eEl"/>
                 <outlet property="gesturesTabViewItem" destination="NvK-Nz-3aE" id="L5Z-48-TjG"/>
                 <outlet property="launchAtLoginButton" destination="zuO-Ap-A1s" id="6Vc-nh-pgA"/>
+                <outlet property="launchAtLoginWarning" destination="VFo-XE-4Ft" id="JoH-lp-uLj"/>
                 <outlet property="logoImageView" destination="W3N-bl-O9F" id="FHq-Lk-SA8"/>
                 <outlet property="mouseImageView" destination="mMm-f3-H3j" id="jHZ-yr-IOu"/>
                 <outlet property="passwordAlertTextField" destination="8Li-kF-7OY" id="Om2-x9-1xJ"/>
@@ -193,6 +194,14 @@
                                                 <action selector="startAtLoginToggle:" target="-2" id="dcB-EH-ryz"/>
                                             </connections>
                                         </button>
+                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VFo-XE-4Ft">
+                                            <rect key="frame" x="130" y="27" width="259" height="44"/>
+                                            <textFieldCell key="cell" sendsActionOnEndEditing="YES" title="Your Mac will not launch Frenk for you at the sistem startup. You are on your own!" id="MMd-a7-gRy">
+                                                <font key="font" metaFont="smallSystem"/>
+                                                <color key="textColor" red="0.38506217279999999" green="0.061878694800000002" blue="0.035440644600000001" alpha="0.84999999999999998" colorSpace="calibratedRGB"/>
+                                                <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                            </textFieldCell>
+                                        </textField>
                                     </subviews>
                                 </view>
                             </tabViewItem>

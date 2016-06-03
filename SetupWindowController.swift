@@ -32,6 +32,7 @@ class SetupWindowController: NSWindowController, NSWindowDelegate {
     @IBOutlet var passwordAlertTextField: NSTextField!
     @IBOutlet var passwordOkField: NSTextField!
     
+    @IBOutlet var launchAtLoginWarning: NSTextField!
     @IBOutlet var thumbsUpImageView: NSImageView!
     @IBOutlet var thumbsDownImageView: NSImageView!
     @IBOutlet var mouseImageView: NSImageView!
@@ -113,8 +114,10 @@ class SetupWindowController: NSWindowController, NSWindowDelegate {
         //if KeychainManager.isLaunchAtLoginSet() && KeychainManager.getLaunchAtLogin() == true {
         if LaunchAtLoginManager.applicationIsInStartUpItems() {
             launchAtLoginButton.state = NSOnState
+            launchAtLoginWarning.hidden = true
         } else {
             launchAtLoginButton.state = NSOffState
+            launchAtLoginWarning.hidden = false
         }
         
         
@@ -247,8 +250,10 @@ class SetupWindowController: NSWindowController, NSWindowDelegate {
     @IBAction func startAtLoginToggle(sender: NSButton) {        
         if launchAtLoginButton.state == NSOnState {
             LaunchAtLoginManager.setLaunchAtStartup(true)
+            launchAtLoginWarning.hidden = true
         } else {
             LaunchAtLoginManager.setLaunchAtStartup(false)
+            launchAtLoginWarning.hidden = false
         }
     }
     
