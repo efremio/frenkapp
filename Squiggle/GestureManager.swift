@@ -27,8 +27,8 @@ class GestureManager : NSObject {
     
     //used to record the gesture
     func scrollLocal(event : NSEvent) -> NSEvent {
-        if (dataShare.canRecord) {
-            if(event.phase == NSEventPhase.Began) {
+        if dataShare.canRecord {
+            if event.phase == NSEventPhase.Began {
                 let newGesture = Gesture()
                 newGesture.timeStart = event.timestamp
                 gestures.append(newGesture)
@@ -36,13 +36,13 @@ class GestureManager : NSObject {
                 x = 0
                 y = 0
                 print("gesture recording started")
-            } else if(event.phase == NSEventPhase.Changed) {
+            } else if event.phase == NSEventPhase.Changed {
                 x += event.deltaX
                 y += event.deltaY
                 gestures.last?.xPoints.append(x)
                 gestures.last?.yPoints.append(y)
                 
-            } else if(event.phase == NSEventPhase.Ended) {
+            } else if event.phase == NSEventPhase.Ended {
                 gestures.last?.timeEnd = event.timestamp
                 print("gesture recording ended, last one?")
                 
@@ -59,8 +59,8 @@ class GestureManager : NSObject {
     }
     
     func scroll(event : NSEvent) {
-        if(isScreenLocked) {
-            if(event.phase == NSEventPhase.Began) {
+        if isScreenLocked {
+            if event.phase == NSEventPhase.Began {
                 let newGesture = Gesture()
                 newGesture.timeStart = event.timestamp
                 gestures.append(newGesture)
@@ -68,19 +68,19 @@ class GestureManager : NSObject {
                 x = 0
                 y = 0
                 print("gesture started")
-            } else if(event.phase == NSEventPhase.Changed) {
+            } else if event.phase == NSEventPhase.Changed {
                 
                 x += event.deltaX
                 y += event.deltaY
                 gestures.last?.xPoints.append(x)
                 gestures.last?.yPoints.append(y)
                 
-            } else if(event.phase == NSEventPhase.Ended) {
+            } else if event.phase == NSEventPhase.Ended {
                 gestures.last?.timeEnd = event.timestamp
                 print("gesture ended, last one?")
                 
                 //anticipate the unlock
-                if(KeychainManager.areGesturesSet() && gestures.count == KeychainManager.getGestures()!.count) {
+                if KeychainManager.areGesturesSet() && gestures.count == KeychainManager.getGestures()!.count {
                     manageUnlock()
                 } else {
                     
@@ -102,10 +102,10 @@ class GestureManager : NSObject {
         //it was the last gesture
         
         print("is the screen locked?")
-        if(isScreenLocked) {
+        if isScreenLocked {
             print(" yes, the screen is locked")
             print("are the gestures matching the stored ones?")
-            if(areGesturesCorrelated()) {
+            if areGesturesCorrelated() {
                 print(" yes, unlocking...")
                 unlock()
             } else {
@@ -121,11 +121,35 @@ class GestureManager : NSObject {
     
     //used to save a new gesture
     @objc private func lastGestureRecordingTimerFired(timer : NSTimer!) {
-        print(" yes, last gesture recording")
+        print(" yes, last gesture, checking the sequence")
         //it was the last gesture
         
-        //store gestures... TODO
-        KeychainManager.setGestures(gestures)
+        let messages = checkSequenceValidity() //it returns warnings and errors about the sequence
+        //sort the messages in errors and warnings
+        var errors = [Message]()
+        var warnings = [Message]()
+        for m in messages {
+            if m.messageType == MessageType.errorMEssage {
+                errors.append(m)
+            } else if m.messageType == MessageType.warningMessage {
+                warnings.append(m)
+            }
+        }
+        
+        if errors.count > 0 { //if messages array contains at least one error
+            //KeychainManager.setGestures(gestures) must be called after password check
+            
+            //notify the graphics
+            dataShare.setupWindowControllerInstance!.errorsInGestureSequence(errors)
+        } else if warnings.count > 0 { //if messages array contains at least one warning
+            //notify the graphics
+            dataShare.setupWindowControllerInstance!.warningsInGestureSequence(warnings)
+        } else {
+            //notify the graphics
+            
+            dataShare.setupWindowControllerInstance!.gestureIsValid(gestures)
+        }
+        
         
         //delete gestures
         gestures.removeAll()
@@ -134,29 +158,44 @@ class GestureManager : NSObject {
         dataShare.setupWindowControllerInstance!.updateGestureNumber(gestures.count)
     }
     
-    func isScreenLocked(locked : Bool) {
+    private func checkSequenceValidity() -> [Message] {
+        var messages = [Message]()
+        
+        //check length
+        if gestures.count < 1 {
+            messages.append(Message(messageType: MessageType.errorMEssage, string: "The sequence must contain at least one gesture."))
+        } else if gestures.count == 1 {
+            messages.append(Message(messageType: MessageType.warningMessage, string: "Frenk recommends to use at least two gestures in your sequence"))
+        }
+        
+        //todo other checks
+        
+        return messages
+    }
+    
+    func setScreenLocked(locked : Bool) {
         print("screen locked = " + locked.description)
         isScreenLocked = locked
     }
     
     private func areGesturesCorrelated() -> Bool {
-        if(!KeychainManager.areGesturesSet()) { //no gestures saved, no correlation!
+        if !KeychainManager.areGesturesSet() { //no gestures saved, no correlation!
             return false
         }
         
-        if(gestures.count == KeychainManager.getGestures()!.count) {
+        if gestures.count == KeychainManager.getGestures()!.count {
             //TODO optimize: break the loop!
             var correlated = true
             for index in 0...(gestures.count-1) {
-                if(!(getCorrelation(gestures[index].xPoints, s2: KeychainManager.getGestures()![index].xPoints) > 0.83)
-                    || !(getCorrelation(gestures[index].yPoints, s2: KeychainManager.getGestures()![index].yPoints) > 0.83)) {
+                if !(getCorrelation(gestures[index].xPoints, s2: KeychainManager.getGestures()![index].xPoints) > 0.83)
+                    || !(getCorrelation(gestures[index].yPoints, s2: KeychainManager.getGestures()![index].yPoints) > 0.83) {
                     correlated = false
                 }
                 print("DEBUG: gesture #", index)
                 print(getCorrelation(gestures[index].xPoints, s2: KeychainManager.getGestures()![index].xPoints))
                 print(getCorrelation(gestures[index].yPoints, s2: KeychainManager.getGestures()![index].yPoints))
             }
-            if(correlated) {
+            if correlated {
                 return true
             }
         }
@@ -164,7 +203,7 @@ class GestureManager : NSObject {
     }
     
     private func unlock() {
-        if(KeychainManager.isPasswordSet()) { //unlock if password was set
+        if KeychainManager.isPasswordSet() { //unlock if password was set
             let pwd = KeychainManager.getPassword()
             
             let unlockScript = "tell application \"System Events\"\n if name of every process contains \"ScreenSaverEngine\" then\n tell application \"ScreenSaverEngine\"\n quit\n end tell\n end if\n set pword to \""+(pwd as! String)+"\"\nrepeat 40 times\n tell application \"System Events\" to keystroke (ASCII character 8)\n end repeat\n tell application \"System Events\"\n keystroke pword\n keystroke return\n end tell\n end tell"

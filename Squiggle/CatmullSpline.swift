@@ -13,16 +13,16 @@ func getCorrelation(s1 : [CGFloat], s2 : [CGFloat]) -> CGFloat {
     var b = s2
     
     //normalize the lengths of the series
-    if(a.count < 10 || b.count < 10) {
+    if a.count < 10 || b.count < 10 {
         return 0
     }
-    if(a.count > b.count) {
+    if a.count > b.count {
         b = normalizeArray(b, n: a.count)
-    } else if (a.count < b.count) {
+    } else if a.count < b.count {
         a = normalizeArray(a, n: b.count)
     }
     
-    //calcolo la correlazione con l'indice di Pearson
+    //compute the correlation with Pearson
     return getPearsonCorrelation(a, b: b)
 }
 
@@ -80,17 +80,17 @@ func normalizeArray(s : [CGFloat], n : Int) -> [CGFloat] {
     
     //find the 4 points to compute spline
     for index in 0...(givenValues.count-1) {
-        if(givenValues[index] == nil) {
+        if givenValues[index] == nil {
             //let's compute a value for this nil!
             var points = [CGFloat?](count: 4, repeatedValue: nil)
             
             //try to find the two points before
             var i = index
             while i >= 0 {
-                if(givenValues[i] != nil) {
-                    if(points[1] == nil) {
+                if givenValues[i] != nil {
+                    if points[1] == nil {
                         points[1] = givenValues[i]
-                    } else if (points[0] == nil) {
+                    } else if points[0] == nil {
                         points[0] = givenValues[i]
                     }
                 }
@@ -98,11 +98,11 @@ func normalizeArray(s : [CGFloat], n : Int) -> [CGFloat] {
             }
             
             //fill if empty (at the beginning)
-            if(points[1] == nil) {
+            if points[1] == nil {
                 points[1] = givenValues[0]
             }
-            if(points[0] == nil) {
-                if(points[1] != nil) {
+            if points[0] == nil {
+                if points[1] != nil {
                     points[0] = points[1]
                 } else {
                     points[0] = givenValues[0]
@@ -112,21 +112,21 @@ func normalizeArray(s : [CGFloat], n : Int) -> [CGFloat] {
             //try to find the two points after
             i = index
             while i < givenValues.count {
-                if(givenValues[i] != nil) {
-                    if(points[2] == nil) {
+                if givenValues[i] != nil {
+                    if points[2] == nil {
                         points[2] = givenValues[i]
-                    } else if (points[3] == nil) {
+                    } else if points[3] == nil {
                         points[3] = givenValues[i]
                     }
                 }
                 i += 1
             }
             //fill if empty (at the end)
-            if(points[2] == nil) {
+            if points[2] == nil {
                 points[2] = givenValues[givenValues.count-1]
             }
-            if(points[3] == nil) {
-                if(points[2] != nil) {
+            if points[3] == nil {
+                if points[2] != nil {
                     points[3] = points[2]
                 } else {
                     points[3] = givenValues[givenValues.count-1]
@@ -138,7 +138,7 @@ func normalizeArray(s : [CGFloat], n : Int) -> [CGFloat] {
             var next : Int = 0
             i = index
             while i >= 0 {
-                if(givenValues[i] != nil) {
+                if givenValues[i] != nil {
                     last = i
                     break
                 }
@@ -146,7 +146,7 @@ func normalizeArray(s : [CGFloat], n : Int) -> [CGFloat] {
             }
             i = index
             while i < givenValues.count {
-                if(givenValues[i] != nil) {
+                if givenValues[i] != nil {
                     next = i
                     break
                 }
@@ -171,7 +171,7 @@ func normalizeArray(s : [CGFloat], n : Int) -> [CGFloat] {
     
     //now merge the givenValues array and the newValuewArray
     for index in 0...(newValues.count-1) {
-        if(givenValues[index] != nil) {
+        if givenValues[index] != nil {
             newValues[index] = givenValues[index]!
         }
     }

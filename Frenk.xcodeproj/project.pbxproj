@@ -18,6 +18,7 @@
 		221BB22B1CFA547200A78F5F /* AppData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 221BB22A1CFA547200A78F5F /* AppData.swift */; };
 		221CAD841C1999C500F57E62 /* StatusMenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 221CAD831C1999C500F57E62 /* StatusMenuController.swift */; };
 		2237D87B1CEE917B003845B5 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2237D87A1CEE917B003845B5 /* Security.framework */; };
+		225486BE1D05CDCB00BE070B /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 225486BD1D05CDCB00BE070B /* Message.swift */; };
 		22593E9C1C18BCF9003CFCF2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22593E9B1C18BCF9003CFCF2 /* AppDelegate.swift */; };
 		22593E9E1C18BCF9003CFCF2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 22593E9D1C18BCF9003CFCF2 /* Assets.xcassets */; };
 		22593EA11C18BCF9003CFCF2 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22593E9F1C18BCF9003CFCF2 /* MainMenu.xib */; };
@@ -68,6 +69,7 @@
 		221CAD831C1999C500F57E62 /* StatusMenuController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StatusMenuController.swift; path = Squiggle/StatusMenuController.swift; sourceTree = "<group>"; };
 		2237D8741CEE8D7A003845B5 /* ApplicationServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ApplicationServices.framework; path = System/Library/Frameworks/ApplicationServices.framework; sourceTree = SDKROOT; };
 		2237D87A1CEE917B003845B5 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		225486BD1D05CDCB00BE070B /* Message.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		22593E981C18BCF9003CFCF2 /* Frenk.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Frenk.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		22593E9B1C18BCF9003CFCF2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = Squiggle/AppDelegate.swift; sourceTree = "<group>"; };
 		22593E9D1C18BCF9003CFCF2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = Squiggle/Assets.xcassets; sourceTree = "<group>"; };
@@ -141,6 +143,7 @@
 				221BB22A1CFA547200A78F5F /* AppData.swift */,
 				22E54B8A1CFE2CD3003EA4DB /* DataShare.swift */,
 				22EA7C761CFF849000C2EE82 /* LaunchAtLoginManager.swift */,
+				225486BD1D05CDCB00BE070B /* Message.swift */,
 			);
 			name = HelperClasses;
 			sourceTree = "<group>";
@@ -515,6 +518,7 @@
 				22593E9C1C18BCF9003CFCF2 /* AppDelegate.swift in Sources */,
 				2260B8EF1CF920BE008416B3 /* AboutWindowController.swift in Sources */,
 				221BB2191CF9BCE400A78F5F /* KeychainManager.swift in Sources */,
+				225486BE1D05CDCB00BE070B /* Message.swift in Sources */,
 				22EA7C771CFF849000C2EE82 /* LaunchAtLoginManager.swift in Sources */,
 				221BB22B1CFA547200A78F5F /* AppData.swift in Sources */,
 			);

@@ -73,7 +73,7 @@ class KeychainManager {
     }
     
     private static func getData() -> AppData {
-        if(cachedData != nil) {
+        if cachedData != nil {
             return cachedData!
         } else {
             let dictionary = Locksmith.loadDataForUserAccount("frenkapp_data")
@@ -81,7 +81,7 @@ class KeychainManager {
                 return AppData()
             } else {
                 for obj in dictionary! {
-                    if(obj.0 == "data") {
+                    if obj.0 == "data" {
                         return obj.1 as! AppData
                     }
                 }

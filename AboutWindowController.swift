@@ -19,10 +19,10 @@ class AboutWindowController: NSWindowController {
     let versionNumber = NSBundle.mainBundle().infoDictionary?["CFBundleShortVersionString"] as? String
     
     override func showWindow(sender: AnyObject?) {
-        if(aboutWindow != nil && aboutWindow.miniaturized) { //if it is miniaturized, deminiaturize
+        if aboutWindow != nil && aboutWindow.miniaturized { //if it is miniaturized, deminiaturize
             aboutWindow.deminiaturize(aboutWindow)
             aboutWindow.orderFrontRegardless()
-        } else if(aboutWindow != nil && aboutWindow.visible){ //if it is somewhere already open, show to the front
+        } else if aboutWindow != nil && aboutWindow.visible { //if it is somewhere already open, show to the front
             aboutWindow.collectionBehavior = .MoveToActiveSpace
             aboutWindow.orderFrontRegardless()
         } else {
@@ -34,7 +34,7 @@ class AboutWindowController: NSWindowController {
     override func windowDidLoad() {
         super.windowDidLoad()
         
-        let darkMode = NSUserDefaults.standardUserDefaults().stringForKey("AppleInterfaceStyle") == "Dark"
+        let darkMode = false //NSUserDefaults.standardUserDefaults().stringForKey("AppleInterfaceStyle") == "Dark"
         
         let visualEffectView = NSVisualEffectView(frame: NSMakeRect(0, 0, 0, 0))
         darkMode == true ? (visualEffectView.material = NSVisualEffectMaterial.UltraDark) : (visualEffectView.material = NSVisualEffectMaterial.MediumLight)

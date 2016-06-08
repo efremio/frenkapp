@@ -65,11 +65,11 @@ class StatusMenuController: NSObject {
     }
     
     func lockedEvent() {
-        gestureManager.isScreenLocked(true)
+        gestureManager.setScreenLocked(true)
     }
     
     func unlockedEvent() {
-        gestureManager.isScreenLocked(false)
+        gestureManager.setScreenLocked(false)
     }
     
     internal func getGestureManagerInstance() -> GestureManager {

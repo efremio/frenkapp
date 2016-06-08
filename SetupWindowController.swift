@@ -10,6 +10,8 @@ import Cocoa
 import Collaboration
 
 class SetupWindowController: NSWindowController, NSWindowDelegate {
+    let gestureInstructions1 = "Move the cursor inside this box to record your gesture sequence."
+    let gestureInstructions2 = "Now start recording your gesture sequence using two fingers on the trackpad!"
     
     @IBOutlet var settingsWindow: NSWindow!
     @IBOutlet var prova: NSView!
@@ -40,11 +42,12 @@ class SetupWindowController: NSWindowController, NSWindowDelegate {
     
     @IBOutlet var countGesturesButton: NSButton!
     @IBOutlet var countGesturesLabel: NSTextField!
+    @IBOutlet var gestureInstructionsLabel: NSTextField!
     
     let dataShare = DataShare.sharedInstance
     
     override func showWindow(sender: AnyObject?) {
-        if(settingsWindow != nil && settingsWindow.miniaturized) { //if it is miniaturized, deminiaturize
+        if settingsWindow != nil && settingsWindow.miniaturized { //if it is miniaturized, deminiaturize
             settingsWindow.deminiaturize(settingsWindow)
             settingsWindow.orderFrontRegardless()
         } else if(settingsWindow != nil && settingsWindow.visible){ //if it is somewhere already open, show to the front
@@ -111,6 +114,7 @@ class SetupWindowController: NSWindowController, NSWindowDelegate {
         countGesturesLabel.hidden = true
         countGesturesButton.title = "0"
         countGesturesLabel.stringValue = "gestures"
+        gestureInstructionsLabel.stringValue = gestureInstructions1
         //if KeychainManager.isLaunchAtLoginSet() && KeychainManager.getLaunchAtLogin() == true {
         if LaunchAtLoginManager.applicationIsInStartUpItems() {
             launchAtLoginButton.state = NSOnState
@@ -122,7 +126,7 @@ class SetupWindowController: NSWindowController, NSWindowDelegate {
         
         
         //labels
-        if(KeychainManager.isPasswordSet()) {
+        if KeychainManager.isPasswordSet() {
             passwordTabViewItem.label = "Update password"
             updatePasswordButton.title = "Update password"
         } else {
@@ -130,7 +134,7 @@ class SetupWindowController: NSWindowController, NSWindowDelegate {
             updatePasswordButton.title = "Set password"
         }
         
-        if(KeychainManager.areGesturesSet()) {
+        if KeychainManager.areGesturesSet() {
             gesturesTabViewItem.label = "Update gestures"
         } else {
             gesturesTabViewItem.label = "Set gestures"
@@ -160,7 +164,7 @@ class SetupWindowController: NSWindowController, NSWindowDelegate {
         updateTimeLabel(NSNumber(int: sender.intValue)) //update label
         
         //if mouseUp
-        if(NSApplication.sharedApplication().currentEvent?.type == NSEventType.LeftMouseUp) {
+        if NSApplication.sharedApplication().currentEvent?.type == NSEventType.LeftMouseUp {
             KeychainManager.setGestureTime(NSNumber(int: sender.intValue))
         }
     }
@@ -170,7 +174,7 @@ class SetupWindowController: NSWindowController, NSWindowDelegate {
     }
     
     @IBAction func mouseOverSettingGesture(sender: AnyObject) {
-        print("erbwbwbwbwbww")
+        print("erbwbwbwbwbww") //todo delete?
     }
    
     @IBAction func updatePassword(sender: AnyObject) {
@@ -178,7 +182,7 @@ class SetupWindowController: NSWindowController, NSWindowDelegate {
         let identity = CBUserIdentity(posixUID: getuid(), authority: CBIdentityAuthority.defaultIdentityAuthority())
         let passOk = identity?.authenticateWithPassword(passwordField.stringValue)
         
-        if(passOk == true) {
+        if passOk == true {
             KeychainManager.setPassword(NSString(string: passwordField.stringValue)) //store the password
             
             //update labels
@@ -202,7 +206,7 @@ class SetupWindowController: NSWindowController, NSWindowDelegate {
             thumbsDownImageView.hidden = false
             
             //update buttons
-            if(KeychainManager.isPasswordSet()) {
+            if KeychainManager.isPasswordSet() {
                 passwordTabViewItem.label = "Update password"
                 updatePasswordButton.title = "Update password"
             } else {
@@ -224,23 +228,23 @@ class SetupWindowController: NSWindowController, NSWindowDelegate {
         scrollImageView.hidden = false
         countGesturesButton.hidden = false
         countGesturesLabel.hidden = false
+        gestureInstructionsLabel.stringValue = gestureInstructions2
     }
     
     override func mouseExited(theEvent: NSEvent) {
         dataShare.canRecord = false
         
-        
-        
         mouseImageView.hidden = false
         scrollImageView.hidden = true
         countGesturesButton.hidden = true
         countGesturesLabel.hidden = true
+        gestureInstructionsLabel.stringValue = gestureInstructions1
         
     }
     
     func updateGestureNumber(number: NSNumber) {
         countGesturesButton.title = number.description
-        if(number == 1) {
+        if number == 1 {
             countGesturesLabel.stringValue = "gesture"
         } else {
             countGesturesLabel.stringValue = "gestures"
@@ -255,6 +259,18 @@ class SetupWindowController: NSWindowController, NSWindowDelegate {
             LaunchAtLoginManager.setLaunchAtStartup(false)
             launchAtLoginWarning.hidden = false
         }
+    }
+    
+    func errorsInGestureSequence(errors: [Message]) {
+        print("gesture has errors")
+    }
+    
+    func warningsInGestureSequence(warnings: [Message]) {
+        print("gesture has warnings")
+    }
+    
+    func gestureIsValid(gesture: [Gesture]) {
+        print("gesture is valid")
     }
     
 }
