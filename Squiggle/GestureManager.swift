@@ -35,7 +35,6 @@ class GestureManager : NSObject {
                 lastGestureTimer.invalidate()
                 x = 0
                 y = 0
-                print("gesture recording started")
             } else if event.phase == NSEventPhase.Changed {
                 x += event.deltaX
                 y += event.deltaY
@@ -44,7 +43,6 @@ class GestureManager : NSObject {
                 
             } else if event.phase == NSEventPhase.Ended {
                 gestures.last?.timeEnd = event.timestamp
-                print("gesture recording ended, last one?")
                 
                 //update the graphics
                 dataShare.setupWindowControllerInstance!.updateGestureNumber(gestures.count)
@@ -67,7 +65,6 @@ class GestureManager : NSObject {
                 lastGestureTimer.invalidate()
                 x = 0
                 y = 0
-                print("gesture started")
             } else if event.phase == NSEventPhase.Changed {
                 
                 x += event.deltaX
@@ -77,7 +74,6 @@ class GestureManager : NSObject {
                 
             } else if event.phase == NSEventPhase.Ended {
                 gestures.last?.timeEnd = event.timestamp
-                print("gesture ended, last one?")
                 
                 //anticipate the unlock
                 if KeychainManager.areGesturesSet() && gestures.count == KeychainManager.getGestures()!.count {
@@ -98,21 +94,12 @@ class GestureManager : NSObject {
     }
     
     func manageUnlock() {
-        print(" yes, last gesture")
         //it was the last gesture
         
-        print("is the screen locked?")
         if isScreenLocked {
-            print(" yes, the screen is locked")
-            print("are the gestures matching the stored ones?")
             if areGesturesCorrelated() {
-                print(" yes, unlocking...")
                 unlock()
-            } else {
-                print(" no")
             }
-        } else {
-            print("  no, the screen is not locked")
         }
         
         //delete gestures
@@ -121,7 +108,6 @@ class GestureManager : NSObject {
     
     //used to save a new gesture
     @objc private func lastGestureRecordingTimerFired(timer : NSTimer!) {
-        print(" yes, last gesture, checking the sequence")
         //it was the last gesture
         
         let messages = checkSequenceValidity() //it returns warnings and errors about the sequence
@@ -147,7 +133,8 @@ class GestureManager : NSObject {
         } else {
             //notify the graphics
             
-            dataShare.setupWindowControllerInstance!.gestureIsValid(gestures)
+            dataShare.sequenceBeingRecorded = gestures
+            dataShare.setupWindowControllerInstance!.gestureIsValid()
         }
         
         
@@ -174,7 +161,6 @@ class GestureManager : NSObject {
     }
     
     func setScreenLocked(locked : Bool) {
-        print("screen locked = " + locked.description)
         isScreenLocked = locked
     }
     

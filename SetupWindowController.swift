@@ -39,6 +39,7 @@ class SetupWindowController: NSWindowController, NSWindowDelegate {
     @IBOutlet var thumbsDownImageView: NSImageView!
     @IBOutlet var mouseImageView: NSImageView!
     @IBOutlet var scrollImageView: NSImageView!
+    @IBOutlet var confirmGestureWithPasswordLabel: NSTextField!
     
     @IBOutlet var countGesturesButton: NSButton!
     @IBOutlet var countGesturesLabel: NSTextField!
@@ -64,6 +65,7 @@ class SetupWindowController: NSWindowController, NSWindowDelegate {
         
         //register itself
         dataShare.setupWindowControllerInstance = self
+        dataShare.sequenceBeingRecorded = nil
         
         let darkMode = NSUserDefaults.standardUserDefaults().stringForKey("AppleInterfaceStyle") == "Dark"
         
@@ -93,12 +95,8 @@ class SetupWindowController: NSWindowController, NSWindowDelegate {
         
         tabView.selectFirstTabViewItem(self)
         
-        
-        
         let bounds = gesturesTabViewItem.view?.bounds
         gesturesTabViewItem.view?.addTrackingRect(bounds!, owner: self, userData: nil, assumeInside: true)
-        
-        
         
         
         //get gesture time
@@ -110,11 +108,13 @@ class SetupWindowController: NSWindowController, NSWindowDelegate {
         passwordAlertTextField.stringValue = ""
         passwordOkField.stringValue = ""
         scrollImageView.hidden = true
+        mouseImageView.hidden = false
         countGesturesButton.hidden = true
         countGesturesLabel.hidden = true
         countGesturesButton.title = "0"
         countGesturesLabel.stringValue = "gestures"
         gestureInstructionsLabel.stringValue = gestureInstructions1
+        confirmGestureWithPasswordLabel.hidden = true
         //if KeychainManager.isLaunchAtLoginSet() && KeychainManager.getLaunchAtLogin() == true {
         if LaunchAtLoginManager.applicationIsInStartUpItems() {
             launchAtLoginButton.state = NSOnState
@@ -135,9 +135,9 @@ class SetupWindowController: NSWindowController, NSWindowDelegate {
         }
         
         if KeychainManager.areGesturesSet() {
-            gesturesTabViewItem.label = "Update gestures"
+            gesturesTabViewItem.label = "Update sequence"
         } else {
-            gesturesTabViewItem.label = "Set gestures"
+            gesturesTabViewItem.label = "Set sequence"
         }
     }
     
@@ -176,7 +176,7 @@ class SetupWindowController: NSWindowController, NSWindowDelegate {
     @IBAction func mouseOverSettingGesture(sender: AnyObject) {
         print("erbwbwbwbwbww") //todo delete?
     }
-   
+    
     @IBAction func updatePassword(sender: AnyObject) {
         //check if the password is correct
         let identity = CBUserIdentity(posixUID: getuid(), authority: CBIdentityAuthority.defaultIdentityAuthority())
@@ -185,9 +185,28 @@ class SetupWindowController: NSWindowController, NSWindowDelegate {
         if passOk == true {
             KeychainManager.setPassword(NSString(string: passwordField.stringValue)) //store the password
             
+            if dataShare.sequenceBeingRecorded != nil { //if the user is confirming a new sequence
+                KeychainManager.setGestures(dataShare.sequenceBeingRecorded!)
+                dataShare.sequenceBeingRecorded = nil
+                
+                //update graphics
+                confirmGestureWithPasswordLabel.hidden = true
+                gesturesTabViewItem.label = "Update gesture"
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                print("new sequence saved")
+            }
+            
             //update labels
-            passwordAlertTextField.stringValue = ""
             passwordOkField.stringValue = "Your password has been securely saved. It will be used only to unlock your Mac."
+            passwordAlertTextField.stringValue = ""
             
             //update buttons
             passwordTabViewItem.label = "Update password"
@@ -206,12 +225,20 @@ class SetupWindowController: NSWindowController, NSWindowDelegate {
             thumbsDownImageView.hidden = false
             
             //update buttons
-            if KeychainManager.isPasswordSet() {
-                passwordTabViewItem.label = "Update password"
-                updatePasswordButton.title = "Update password"
+            if(dataShare.sequenceBeingRecorded == nil) {
+                if KeychainManager.isPasswordSet() {
+                    passwordTabViewItem.label = "Update password"
+                    updatePasswordButton.title = "Update password"
+                } else {
+                    passwordTabViewItem.label = "Set password"
+                    updatePasswordButton.title = "Set password"
+                }
             } else {
-                passwordTabViewItem.label = "Set password"
-                updatePasswordButton.title = "Set password"
+                if KeychainManager.areGesturesSet() {
+                    updatePasswordButton.title = "Update sequence"
+                } else {
+                    updatePasswordButton.title = "Set sequence"
+                }
             }
         }
         
@@ -251,7 +278,7 @@ class SetupWindowController: NSWindowController, NSWindowDelegate {
         }
     }
     
-    @IBAction func startAtLoginToggle(sender: NSButton) {        
+    @IBAction func startAtLoginToggle(sender: NSButton) {
         if launchAtLoginButton.state == NSOnState {
             LaunchAtLoginManager.setLaunchAtStartup(true)
             launchAtLoginWarning.hidden = true
@@ -269,8 +296,34 @@ class SetupWindowController: NSWindowController, NSWindowDelegate {
         print("gesture has warnings")
     }
     
-    func gestureIsValid(gesture: [Gesture]) {
+    func gestureIsValid() {
         print("gesture is valid")
+        
+        //update password graphics
+        if KeychainManager.areGesturesSet() {
+            updatePasswordButton.title = "Update sequence"
+        } else {
+            updatePasswordButton.title = "Set sequence"
+        }
+        passwordTabViewItem.label = "Confirm sequence"
+        thumbsUpImageView.hidden = true
+        thumbsDownImageView.hidden = true
+        passwordOkField.stringValue = ""
+        passwordAlertTextField.stringValue = ""
+        
+        //switch to password tab
+        tabView.selectTabViewItem(passwordTabViewItem)
+        confirmGestureWithPasswordLabel.hidden = false
+        
+        //init the gesture tab
+        scrollImageView.hidden = true
+        mouseImageView.hidden = false
+        countGesturesButton.hidden = true
+        countGesturesLabel.hidden = true
+        countGesturesButton.title = "0"
+        countGesturesLabel.stringValue = "gestures"
+        gestureInstructionsLabel.stringValue = gestureInstructions1
+        
     }
     
 }

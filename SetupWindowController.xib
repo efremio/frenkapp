@@ -7,6 +7,7 @@
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="SetupWindowController" customModule="Frenk" customModuleProvider="target">
             <connections>
+                <outlet property="confirmGestureWithPasswordLabel" destination="FA9-Ia-R3o" id="Sym-cc-S8d"/>
                 <outlet property="countGesturesButton" destination="wZb-uB-FEB" id="lJA-RD-dfY"/>
                 <outlet property="countGesturesLabel" destination="Jcq-MG-tX9" id="sQ9-4o-sFy"/>
                 <outlet property="gestureInstructionsLabel" destination="FYt-ye-M8q" id="A8n-WG-DDn"/>
@@ -43,8 +44,8 @@
                         <rect key="frame" x="13" y="10" width="424" height="259"/>
                         <font key="font" metaFont="system"/>
                         <tabViewItems>
-                            <tabViewItem label="Set gesture" identifier="1" id="NvK-Nz-3aE">
-                                <view key="view" ambiguous="YES" id="dGM-BU-xlt">
+                            <tabViewItem label="Set sequence" identifier="1" id="NvK-Nz-3aE">
+                                <view key="view" id="dGM-BU-xlt">
                                     <rect key="frame" x="10" y="33" width="404" height="213"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
@@ -135,6 +136,14 @@
                                             <rect key="frame" x="178" y="22" width="48" height="48"/>
                                             <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="thumbs_down" id="Trq-qM-GKJ"/>
                                         </imageView>
+                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FA9-Ia-R3o">
+                                            <rect key="frame" x="15" y="171" width="374" height="39"/>
+                                            <textFieldCell key="cell" sendsActionOnEndEditing="YES" title="To save the gesture you have just recorded, write your system password" id="uRA-hI-TBQ">
+                                                <font key="font" metaFont="smallSystem"/>
+                                                <color key="textColor" red="0.38506217279999999" green="0.38506217279999999" blue="0.38506217279999999" alpha="0.84999999999999998" colorSpace="calibratedRGB"/>
+                                                <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                            </textFieldCell>
+                                        </textField>
                                     </subviews>
                                     <gestureRecognizers>
                                         <magnificationGestureRecognizer delaysMagnificationEvents="YES" magnification="0.0" id="L3m-hE-m2d"/>
@@ -142,7 +151,7 @@
                                 </view>
                             </tabViewItem>
                             <tabViewItem label="Advanced settings" identifier="" id="Wfg-wj-2I2">
-                                <view key="view" id="Uvh-6s-t8y">
+                                <view key="view" ambiguous="YES" id="Uvh-6s-t8y">
                                     <rect key="frame" x="10" y="33" width="404" height="213"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>

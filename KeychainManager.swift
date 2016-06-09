@@ -38,7 +38,7 @@ class KeychainManager {
     }
     
     static func isGestureTimeSet() -> Bool {
-        return getData().password != nil
+        return getData().gestureTime != nil
 
     }
     
@@ -73,19 +73,24 @@ class KeychainManager {
     }
     
     private static func getData() -> AppData {
-        if cachedData != nil {
+        if cachedData != nil { //cache is not empty
             return cachedData!
-        } else {
+        } else { //cache is empty
             let dictionary = Locksmith.loadDataForUserAccount("frenkapp_data")
-            if(dictionary == nil) {
-                return AppData()
-            } else {
+            if(dictionary == nil) { //no keychain
+                cachedData = AppData() //create a cache
+                return cachedData!
+            } else { //keychain found
                 for obj in dictionary! {
                     if obj.0 == "data" {
-                        return obj.1 as! AppData
+                        cachedData = obj.1 as? AppData //create a cache
+                        return cachedData!
                     }
                 }
-                return AppData()
+                //wrong keychain
+                cachedData = AppData() //create a cache
+                saveData(cachedData!) //save an empty keychain
+                return cachedData!
             }
         }
     }
