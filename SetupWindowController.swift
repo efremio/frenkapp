@@ -63,6 +63,8 @@ class SetupWindowController: NSWindowController, NSWindowDelegate {
     override func windowDidLoad() {
         super.windowDidLoad()
         
+        print("windowDidLoad called")
+        
         //register itself
         dataShare.setupWindowControllerInstance = self
         dataShare.sequenceBeingRecorded = nil
@@ -185,24 +187,7 @@ class SetupWindowController: NSWindowController, NSWindowDelegate {
         if passOk == true {
             KeychainManager.setPassword(NSString(string: passwordField.stringValue)) //store the password
             
-            if dataShare.sequenceBeingRecorded != nil { //if the user is confirming a new sequence
-                KeychainManager.setGestures(dataShare.sequenceBeingRecorded!)
-                dataShare.sequenceBeingRecorded = nil
-                
-                //update graphics
-                confirmGestureWithPasswordLabel.hidden = true
-                gesturesTabViewItem.label = "Update gesture"
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                print("new sequence saved")
-            }
+
             
             //update labels
             passwordOkField.stringValue = "Your password has been securely saved. It will be used only to unlock your Mac."
@@ -215,6 +200,35 @@ class SetupWindowController: NSWindowController, NSWindowDelegate {
             //thumbs up!
             thumbsUpImageView.hidden = false
             thumbsDownImageView.hidden = true
+            
+            
+            if dataShare.sequenceBeingRecorded != nil { //if the user is confirming a new sequence
+                KeychainManager.setGestures(dataShare.sequenceBeingRecorded!)
+                dataShare.sequenceBeingRecorded = nil
+                
+                //update graphics
+                confirmGestureWithPasswordLabel.hidden = true
+                gesturesTabViewItem.label = "Update gesture"
+                
+                
+                
+                //display a popup and close the window
+                let confPopup: NSAlert = NSAlert()
+                confPopup.messageText = "Well done!"
+                confPopup.informativeText = "esfbwh 4whw 4h w4h w4 hw4 hw4 f"
+                confPopup.alertStyle = NSAlertStyle.InformationalAlertStyle
+                confPopup.addButtonWithTitle("Ok")
+                let res = confPopup.runModal()
+                if res == NSAlertFirstButtonReturn {
+                    windowDidLoad() //reset
+                    tabView.selectTabViewItem(gesturesTabViewItem)
+                }
+                
+                
+                print("new sequence saved")
+            }
+            
+            
         } else {
             //update labels
             passwordAlertTextField.stringValue = "The given password is not the current user's one."
