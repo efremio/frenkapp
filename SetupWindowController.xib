@@ -48,7 +48,7 @@
                         <font key="font" metaFont="system"/>
                         <tabViewItems>
                             <tabViewItem label="Set sequence" identifier="1" id="NvK-Nz-3aE">
-                                <view key="view" id="dGM-BU-xlt">
+                                <view key="view" ambiguous="YES" id="dGM-BU-xlt">
                                     <rect key="frame" x="10" y="33" width="404" height="213"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
@@ -115,7 +115,7 @@
                                 </view>
                             </tabViewItem>
                             <tabViewItem label="Set password" identifier="2" id="z7P-TO-mIl">
-                                <view key="view" ambiguous="YES" id="2LC-B6-15A">
+                                <view key="view" id="2LC-B6-15A">
                                     <rect key="frame" x="10" y="33" width="404" height="213"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
@@ -169,7 +169,7 @@
                                         </imageView>
                                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FA9-Ia-R3o">
                                             <rect key="frame" x="15" y="171" width="374" height="39"/>
-                                            <textFieldCell key="cell" sendsActionOnEndEditing="YES" title="To save the gesture you have just recorded, write your system password" id="uRA-hI-TBQ">
+                                            <textFieldCell key="cell" sendsActionOnEndEditing="YES" title="To save the gesture you have just recorded, write your system password." id="uRA-hI-TBQ">
                                                 <font key="font" metaFont="smallSystem"/>
                                                 <color key="textColor" red="0.38506217279999999" green="0.38506217279999999" blue="0.38506217279999999" alpha="0.84999999999999998" colorSpace="calibratedRGB"/>
                                                 <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>

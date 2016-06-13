@@ -73,10 +73,8 @@ class SetupWindowController: NSWindowController, NSWindowDelegate {
         dataShare.setupWindowControllerInstance = self
         dataShare.sequenceBeingRecorded = nil
         
-        let darkMode = NSUserDefaults.standardUserDefaults().stringForKey("AppleInterfaceStyle") == "Dark"
-        
         let visualEffectView = NSVisualEffectView(frame: NSMakeRect(0, 0, 0, 0))
-        darkMode == true ? (visualEffectView.material = NSVisualEffectMaterial.UltraDark) : (visualEffectView.material = NSVisualEffectMaterial.MediumLight)
+        visualEffectView.material = NSVisualEffectMaterial.MediumLight
         visualEffectView.blendingMode = NSVisualEffectBlendingMode.BehindWindow
         visualEffectView.state = NSVisualEffectState.Active
         
@@ -91,7 +89,7 @@ class SetupWindowController: NSWindowController, NSWindowDelegate {
         settingsWindow.releasedWhenClosed = false
         
         
-        addLogo(darkMode)
+        addLogo()
         
         thumbsUpImageView.hidden = true
         thumbsDownImageView.hidden = true
@@ -156,11 +154,11 @@ class SetupWindowController: NSWindowController, NSWindowDelegate {
         windowDidLoad()
     }
     
-    func addLogo(darkMode : Bool) {
+    func addLogo() {
         //tint the logo
         let logo = logoImageView.image
         logo!.lockFocus()
-        darkMode == false ? (NSColor(red: 0.25, green: 0.75, blue: 0.793, alpha: 1).set()) : (NSColor(red: 0.75, green: 0.25, blue: 0.193, alpha: 1).set())
+        NSColor(red: 0.25, green: 0.75, blue: 0.793, alpha: 1).set()
         let imageRect = NSRect(origin: NSZeroPoint, size: logo!.size)
         NSRectFillUsingOperation(imageRect, NSCompositingOperation.CompositeSourceAtop)
         logo?.unlockFocus()

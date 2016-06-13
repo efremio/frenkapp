@@ -28,11 +28,11 @@
 		225C14FB1CE8D65600A12030 /* Gesture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 225C14FA1CE8D65600A12030 /* Gesture.swift */; };
 		2260B8EF1CF920BE008416B3 /* AboutWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2260B8ED1CF920BE008416B3 /* AboutWindowController.swift */; };
 		2260B8F01CF920BE008416B3 /* AboutWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2260B8EE1CF920BE008416B3 /* AboutWindowController.xib */; };
+		22A084E81D0F721400270A42 /* mouse.png in Resources */ = {isa = PBXBuildFile; fileRef = 22A084E71D0F721400270A42 /* mouse.png */; };
 		22B83ABB1CF8EA010010A52B /* SetupWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22B83AB91CF8EA010010A52B /* SetupWindowController.swift */; };
 		22B83ABC1CF8EA010010A52B /* SetupWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22B83ABA1CF8EA010010A52B /* SetupWindowController.xib */; };
 		22E54B891CFB1C63003EA4DB /* thumbs_down.png in Resources */ = {isa = PBXBuildFile; fileRef = 22E54B881CFB1C63003EA4DB /* thumbs_down.png */; };
 		22E54B8B1CFE2CD3003EA4DB /* DataShare.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E54B8A1CFE2CD3003EA4DB /* DataShare.swift */; };
-		22E54B901CFE372F003EA4DB /* mouse.png in Resources */ = {isa = PBXBuildFile; fileRef = 22E54B8F1CFE372F003EA4DB /* mouse.png */; };
 		22EA7C771CFF849000C2EE82 /* LaunchAtLoginManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22EA7C761CFF849000C2EE82 /* LaunchAtLoginManager.swift */; };
 		2DFE97A859DB0FE7FC20DA5F /* Pods_Frenk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C4706A8B66A1454D10CA3E2 /* Pods_Frenk.framework */; };
 		836A9B29DA0D3D3FE9D90800 /* Pods_FrenkTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6FC2175175599A263D15781 /* Pods_FrenkTests.framework */; };
@@ -86,11 +86,11 @@
 		225C14FA1CE8D65600A12030 /* Gesture.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Gesture.swift; path = Squiggle/Gesture.swift; sourceTree = "<group>"; };
 		2260B8ED1CF920BE008416B3 /* AboutWindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutWindowController.swift; sourceTree = "<group>"; };
 		2260B8EE1CF920BE008416B3 /* AboutWindowController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AboutWindowController.xib; sourceTree = "<group>"; };
+		22A084E71D0F721400270A42 /* mouse.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mouse.png; sourceTree = "<group>"; };
 		22B83AB91CF8EA010010A52B /* SetupWindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetupWindowController.swift; sourceTree = "<group>"; };
 		22B83ABA1CF8EA010010A52B /* SetupWindowController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SetupWindowController.xib; sourceTree = "<group>"; };
 		22E54B881CFB1C63003EA4DB /* thumbs_down.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = thumbs_down.png; sourceTree = "<group>"; };
 		22E54B8A1CFE2CD3003EA4DB /* DataShare.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataShare.swift; sourceTree = "<group>"; };
-		22E54B8F1CFE372F003EA4DB /* mouse.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mouse.png; sourceTree = "<group>"; };
 		22EA7C761CFF849000C2EE82 /* LaunchAtLoginManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LaunchAtLoginManager.swift; sourceTree = "<group>"; };
 		4BECA133996901A26BFEB9D2 /* Pods-FrenkTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FrenkTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-FrenkTests/Pods-FrenkTests.release.xcconfig"; sourceTree = "<group>"; };
 		4C4706A8B66A1454D10CA3E2 /* Pods_Frenk.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Frenk.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -157,9 +157,9 @@
 				2260B8ED1CF920BE008416B3 /* AboutWindowController.swift */,
 				2260B8EE1CF920BE008416B3 /* AboutWindowController.xib */,
 				221BB2201CFA175000A78F5F /* frenk_logo.png */,
-				22E54B8F1CFE372F003EA4DB /* mouse.png */,
 				221BB2261CFA1CBD00A78F5F /* scroll3.png */,
 				221BB2221CFA18F800A78F5F /* scroll.png */,
+				22A084E71D0F721400270A42 /* mouse.png */,
 				221BB21C1CFA133400A78F5F /* thumbs_up.png */,
 				22E54B881CFB1C63003EA4DB /* thumbs_down.png */,
 				221BB2281CFA1D0000A78F5F /* thumbs_up2.png */,
@@ -356,11 +356,11 @@
 				22593E9E1C18BCF9003CFCF2 /* Assets.xcassets in Resources */,
 				22593EA11C18BCF9003CFCF2 /* MainMenu.xib in Resources */,
 				221BB2211CFA175000A78F5F /* frenk_logo.png in Resources */,
-				22E54B901CFE372F003EA4DB /* mouse.png in Resources */,
 				22E54B891CFB1C63003EA4DB /* thumbs_down.png in Resources */,
 				2260B8F01CF920BE008416B3 /* AboutWindowController.xib in Resources */,
 				221BB2231CFA18F800A78F5F /* scroll.png in Resources */,
 				22B83ABC1CF8EA010010A52B /* SetupWindowController.xib in Resources */,
+				22A084E81D0F721400270A42 /* mouse.png in Resources */,
 				221BB21D1CFA133400A78F5F /* thumbs_up.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
