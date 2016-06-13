@@ -405,7 +405,10 @@ class SetupWindowController: NSWindowController, NSWindowDelegate {
     }
     
     @IBAction func continueAnywayPressed(sender: AnyObject) {
-        retryPressed(sender) //everything as a retry
+        showRetryContinueAnyway(false)
+        showSetSequenceGraphics(true)
+        
+        mouseOverEnabled = true
         //switch to password tab
         gestureIsValid()
     }

@@ -129,6 +129,7 @@ class GestureManager : NSObject {
             dataShare.setupWindowControllerInstance!.errorsInGestureSequence(errors)
         } else if warnings.count > 0 { //if messages array contains at least one warning
             //notify the graphics
+            dataShare.sequenceBeingRecorded = gestures
             dataShare.setupWindowControllerInstance!.warningsInGestureSequence(warnings)
         } else {
             //notify the graphics
@@ -173,8 +174,8 @@ class GestureManager : NSObject {
             //TODO optimize: break the loop!
             var correlated = true
             for index in 0...(gestures.count-1) {
-                if !(getCorrelation(gestures[index].xPoints, s2: KeychainManager.getGestures()![index].xPoints) > 0.83)
-                    || !(getCorrelation(gestures[index].yPoints, s2: KeychainManager.getGestures()![index].yPoints) > 0.83) {
+                if !(getCorrelation(gestures[index].xPoints, s2: KeychainManager.getGestures()![index].xPoints) > 0.75)
+                    || !(getCorrelation(gestures[index].yPoints, s2: KeychainManager.getGestures()![index].yPoints) > 0.75) {
                     correlated = false
                 }
                 print("DEBUG: gesture #", index)
