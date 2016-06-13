@@ -208,6 +208,7 @@ class SetupWindowController: NSWindowController, NSWindowDelegate {
             //thumbs up!
             thumbsUpImageView.hidden = false
             thumbsDownImageView.hidden = true
+            confirmGestureWithPasswordLabel.hidden = true
             
             
             if dataShare.sequenceBeingRecorded != nil { //if the user is confirming a new sequence
