@@ -22,7 +22,6 @@ class StatusMenuController: NSObject {
         //set the delault values
         if(!KeychainManager.isGestureTimeSet()) {
             KeychainManager.setGestureTime(defaultGestureTime)
-            print("debug: set default time")
         }
         
         if(!KeychainManager.isLaunchAtLoginSet()) {

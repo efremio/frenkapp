@@ -63,8 +63,6 @@ class SetupWindowController: NSWindowController, NSWindowDelegate {
     override func windowDidLoad() {
         super.windowDidLoad()
         
-        print("windowDidLoad called")
-        
         //register itself
         dataShare.setupWindowControllerInstance = self
         dataShare.sequenceBeingRecorded = nil
@@ -203,13 +201,9 @@ class SetupWindowController: NSWindowController, NSWindowDelegate {
             
             
             if dataShare.sequenceBeingRecorded != nil { //if the user is confirming a new sequence
+                //save new sequence
                 KeychainManager.setGestures(dataShare.sequenceBeingRecorded!)
                 dataShare.sequenceBeingRecorded = nil
-                
-                //update graphics
-                confirmGestureWithPasswordLabel.hidden = true
-                gesturesTabViewItem.label = "Update gesture"
-                
                 
                 
                 //display a popup and close the window
@@ -220,12 +214,11 @@ class SetupWindowController: NSWindowController, NSWindowDelegate {
                 confPopup.addButtonWithTitle("Ok")
                 let res = confPopup.runModal()
                 if res == NSAlertFirstButtonReturn {
-                    windowDidLoad() //reset
+                    windowDidLoad() //reset in order to update the graphics
                     tabView.selectTabViewItem(gesturesTabViewItem)
                 }
                 
                 
-                print("new sequence saved")
             }
             
             

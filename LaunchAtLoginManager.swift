@@ -24,7 +24,7 @@ class LaunchAtLoginManager {
                 ).takeRetainedValue() as LSSharedFileListRef?
             if loginItemsRef != nil {
                 let loginItems: NSArray = LSSharedFileListCopySnapshot(loginItemsRef, nil).takeRetainedValue() as NSArray
-                print("There are \(loginItems.count) login items")
+                //print("There are \(loginItems.count) login items")
                 if(loginItems.count > 0)
                 {
                     let lastItemRef: LSSharedFileListItemRef = loginItems.lastObject as! LSSharedFileListItemRef
@@ -32,14 +32,14 @@ class LaunchAtLoginManager {
                         let currentItemRef: LSSharedFileListItemRef = loginItems.objectAtIndex(i) as! LSSharedFileListItemRef
                         if LSSharedFileListItemResolve(currentItemRef, 0, itemUrl, nil) == noErr {
                             if let urlRef: NSURL =  itemUrl.memory?.takeRetainedValue() {
-                                print("URL Ref: \(urlRef.lastPathComponent)")
+                                //print("URL Ref: \(urlRef.lastPathComponent)")
                                 if urlRef.isEqual(appUrl) {
                                     return (currentItemRef, lastItemRef)
                                 }
                             }
                         }
                         else {
-                            print("Unknown login application")
+                            //print("Unknown login application")
                         }
                     }
                     //The application was not found in the startup list
@@ -83,15 +83,15 @@ class LaunchAtLoginManager {
                             nil,
                             nil
                         )
-                        print("Application was added to login items")
+                        //print("Application was added to login items")
                     }
                 } else {
-                    print("Cannot add app to login items, already exists!")
+                    //print("Cannot add app to login items, already exists!")
                 }
             } else {
                 if let itemRef = itemReferences.existingReference {
                     LSSharedFileListItemRemove(loginItemsRef,itemRef);
-                    print("Application was removed from login items")
+                    //print("Application was removed from login items")
                 }
             }
             
