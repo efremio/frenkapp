@@ -152,7 +152,7 @@ class GestureManager : NSObject {
         if gestures.count < 1 {
             messages.append(Message(messageType: MessageType.errorMEssage, string: "The sequence must contain at least one gesture."))
         } else if gestures.count == 1 {
-            messages.append(Message(messageType: MessageType.warningMessage, string: "Frenk recommends to use at least two gestures in your sequence"))
+            messages.append(Message(messageType: MessageType.warningMessage, string: "Frenk recommends to use at least two gestures in your sequence."))
         }
         
         //todo other checks

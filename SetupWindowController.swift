@@ -11,7 +11,7 @@ import Collaboration
 
 class SetupWindowController: NSWindowController, NSWindowDelegate {
     let gestureInstructions1 = "Move the cursor inside this box to record your gesture sequence."
-    let gestureInstructions2 = "Now start recording your gesture sequence using two fingers on the trackpad!"
+    let gestureInstructions2 = "Start recording your gesture sequence using two fingers on the trackpad!"
     
     @IBOutlet var settingsWindow: NSWindow!
     @IBOutlet var prova: NSView!
@@ -21,7 +21,9 @@ class SetupWindowController: NSWindowController, NSWindowDelegate {
     @IBOutlet var updatePasswordButton: NSButtonCell!
     
     @IBOutlet var launchAtLoginButton: NSButton!
+    @IBOutlet var retryButton: NSButton!
     
+    @IBOutlet var continueAniwayButton: NSButton!
     //tab view
     @IBOutlet var tabView: NSTabView!
     
@@ -44,8 +46,10 @@ class SetupWindowController: NSWindowController, NSWindowDelegate {
     @IBOutlet var countGesturesButton: NSButton!
     @IBOutlet var countGesturesLabel: NSTextField!
     @IBOutlet var gestureInstructionsLabel: NSTextField!
+    @IBOutlet var orLabel: NSTextField!
     
     let dataShare = DataShare.sharedInstance
+    var mouseOverEnabled: Bool = true
     
     override func showWindow(sender: AnyObject?) {
         if settingsWindow != nil && settingsWindow.miniaturized { //if it is miniaturized, deminiaturize
@@ -62,6 +66,8 @@ class SetupWindowController: NSWindowController, NSWindowDelegate {
     
     override func windowDidLoad() {
         super.windowDidLoad()
+        
+        mouseOverEnabled = true
         
         //register itself
         dataShare.setupWindowControllerInstance = self
@@ -139,6 +145,10 @@ class SetupWindowController: NSWindowController, NSWindowDelegate {
         } else {
             gesturesTabViewItem.label = "Set sequence"
         }
+        
+        
+        showRetryContinueAnyway(false)
+        
     }
     
     func windowWillClose(notification: NSNotification) {
@@ -185,7 +195,7 @@ class SetupWindowController: NSWindowController, NSWindowDelegate {
         if passOk == true {
             KeychainManager.setPassword(NSString(string: passwordField.stringValue)) //store the password
             
-
+            
             
             //update labels
             passwordOkField.stringValue = "Your password has been securely saved. It will be used only to unlock your Mac."
@@ -256,23 +266,27 @@ class SetupWindowController: NSWindowController, NSWindowDelegate {
     
     //it's a precondition for recording the gesture
     override func mouseEntered(theEvent: NSEvent) {
-        dataShare.canRecord = true
-        
-        mouseImageView.hidden = true
-        scrollImageView.hidden = false
-        countGesturesButton.hidden = false
-        countGesturesLabel.hidden = false
-        gestureInstructionsLabel.stringValue = gestureInstructions2
+        if mouseOverEnabled {
+            dataShare.canRecord = true
+            
+            mouseImageView.hidden = true
+            scrollImageView.hidden = false
+            countGesturesButton.hidden = false
+            countGesturesLabel.hidden = false
+            gestureInstructionsLabel.stringValue = gestureInstructions2
+        }
     }
     
     override func mouseExited(theEvent: NSEvent) {
-        dataShare.canRecord = false
-        
-        mouseImageView.hidden = false
-        scrollImageView.hidden = true
-        countGesturesButton.hidden = true
-        countGesturesLabel.hidden = true
-        gestureInstructionsLabel.stringValue = gestureInstructions1
+        if mouseOverEnabled {
+            dataShare.canRecord = false
+            
+            mouseImageView.hidden = false
+            scrollImageView.hidden = true
+            countGesturesButton.hidden = true
+            countGesturesLabel.hidden = true
+            gestureInstructionsLabel.stringValue = gestureInstructions1
+        }
         
     }
     
@@ -296,16 +310,41 @@ class SetupWindowController: NSWindowController, NSWindowDelegate {
     }
     
     func errorsInGestureSequence(errors: [Message]) {
-        print("gesture has errors")
+        mouseOverEnabled = false
+        
+        //show graphics
+        showRetry(true)
+        showSetSequenceGraphics(false)
+        
+        gestureInstructionsLabel.stringValue = ""
+        for (_, element) in errors.enumerate() {
+            gestureInstructionsLabel.stringValue += " " + (element.string as String)
+        }
     }
     
     func warningsInGestureSequence(warnings: [Message]) {
-        print("gesture has warnings")
+        mouseOverEnabled = false
+        
+        //show graphics
+        showRetryContinueAnyway(true)
+        showSetSequenceGraphics(false)
+        
+        gestureInstructionsLabel.stringValue = ""
+        for (_, element) in warnings.enumerate() {
+            gestureInstructionsLabel.stringValue += " " + (element.string as String)
+        }
+        
+        //reset password label
+        if KeychainManager.isPasswordSet() {
+            passwordTabViewItem.label = "Update password"
+            updatePasswordButton.title = "Update password"
+        } else {
+            passwordTabViewItem.label = "Set password"
+            updatePasswordButton.title = "Set password"
+        }
     }
     
     func gestureIsValid() {
-        print("gesture is valid")
-        
         //update password graphics
         if KeychainManager.areGesturesSet() {
             updatePasswordButton.title = "Update sequence"
@@ -331,6 +370,45 @@ class SetupWindowController: NSWindowController, NSWindowDelegate {
         countGesturesLabel.stringValue = "gestures"
         gestureInstructionsLabel.stringValue = gestureInstructions1
         
+    }
+    
+    func showSetSequenceGraphics(show: Bool) {
+        scrollImageView.hidden = !show
+        mouseImageView.hidden = !show
+        countGesturesLabel.hidden = !show
+        countGesturesButton.hidden = !show
+        gestureInstructionsLabel.stringValue = gestureInstructions2
+    }
+    
+    func showRetryContinueAnyway(show: Bool) {
+        showRetry(show)
+        showContinueAnyway(show)
+    }
+    
+    func showRetry(show: Bool) {
+        retryButton.hidden = !show
+    }
+    
+    func showContinueAnyway(show: Bool) {
+        orLabel.hidden = !show
+        continueAniwayButton.hidden = !show
+    }
+    
+    
+    @IBAction func retryPressed(sender: AnyObject) {
+        showRetryContinueAnyway(false)
+        showSetSequenceGraphics(true)
+        //fix, the mouse is on the screen, hide the mouse icon
+        mouseImageView.hidden = true
+        
+        dataShare.sequenceBeingRecorded = nil
+        mouseOverEnabled = true
+    }
+    
+    @IBAction func continueAnywayPressed(sender: AnyObject) {
+        retryPressed(sender) //everything as a retry
+        //switch to password tab
+        gestureIsValid()
     }
     
 }
