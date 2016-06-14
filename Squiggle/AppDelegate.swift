@@ -16,9 +16,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     var settingsWindow = NSWindowController()
     var aboutWindow = NSWindowController()
     
-    
-    let widthSetup : CGFloat = 450
-    let heightSetup : CGFloat = 300
     let statusItem = NSStatusBar.systemStatusBar().statusItemWithLength(-1) //get the system status bar
     
     func applicationDidFinishLaunching(aNotification: NSNotification) {
@@ -33,6 +30,10 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         aboutWindow = AboutWindowController(windowNibName: "AboutWindowController")
     }
     
+    @IBAction func openSettings(sender: AnyObject) {
+        settingsWindow.showWindow(sender)
+    }
+    
     @IBAction func openAbout(sender: AnyObject) {
         aboutWindow.showWindow(sender)
     }
@@ -40,25 +41,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     func applicationWillTerminate(aNotification: NSNotification) {
     }
     
-    @IBAction func nemuQuit(sender: NSMenuItem) {
+    @IBAction func menuQuit(sender: NSMenuItem) {
         exit(0)
     }
-    
-    @IBAction func openSettings(sender: AnyObject) {
-        settingsWindow.showWindow(sender)
-    
-    }    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-
-    
-    
 }
 

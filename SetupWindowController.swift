@@ -88,7 +88,6 @@ class SetupWindowController: NSWindowController, NSWindowDelegate {
         settingsWindow.movableByWindowBackground = true
         settingsWindow.releasedWhenClosed = false
         
-        
         addLogo()
         
         thumbsUpImageView.hidden = true

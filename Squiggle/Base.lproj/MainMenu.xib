@@ -35,7 +35,7 @@
                 </menuItem>
                 <menuItem title="Quit" keyEquivalent="q" id="TPI-4X-lCs">
                     <connections>
-                        <action selector="nemuQuit:" target="Voe-Tx-rLC" id="ygE-l4-rFT"/>
+                        <action selector="menuQuit:" target="Voe-Tx-rLC" id="6nQ-pE-GUb"/>
                     </connections>
                 </menuItem>
             </items>

@@ -43,7 +43,7 @@
                 <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <tabView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KW5-sd-8qx">
+                    <tabView fixedFrame="YES" drawsBackground="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KW5-sd-8qx">
                         <rect key="frame" x="13" y="10" width="424" height="259"/>
                         <font key="font" metaFont="system"/>
                         <tabViewItems>
