@@ -156,7 +156,17 @@ class GestureManager : NSObject {
             messages.append(Message(messageType: MessageType.warningMessage, string: "Frenk recommends to use at least two gestures in your sequence."))
         }
         
-        //todo other checks
+        //gesture too short
+        var notEnoughPoints = false
+        for g in gestures {
+            if g.xPoints.count <= 5 || g.yPoints.count <= 5 {
+                notEnoughPoints = true
+            }
+        }
+        
+        if notEnoughPoints {
+            messages.append(Message(messageType: MessageType.errorMEssage, string: "One or more gestures are too short."))
+        }
         
         return messages
     }

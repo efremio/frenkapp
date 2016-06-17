@@ -20,14 +20,20 @@ class StatusMenuController: NSObject {
     
     override init() {
         //set the delault values
-        if(!KeychainManager.isGestureTimeSet()) {
+        if !KeychainManager.isGestureTimeSet() {
             KeychainManager.setGestureTime(defaultGestureTime)
         }
         
-        if(!KeychainManager.isLaunchAtLoginSet()) {
+        if !KeychainManager.isLaunchAtLoginSet() {
             LaunchAtLoginManager.setLaunchAtStartup(true) //this will update KeyChainManager as well
         }
         
+        //todo delete
+        if KeychainManager.areGesturesSet() {
+            print("Reference gesture")
+            print(KeychainManager.getGestures()![0].xPoints)
+            print(KeychainManager.getGestures()![0].yPoints)
+        }
         
         
         
