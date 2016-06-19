@@ -38,6 +38,14 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         aboutWindow.showWindow(sender)
     }
     
+    @IBAction func checkForUpdates(sender: NSMenuItem) {
+        let versionNumber = NSBundle.mainBundle().infoDictionary?["CFBundleShortVersionString"] as? String
+        let stringUrl = "http://www.frenkapp.com/update.php?myVersion=" + versionNumber!
+        let checkURL = NSURL(string: stringUrl)
+        
+        NSWorkspace.sharedWorkspace().openURL(checkURL!)
+    }
+    
     func applicationWillTerminate(aNotification: NSNotification) {
     }
     

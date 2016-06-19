@@ -27,6 +27,12 @@
                         <action selector="openSettings:" target="Voe-Tx-rLC" id="3Ca-kR-fLS"/>
                     </connections>
                 </menuItem>
+                <menuItem title="Check for updates" id="dSj-u8-re0">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                    <connections>
+                        <action selector="checkForUpdates:" target="Voe-Tx-rLC" id="ANd-6o-D5p"/>
+                    </connections>
+                </menuItem>
                 <menuItem title="About" id="kRI-u9-KoL">
                     <modifierMask key="keyEquivalentModifierMask"/>
                     <connections>

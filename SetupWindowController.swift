@@ -180,10 +180,6 @@ class SetupWindowController: NSWindowController, NSWindowDelegate {
         timeTextField.stringValue = "Now: "+time.description+" ms"
     }
     
-    @IBAction func mouseOverSettingGesture(sender: AnyObject) {
-        print("erbwbwbwbwbww") //todo delete?
-    }
-    
     @IBAction func updatePassword(sender: AnyObject) {
         //check if the password is correct
         let identity = CBUserIdentity(posixUID: getuid(), authority: CBIdentityAuthority.defaultIdentityAuthority())
@@ -217,7 +213,7 @@ class SetupWindowController: NSWindowController, NSWindowDelegate {
                 //display a popup and close the window
                 let confPopup: NSAlert = NSAlert()
                 confPopup.messageText = "Well done!"
-                confPopup.informativeText = "esfbwh 4whw 4h w4h w4 hw4 hw4 f"
+                confPopup.informativeText = "You can now unlock your mac using the sequence you've just set up."
                 confPopup.alertStyle = NSAlertStyle.InformationalAlertStyle
                 confPopup.addButtonWithTitle("Ok")
                 let res = confPopup.runModal()
