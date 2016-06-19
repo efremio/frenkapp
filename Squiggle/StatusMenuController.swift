@@ -29,12 +29,11 @@ class StatusMenuController: NSObject {
         }
         
         //todo delete
-        if KeychainManager.areGesturesSet() {
+        /*if KeychainManager.areGesturesSet() {
             print("Reference gesture")
             print(KeychainManager.getGestures()![0].xPoints)
             print(KeychainManager.getGestures()![0].yPoints)
-        }
-        
+        }*/
         
         
         gestureManager = GestureManager()

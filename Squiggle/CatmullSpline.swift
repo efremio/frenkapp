@@ -11,16 +11,65 @@ import Foundation
 func getCorrelation(s1: [CGFloat], s2: [CGFloat]) -> CGFloat {
     var a = s1
     var b = s2
+ 
+    
+    
+    
+    //todo test
+    /*let al = a.last
+    let bl = b.last
+    for index in 1...6 {
+        a.append(al! + CGFloat(index*20))
+        b.append(bl! + CGFloat(index*20))
+    }
+     
+     IDIOTA FAI STA ROBACCIA DOPO LA NORMALIZZAZIONE!
+     */
     
     //normalize the lengths of the series
     if a.count < 10 || b.count < 10 {
         return 0
     }
+    
     if a.count > b.count {
         b = normalizeArray(b, n: a.count)
     } else if a.count < b.count {
         a = normalizeArray(a, n: b.count)
     }
+    
+    
+    
+    
+    //todo test
+    var minA = a[0]
+    var maxA = a[0]
+    var minB = b[0]
+    var maxB = b[0]
+    for index in 0...a.count-1 {
+        if a[index] < minA {
+            minA = a[index]
+        }
+        if a[index] > maxA {
+            maxA = a[index]
+        }
+        if b[index] < minB {
+            minB = b[index]
+        }
+        if b[index] > maxB {
+            maxB = b[index]
+        }
+    }
+    
+    let deltaMaxA = maxA - minA
+    let deltaMaxB = maxB - minB
+    
+    print("---------- deltaMaxA = " + deltaMaxA.description + ", deltaMaxB = " + deltaMaxB.description)
+    if deltaMaxA < 5 && deltaMaxB < 5 {
+        return 1
+    }
+    
+    
+    
     
     //compute the correlation with Pearson
     return getPearsonCorrelation(a, b: b)

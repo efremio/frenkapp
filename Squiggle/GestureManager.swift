@@ -75,6 +75,10 @@ class GestureManager : NSObject {
             } else if event.phase == NSEventPhase.Ended {
                 gestures.last?.timeEnd = event.timestamp
                 
+                print("------------------------ debug ------------------------")
+                print(gestures.last?.xPoints)
+                print(gestures.last?.yPoints)
+                
                 //anticipate the unlock
                 if KeychainManager.areGesturesSet() && gestures.count == KeychainManager.getGestures()!.count {
                     manageUnlock()
@@ -159,7 +163,7 @@ class GestureManager : NSObject {
         //gesture too short
         var notEnoughPoints = false
         for g in gestures {
-            if g.xPoints.count <= 5 || g.yPoints.count <= 5 {
+            if g.xPoints.count <= 10 || g.yPoints.count <= 10 {
                 notEnoughPoints = true
             }
         }
@@ -184,13 +188,14 @@ class GestureManager : NSObject {
             //TODO optimize: break the loop!
             var correlated = true
             for index in 0...(gestures.count-1) {
-                if !(getCorrelation(gestures[index].xPoints, s2: KeychainManager.getGestures()![index].xPoints) > 0.75)
-                    || !(getCorrelation(gestures[index].yPoints, s2: KeychainManager.getGestures()![index].yPoints) > 0.75) {
+                let correlationX = getCorrelation(gestures[index].xPoints, s2: KeychainManager.getGestures()![index].xPoints)
+                let correlationY = getCorrelation(gestures[index].yPoints, s2: KeychainManager.getGestures()![index].yPoints)
+                if !(correlationX > 0.8) || !(correlationY > 0.8) {
                     correlated = false
                 }
                 print("DEBUG: gesture #", index)
-                print(getCorrelation(gestures[index].xPoints, s2: KeychainManager.getGestures()![index].xPoints))
-                print(getCorrelation(gestures[index].yPoints, s2: KeychainManager.getGestures()![index].yPoints))
+                print(correlationX)
+                print(correlationY)
             }
             if correlated {
                 return true
