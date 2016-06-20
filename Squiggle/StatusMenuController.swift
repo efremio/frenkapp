@@ -75,6 +75,19 @@ class StatusMenuController: NSObject {
     
     func unlockedEvent() {
         gestureManager.setScreenLocked(false)
+        
+        
+        
+        let notification = NSUserNotification()
+        notification.title = "Sbiriguda"
+        notification.informativeText = "Todo: display a notification if lots of tentatives were made."
+        
+        let notificationcenter = NSUserNotificationCenter.defaultUserNotificationCenter()
+        notificationcenter.deliverNotification(notification)
+
+        
+        
+        
     }
     
     internal func getGestureManagerInstance() -> GestureManager {

@@ -73,14 +73,36 @@ class SetupWindowController: NSWindowController, NSWindowDelegate {
         dataShare.setupWindowControllerInstance = self
         dataShare.sequenceBeingRecorded = nil
         
-        let visualEffectView = NSVisualEffectView(frame: NSMakeRect(0, 0, 0, 0))
+        
+        
+        /*let visualEffectView = NSVisualEffectView(frame: NSMakeRect(0, 0, 0, 0))
         visualEffectView.material = NSVisualEffectMaterial.MediumLight
         visualEffectView.blendingMode = NSVisualEffectBlendingMode.BehindWindow
         visualEffectView.state = NSVisualEffectState.Active
         
         let previousContentView = settingsWindow.contentView
         settingsWindow.contentView = visualEffectView //add the visual effect
-        settingsWindow.contentView?.addSubview(previousContentView!)
+        settingsWindow.contentView?.addSubview(previousContentView!)*/
+        
+        
+        
+        settingsWindow.contentView!.wantsLayer = true
+        
+        let layer = CAGradientLayer()
+        layer.frame = settingsWindow.contentLayoutRect
+        layer.colors = [
+            /*NSColor(red: 107/255, green: 210/255, blue: 118/255, alpha: 1).CGColor,*/
+            NSColor(red: 182/255, green: 237/255, blue: 87/255, alpha: 1).CGColor,
+            NSColor(red: 25/255, green: 231/255, blue: 169/255, alpha: 1).CGColor
+            
+        ]
+        layer.startPoint = NSPoint(x: 0, y: 0)
+        layer.endPoint = NSPoint(x: 1, y: 0.5)
+        layer.zPosition = -1
+        settingsWindow.contentView?.layer?.addSublayer(layer)
+        
+        
+        
         
         settingsWindow.styleMask = NSFullSizeContentViewWindowMask | NSTitledWindowMask | NSClosableWindowMask | NSMiniaturizableWindowMask
         settingsWindow.titleVisibility = .Hidden
@@ -157,7 +179,8 @@ class SetupWindowController: NSWindowController, NSWindowDelegate {
         //tint the logo
         let logo = logoImageView.image
         logo!.lockFocus()
-        NSColor(red: 0.25, green: 0.75, blue: 0.793, alpha: 1).set()
+        //NSColor(red: 0.25, green: 0.75, blue: 0.793, alpha: 1).set()
+        NSColor.blackColor().set()
         let imageRect = NSRect(origin: NSZeroPoint, size: logo!.size)
         NSRectFillUsingOperation(imageRect, NSCompositingOperation.CompositeSourceAtop)
         logo?.unlockFocus()
@@ -211,7 +234,7 @@ class SetupWindowController: NSWindowController, NSWindowDelegate {
                 
                 
                 //display a popup and close the window
-                let confPopup: NSAlert = NSAlert()
+                /*let confPopup: NSAlert = NSAlert()
                 confPopup.messageText = "Well done!"
                 confPopup.informativeText = "You can now unlock your mac using the sequence you've just set up."
                 confPopup.alertStyle = NSAlertStyle.InformationalAlertStyle
@@ -220,7 +243,27 @@ class SetupWindowController: NSWindowController, NSWindowDelegate {
                 if res == NSAlertFirstButtonReturn {
                     windowDidLoad() //reset in order to update the graphics
                     tabView.selectTabViewItem(gesturesTabViewItem)
-                }
+                }*/
+                
+                
+                
+                
+                
+                let notification:NSUserNotification = NSUserNotification()
+                notification.title = "Sequence set!"
+                //notification.subtitle = "Subtitle"
+                notification.informativeText = "You can now unlock your mac using the sequence you've just set up."
+                
+                let notificationcenter = NSUserNotificationCenter.defaultUserNotificationCenter()
+                notificationcenter.deliverNotification(notification)
+                
+                windowDidLoad() //reset in order to update the graphics
+                tabView.selectTabViewItem(gesturesTabViewItem)
+
+                
+                
+                
+                
                 
                 
             }

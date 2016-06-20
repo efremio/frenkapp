@@ -10,7 +10,7 @@ import Cocoa
 import AppKit
 
 @NSApplicationMain
-class AppDelegate: NSObject, NSApplicationDelegate {
+class AppDelegate: NSObject, NSApplicationDelegate, NSUserNotificationCenterDelegate {
     
     @IBOutlet weak var statusMenu: NSMenu!
     var settingsWindow = NSWindowController()
@@ -19,6 +19,11 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     let statusItem = NSStatusBar.systemStatusBar().statusItemWithLength(-1) //get the system status bar
     
     func applicationDidFinishLaunching(aNotification: NSNotification) {
+        
+        NSUserNotificationCenter.defaultUserNotificationCenter().delegate = self
+    
+    
+    
         // Insert code here to initialize your application
         let icon = NSImage(named: "statusIcon")
         icon?.template = true
@@ -28,6 +33,10 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         
         settingsWindow = SetupWindowController(windowNibName: "SetupWindowController")
         aboutWindow = AboutWindowController(windowNibName: "AboutWindowController")
+    }
+    
+    func userNotificationCenter(center: NSUserNotificationCenter, shouldPresentNotification notification: NSUserNotification) -> Bool {
+        return true
     }
     
     @IBAction func openSettings(sender: AnyObject) {

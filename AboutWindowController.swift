@@ -34,16 +34,31 @@ class AboutWindowController: NSWindowController {
     override func windowDidLoad() {
         super.windowDidLoad()
         
-        //let darkMode = NSUserDefaults.standardUserDefaults().stringForKey("AppleInterfaceStyle") == "Dark"
-        
-        let visualEffectView = NSVisualEffectView(frame: NSMakeRect(0, 0, 0, 0))
+        /*let visualEffectView = NSVisualEffectView(frame: NSMakeRect(0, 0, 0, 0))
         visualEffectView.material = NSVisualEffectMaterial.MediumLight
         visualEffectView.blendingMode = NSVisualEffectBlendingMode.BehindWindow
         visualEffectView.state = NSVisualEffectState.Active
         
         let previousContentView = aboutWindow.contentView
         aboutWindow.contentView = visualEffectView //add the visual effect
-        aboutWindow.contentView?.addSubview(previousContentView!)
+        aboutWindow.contentView?.addSubview(previousContentView!)*/
+        
+        aboutWindow.contentView!.wantsLayer = true
+        
+        let layer = CAGradientLayer()
+        layer.frame = aboutWindow.contentLayoutRect //CGRect(x: 0, y: 0, width: 160, height: 160)
+        layer.colors = [
+            /*NSColor(red: 107/255, green: 210/255, blue: 118/255, alpha: 1).CGColor,*/
+            NSColor(red: 182/255, green: 237/255, blue: 87/255, alpha: 1).CGColor,
+            NSColor(red: 25/255, green: 231/255, blue: 169/255, alpha: 1).CGColor
+            
+        ]
+        layer.startPoint = NSPoint(x: 0, y: 0)
+        layer.endPoint = NSPoint(x: 1, y: 0.5)
+        layer.zPosition = -1
+        aboutWindow.contentView?.layer?.addSublayer(layer)
+        
+        
         
         aboutWindow.styleMask = NSFullSizeContentViewWindowMask | NSTitledWindowMask | NSClosableWindowMask
         aboutWindow.titleVisibility = .Hidden
@@ -72,7 +87,8 @@ class AboutWindowController: NSWindowController {
         //tint the logo
         let logo = logoImageView.image
         logo!.lockFocus()
-        NSColor(red: 0.25, green: 0.75, blue: 0.793, alpha: 1).set()
+        //NSColor(red: 0.25, green: 0.75, blue: 0.793, alpha: 1).set()
+        NSColor.blackColor().set()
         let imageRect = NSRect(origin: NSZeroPoint, size: logo!.size)
         NSRectFillUsingOperation(imageRect, NSCompositingOperation.CompositeSourceAtop)
         logo?.unlockFocus()
