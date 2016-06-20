@@ -25,4 +25,5 @@ class DataShare {
     var canRecord: Bool = false
     var setupWindowControllerInstance: SetupWindowController? = nil
     var sequenceBeingRecorded: [Gesture]? = nil
+    var failedAttemts: NSInteger = 0
 }

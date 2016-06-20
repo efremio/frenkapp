@@ -49,12 +49,12 @@ class AboutWindowController: NSWindowController {
         layer.frame = aboutWindow.contentLayoutRect //CGRect(x: 0, y: 0, width: 160, height: 160)
         layer.colors = [
             /*NSColor(red: 107/255, green: 210/255, blue: 118/255, alpha: 1).CGColor,*/
-            NSColor(red: 182/255, green: 237/255, blue: 87/255, alpha: 1).CGColor,
-            NSColor(red: 25/255, green: 231/255, blue: 169/255, alpha: 1).CGColor
+            NSColor(red: 60/255, green: 205/255, blue: 150/255, alpha: 1).CGColor,
+            NSColor(red: 33/255, green: 184/255, blue: 232/255, alpha: 1).CGColor
             
         ]
         layer.startPoint = NSPoint(x: 0, y: 0)
-        layer.endPoint = NSPoint(x: 1, y: 0.5)
+        layer.endPoint = NSPoint(x: 1, y: 0.3)
         layer.zPosition = -1
         aboutWindow.contentView?.layer?.addSublayer(layer)
         
@@ -88,7 +88,7 @@ class AboutWindowController: NSWindowController {
         let logo = logoImageView.image
         logo!.lockFocus()
         //NSColor(red: 0.25, green: 0.75, blue: 0.793, alpha: 1).set()
-        NSColor.blackColor().set()
+        NSColor.whiteColor().set()
         let imageRect = NSRect(origin: NSZeroPoint, size: logo!.size)
         NSRectFillUsingOperation(imageRect, NSCompositingOperation.CompositeSourceAtop)
         logo?.unlockFocus()

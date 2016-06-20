@@ -16,31 +16,31 @@ import OpenDirectory
 class StatusMenuController: NSObject {
     
     var gestureManager : GestureManager
-    let defaultGestureTime = NSNumber(int: 800)
+    let dataShare = DataShare.sharedInstance
     
     override init() {
         //set the delault values
         if !KeychainManager.isGestureTimeSet() {
-            KeychainManager.setGestureTime(defaultGestureTime)
+            KeychainManager.setGestureTime(GlobalConstants.AppSettings.defaultGestureTime)
         }
         
         if !KeychainManager.isLaunchAtLoginSet() {
             LaunchAtLoginManager.setLaunchAtStartup(true) //this will update KeyChainManager as well
         }
         
-        //todo delete
-        /*if KeychainManager.areGesturesSet() {
-            print("Reference gesture")
-            print(KeychainManager.getGestures()![0].xPoints)
-            print(KeychainManager.getGestures()![0].yPoints)
-        }*/
-        
-        
         gestureManager = GestureManager()
         
         super.init()
         
-        acquirePrivileges()
+        /*if !acquirePrivileges() {
+            let notification = NSUserNotification()
+            notification.title = "Action needed"
+            notification.informativeText = "Go to System Preferences ▷ Security ▷ Privacy, and allow Frenk to control your Mac."
+            
+            let notificationcenter = NSUserNotificationCenter.defaultUserNotificationCenter()
+            notificationcenter.deliverNotification(notification)
+
+        }*/
         
         //listeners for scroll
         NSEvent.addGlobalMonitorForEventsMatchingMask(
@@ -63,9 +63,6 @@ class StatusMenuController: NSObject {
         let accessEnabled = AXIsProcessTrustedWithOptions(
             [kAXTrustedCheckOptionPrompt.takeUnretainedValue() as String: true])
         
-        if accessEnabled != true {
-            print("You need to enable the keylogger in the System Prefrences")
-        }
         return accessEnabled == true
     }
     
@@ -76,18 +73,15 @@ class StatusMenuController: NSObject {
     func unlockedEvent() {
         gestureManager.setScreenLocked(false)
         
-        
-        
-        let notification = NSUserNotification()
-        notification.title = "Sbiriguda"
-        notification.informativeText = "Todo: display a notification if lots of tentatives were made."
-        
-        let notificationcenter = NSUserNotificationCenter.defaultUserNotificationCenter()
-        notificationcenter.deliverNotification(notification)
-
-        
-        
-        
+        if dataShare.failedAttemts > GlobalConstants.AppSettings.maxFailedAttemts {
+            let notification = NSUserNotification()
+            notification.title = "Whatch out!"
+            notification.informativeText = "Frenk detected several failed login attempts."
+            
+            let notificationcenter = NSUserNotificationCenter.defaultUserNotificationCenter()
+            notificationcenter.deliverNotification(notification)
+        }
+        dataShare.failedAttemts = 0
     }
     
     internal func getGestureManagerInstance() -> GestureManager {

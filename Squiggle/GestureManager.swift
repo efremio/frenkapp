@@ -47,7 +47,6 @@ class GestureManager : NSObject {
                 //update the graphics
                 dataShare.setupWindowControllerInstance!.updateGestureNumber(gestures.count)
                 
-                
                 //gesture ended, last one?
                 lastGestureTimer.invalidate()
                 lastGestureTimer = NSTimer.scheduledTimerWithTimeInterval((KeychainManager.getGestureTime() as! Double)/1000, target: self, selector: #selector(self.lastGestureRecordingTimerFired(_:)), userInfo: nil, repeats: false)
@@ -81,7 +80,7 @@ class GestureManager : NSObject {
                 
                 //anticipate the unlock
                 if KeychainManager.areGesturesSet() && gestures.count == KeychainManager.getGestures()!.count {
-                    manageUnlock()
+                    manageUnlock(false)
                 } else {
                     
                     //gesture ended, last one?
@@ -94,15 +93,21 @@ class GestureManager : NSObject {
     }
     
     @objc private func lastGestureUnlockTimerFired(timer : NSTimer!) {
-        manageUnlock()
+        manageUnlock(true)
     }
     
-    func manageUnlock() {
+    func manageUnlock(countFailedAttempts: Bool) {
         //it was the last gesture
         
         if isScreenLocked {
             if areGesturesCorrelated() {
                 unlock()
+            } else {
+                print("not correlated")
+                if countFailedAttempts && KeychainManager.areGesturesSet() { //only if a sequence was set
+                    dataShare.failedAttemts += 1
+                    print(dataShare.failedAttemts)
+                }
             }
         }
         
@@ -163,7 +168,8 @@ class GestureManager : NSObject {
         //gesture too short
         var notEnoughPoints = false
         for g in gestures {
-            if g.xPoints.count <= 10 || g.yPoints.count <= 10 {
+            if g.xPoints.count <= GlobalConstants.AppSettings.minPointsForGesture
+                || g.yPoints.count <= GlobalConstants.AppSettings.minPointsForGesture {
                 notEnoughPoints = true
             }
         }
@@ -190,7 +196,7 @@ class GestureManager : NSObject {
             for index in 0...(gestures.count-1) {
                 let correlationX = getCorrelation(gestures[index].xPoints, s2: KeychainManager.getGestures()![index].xPoints)
                 let correlationY = getCorrelation(gestures[index].yPoints, s2: KeychainManager.getGestures()![index].yPoints)
-                if !(correlationX > 0.8) || !(correlationY > 0.8) {
+                if !(correlationX > GlobalConstants.AppSettings.gesturePrecision) || !(correlationY > GlobalConstants.AppSettings.gesturePrecision) {
                     correlated = false
                 }
                 print("DEBUG: gesture #", index)

@@ -29,6 +29,7 @@
 		2260B8EF1CF920BE008416B3 /* AboutWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2260B8ED1CF920BE008416B3 /* AboutWindowController.swift */; };
 		2260B8F01CF920BE008416B3 /* AboutWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2260B8EE1CF920BE008416B3 /* AboutWindowController.xib */; };
 		22A084E81D0F721400270A42 /* mouse.png in Resources */ = {isa = PBXBuildFile; fileRef = 22A084E71D0F721400270A42 /* mouse.png */; };
+		22AFB6011D18B08C006D3864 /* GlobalConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22AFB6001D18B08C006D3864 /* GlobalConstants.swift */; };
 		22B83ABB1CF8EA010010A52B /* SetupWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22B83AB91CF8EA010010A52B /* SetupWindowController.swift */; };
 		22B83ABC1CF8EA010010A52B /* SetupWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22B83ABA1CF8EA010010A52B /* SetupWindowController.xib */; };
 		22E54B891CFB1C63003EA4DB /* thumbs_down.png in Resources */ = {isa = PBXBuildFile; fileRef = 22E54B881CFB1C63003EA4DB /* thumbs_down.png */; };
@@ -87,6 +88,7 @@
 		2260B8ED1CF920BE008416B3 /* AboutWindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutWindowController.swift; sourceTree = "<group>"; };
 		2260B8EE1CF920BE008416B3 /* AboutWindowController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AboutWindowController.xib; sourceTree = "<group>"; };
 		22A084E71D0F721400270A42 /* mouse.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mouse.png; sourceTree = "<group>"; };
+		22AFB6001D18B08C006D3864 /* GlobalConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlobalConstants.swift; sourceTree = "<group>"; };
 		22B83AB91CF8EA010010A52B /* SetupWindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetupWindowController.swift; sourceTree = "<group>"; };
 		22B83ABA1CF8EA010010A52B /* SetupWindowController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SetupWindowController.xib; sourceTree = "<group>"; };
 		22E54B881CFB1C63003EA4DB /* thumbs_down.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = thumbs_down.png; sourceTree = "<group>"; };
@@ -144,6 +146,7 @@
 				22E54B8A1CFE2CD3003EA4DB /* DataShare.swift */,
 				22EA7C761CFF849000C2EE82 /* LaunchAtLoginManager.swift */,
 				225486BD1D05CDCB00BE070B /* Message.swift */,
+				22AFB6001D18B08C006D3864 /* GlobalConstants.swift */,
 			);
 			name = HelperClasses;
 			sourceTree = "<group>";
@@ -514,6 +517,7 @@
 				225C14F91CE8D4F600A12030 /* GestureManager.swift in Sources */,
 				22E54B8B1CFE2CD3003EA4DB /* DataShare.swift in Sources */,
 				225C14FB1CE8D65600A12030 /* Gesture.swift in Sources */,
+				22AFB6011D18B08C006D3864 /* GlobalConstants.swift in Sources */,
 				221CAD841C1999C500F57E62 /* StatusMenuController.swift in Sources */,
 				22593E9C1C18BCF9003CFCF2 /* AppDelegate.swift in Sources */,
 				2260B8EF1CF920BE008416B3 /* AboutWindowController.swift in Sources */,
