@@ -74,13 +74,13 @@ class GestureManager : NSObject {
             } else if event.phase == NSEventPhase.Ended {
                 gestures.last?.timeEnd = event.timestamp
                 
-                print("------------------------ debug ------------------------")
-                print(gestures.last?.xPoints)
-                print(gestures.last?.yPoints)
+                //print("------------------------ debug ------------------------")
+                //print(gestures.last?.xPoints)
+                //print(gestures.last?.yPoints)
                 
                 //anticipate the unlock
                 if KeychainManager.areGesturesSet() && gestures.count == KeychainManager.getGestures()!.count {
-                    manageUnlock(false)
+                    manageUnlock()
                 } else {
                     
                     //gesture ended, last one?
@@ -93,21 +93,15 @@ class GestureManager : NSObject {
     }
     
     @objc private func lastGestureUnlockTimerFired(timer : NSTimer!) {
-        manageUnlock(true)
+        manageUnlock()
     }
     
-    func manageUnlock(countFailedAttempts: Bool) {
+    func manageUnlock() {
         //it was the last gesture
         
         if isScreenLocked {
             if areGesturesCorrelated() {
                 unlock()
-            } else {
-                print("not correlated")
-                if countFailedAttempts && KeychainManager.areGesturesSet() { //only if a sequence was set
-                    dataShare.failedAttemts += 1
-                    print(dataShare.failedAttemts)
-                }
             }
         }
         

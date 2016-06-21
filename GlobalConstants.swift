@@ -14,7 +14,6 @@ struct GlobalConstants {
     }
     
     struct AppSettings {
-        static let maxFailedAttemts = 4
         static let defaultGestureTime = NSNumber(int: 800)
         static let gesturePrecision: CGFloat = 0.8 //Pearson linear correlation. Close to 1 means that the two series are strongly linear correlated
         static let minPointsForGesture = 10

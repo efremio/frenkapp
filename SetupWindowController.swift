@@ -214,7 +214,7 @@ class SetupWindowController: NSWindowController, NSWindowDelegate {
             
             
             //update labels
-            passwordOkField.stringValue = "Your password has been securely saved. It will be used only to unlock your Mac."
+            //passwordOkField.stringValue = "Your password has been securely saved. It will be used only to unlock your Mac."
             passwordAlertTextField.stringValue = ""
             
             //update buttons
@@ -232,26 +232,9 @@ class SetupWindowController: NSWindowController, NSWindowDelegate {
                 KeychainManager.setGestures(dataShare.sequenceBeingRecorded!)
                 dataShare.sequenceBeingRecorded = nil
                 
-                
-                //display a popup and close the window
-                /*let confPopup: NSAlert = NSAlert()
-                confPopup.messageText = "Well done!"
-                confPopup.informativeText = "You can now unlock your mac using the sequence you've just set up."
-                confPopup.alertStyle = NSAlertStyle.InformationalAlertStyle
-                confPopup.addButtonWithTitle("Ok")
-                let res = confPopup.runModal()
-                if res == NSAlertFirstButtonReturn {
-                    windowDidLoad() //reset in order to update the graphics
-                    tabView.selectTabViewItem(gesturesTabViewItem)
-                }*/
-                
-                
-                
-                
-                
+                //notification
                 let notification:NSUserNotification = NSUserNotification()
                 notification.title = "Sequence set!"
-                //notification.subtitle = "Subtitle"
                 notification.informativeText = "You can now unlock your mac using the sequence you've just set up."
                 
                 let notificationcenter = NSUserNotificationCenter.defaultUserNotificationCenter()
@@ -259,13 +242,15 @@ class SetupWindowController: NSWindowController, NSWindowDelegate {
                 
                 windowDidLoad() //reset in order to update the graphics
                 tabView.selectTabViewItem(gesturesTabViewItem)
-
+            } else { //otherwise the user is just updating the password
                 
+                //notification
+                let notification:NSUserNotification = NSUserNotification()
+                notification.title = "Passowrd updated!"
+                notification.informativeText = "Your password has been securely saved. It will be used only to unlock your Mac."
                 
-                
-                
-                
-                
+                let notificationcenter = NSUserNotificationCenter.defaultUserNotificationCenter()
+                notificationcenter.deliverNotification(notification)
             }
             
             

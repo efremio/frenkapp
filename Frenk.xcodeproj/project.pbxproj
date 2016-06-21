@@ -13,7 +13,6 @@
 		221BB21D1CFA133400A78F5F /* thumbs_up.png in Resources */ = {isa = PBXBuildFile; fileRef = 221BB21C1CFA133400A78F5F /* thumbs_up.png */; };
 		221BB2211CFA175000A78F5F /* frenk_logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 221BB2201CFA175000A78F5F /* frenk_logo.png */; };
 		221BB2231CFA18F800A78F5F /* scroll.png in Resources */ = {isa = PBXBuildFile; fileRef = 221BB2221CFA18F800A78F5F /* scroll.png */; };
-		221BB2271CFA1CBD00A78F5F /* scroll3.png in Resources */ = {isa = PBXBuildFile; fileRef = 221BB2261CFA1CBD00A78F5F /* scroll3.png */; };
 		221BB2291CFA1D0000A78F5F /* thumbs_up2.png in Resources */ = {isa = PBXBuildFile; fileRef = 221BB2281CFA1D0000A78F5F /* thumbs_up2.png */; };
 		221BB22B1CFA547200A78F5F /* AppData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 221BB22A1CFA547200A78F5F /* AppData.swift */; };
 		221CAD841C1999C500F57E62 /* StatusMenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 221CAD831C1999C500F57E62 /* StatusMenuController.swift */; };
@@ -64,7 +63,6 @@
 		221BB21C1CFA133400A78F5F /* thumbs_up.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = thumbs_up.png; sourceTree = "<group>"; };
 		221BB2201CFA175000A78F5F /* frenk_logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = frenk_logo.png; sourceTree = "<group>"; };
 		221BB2221CFA18F800A78F5F /* scroll.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = scroll.png; sourceTree = "<group>"; };
-		221BB2261CFA1CBD00A78F5F /* scroll3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = scroll3.png; sourceTree = "<group>"; };
 		221BB2281CFA1D0000A78F5F /* thumbs_up2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = thumbs_up2.png; sourceTree = "<group>"; };
 		221BB22A1CFA547200A78F5F /* AppData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppData.swift; sourceTree = "<group>"; };
 		221CAD831C1999C500F57E62 /* StatusMenuController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StatusMenuController.swift; path = Squiggle/StatusMenuController.swift; sourceTree = "<group>"; };
@@ -160,7 +158,6 @@
 				2260B8ED1CF920BE008416B3 /* AboutWindowController.swift */,
 				2260B8EE1CF920BE008416B3 /* AboutWindowController.xib */,
 				221BB2201CFA175000A78F5F /* frenk_logo.png */,
-				221BB2261CFA1CBD00A78F5F /* scroll3.png */,
 				221BB2221CFA18F800A78F5F /* scroll.png */,
 				22A084E71D0F721400270A42 /* mouse.png */,
 				221BB21C1CFA133400A78F5F /* thumbs_up.png */,
@@ -354,7 +351,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				221BB2271CFA1CBD00A78F5F /* scroll3.png in Resources */,
 				221BB2291CFA1D0000A78F5F /* thumbs_up2.png in Resources */,
 				22593E9E1C18BCF9003CFCF2 /* Assets.xcassets in Resources */,
 				22593EA11C18BCF9003CFCF2 /* MainMenu.xib in Resources */,

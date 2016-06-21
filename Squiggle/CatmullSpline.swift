@@ -63,7 +63,7 @@ func getCorrelation(s1: [CGFloat], s2: [CGFloat]) -> CGFloat {
     let deltaMaxA = maxA - minA
     let deltaMaxB = maxB - minB
     
-    print("---------- deltaMaxA = " + deltaMaxA.description + ", deltaMaxB = " + deltaMaxB.description)
+    //print("---------- deltaMaxA = " + deltaMaxA.description + ", deltaMaxB = " + deltaMaxB.description)
     if deltaMaxA < 5 && deltaMaxB < 5 {
         return 1
     }

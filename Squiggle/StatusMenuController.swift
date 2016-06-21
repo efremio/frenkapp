@@ -72,16 +72,6 @@ class StatusMenuController: NSObject {
     
     func unlockedEvent() {
         gestureManager.setScreenLocked(false)
-        
-        if dataShare.failedAttemts > GlobalConstants.AppSettings.maxFailedAttemts {
-            let notification = NSUserNotification()
-            notification.title = "Whatch out!"
-            notification.informativeText = "Frenk detected several failed login attempts."
-            
-            let notificationcenter = NSUserNotificationCenter.defaultUserNotificationCenter()
-            notificationcenter.deliverNotification(notification)
-        }
-        dataShare.failedAttemts = 0
     }
     
     internal func getGestureManagerInstance() -> GestureManager {
