@@ -25,9 +25,9 @@ class KeychainManager {
         saveData(data)
     }
     
-    static func setGestures(gestures : [Gesture]) {
+    static func setSequence(sequence : [Gesture]) {
         let data = getData()
-        data.gestures = gestures
+        data.sequence = sequence
         saveData(data)
     }
     
@@ -47,8 +47,8 @@ class KeychainManager {
 
     }
     
-    static func areGesturesSet() -> Bool {
-        return getData().gestures != nil
+    static func isSequenceSet() -> Bool {
+        return getData().sequence != nil
     }
     
     static func isLaunchAtLoginSet() -> Bool {
@@ -64,8 +64,8 @@ class KeychainManager {
         return getData().password
     }
     
-    static func getGestures() -> [Gesture]? {
-        return getData().gestures
+    static func getSequence() -> [Gesture]? {
+        return getData().sequence
     }
     
     static func getLaunchAtLogin() -> Bool? {

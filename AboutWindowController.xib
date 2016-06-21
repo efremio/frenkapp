@@ -29,13 +29,13 @@
                         <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="frenk_logo" id="1Hz-MV-sa5"/>
                     </imageView>
                     <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fyC-iw-o7a">
-                        <rect key="frame" x="25" y="69" width="300" height="51"/>
+                        <rect key="frame" x="25" y="52" width="300" height="68"/>
                         <textFieldCell key="cell" allowsUndo="NO" sendsActionOnEndEditing="YES" alignment="center" id="KlZ-Z7-hyg">
                             <font key="font" metaFont="system"/>
-                            <string key="title">Frenk v. %VERSION%
+                            <string key="title">Version %VERSION%
 
  © %YEAR% Frenk. All rights reserved.</string>
-                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="textColor" red="1" green="1" blue="1" alpha="0.90000000000000002" colorSpace="calibratedRGB"/>
                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                     </textField>

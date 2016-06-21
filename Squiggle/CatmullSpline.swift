@@ -8,26 +8,14 @@
 
 import Foundation
 
+private let maxDeltaFix: CGFloat = 5
+
 func getCorrelation(s1: [CGFloat], s2: [CGFloat]) -> CGFloat {
     var a = s1
     var b = s2
- 
-    
-    
-    
-    //todo test
-    /*let al = a.last
-    let bl = b.last
-    for index in 1...6 {
-        a.append(al! + CGFloat(index*20))
-        b.append(bl! + CGFloat(index*20))
-    }
-     
-     IDIOTA FAI STA ROBACCIA DOPO LA NORMALIZZAZIONE!
-     */
     
     //normalize the lengths of the series
-    if a.count < 10 || b.count < 10 {
+    if a.count < GlobalConstants.AppSettings.minPointsForGesture || b.count < GlobalConstants.AppSettings.minPointsForGesture {
         return 0
     }
     
@@ -37,10 +25,7 @@ func getCorrelation(s1: [CGFloat], s2: [CGFloat]) -> CGFloat {
         a = normalizeArray(a, n: b.count)
     }
     
-    
-    
-    
-    //todo test
+    //START patch for horizontal or vertical gestures
     var minA = a[0]
     var maxA = a[0]
     var minB = b[0]
@@ -63,13 +48,10 @@ func getCorrelation(s1: [CGFloat], s2: [CGFloat]) -> CGFloat {
     let deltaMaxA = maxA - minA
     let deltaMaxB = maxB - minB
     
-    //print("---------- deltaMaxA = " + deltaMaxA.description + ", deltaMaxB = " + deltaMaxB.description)
-    if deltaMaxA < 5 && deltaMaxB < 5 {
+    if deltaMaxA < maxDeltaFix && deltaMaxB < maxDeltaFix {
         return 1
     }
-    
-    
-    
+    //END patch for horizontal or vertical gestures
     
     //compute the correlation with Pearson
     return getPearsonCorrelation(a, b: b)
@@ -170,6 +152,7 @@ func normalizeArray(s: [CGFloat], n: Int) -> [CGFloat] {
                 }
                 i += 1
             }
+            
             //fill if empty (at the end)
             if points[2] == nil {
                 points[2] = givenValues[givenValues.count-1]
@@ -205,7 +188,6 @@ func normalizeArray(s: [CGFloat], n: Int) -> [CGFloat] {
             let t :CGFloat = (CGFloat(index)-CGFloat(last))/(CGFloat(next)-CGFloat(last))
             
             //compute interpolation value
-            
             let firstTerm = 2 * points[1]!
             let secondTerm = (points[2]! - points[0]!) * t
             let thirdTerm_1 = 2 * points[0]! - 5 * points[1]!
@@ -214,7 +196,6 @@ func normalizeArray(s: [CGFloat], n: Int) -> [CGFloat] {
             let fourthTerm = (fourthTerm_1 + points[3]!) * t * t * t
             
             newValues[index] = 0.5 * (firstTerm + secondTerm + thirdTerm + fourthTerm)
-            
         }
     }
     

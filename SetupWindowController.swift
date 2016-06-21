@@ -159,7 +159,7 @@ class SetupWindowController: NSWindowController, NSWindowDelegate {
             updatePasswordButton.title = "Set password"
         }
         
-        if KeychainManager.areGesturesSet() {
+        if KeychainManager.isSequenceSet() {
             gesturesTabViewItem.label = "Update sequence"
         } else {
             gesturesTabViewItem.label = "Set sequence"
@@ -229,7 +229,7 @@ class SetupWindowController: NSWindowController, NSWindowDelegate {
             
             if dataShare.sequenceBeingRecorded != nil { //if the user is confirming a new sequence
                 //save new sequence
-                KeychainManager.setGestures(dataShare.sequenceBeingRecorded!)
+                KeychainManager.setSequence(dataShare.sequenceBeingRecorded!)
                 dataShare.sequenceBeingRecorded = nil
                 
                 //notification
@@ -273,7 +273,7 @@ class SetupWindowController: NSWindowController, NSWindowDelegate {
                     updatePasswordButton.title = "Set password"
                 }
             } else {
-                if KeychainManager.areGesturesSet() {
+                if KeychainManager.isSequenceSet() {
                     updatePasswordButton.title = "Update sequence"
                 } else {
                     updatePasswordButton.title = "Set sequence"
@@ -368,7 +368,7 @@ class SetupWindowController: NSWindowController, NSWindowDelegate {
     
     func gestureIsValid() {
         //update password graphics
-        if KeychainManager.areGesturesSet() {
+        if KeychainManager.isSequenceSet() {
             updatePasswordButton.title = "Update sequence"
         } else {
             updatePasswordButton.title = "Set sequence"

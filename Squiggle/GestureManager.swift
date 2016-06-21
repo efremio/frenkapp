@@ -79,7 +79,7 @@ class GestureManager : NSObject {
                 //print(gestures.last?.yPoints)
                 
                 //anticipate the unlock
-                if KeychainManager.areGesturesSet() && gestures.count == KeychainManager.getGestures()!.count {
+                if KeychainManager.isSequenceSet() && gestures.count == KeychainManager.getSequence()!.count {
                     manageUnlock()
                 } else {
                     
@@ -180,16 +180,16 @@ class GestureManager : NSObject {
     }
     
     private func areGesturesCorrelated() -> Bool {
-        if !KeychainManager.areGesturesSet() { //no gestures saved, no correlation!
+        if !KeychainManager.isSequenceSet() { //no gestures saved, no correlation!
             return false
         }
         
-        if gestures.count == KeychainManager.getGestures()!.count {
+        if gestures.count == KeychainManager.getSequence()!.count {
             //TODO optimize: break the loop!
             var correlated = true
             for index in 0...(gestures.count-1) {
-                let correlationX = getCorrelation(gestures[index].xPoints, s2: KeychainManager.getGestures()![index].xPoints)
-                let correlationY = getCorrelation(gestures[index].yPoints, s2: KeychainManager.getGestures()![index].yPoints)
+                let correlationX = getCorrelation(gestures[index].xPoints, s2: KeychainManager.getSequence()![index].xPoints)
+                let correlationY = getCorrelation(gestures[index].yPoints, s2: KeychainManager.getSequence()![index].yPoints)
                 if !(correlationX > GlobalConstants.AppSettings.gesturePrecision) || !(correlationY > GlobalConstants.AppSettings.gesturePrecision) {
                     correlated = false
                 }

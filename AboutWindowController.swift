@@ -15,8 +15,7 @@ class AboutWindowController: NSWindowController {
     @IBOutlet var scrollView: NSScrollView!
     @IBOutlet var aboutTextField: NSTextField!
     
-    let checkURL = NSURL(string: "http://www.frenkapp.com")
-    let versionNumber = NSBundle.mainBundle().infoDictionary?["CFBundleShortVersionString"] as? String
+    let checkURL = NSURL(string: GlobalConstants.AppSettings.urlWeb)
     
     override func showWindow(sender: AnyObject?) {
         if aboutWindow != nil && aboutWindow.miniaturized { //if it is miniaturized, deminiaturize
@@ -71,7 +70,7 @@ class AboutWindowController: NSWindowController {
         
         //modify about text
         var rawText = aboutTextField.stringValue
-        rawText = rawText.stringByReplacingOccurrencesOfString("%VERSION%", withString: versionNumber!)
+        rawText = rawText.stringByReplacingOccurrencesOfString("%VERSION%", withString: GlobalConstants.AppSettings.versionNumber!)
         
         let date = NSDate()
         let calendar = NSCalendar.currentCalendar()

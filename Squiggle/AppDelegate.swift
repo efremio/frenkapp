@@ -49,7 +49,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSUserNotificationCenterDele
     
     @IBAction func checkForUpdates(sender: NSMenuItem) {
         let versionNumber = NSBundle.mainBundle().infoDictionary?["CFBundleShortVersionString"] as? String
-        let stringUrl = "http://www.frenkapp.com/update.php?myVersion=" + versionNumber!
+        let stringUrl = GlobalConstants.AppSettings.urlWebVersionCheck
         let checkURL = NSURL(string: stringUrl)
         
         NSWorkspace.sharedWorkspace().openURL(checkURL!)

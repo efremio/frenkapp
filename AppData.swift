@@ -10,14 +10,14 @@ import Foundation
 
 class AppData: NSObject, NSCoding {
     //variables initialization
-    var gestures : [Gesture]?
+    var sequence : [Gesture]?
     var password : NSString?
     var gestureTime : NSNumber?
     var launchAtLogin : Bool?
     
-    init?(gestures: [Gesture]?, password: NSString?, gestureTime: NSNumber?, launchAtLogin: Bool?) {
+    init?(sequence: [Gesture]?, password: NSString?, gestureTime: NSNumber?, launchAtLogin: Bool?) {
         // Initialize stored properties.
-        self.gestures = gestures
+        self.sequence = sequence
         self.password = password
         self.gestureTime = gestureTime
         self.launchAtLogin = launchAtLogin
@@ -27,7 +27,7 @@ class AppData: NSObject, NSCoding {
     
     override init() {
         // Initialize stored properties.
-        self.gestures = nil
+        self.sequence = nil
         self.password = nil
         self.gestureTime = nil
         self.launchAtLogin = nil
@@ -36,24 +36,24 @@ class AppData: NSObject, NSCoding {
     }
     
     func encodeWithCoder(aCoder: NSCoder) {
-        aCoder.encodeObject(gestures, forKey: PropertyKeyAppData.gesturesKey)
+        aCoder.encodeObject(sequence, forKey: PropertyKeyAppData.sequenceKey)
         aCoder.encodeObject(password, forKey: PropertyKeyAppData.passwordKey)
         aCoder.encodeObject(gestureTime, forKey: PropertyKeyAppData.gestureTimeKey)
         aCoder.encodeObject(launchAtLogin, forKey: PropertyKeyAppData.launchAtLoginKey)
     }
     
     required convenience init?(coder aDecoder: NSCoder) {
-        let gestures = aDecoder.decodeObjectForKey(PropertyKeyAppData.gesturesKey) as? [Gesture]
+        let sequence = aDecoder.decodeObjectForKey(PropertyKeyAppData.sequenceKey) as? [Gesture]
         let password = aDecoder.decodeObjectForKey(PropertyKeyAppData.passwordKey) as? NSString
         let gestureTime = aDecoder.decodeObjectForKey(PropertyKeyAppData.gestureTimeKey) as? NSNumber
         let launchAtLogin = aDecoder.decodeObjectForKey(PropertyKeyAppData.launchAtLoginKey) as? Bool
         
-        self.init(gestures: gestures, password: password, gestureTime: gestureTime, launchAtLogin: launchAtLogin)
+        self.init(sequence: sequence, password: password, gestureTime: gestureTime, launchAtLogin: launchAtLogin)
     }
 }
 
 struct PropertyKeyAppData {
-    static let gesturesKey = "gestures"
+    static let sequenceKey = "sequence"
     static let passwordKey = "password"
     static let gestureTimeKey = "gestureTime"
     static let launchAtLoginKey = "launchAtLogin"
