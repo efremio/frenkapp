@@ -1,18 +1,14 @@
 {
   "images" : [
     {
-      "idiom" : "universal",
+      "idiom" : "mac",
       "filename" : "frenk2_16.png",
       "scale" : "1x"
     },
     {
-      "idiom" : "universal",
+      "idiom" : "mac",
       "filename" : "frenk2_32.png",
       "scale" : "2x"
-    },
-    {
-      "idiom" : "universal",
-      "scale" : "3x"
     }
   ],
   "info" : {

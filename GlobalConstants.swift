@@ -20,7 +20,7 @@ struct GlobalConstants {
         //static let urlWeb = "http://www.frenkapp.com"
         //static let urlWebVersionCheck = "http://www.frenkapp.com/update/?myVersion=" + versionNumber!
         static let urlWeb = "http://epo90.altervista.org/frenk/"
-        static let urlWebVersionCheck = "http://epo90.altervista.org/frenk/update/?myVersion=" + versionNumber!
+        static let urlWebVersionCheck = "http://epo90.altervista.org/frenk/update/?version=" + versionNumber!
         
         static let versionNumber = NSBundle.mainBundle().infoDictionary?["CFBundleShortVersionString"] as? String
     }

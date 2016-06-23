@@ -48,7 +48,7 @@
                         <font key="font" metaFont="system"/>
                         <tabViewItems>
                             <tabViewItem label="Set sequence" identifier="1" id="NvK-Nz-3aE">
-                                <view key="view" id="dGM-BU-xlt">
+                                <view key="view" ambiguous="YES" id="dGM-BU-xlt">
                                     <rect key="frame" x="10" y="33" width="404" height="213"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
@@ -182,7 +182,7 @@
                                 </view>
                             </tabViewItem>
                             <tabViewItem label="Advanced settings" identifier="" id="Wfg-wj-2I2">
-                                <view key="view" ambiguous="YES" id="Uvh-6s-t8y">
+                                <view key="view" id="Uvh-6s-t8y">
                                     <rect key="frame" x="10" y="33" width="404" height="213"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>

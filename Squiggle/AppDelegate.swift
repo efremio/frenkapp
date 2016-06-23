@@ -16,13 +16,11 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSUserNotificationCenterDele
     var settingsWindow = NSWindowController()
     var aboutWindow = NSWindowController()
     
-    let statusItem = NSStatusBar.systemStatusBar().statusItemWithLength(-1) //get the system status bar
+    let statusItem = NSStatusBar.systemStatusBar().statusItemWithLength(-2) //get the system status bar
     
     func applicationDidFinishLaunching(aNotification: NSNotification) {
         
         NSUserNotificationCenter.defaultUserNotificationCenter().delegate = self
-    
-    
     
         // Insert code here to initialize your application
         let icon = NSImage(named: "statusIcon")
@@ -48,7 +46,6 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSUserNotificationCenterDele
     }
     
     @IBAction func checkForUpdates(sender: NSMenuItem) {
-        let versionNumber = NSBundle.mainBundle().infoDictionary?["CFBundleShortVersionString"] as? String
         let stringUrl = GlobalConstants.AppSettings.urlWebVersionCheck
         let checkURL = NSURL(string: stringUrl)
         
