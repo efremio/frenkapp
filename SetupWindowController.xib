@@ -26,6 +26,7 @@
                 <outlet property="retryButton" destination="xm4-vM-ELP" id="V5m-sA-Kca"/>
                 <outlet property="scrollImageView" destination="QL1-Me-z25" id="aJT-1j-8HA"/>
                 <outlet property="settingsWindow" destination="F0z-JX-Cv5" id="aqy-ga-1zD"/>
+                <outlet property="soundsEnabledButton" destination="tby-oX-pmN" id="CRs-rD-0GI"/>
                 <outlet property="tabView" destination="KW5-sd-8qx" id="nPi-Ul-Lzm"/>
                 <outlet property="thumbsDownImageView" destination="ctB-kB-SzC" id="GYp-1Q-2zM"/>
                 <outlet property="thumbsUpImageView" destination="H8S-eW-fWK" id="r4y-1s-YRp"/>
@@ -48,7 +49,7 @@
                         <font key="font" metaFont="system"/>
                         <tabViewItems>
                             <tabViewItem label="Set sequence" identifier="1" id="NvK-Nz-3aE">
-                                <view key="view" ambiguous="YES" id="dGM-BU-xlt">
+                                <view key="view" id="dGM-BU-xlt">
                                     <rect key="frame" x="10" y="33" width="194" height="0.0"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
@@ -182,7 +183,7 @@
                                 </view>
                             </tabViewItem>
                             <tabViewItem label="Advanced settings" identifier="" id="Wfg-wj-2I2">
-                                <view key="view" id="Uvh-6s-t8y">
+                                <view key="view" ambiguous="YES" id="Uvh-6s-t8y">
                                     <rect key="frame" x="10" y="33" width="404" height="213"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
@@ -201,14 +202,6 @@
                                                 <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                             </textFieldCell>
                                         </textField>
-                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Fi6-28-BR1">
-                                            <rect key="frame" x="15" y="78" width="99" height="17"/>
-                                            <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="right" title="Start at login" id="xHB-zg-WH2">
-                                                <font key="font" metaFont="system"/>
-                                                <color key="textColor" red="1" green="1" blue="1" alpha="0.90000000000000002" colorSpace="calibratedRGB"/>
-                                                <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                                            </textFieldCell>
-                                        </textField>
                                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yxQ-O9-Qtf">
                                             <rect key="frame" x="130" y="158" width="107" height="14"/>
                                             <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="left" title="Now: 100 ms" id="ZVS-Db-oBC">
@@ -218,15 +211,41 @@
                                             </textFieldCell>
                                         </textField>
                                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aPH-n8-gpS">
-                                            <rect key="frame" x="130" y="104" width="259" height="54"/>
+                                            <rect key="frame" x="130" y="116" width="259" height="42"/>
                                             <textFieldCell key="cell" sendsActionOnEndEditing="YES" title="The bigger it is, the more time you have between two consecutive gestures of the same sequence." id="Jd5-Uh-rhd">
                                                 <font key="font" metaFont="smallSystem"/>
                                                 <color key="textColor" red="1" green="1" blue="1" alpha="0.90000000000000002" colorSpace="calibratedRGB"/>
                                                 <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                             </textFieldCell>
                                         </textField>
+                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xYZ-fb-Oq8">
+                                            <rect key="frame" x="15" y="74" width="99" height="34"/>
+                                            <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="right" title="Sound effects" id="HWe-Zs-eNc">
+                                                <font key="font" metaFont="system"/>
+                                                <color key="textColor" red="1" green="1" blue="1" alpha="0.90000000000000002" colorSpace="calibratedRGB"/>
+                                                <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                            </textFieldCell>
+                                        </textField>
+                                        <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tby-oX-pmN">
+                                            <rect key="frame" x="130" y="90" width="18" height="18"/>
+                                            <buttonCell key="cell" type="check" bezelStyle="regularSquare" imagePosition="overlaps" inset="2" id="sH0-3e-oqh">
+                                                <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                                <font key="font" metaFont="system"/>
+                                            </buttonCell>
+                                            <connections>
+                                                <action selector="soundsEnabledToggle:" target="-2" id="eRU-ke-4hv"/>
+                                            </connections>
+                                        </button>
+                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Fi6-28-BR1">
+                                            <rect key="frame" x="15" y="67" width="99" height="17"/>
+                                            <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="right" title="Start at login" id="xHB-zg-WH2">
+                                                <font key="font" metaFont="system"/>
+                                                <color key="textColor" red="1" green="1" blue="1" alpha="0.90000000000000002" colorSpace="calibratedRGB"/>
+                                                <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                            </textFieldCell>
+                                        </textField>
                                         <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zuO-Ap-A1s">
-                                            <rect key="frame" x="130" y="77" width="18" height="18"/>
+                                            <rect key="frame" x="130" y="66" width="18" height="18"/>
                                             <buttonCell key="cell" type="check" bezelStyle="regularSquare" imagePosition="overlaps" inset="2" id="yJj-nU-eKw">
                                                 <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                 <font key="font" metaFont="system"/>
@@ -236,7 +255,7 @@
                                             </connections>
                                         </button>
                                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VFo-XE-4Ft">
-                                            <rect key="frame" x="130" y="27" width="259" height="44"/>
+                                            <rect key="frame" x="130" y="32" width="259" height="28"/>
                                             <textFieldCell key="cell" sendsActionOnEndEditing="YES" title="Your Mac will not launch Frenk for you at the sistem startup. You are on your own!" id="MMd-a7-gRy">
                                                 <font key="font" metaFont="smallSystem"/>
                                                 <color key="textColor" red="0.69707133507853403" green="0.10796575913146163" blue="0.057806340109574722" alpha="0.84999999999999998" colorSpace="calibratedRGB"/>

@@ -20,6 +20,7 @@ class SetupWindowController: NSWindowController, NSWindowDelegate {
     @IBOutlet var gestureTimeSliderCell: NSSliderCell!
     @IBOutlet var updatePasswordButton: NSButtonCell!
     
+    @IBOutlet var soundsEnabledButton: NSButton!
     @IBOutlet var launchAtLoginButton: NSButton!
     @IBOutlet var retryButton: NSButton!
     
@@ -147,6 +148,12 @@ class SetupWindowController: NSWindowController, NSWindowDelegate {
         } else {
             launchAtLoginButton.state = NSOffState
             launchAtLoginWarning.hidden = false
+        }
+        
+        if KeychainManager.areSoundsEnabledSet() && KeychainManager.getSoundsEnabled()! {
+            soundsEnabledButton.state = NSOnState
+        } else {
+            soundsEnabledButton.state = NSOffState
         }
         
         
@@ -328,6 +335,14 @@ class SetupWindowController: NSWindowController, NSWindowDelegate {
         } else {
             LaunchAtLoginManager.setLaunchAtStartup(false)
             launchAtLoginWarning.hidden = false
+        }
+    }
+    
+    @IBAction func soundsEnabledToggle(sender: NSButton) {
+        if soundsEnabledButton.state == NSOnState {
+            KeychainManager.setSoundsEnabled(true)
+        } else {
+            KeychainManager.setSoundsEnabled(false)
         }
     }
     

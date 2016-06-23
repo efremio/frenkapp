@@ -28,6 +28,10 @@ class StatusMenuController: NSObject {
             LaunchAtLoginManager.setLaunchAtStartup(true) //this will update KeyChainManager as well
         }
         
+        if !KeychainManager.areSoundsEnabledSet() {
+            KeychainManager.setSoundsEnabled(GlobalConstants.AppSettings.defaultSoundsEnabled)
+        }
+        
         gestureManager = GestureManager()
         
         super.init()

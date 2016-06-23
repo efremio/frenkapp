@@ -37,6 +37,12 @@ class KeychainManager {
         saveData(data)
     }
     
+    static func setSoundsEnabled(soundsEnabled : Bool) {
+        let data = getData()
+        data.soundsEnabled = soundsEnabled
+        saveData(data)
+    }
+    
     static func isGestureTimeSet() -> Bool {
         return getData().gestureTime != nil
 
@@ -56,6 +62,11 @@ class KeychainManager {
         
     }
     
+    static func areSoundsEnabledSet() -> Bool {
+        return getData().soundsEnabled != nil
+        
+    }
+    
     static func getGestureTime() -> NSNumber? {
         return getData().gestureTime
     }
@@ -70,6 +81,10 @@ class KeychainManager {
     
     static func getLaunchAtLogin() -> Bool? {
         return getData().launchAtLogin
+    }
+    
+    static func getSoundsEnabled() -> Bool? {
+        return getData().soundsEnabled
     }
     
     private static func getData() -> AppData {

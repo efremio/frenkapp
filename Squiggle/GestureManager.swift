@@ -79,34 +79,39 @@ class GestureManager : NSObject {
                 //print(gestures.last?.yPoints)
                 
                 //anticipate the unlock
-                if KeychainManager.isSequenceSet() && gestures.count == KeychainManager.getSequence()!.count {
-                    manageUnlock()
-                } else {
+                if KeychainManager.isSequenceSet()
+                    && gestures.count == KeychainManager.getSequence()!.count {
+                    manageUnlock(true)
+                } //else { removed, otherwise the "no" sound is not played if the user puts a wrong sequence with the same number of gestures of the correct sequence
                     
                     //gesture ended, last one?
                     lastGestureTimer.invalidate()
                     lastGestureTimer = NSTimer.scheduledTimerWithTimeInterval((KeychainManager.getGestureTime() as! Double)/1000, target: self, selector: #selector(self.lastGestureUnlockTimerFired(_:)), userInfo: nil, repeats: false)
                     
-                }
+                //}
             }
         }
     }
     
     @objc private func lastGestureUnlockTimerFired(timer : NSTimer!) {
-        manageUnlock()
+        manageUnlock(false)
     }
     
-    func manageUnlock() {
-        //it was the last gesture
+    func manageUnlock(fastCheck: Bool) {
+        //it was the last gesture (or maybe it's a fast check)
         
         if isScreenLocked {
             if areGesturesCorrelated() {
                 unlock()
+            } else {
+                if !fastCheck {
+                    SoundManager.noSound()
+                }
             }
         }
         
         //delete gestures
-        gestures.removeAll()
+        gestures.removeAll() //in case of fast check the sequence is cut even before the user completes it. Never mind, it's wrong!
     }
     
     //used to save a new gesture
