@@ -49,11 +49,11 @@
                         <tabViewItems>
                             <tabViewItem label="Set sequence" identifier="1" id="NvK-Nz-3aE">
                                 <view key="view" ambiguous="YES" id="dGM-BU-xlt">
-                                    <rect key="frame" x="10" y="33" width="404" height="213"/>
+                                    <rect key="frame" x="10" y="33" width="194" height="0.0"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FYt-ye-M8q">
-                                            <rect key="frame" x="15" y="160" width="374" height="49"/>
+                                            <rect key="frame" x="15" y="-53" width="374" height="49"/>
                                             <textFieldCell key="cell" sendsActionOnEndEditing="YES" title="Move the cursor inside this box and start recording your gesture sequence with two fingers on the trakpad." id="7ql-cI-Tpw">
                                                 <font key="font" metaFont="smallSystem"/>
                                                 <color key="textColor" red="1" green="1" blue="1" alpha="0.90000000000000002" colorSpace="calibratedRGB"/>
@@ -61,22 +61,22 @@
                                             </textFieldCell>
                                         </textField>
                                         <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mMm-f3-H3j">
-                                            <rect key="frame" x="176" y="75" width="72" height="72"/>
+                                            <rect key="frame" x="176" y="-138" width="72" height="72"/>
                                             <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="mouse" id="3pP-TC-Ayx"/>
                                         </imageView>
                                         <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QL1-Me-z25">
-                                            <rect key="frame" x="164" y="75" width="76" height="76"/>
+                                            <rect key="frame" x="164" y="-138" width="76" height="76"/>
                                             <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="scroll" id="TQC-MJ-8WW"/>
                                         </imageView>
                                         <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wZb-uB-FEB">
-                                            <rect key="frame" x="157" y="50" width="35" height="17"/>
+                                            <rect key="frame" x="157" y="-163" width="35" height="17"/>
                                             <buttonCell key="cell" type="inline" title="0" bezelStyle="inline" alignment="center" enabled="NO" borderStyle="border" inset="2" id="qRd-e9-F1e">
                                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                 <font key="font" metaFont="smallSystemBold"/>
                                             </buttonCell>
                                         </button>
                                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Jcq-MG-tX9">
-                                            <rect key="frame" x="198" y="52" width="56" height="14"/>
+                                            <rect key="frame" x="198" y="-161" width="56" height="14"/>
                                             <textFieldCell key="cell" sendsActionOnEndEditing="YES" title="gestures" id="FXQ-bH-oUg">
                                                 <font key="font" metaFont="smallSystem"/>
                                                 <color key="textColor" red="1" green="1" blue="1" alpha="0.90000000000000002" colorSpace="calibratedRGB"/>
@@ -84,7 +84,7 @@
                                             </textFieldCell>
                                         </textField>
                                         <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="usO-2N-4tC">
-                                            <rect key="frame" x="137" y="71" width="130" height="32"/>
+                                            <rect key="frame" x="137" y="-142" width="130" height="32"/>
                                             <buttonCell key="cell" type="bevel" title="Continue anyway" bezelStyle="regularSquare" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="gxM-CW-X0Z">
                                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                 <font key="font" metaFont="system"/>
@@ -94,7 +94,7 @@
                                             </connections>
                                         </button>
                                         <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xm4-vM-ELP">
-                                            <rect key="frame" x="137" y="126" width="130" height="32"/>
+                                            <rect key="frame" x="137" y="-87" width="130" height="32"/>
                                             <buttonCell key="cell" type="bevel" title="Retry" bezelStyle="regularSquare" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Hy1-V7-92c">
                                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                 <font key="font" metaFont="system"/>
@@ -104,7 +104,7 @@
                                             </connections>
                                         </button>
                                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cew-Hp-OKK">
-                                            <rect key="frame" x="137" y="107" width="130" height="14"/>
+                                            <rect key="frame" x="137" y="-106" width="130" height="14"/>
                                             <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="center" title="or" id="EVj-yZ-HSa">
                                                 <font key="font" metaFont="smallSystem"/>
                                                 <color key="textColor" red="1" green="1" blue="1" alpha="0.90000000000000002" colorSpace="calibratedRGB"/>

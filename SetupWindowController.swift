@@ -333,6 +333,7 @@ class SetupWindowController: NSWindowController, NSWindowDelegate {
     
     func errorsInGestureSequence(errors: [Message]) {
         mouseOverEnabled = false
+        dataShare.canRecord = false
         
         //show graphics
         showRetry(true)
@@ -346,6 +347,7 @@ class SetupWindowController: NSWindowController, NSWindowDelegate {
     
     func warningsInGestureSequence(warnings: [Message]) {
         mouseOverEnabled = false
+        dataShare.canRecord = false
         
         //show graphics
         showRetryContinueAnyway(true)
@@ -391,6 +393,7 @@ class SetupWindowController: NSWindowController, NSWindowDelegate {
         countGesturesButton.title = "0"
         countGesturesLabel.stringValue = "gestures"
         gestureInstructionsLabel.stringValue = gestureInstructions1
+        showRetryContinueAnyway(false)
         
     }
     
@@ -425,6 +428,7 @@ class SetupWindowController: NSWindowController, NSWindowDelegate {
         
         dataShare.sequenceBeingRecorded = nil
         mouseOverEnabled = true
+        dataShare.canRecord = true
     }
     
     @IBAction func continueAnywayPressed(sender: AnyObject) {
