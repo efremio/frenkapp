@@ -32,6 +32,7 @@
 		22B83ABB1CF8EA010010A52B /* SetupWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22B83AB91CF8EA010010A52B /* SetupWindowController.swift */; };
 		22B83ABC1CF8EA010010A52B /* SetupWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22B83ABA1CF8EA010010A52B /* SetupWindowController.xib */; };
 		22E338381D1C95E0003CD392 /* SoundManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E338371D1C95E0003CD392 /* SoundManager.swift */; };
+		22E338441D204803003CD392 /* background.png in Resources */ = {isa = PBXBuildFile; fileRef = 22E338431D204803003CD392 /* background.png */; };
 		22E54B891CFB1C63003EA4DB /* thumbs_down.png in Resources */ = {isa = PBXBuildFile; fileRef = 22E54B881CFB1C63003EA4DB /* thumbs_down.png */; };
 		22E54B8B1CFE2CD3003EA4DB /* DataShare.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E54B8A1CFE2CD3003EA4DB /* DataShare.swift */; };
 		22EA7C771CFF849000C2EE82 /* LaunchAtLoginManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22EA7C761CFF849000C2EE82 /* LaunchAtLoginManager.swift */; };
@@ -91,6 +92,7 @@
 		22B83AB91CF8EA010010A52B /* SetupWindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetupWindowController.swift; sourceTree = "<group>"; };
 		22B83ABA1CF8EA010010A52B /* SetupWindowController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SetupWindowController.xib; sourceTree = "<group>"; };
 		22E338371D1C95E0003CD392 /* SoundManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SoundManager.swift; sourceTree = "<group>"; };
+		22E338431D204803003CD392 /* background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background.png; sourceTree = "<group>"; };
 		22E54B881CFB1C63003EA4DB /* thumbs_down.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = thumbs_down.png; sourceTree = "<group>"; };
 		22E54B8A1CFE2CD3003EA4DB /* DataShare.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataShare.swift; sourceTree = "<group>"; };
 		22EA7C761CFF849000C2EE82 /* LaunchAtLoginManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LaunchAtLoginManager.swift; sourceTree = "<group>"; };
@@ -166,6 +168,7 @@
 				221BB21C1CFA133400A78F5F /* thumbs_up.png */,
 				22E54B881CFB1C63003EA4DB /* thumbs_down.png */,
 				221BB2281CFA1D0000A78F5F /* thumbs_up2.png */,
+				22E338431D204803003CD392 /* background.png */,
 				22593EC41C18D483003CFCF2 /* Squiggle.entitlements */,
 				22593E9B1C18BCF9003CFCF2 /* AppDelegate.swift */,
 				221CAD831C1999C500F57E62 /* StatusMenuController.swift */,
@@ -363,6 +366,7 @@
 				221BB2231CFA18F800A78F5F /* scroll.png in Resources */,
 				22B83ABC1CF8EA010010A52B /* SetupWindowController.xib in Resources */,
 				22A084E81D0F721400270A42 /* mouse.png in Resources */,
+				22E338441D204803003CD392 /* background.png in Resources */,
 				221BB21D1CFA133400A78F5F /* thumbs_up.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -87,22 +87,25 @@ class SetupWindowController: NSWindowController, NSWindowDelegate {
         
         
         
-        settingsWindow.contentView!.wantsLayer = true
-        
+        /*settingsWindow.contentView!.wantsLayer = true
         let layer = CAGradientLayer()
         layer.frame = settingsWindow.contentLayoutRect
         layer.colors = [
             /*NSColor(red: 107/255, green: 210/255, blue: 118/255, alpha: 1).CGColor,*/
-            NSColor(red: 60/255, green: 205/255, blue: 150/255, alpha: 1).CGColor, //#3CCD96, green
-            NSColor(red: 33/255, green: 184/255, blue: 232/255, alpha: 1).CGColor//#21B8E8, blue
+            GlobalConstants.Colors.purple,
+            GlobalConstants.Colors.lightPurple,
+            GlobalConstants.Colors.pink,
+            GlobalConstants.Colors.yellow
             
         ]
         layer.startPoint = NSPoint(x: 0, y: 0)
         layer.endPoint = NSPoint(x: 1, y: 0.3)
         layer.zPosition = -1
-        settingsWindow.contentView?.layer?.addSublayer(layer)
- 
+        settingsWindow.contentView?.layer?.addSublayer(layer)*/
         
+        
+        settingsWindow.contentView!.wantsLayer = true
+        settingsWindow.contentView?.layer?.contents = NSImage(named: "background.png")
         
         
         settingsWindow.styleMask = NSFullSizeContentViewWindowMask | NSTitledWindowMask | NSClosableWindowMask | NSMiniaturizableWindowMask

@@ -42,7 +42,7 @@ class AboutWindowController: NSWindowController {
         aboutWindow.contentView = visualEffectView //add the visual effect
         aboutWindow.contentView?.addSubview(previousContentView!)*/
         
-        aboutWindow.contentView!.wantsLayer = true
+        /*aboutWindow.contentView!.wantsLayer = true
         
         let layer = CAGradientLayer()
         layer.frame = aboutWindow.contentLayoutRect //CGRect(x: 0, y: 0, width: 160, height: 160)
@@ -55,7 +55,10 @@ class AboutWindowController: NSWindowController {
         layer.startPoint = NSPoint(x: 0, y: 0)
         layer.endPoint = NSPoint(x: 1, y: 0.3)
         layer.zPosition = -1
-        aboutWindow.contentView?.layer?.addSublayer(layer)
+        aboutWindow.contentView?.layer?.addSublayer(layer)*/
+        
+        aboutWindow.contentView!.wantsLayer = true
+        aboutWindow.contentView?.layer?.contents = NSImage(named: "background.png")
         
         
         
