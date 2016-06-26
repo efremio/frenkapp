@@ -93,15 +93,15 @@ class SetupWindowController: NSWindowController, NSWindowDelegate {
         layer.frame = settingsWindow.contentLayoutRect
         layer.colors = [
             /*NSColor(red: 107/255, green: 210/255, blue: 118/255, alpha: 1).CGColor,*/
-            NSColor(red: 60/255, green: 205/255, blue: 150/255, alpha: 1).CGColor,
-            NSColor(red: 33/255, green: 184/255, blue: 232/255, alpha: 1).CGColor
+            NSColor(red: 60/255, green: 205/255, blue: 150/255, alpha: 1).CGColor, //#3CCD96, green
+            NSColor(red: 33/255, green: 184/255, blue: 232/255, alpha: 1).CGColor//#21B8E8, blue
             
         ]
         layer.startPoint = NSPoint(x: 0, y: 0)
         layer.endPoint = NSPoint(x: 1, y: 0.3)
         layer.zPosition = -1
         settingsWindow.contentView?.layer?.addSublayer(layer)
-        
+ 
         
         
         
@@ -110,6 +110,7 @@ class SetupWindowController: NSWindowController, NSWindowDelegate {
         settingsWindow.titlebarAppearsTransparent = true
         settingsWindow.movableByWindowBackground = true
         settingsWindow.releasedWhenClosed = false
+        
         
         addLogo()
         
@@ -172,6 +173,7 @@ class SetupWindowController: NSWindowController, NSWindowDelegate {
             gesturesTabViewItem.label = "Set sequence"
         }
         
+        //passwordTabViewItem.initialFirstResponder = passwordField //todo it doesn't work
         
         showRetryContinueAnyway(false)
         
@@ -399,6 +401,9 @@ class SetupWindowController: NSWindowController, NSWindowDelegate {
         //switch to password tab
         tabView.selectTabViewItem(passwordTabViewItem)
         confirmGestureWithPasswordLabel.hidden = false
+        
+        //focus on the password field
+        passwordField.becomeFirstResponder()
         
         //init the gesture tab
         scrollImageView.hidden = true
