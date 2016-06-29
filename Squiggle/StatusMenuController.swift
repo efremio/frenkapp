@@ -32,6 +32,10 @@ class StatusMenuController: NSObject {
             KeychainManager.setSoundsEnabled(GlobalConstants.AppSettings.defaultSoundsEnabled)
         }
         
+        if !KeychainManager.isPrecisionSet() {
+            KeychainManager.setPrecision(GlobalConstants.AppSettings.defaultPrecision)
+        }
+        
         gestureManager = GestureManager()
         
         super.init()

@@ -15,14 +15,16 @@ class AppData: NSObject, NSCoding {
     var gestureTime: NSNumber?
     var launchAtLogin: Bool?
     var soundsEnabled: Bool?
+    var precision: CGFloat?
     
-    init?(sequence: [Gesture]?, password: NSString?, gestureTime: NSNumber?, launchAtLogin: Bool?, soundsEnabled: Bool?) {
+    init?(sequence: [Gesture]?, password: NSString?, gestureTime: NSNumber?, launchAtLogin: Bool?, soundsEnabled: Bool?, precision: CGFloat?) {
         // Initialize stored properties.
         self.sequence = sequence
         self.password = password
         self.gestureTime = gestureTime
         self.launchAtLogin = launchAtLogin
         self.soundsEnabled = soundsEnabled
+        self.precision = precision
         
         super.init()
     }
@@ -34,6 +36,7 @@ class AppData: NSObject, NSCoding {
         self.gestureTime = nil
         self.launchAtLogin = nil
         self.soundsEnabled = nil
+        self.precision = nil
         
         super.init()
     }
@@ -44,6 +47,7 @@ class AppData: NSObject, NSCoding {
         aCoder.encodeObject(gestureTime, forKey: PropertyKeyAppData.gestureTimeKey)
         aCoder.encodeObject(launchAtLogin, forKey: PropertyKeyAppData.launchAtLoginKey)
         aCoder.encodeObject(soundsEnabled, forKey: PropertyKeyAppData.soundsEnabledKey)
+        aCoder.encodeObject(precision, forKey: PropertyKeyAppData.precisionKey)
     }
     
     required convenience init?(coder aDecoder: NSCoder) {
@@ -52,8 +56,9 @@ class AppData: NSObject, NSCoding {
         let gestureTime = aDecoder.decodeObjectForKey(PropertyKeyAppData.gestureTimeKey) as? NSNumber
         let launchAtLogin = aDecoder.decodeObjectForKey(PropertyKeyAppData.launchAtLoginKey) as? Bool
         let soundsEnabled = aDecoder.decodeObjectForKey(PropertyKeyAppData.soundsEnabledKey) as? Bool
+        let precision = aDecoder.decodeObjectForKey(PropertyKeyAppData.precisionKey) as? CGFloat
         
-        self.init(sequence: sequence, password: password, gestureTime: gestureTime, launchAtLogin: launchAtLogin, soundsEnabled: soundsEnabled)
+        self.init(sequence: sequence, password: password, gestureTime: gestureTime, launchAtLogin: launchAtLogin, soundsEnabled: soundsEnabled, precision: precision)
     }
 }
 
@@ -63,4 +68,5 @@ struct PropertyKeyAppData {
     static let gestureTimeKey = "gestureTime"
     static let launchAtLoginKey = "launchAtLogin"
     static let soundsEnabledKey = "soundsEnabled"
+    static let precisionKey = "precision"
 }

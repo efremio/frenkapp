@@ -16,8 +16,10 @@ class SetupWindowController: NSWindowController, NSWindowDelegate {
     @IBOutlet var settingsWindow: NSWindow!
     @IBOutlet var prova: NSView!
     @IBOutlet var timeTextField: NSTextField!
+    @IBOutlet var accuracyTextField: NSTextField!
     @IBOutlet var setGestureImage: NSButton!
     @IBOutlet var gestureTimeSliderCell: NSSliderCell!
+    @IBOutlet var accuracyTimeSlider: NSSlider!
     @IBOutlet var updatePasswordButton: NSButtonCell!
     
     @IBOutlet var soundsEnabledButton: NSButton!
@@ -134,6 +136,11 @@ class SetupWindowController: NSWindowController, NSWindowDelegate {
         updateTimeLabel(time!)
         gestureTimeSliderCell.integerValue = time as! Int
         
+        //get accuracy
+        let accuracy = KeychainManager.getPrecision()
+        accuracyTimeSlider.floatValue = Float(accuracy! as CGFloat)*100
+        updateAccuracyLabel(accuracy!*100)
+        
         //init
         passwordAlertTextField.stringValue = ""
         passwordOkField.stringValue = ""
@@ -212,7 +219,20 @@ class SetupWindowController: NSWindowController, NSWindowDelegate {
     }
     
     func updateTimeLabel(time: NSNumber) {
-        timeTextField.stringValue = "Now: "+time.description+" ms"
+        timeTextField.stringValue = time.description+" ms"
+    }
+    
+    @IBAction func accuracyChanged(sender: NSSlider) {
+        updateAccuracyLabel(CGFloat(sender.intValue)) //update label
+        
+        //if mouseUp
+        if NSApplication.sharedApplication().currentEvent?.type == NSEventType.LeftMouseUp {
+            KeychainManager.setPrecision(CGFloat(sender.intValue)/100)
+        }
+    }
+    
+    func updateAccuracyLabel(accuracy: CGFloat) {
+        accuracyTextField.stringValue = Int(accuracy).description+"%"
     }
     
     @IBAction func updatePassword(sender: AnyObject) {

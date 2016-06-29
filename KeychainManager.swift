@@ -43,6 +43,12 @@ class KeychainManager {
         saveData(data)
     }
     
+    static func setPrecision(precision : CGFloat) {
+        let data = getData()
+        data.precision = precision
+        saveData(data)
+    }
+    
     static func isGestureTimeSet() -> Bool {
         return getData().gestureTime != nil
 
@@ -67,6 +73,11 @@ class KeychainManager {
         
     }
     
+    static func isPrecisionSet() -> Bool {
+        return getData().precision != nil
+        
+    }
+    
     static func getGestureTime() -> NSNumber? {
         return getData().gestureTime
     }
@@ -85,6 +96,10 @@ class KeychainManager {
     
     static func getSoundsEnabled() -> Bool? {
         return getData().soundsEnabled
+    }
+    
+    static func getPrecision() -> CGFloat? {
+        return getData().precision
     }
     
     private static func getData() -> AppData {

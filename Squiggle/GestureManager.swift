@@ -185,7 +185,7 @@ class GestureManager : NSObject {
     }
     
     private func areGesturesCorrelated() -> Bool {
-        if !KeychainManager.isSequenceSet() { //no gestures saved, no correlation!
+        if !KeychainManager.isSequenceSet() || !KeychainManager.isPrecisionSet() { //no gestures or precision saved, no correlation!
             return false
         }
         
@@ -195,12 +195,13 @@ class GestureManager : NSObject {
             for index in 0...(gestures.count-1) {
                 let correlationX = getCorrelation(gestures[index].xPoints, s2: KeychainManager.getSequence()![index].xPoints)
                 let correlationY = getCorrelation(gestures[index].yPoints, s2: KeychainManager.getSequence()![index].yPoints)
-                if !(correlationX > GlobalConstants.AppSettings.gesturePrecision) || !(correlationY > GlobalConstants.AppSettings.gesturePrecision) {
+                if !(correlationX > KeychainManager.getPrecision()) || !(correlationY > KeychainManager.getPrecision()) {
                     correlated = false
+                    return false //remove when debugging
                 }
-                print("DEBUG: gesture #", index)
+                /*print("DEBUG: gesture #", index)
                 print(correlationX)
-                print(correlationY)
+                print(correlationY)*/
             }
             if correlated {
                 return true
