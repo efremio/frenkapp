@@ -79,31 +79,31 @@ class SetupWindowController: NSWindowController, NSWindowDelegate {
         
         
         /*let visualEffectView = NSVisualEffectView(frame: NSMakeRect(0, 0, 0, 0))
-        visualEffectView.material = NSVisualEffectMaterial.MediumLight
-        visualEffectView.blendingMode = NSVisualEffectBlendingMode.BehindWindow
-        visualEffectView.state = NSVisualEffectState.Active
-        
-        let previousContentView = settingsWindow.contentView
-        settingsWindow.contentView = visualEffectView //add the visual effect
-        settingsWindow.contentView?.addSubview(previousContentView!)*/
+         visualEffectView.material = NSVisualEffectMaterial.MediumLight
+         visualEffectView.blendingMode = NSVisualEffectBlendingMode.BehindWindow
+         visualEffectView.state = NSVisualEffectState.Active
+         
+         let previousContentView = settingsWindow.contentView
+         settingsWindow.contentView = visualEffectView //add the visual effect
+         settingsWindow.contentView?.addSubview(previousContentView!)*/
         
         
         
         /*settingsWindow.contentView!.wantsLayer = true
-        let layer = CAGradientLayer()
-        layer.frame = settingsWindow.contentLayoutRect
-        layer.colors = [
-            /*NSColor(red: 107/255, green: 210/255, blue: 118/255, alpha: 1).CGColor,*/
-            GlobalConstants.Colors.purple,
-            GlobalConstants.Colors.lightPurple,
-            GlobalConstants.Colors.pink,
-            GlobalConstants.Colors.yellow
-            
-        ]
-        layer.startPoint = NSPoint(x: 0, y: 0)
-        layer.endPoint = NSPoint(x: 1, y: 0.3)
-        layer.zPosition = -1
-        settingsWindow.contentView?.layer?.addSublayer(layer)*/
+         let layer = CAGradientLayer()
+         layer.frame = settingsWindow.contentLayoutRect
+         layer.colors = [
+         /*NSColor(red: 107/255, green: 210/255, blue: 118/255, alpha: 1).CGColor,*/
+         GlobalConstants.Colors.purple,
+         GlobalConstants.Colors.lightPurple,
+         GlobalConstants.Colors.pink,
+         GlobalConstants.Colors.yellow
+         
+         ]
+         layer.startPoint = NSPoint(x: 0, y: 0)
+         layer.endPoint = NSPoint(x: 1, y: 0.3)
+         layer.zPosition = -1
+         settingsWindow.contentView?.layer?.addSublayer(layer)*/
         
         
         settingsWindow.contentView!.wantsLayer = true
@@ -116,7 +116,6 @@ class SetupWindowController: NSWindowController, NSWindowDelegate {
         settingsWindow.movableByWindowBackground = true
         settingsWindow.releasedWhenClosed = false
         
-        
         addLogo()
         
         thumbsUpImageView.hidden = true
@@ -125,11 +124,15 @@ class SetupWindowController: NSWindowController, NSWindowDelegate {
         passwordField.bezelStyle = NSTextFieldBezelStyle.SquareBezel
         
         
-        tabView.selectFirstTabViewItem(self)
+        //tabView.selectFirstTabViewItem(self)
+        box1.hidden = false
+        box2.hidden = true
+        box3.hidden = true
         
-        let bounds = gesturesTabViewItem.view?.bounds
-        gesturesTabViewItem.view?.addTrackingRect(bounds!, owner: self, userData: nil, assumeInside: true)
         
+        //let bounds = gesturesTabViewItem.view?.bounds
+        //gesturesTabViewItem.view?.addTrackingRect(bounds!, owner: self, userData: nil, assumeInside: true)
+        box1.contentView?.addTrackingRect(box1.bounds, owner: self, userData: nil, assumeInside: true)
         
         //get gesture time
         let time = KeychainManager.getGestureTime()
@@ -170,17 +173,21 @@ class SetupWindowController: NSWindowController, NSWindowDelegate {
         
         //labels
         if KeychainManager.isPasswordSet() {
-            passwordTabViewItem.label = "Update password"
+            //passwordTabViewItem.label = "Update password"
+            segmentedControl.setLabel("Update password", forSegment: 1)
             updatePasswordButton.title = "Update password"
         } else {
-            passwordTabViewItem.label = "Set password"
+            //passwordTabViewItem.label = "Set password"
+            segmentedControl.setLabel("Set password", forSegment: 1)
             updatePasswordButton.title = "Set password"
         }
         
         if KeychainManager.isSequenceSet() {
-            gesturesTabViewItem.label = "Update sequence"
+            //gesturesTabViewItem.label = "Update sequence"
+            segmentedControl.setLabel("Update sequence", forSegment: 0)
         } else {
-            gesturesTabViewItem.label = "Set sequence"
+            //gesturesTabViewItem.label = "Set sequence"
+            segmentedControl.setLabel("Set sequence", forSegment: 0)
         }
         
         //passwordTabViewItem.initialFirstResponder = passwordField //todo it doesn't work
@@ -250,7 +257,8 @@ class SetupWindowController: NSWindowController, NSWindowDelegate {
             passwordAlertTextField.stringValue = ""
             
             //update buttons
-            passwordTabViewItem.label = "Update password"
+            //passwordTabViewItem.label = "Update password"
+            segmentedControl.setLabel("Update password", forSegment: 1)
             updatePasswordButton.title = "Update password"
             
             //thumbs up!
@@ -273,7 +281,8 @@ class SetupWindowController: NSWindowController, NSWindowDelegate {
                 notificationcenter.deliverNotification(notification)
                 
                 windowDidLoad() //reset in order to update the graphics
-                tabView.selectTabViewItem(gesturesTabViewItem)
+                //tabView.selectTabViewItem(gesturesTabViewItem)
+                switchToTab(0)
             } else { //otherwise the user is just updating the password
                 
                 //notification
@@ -400,10 +409,12 @@ class SetupWindowController: NSWindowController, NSWindowDelegate {
         
         //reset password label
         if KeychainManager.isPasswordSet() {
-            passwordTabViewItem.label = "Update password"
+            //passwordTabViewItem.label = "Update password"
+            segmentedControl.setLabel("Update password", forSegment: 1)
             updatePasswordButton.title = "Update password"
         } else {
-            passwordTabViewItem.label = "Set password"
+            //passwordTabViewItem.label = "Set password"
+            segmentedControl.setLabel("Set password", forSegment: 1)
             updatePasswordButton.title = "Set password"
         }
     }
@@ -415,14 +426,18 @@ class SetupWindowController: NSWindowController, NSWindowDelegate {
         } else {
             updatePasswordButton.title = "Set sequence"
         }
-        passwordTabViewItem.label = "Confirm sequence"
+        //passwordTabViewItem.label = "Confirm sequence"
+        segmentedControl.setLabel("Confirm sequence", forSegment: 0)
+        
         thumbsUpImageView.hidden = true
         thumbsDownImageView.hidden = true
         passwordOkField.stringValue = ""
         passwordAlertTextField.stringValue = ""
         
         //switch to password tab
-        tabView.selectTabViewItem(passwordTabViewItem)
+        //tabView.selectTabViewItem(passwordTabViewItem)
+        switchToTab(1)
+        
         confirmGestureWithPasswordLabel.hidden = false
         
         //focus on the password field
@@ -482,5 +497,40 @@ class SetupWindowController: NSWindowController, NSWindowDelegate {
         //switch to password tab
         gestureIsValid()
     }
+    
+    
+    //EXPERIMENTAL
+    @IBOutlet var box1: NSBox!
+    @IBOutlet var box2: NSBox!
+    @IBOutlet var box3: NSBox!
+    
+    @IBOutlet var segmentedControl: NSSegmentedControl!
+    
+    @IBAction func segmentedControlPressed(sender: NSSegmentedCell) {
+        switchToTab(sender.selectedSegment)
+        
+    }
+    
+    func switchToTab(index: Int) {
+        switch index {
+        case 0:
+            box1.hidden = false
+            box2.hidden = true
+            box3.hidden = true
+        case 1:
+            box1.hidden = true
+            box2.hidden = false
+            box3.hidden = true
+        case 2:
+            box1.hidden = true
+            box2.hidden = true
+            box3.hidden = false
+        default:
+            box1.hidden = true
+            box2.hidden = true
+            box3.hidden = true
+        }
+    }
+    
     
 }
