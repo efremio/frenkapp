@@ -58,7 +58,7 @@ class AboutWindowController: NSWindowController {
         aboutWindow.contentView?.layer?.addSublayer(layer)*/
         
         aboutWindow.contentView!.wantsLayer = true
-        aboutWindow.contentView?.layer?.contents = NSImage(named: "background.png")
+        aboutWindow.contentView?.layer?.contents = NSImage(named: "background3.png")
         
         
         

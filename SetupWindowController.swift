@@ -108,7 +108,7 @@ class SetupWindowController: NSWindowController, NSWindowDelegate {
         
         //******** BACKGROUND IMAGE *************
         settingsWindow.contentView!.wantsLayer = true
-        settingsWindow.contentView?.layer?.contents = NSImage(named: "background.png")
+        settingsWindow.contentView?.layer?.contents = NSImage(named: "background3.png")
         
         
         settingsWindow.styleMask = NSFullSizeContentViewWindowMask | NSTitledWindowMask | NSClosableWindowMask | NSMiniaturizableWindowMask
@@ -357,6 +357,9 @@ class SetupWindowController: NSWindowController, NSWindowDelegate {
     }
     
     func updateGestureNumber(number: NSNumber) {
+        if number != 0 {
+            SoundManager.yesSound()
+        }
         countGesturesButton.title = number.description
         if number == 1 {
             countGesturesLabel.stringValue = "gesture"
