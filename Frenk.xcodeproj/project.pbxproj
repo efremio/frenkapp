@@ -31,6 +31,7 @@
 		22AFB6011D18B08C006D3864 /* GlobalConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22AFB6001D18B08C006D3864 /* GlobalConstants.swift */; };
 		22B83ABB1CF8EA010010A52B /* SetupWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22B83AB91CF8EA010010A52B /* SetupWindowController.swift */; };
 		22B83ABC1CF8EA010010A52B /* SetupWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22B83ABA1CF8EA010010A52B /* SetupWindowController.xib */; };
+		22C23B711D2D282A0020F767 /* background2.png in Resources */ = {isa = PBXBuildFile; fileRef = 22C23B701D2D282A0020F767 /* background2.png */; };
 		22E338381D1C95E0003CD392 /* SoundManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E338371D1C95E0003CD392 /* SoundManager.swift */; };
 		22E338461D206D02003CD392 /* background.png in Resources */ = {isa = PBXBuildFile; fileRef = 22E338451D206D02003CD392 /* background.png */; };
 		22E54B891CFB1C63003EA4DB /* thumbs_down.png in Resources */ = {isa = PBXBuildFile; fileRef = 22E54B881CFB1C63003EA4DB /* thumbs_down.png */; };
@@ -91,6 +92,7 @@
 		22AFB6001D18B08C006D3864 /* GlobalConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlobalConstants.swift; sourceTree = "<group>"; };
 		22B83AB91CF8EA010010A52B /* SetupWindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetupWindowController.swift; sourceTree = "<group>"; };
 		22B83ABA1CF8EA010010A52B /* SetupWindowController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SetupWindowController.xib; sourceTree = "<group>"; };
+		22C23B701D2D282A0020F767 /* background2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background2.png; sourceTree = "<group>"; };
 		22E338371D1C95E0003CD392 /* SoundManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SoundManager.swift; sourceTree = "<group>"; };
 		22E338451D206D02003CD392 /* background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background.png; sourceTree = "<group>"; };
 		22E54B881CFB1C63003EA4DB /* thumbs_down.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = thumbs_down.png; sourceTree = "<group>"; };
@@ -169,6 +171,7 @@
 				22E54B881CFB1C63003EA4DB /* thumbs_down.png */,
 				221BB2281CFA1D0000A78F5F /* thumbs_up2.png */,
 				22E338451D206D02003CD392 /* background.png */,
+				22C23B701D2D282A0020F767 /* background2.png */,
 				22593EC41C18D483003CFCF2 /* Squiggle.entitlements */,
 				22593E9B1C18BCF9003CFCF2 /* AppDelegate.swift */,
 				221CAD831C1999C500F57E62 /* StatusMenuController.swift */,
@@ -361,6 +364,7 @@
 				22593E9E1C18BCF9003CFCF2 /* Assets.xcassets in Resources */,
 				22593EA11C18BCF9003CFCF2 /* MainMenu.xib in Resources */,
 				221BB2211CFA175000A78F5F /* frenk_logo.png in Resources */,
+				22C23B711D2D282A0020F767 /* background2.png in Resources */,
 				22E54B891CFB1C63003EA4DB /* thumbs_down.png in Resources */,
 				2260B8F01CF920BE008416B3 /* AboutWindowController.xib in Resources */,
 				221BB2231CFA18F800A78F5F /* scroll.png in Resources */,

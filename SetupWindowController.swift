@@ -77,7 +77,7 @@ class SetupWindowController: NSWindowController, NSWindowDelegate {
         dataShare.sequenceBeingRecorded = nil
         
         
-        
+        //******** BLURRED BACKGROUND *************
         /*let visualEffectView = NSVisualEffectView(frame: NSMakeRect(0, 0, 0, 0))
          visualEffectView.material = NSVisualEffectMaterial.MediumLight
          visualEffectView.blendingMode = NSVisualEffectBlendingMode.BehindWindow
@@ -88,7 +88,7 @@ class SetupWindowController: NSWindowController, NSWindowDelegate {
          settingsWindow.contentView?.addSubview(previousContentView!)*/
         
         
-        
+        //******** BACKGROUND GRADIENT *************
         /*settingsWindow.contentView!.wantsLayer = true
          let layer = CAGradientLayer()
          layer.frame = settingsWindow.contentLayoutRect
@@ -106,6 +106,7 @@ class SetupWindowController: NSWindowController, NSWindowDelegate {
          settingsWindow.contentView?.layer?.addSublayer(layer)*/
         
         
+        //******** BACKGROUND IMAGE *************
         settingsWindow.contentView!.wantsLayer = true
         settingsWindow.contentView?.layer?.contents = NSImage(named: "background.png")
         
@@ -307,10 +308,12 @@ class SetupWindowController: NSWindowController, NSWindowDelegate {
             //update buttons
             if(dataShare.sequenceBeingRecorded == nil) {
                 if KeychainManager.isPasswordSet() {
-                    passwordTabViewItem.label = "Update password"
+                    //passwordTabViewItem.label = "Update password"
+                    segmentedControl.setLabel("Update password", forSegment: 1)
                     updatePasswordButton.title = "Update password"
                 } else {
-                    passwordTabViewItem.label = "Set password"
+                    //passwordTabViewItem.label = "Set password"
+                    segmentedControl.setLabel("Set password", forSegment: 1)
                     updatePasswordButton.title = "Set password"
                 }
             } else {

@@ -196,18 +196,10 @@
                                     </buttonCell>
                                 </button>
                                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8Li-kF-7OY">
-                                    <rect key="frame" x="-29" y="106" width="374" height="43"/>
+                                    <rect key="frame" x="18" y="106" width="458" height="43"/>
                                     <textFieldCell key="cell" sendsActionOnEndEditing="YES" id="1xJ-PJ-yZC">
-                                        <font key="font" metaFont="smallSystem"/>
+                                        <font key="font" metaFont="system"/>
                                         <color key="textColor" red="0.69707133509999997" green="0.1079657591" blue="0.05780634011" alpha="0.84999999999999998" colorSpace="calibratedRGB"/>
-                                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                                    </textFieldCell>
-                                </textField>
-                                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rBe-qo-kb3">
-                                    <rect key="frame" x="-29" y="106" width="374" height="43"/>
-                                    <textFieldCell key="cell" sendsActionOnEndEditing="YES" id="ntq-C4-COe">
-                                        <font key="font" metaFont="smallSystem"/>
-                                        <color key="textColor" red="1" green="1" blue="1" alpha="0.90000000000000002" colorSpace="calibratedRGB"/>
                                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                     </textFieldCell>
                                 </textField>
@@ -222,7 +214,15 @@
                                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FA9-Ia-R3o">
                                     <rect key="frame" x="18" y="216" width="458" height="39"/>
                                     <textFieldCell key="cell" sendsActionOnEndEditing="YES" title="To save the gesture you have just recorded, write your system password." id="uRA-hI-TBQ">
-                                        <font key="font" metaFont="smallSystem"/>
+                                        <font key="font" metaFont="system"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="0.90000000000000002" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                    </textFieldCell>
+                                </textField>
+                                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rBe-qo-kb3">
+                                    <rect key="frame" x="18" y="106" width="458" height="43"/>
+                                    <textFieldCell key="cell" sendsActionOnEndEditing="YES" id="ntq-C4-COe">
+                                        <font key="font" metaFont="system"/>
                                         <color key="textColor" red="1" green="1" blue="1" alpha="0.90000000000000002" colorSpace="calibratedRGB"/>
                                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                     </textFieldCell>
@@ -281,18 +281,18 @@
                                         <action selector="retryPressed:" target="-2" id="2f0-ti-fBz"/>
                                     </connections>
                                 </button>
-                                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cew-Hp-OKK">
-                                    <rect key="frame" x="184" y="135" width="130" height="14"/>
-                                    <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="center" title="or" id="EVj-yZ-HSa">
-                                        <font key="font" metaFont="smallSystem"/>
+                                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FYt-ye-M8q">
+                                    <rect key="frame" x="18" y="206" width="458" height="49"/>
+                                    <textFieldCell key="cell" sendsActionOnEndEditing="YES" title="Move the cursor inside this box and start recording your gesture sequence with two fingers on the trakpad." id="7ql-cI-Tpw">
+                                        <font key="font" metaFont="system"/>
                                         <color key="textColor" red="1" green="1" blue="1" alpha="0.90000000000000002" colorSpace="calibratedRGB"/>
                                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                     </textFieldCell>
                                 </textField>
-                                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FYt-ye-M8q">
-                                    <rect key="frame" x="18" y="206" width="458" height="49"/>
-                                    <textFieldCell key="cell" sendsActionOnEndEditing="YES" title="Move the cursor inside this box and start recording your gesture sequence with two fingers on the trakpad." id="7ql-cI-Tpw">
-                                        <font key="font" metaFont="smallSystem"/>
+                                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cew-Hp-OKK">
+                                    <rect key="frame" x="184" y="135" width="130" height="17"/>
+                                    <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="center" title="or" id="EVj-yZ-HSa">
+                                        <font key="font" metaFont="system"/>
                                         <color key="textColor" red="1" green="1" blue="1" alpha="0.90000000000000002" colorSpace="calibratedRGB"/>
                                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                     </textFieldCell>
@@ -307,13 +307,13 @@
                         <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="frenk_logo" id="F7A-Nd-Faq"/>
                     </imageView>
                     <segmentedControl verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="s2i-dr-01g">
-                        <rect key="frame" x="92" y="283" width="346" height="24"/>
+                        <rect key="frame" x="67" y="283" width="398" height="24"/>
                         <segmentedCell key="cell" scrollable="YES" lineBreakMode="clipping" borderStyle="border" alignment="left" style="rounded" trackingMode="selectOne" id="BAv-CP-Fqw">
                             <font key="font" metaFont="system"/>
                             <segments>
-                                <segment label="Set sequence" selected="YES"/>
-                                <segment label="Set password" tag="1"/>
-                                <segment label="Advanced settings"/>
+                                <segment label="Set sequence" width="130" selected="YES"/>
+                                <segment label="Set password" width="130" tag="1"/>
+                                <segment label="Advanced settings" width="130"/>
                             </segments>
                             <connections>
                                 <action selector="segmentedControlPressed:" target="-2" id="53s-lu-kS2"/>
