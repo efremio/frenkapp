@@ -11,10 +11,7 @@ import Cocoa
 
 struct GlobalConstants {
     struct Colors {
-        static let yellow = NSColor(red: 251/255, green: 230/255, blue: 186/255, alpha: 1).CGColor
-        static let pink = NSColor(red: 250/255, green: 195/255, blue: 184/255, alpha: 1).CGColor
-        static let lightPurple = NSColor(red: 240/255, green: 153/255, blue: 162/255, alpha: 1).CGColor
-        static let purple = NSColor(red: 174/255, green: 139/255, blue: 193/255, alpha: 1).CGColor
+        static let green = NSColor(red: 53/255, green: 239/255, blue: 168/255, alpha: 1)
     }
     
     struct AppSettings {

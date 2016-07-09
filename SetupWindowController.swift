@@ -78,14 +78,14 @@ class SetupWindowController: NSWindowController, NSWindowDelegate {
         
         
         //******** BLURRED BACKGROUND *************
-        /*let visualEffectView = NSVisualEffectView(frame: NSMakeRect(0, 0, 0, 0))
-         visualEffectView.material = NSVisualEffectMaterial.MediumLight
+        let visualEffectView = NSVisualEffectView(frame: NSMakeRect(0, 0, 0, 0))
+         visualEffectView.material = NSVisualEffectMaterial.Dark
          visualEffectView.blendingMode = NSVisualEffectBlendingMode.BehindWindow
          visualEffectView.state = NSVisualEffectState.Active
          
          let previousContentView = settingsWindow.contentView
          settingsWindow.contentView = visualEffectView //add the visual effect
-         settingsWindow.contentView?.addSubview(previousContentView!)*/
+         settingsWindow.contentView?.addSubview(previousContentView!)
         
         
         //******** BACKGROUND GRADIENT *************
@@ -107,8 +107,8 @@ class SetupWindowController: NSWindowController, NSWindowDelegate {
         
         
         //******** BACKGROUND IMAGE *************
-        settingsWindow.contentView!.wantsLayer = true
-        settingsWindow.contentView?.layer?.contents = NSImage(named: "background3.png")
+        /*settingsWindow.contentView!.wantsLayer = true
+        settingsWindow.contentView?.layer?.contents = NSImage(named: "background3.png")*/
         
         
         settingsWindow.styleMask = NSFullSizeContentViewWindowMask | NSTitledWindowMask | NSClosableWindowMask | NSMiniaturizableWindowMask
@@ -206,8 +206,8 @@ class SetupWindowController: NSWindowController, NSWindowDelegate {
         //tint the logo
         let logo = logoImageView.image
         logo!.lockFocus()
-        //NSColor(red: 0.25, green: 0.75, blue: 0.793, alpha: 1).set()
-        NSColor.whiteColor().set()
+        GlobalConstants.Colors.green.set()
+        //NSColor.whiteColor().set()
         let imageRect = NSRect(origin: NSZeroPoint, size: logo!.size)
         NSRectFillUsingOperation(imageRect, NSCompositingOperation.CompositeSourceAtop)
         logo?.unlockFocus()

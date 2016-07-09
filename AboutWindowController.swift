@@ -33,14 +33,14 @@ class AboutWindowController: NSWindowController {
     override func windowDidLoad() {
         super.windowDidLoad()
         
-        /*let visualEffectView = NSVisualEffectView(frame: NSMakeRect(0, 0, 0, 0))
-        visualEffectView.material = NSVisualEffectMaterial.MediumLight
+        let visualEffectView = NSVisualEffectView(frame: NSMakeRect(0, 0, 0, 0))
+        visualEffectView.material = NSVisualEffectMaterial.Dark
         visualEffectView.blendingMode = NSVisualEffectBlendingMode.BehindWindow
         visualEffectView.state = NSVisualEffectState.Active
         
         let previousContentView = aboutWindow.contentView
         aboutWindow.contentView = visualEffectView //add the visual effect
-        aboutWindow.contentView?.addSubview(previousContentView!)*/
+        aboutWindow.contentView?.addSubview(previousContentView!)
         
         /*aboutWindow.contentView!.wantsLayer = true
         
@@ -57,8 +57,8 @@ class AboutWindowController: NSWindowController {
         layer.zPosition = -1
         aboutWindow.contentView?.layer?.addSublayer(layer)*/
         
-        aboutWindow.contentView!.wantsLayer = true
-        aboutWindow.contentView?.layer?.contents = NSImage(named: "background3.png")
+        /*aboutWindow.contentView!.wantsLayer = true
+        aboutWindow.contentView?.layer?.contents = NSImage(named: "background3.png")*/
         
         
         
@@ -89,8 +89,8 @@ class AboutWindowController: NSWindowController {
         //tint the logo
         let logo = logoImageView.image
         logo!.lockFocus()
-        //NSColor(red: 0.25, green: 0.75, blue: 0.793, alpha: 1).set()
-        NSColor.whiteColor().set()
+        GlobalConstants.Colors.green.set()
+        //NSColor.whiteColor().set()
         let imageRect = NSRect(origin: NSZeroPoint, size: logo!.size)
         NSRectFillUsingOperation(imageRect, NSCompositingOperation.CompositeSourceAtop)
         logo?.unlockFocus()

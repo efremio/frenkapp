@@ -10,9 +10,9 @@
 		0CAC023DA44BBE8E92D8C8DE /* Pods_FrenkUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C81F9E204842FDA61F5D5594 /* Pods_FrenkUITests.framework */; };
 		220D91141C1B133400FF6AC2 /* CatmullSpline.swift in Sources */ = {isa = PBXBuildFile; fileRef = 220D91131C1B133400FF6AC2 /* CatmullSpline.swift */; };
 		221BB2191CF9BCE400A78F5F /* KeychainManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 221BB2181CF9BCE400A78F5F /* KeychainManager.swift */; };
-		221BB21D1CFA133400A78F5F /* thumbs_up.png in Resources */ = {isa = PBXBuildFile; fileRef = 221BB21C1CFA133400A78F5F /* thumbs_up.png */; };
+		221BB21D1CFA133400A78F5F /* thumbs_up_green.png in Resources */ = {isa = PBXBuildFile; fileRef = 221BB21C1CFA133400A78F5F /* thumbs_up_green.png */; };
 		221BB2211CFA175000A78F5F /* frenk_logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 221BB2201CFA175000A78F5F /* frenk_logo.png */; };
-		221BB2231CFA18F800A78F5F /* scroll.png in Resources */ = {isa = PBXBuildFile; fileRef = 221BB2221CFA18F800A78F5F /* scroll.png */; };
+		221BB2231CFA18F800A78F5F /* scroll_green.png in Resources */ = {isa = PBXBuildFile; fileRef = 221BB2221CFA18F800A78F5F /* scroll_green.png */; };
 		221BB2291CFA1D0000A78F5F /* thumbs_up2.png in Resources */ = {isa = PBXBuildFile; fileRef = 221BB2281CFA1D0000A78F5F /* thumbs_up2.png */; };
 		221BB22B1CFA547200A78F5F /* AppData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 221BB22A1CFA547200A78F5F /* AppData.swift */; };
 		221CAD841C1999C500F57E62 /* StatusMenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 221CAD831C1999C500F57E62 /* StatusMenuController.swift */; };
@@ -27,13 +27,17 @@
 		225C14FB1CE8D65600A12030 /* Gesture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 225C14FA1CE8D65600A12030 /* Gesture.swift */; };
 		2260B8EF1CF920BE008416B3 /* AboutWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2260B8ED1CF920BE008416B3 /* AboutWindowController.swift */; };
 		2260B8F01CF920BE008416B3 /* AboutWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2260B8EE1CF920BE008416B3 /* AboutWindowController.xib */; };
-		22A084E81D0F721400270A42 /* mouse.png in Resources */ = {isa = PBXBuildFile; fileRef = 22A084E71D0F721400270A42 /* mouse.png */; };
+		22A084E81D0F721400270A42 /* mouse_green.png in Resources */ = {isa = PBXBuildFile; fileRef = 22A084E71D0F721400270A42 /* mouse_green.png */; };
 		22AFB6011D18B08C006D3864 /* GlobalConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22AFB6001D18B08C006D3864 /* GlobalConstants.swift */; };
 		22B83ABB1CF8EA010010A52B /* SetupWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22B83AB91CF8EA010010A52B /* SetupWindowController.swift */; };
 		22B83ABC1CF8EA010010A52B /* SetupWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22B83ABA1CF8EA010010A52B /* SetupWindowController.xib */; };
 		22C23B771D2D84620020F767 /* background3.png in Resources */ = {isa = PBXBuildFile; fileRef = 22C23B761D2D84620020F767 /* background3.png */; };
+		22C23B791D317B5E0020F767 /* thumbs_up.png in Resources */ = {isa = PBXBuildFile; fileRef = 22C23B781D317B5E0020F767 /* thumbs_up.png */; };
+		22C23B7B1D317BFD0020F767 /* thumbs_down.png in Resources */ = {isa = PBXBuildFile; fileRef = 22C23B7A1D317BFD0020F767 /* thumbs_down.png */; };
+		22C23B7E1D317D0C0020F767 /* scroll.png in Resources */ = {isa = PBXBuildFile; fileRef = 22C23B7D1D317D0C0020F767 /* scroll.png */; };
+		22C23B801D317F550020F767 /* mouse.png in Resources */ = {isa = PBXBuildFile; fileRef = 22C23B7F1D317F550020F767 /* mouse.png */; };
 		22E338381D1C95E0003CD392 /* SoundManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E338371D1C95E0003CD392 /* SoundManager.swift */; };
-		22E54B891CFB1C63003EA4DB /* thumbs_down.png in Resources */ = {isa = PBXBuildFile; fileRef = 22E54B881CFB1C63003EA4DB /* thumbs_down.png */; };
+		22E54B891CFB1C63003EA4DB /* thumbs_down_green.png in Resources */ = {isa = PBXBuildFile; fileRef = 22E54B881CFB1C63003EA4DB /* thumbs_down_green.png */; };
 		22E54B8B1CFE2CD3003EA4DB /* DataShare.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E54B8A1CFE2CD3003EA4DB /* DataShare.swift */; };
 		22EA7C771CFF849000C2EE82 /* LaunchAtLoginManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22EA7C761CFF849000C2EE82 /* LaunchAtLoginManager.swift */; };
 		2DFE97A859DB0FE7FC20DA5F /* Pods_Frenk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C4706A8B66A1454D10CA3E2 /* Pods_Frenk.framework */; };
@@ -62,9 +66,9 @@
 		14B95AD647BBD376A7A8F738 /* Pods-FrenkUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FrenkUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FrenkUITests/Pods-FrenkUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		220D91131C1B133400FF6AC2 /* CatmullSpline.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CatmullSpline.swift; path = Squiggle/CatmullSpline.swift; sourceTree = "<group>"; };
 		221BB2181CF9BCE400A78F5F /* KeychainManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeychainManager.swift; sourceTree = "<group>"; };
-		221BB21C1CFA133400A78F5F /* thumbs_up.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = thumbs_up.png; sourceTree = "<group>"; };
+		221BB21C1CFA133400A78F5F /* thumbs_up_green.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = thumbs_up_green.png; sourceTree = "<group>"; };
 		221BB2201CFA175000A78F5F /* frenk_logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = frenk_logo.png; sourceTree = "<group>"; };
-		221BB2221CFA18F800A78F5F /* scroll.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = scroll.png; sourceTree = "<group>"; };
+		221BB2221CFA18F800A78F5F /* scroll_green.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = scroll_green.png; sourceTree = "<group>"; };
 		221BB2281CFA1D0000A78F5F /* thumbs_up2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = thumbs_up2.png; sourceTree = "<group>"; };
 		221BB22A1CFA547200A78F5F /* AppData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppData.swift; sourceTree = "<group>"; };
 		221CAD831C1999C500F57E62 /* StatusMenuController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StatusMenuController.swift; path = Squiggle/StatusMenuController.swift; sourceTree = "<group>"; };
@@ -87,13 +91,17 @@
 		225C14FA1CE8D65600A12030 /* Gesture.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Gesture.swift; path = Squiggle/Gesture.swift; sourceTree = "<group>"; };
 		2260B8ED1CF920BE008416B3 /* AboutWindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutWindowController.swift; sourceTree = "<group>"; };
 		2260B8EE1CF920BE008416B3 /* AboutWindowController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AboutWindowController.xib; sourceTree = "<group>"; };
-		22A084E71D0F721400270A42 /* mouse.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mouse.png; sourceTree = "<group>"; };
+		22A084E71D0F721400270A42 /* mouse_green.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mouse_green.png; sourceTree = "<group>"; };
 		22AFB6001D18B08C006D3864 /* GlobalConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlobalConstants.swift; sourceTree = "<group>"; };
 		22B83AB91CF8EA010010A52B /* SetupWindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetupWindowController.swift; sourceTree = "<group>"; };
 		22B83ABA1CF8EA010010A52B /* SetupWindowController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SetupWindowController.xib; sourceTree = "<group>"; };
 		22C23B761D2D84620020F767 /* background3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background3.png; sourceTree = "<group>"; };
+		22C23B781D317B5E0020F767 /* thumbs_up.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = thumbs_up.png; sourceTree = "<group>"; };
+		22C23B7A1D317BFD0020F767 /* thumbs_down.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = thumbs_down.png; sourceTree = "<group>"; };
+		22C23B7D1D317D0C0020F767 /* scroll.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = scroll.png; sourceTree = "<group>"; };
+		22C23B7F1D317F550020F767 /* mouse.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mouse.png; sourceTree = "<group>"; };
 		22E338371D1C95E0003CD392 /* SoundManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SoundManager.swift; sourceTree = "<group>"; };
-		22E54B881CFB1C63003EA4DB /* thumbs_down.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = thumbs_down.png; sourceTree = "<group>"; };
+		22E54B881CFB1C63003EA4DB /* thumbs_down_green.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = thumbs_down_green.png; sourceTree = "<group>"; };
 		22E54B8A1CFE2CD3003EA4DB /* DataShare.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataShare.swift; sourceTree = "<group>"; };
 		22EA7C761CFF849000C2EE82 /* LaunchAtLoginManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LaunchAtLoginManager.swift; sourceTree = "<group>"; };
 		4BECA133996901A26BFEB9D2 /* Pods-FrenkTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FrenkTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-FrenkTests/Pods-FrenkTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -163,10 +171,14 @@
 				2260B8ED1CF920BE008416B3 /* AboutWindowController.swift */,
 				2260B8EE1CF920BE008416B3 /* AboutWindowController.xib */,
 				221BB2201CFA175000A78F5F /* frenk_logo.png */,
-				221BB2221CFA18F800A78F5F /* scroll.png */,
-				22A084E71D0F721400270A42 /* mouse.png */,
-				221BB21C1CFA133400A78F5F /* thumbs_up.png */,
-				22E54B881CFB1C63003EA4DB /* thumbs_down.png */,
+				221BB2221CFA18F800A78F5F /* scroll_green.png */,
+				22C23B7D1D317D0C0020F767 /* scroll.png */,
+				22A084E71D0F721400270A42 /* mouse_green.png */,
+				22C23B7F1D317F550020F767 /* mouse.png */,
+				221BB21C1CFA133400A78F5F /* thumbs_up_green.png */,
+				22C23B781D317B5E0020F767 /* thumbs_up.png */,
+				22E54B881CFB1C63003EA4DB /* thumbs_down_green.png */,
+				22C23B7A1D317BFD0020F767 /* thumbs_down.png */,
 				221BB2281CFA1D0000A78F5F /* thumbs_up2.png */,
 				22C23B761D2D84620020F767 /* background3.png */,
 				22593EC41C18D483003CFCF2 /* Squiggle.entitlements */,
@@ -361,13 +373,17 @@
 				221BB2291CFA1D0000A78F5F /* thumbs_up2.png in Resources */,
 				22593E9E1C18BCF9003CFCF2 /* Assets.xcassets in Resources */,
 				22593EA11C18BCF9003CFCF2 /* MainMenu.xib in Resources */,
+				22C23B7E1D317D0C0020F767 /* scroll.png in Resources */,
 				221BB2211CFA175000A78F5F /* frenk_logo.png in Resources */,
-				22E54B891CFB1C63003EA4DB /* thumbs_down.png in Resources */,
+				22E54B891CFB1C63003EA4DB /* thumbs_down_green.png in Resources */,
 				2260B8F01CF920BE008416B3 /* AboutWindowController.xib in Resources */,
-				221BB2231CFA18F800A78F5F /* scroll.png in Resources */,
+				221BB2231CFA18F800A78F5F /* scroll_green.png in Resources */,
 				22B83ABC1CF8EA010010A52B /* SetupWindowController.xib in Resources */,
-				22A084E81D0F721400270A42 /* mouse.png in Resources */,
-				221BB21D1CFA133400A78F5F /* thumbs_up.png in Resources */,
+				22A084E81D0F721400270A42 /* mouse_green.png in Resources */,
+				22C23B801D317F550020F767 /* mouse.png in Resources */,
+				221BB21D1CFA133400A78F5F /* thumbs_up_green.png in Resources */,
+				22C23B7B1D317BFD0020F767 /* thumbs_down.png in Resources */,
+				22C23B791D317B5E0020F767 /* thumbs_up.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
