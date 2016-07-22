@@ -176,7 +176,7 @@
                                     <secureTextFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" borderStyle="bezel" alignment="left" placeholderString="Your login password" drawsBackground="YES" usesSingleLineMode="YES" id="L0y-pu-M8a">
                                         <font key="font" metaFont="system" size="18"/>
                                         <color key="textColor" red="1" green="1" blue="1" alpha="0.90000000000000002" colorSpace="calibratedRGB"/>
-                                        <color key="backgroundColor" red="0.71005808246073299" green="0.71005808246073299" blue="0.71005808246073299" alpha="0.44536790780141844" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" red="0.71005808246073299" green="0.71005808246073299" blue="0.71005808246073299" alpha="0.40655474290780141" colorSpace="calibratedRGB"/>
                                         <allowedInputSourceLocales>
                                             <string>NSAllRomanInputSourcesLocaleIdentifier</string>
                                         </allowedInputSourceLocales>
