@@ -148,7 +148,7 @@
                                     <rect key="frame" x="173" y="36" width="303" height="28"/>
                                     <textFieldCell key="cell" sendsActionOnEndEditing="YES" title="Your Mac will not launch Frenk for you at the sistem startup. You are on your own!" id="MMd-a7-gRy">
                                         <font key="font" metaFont="smallSystem"/>
-                                        <color key="textColor" red="0.69707133507853403" green="0.10796575913146163" blue="0.057806340109574722" alpha="0.84999999999999998" colorSpace="calibratedRGB"/>
+                                        <color key="textColor" red="1" green="0.51816660169999995" blue="0.41000002619999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                     </textFieldCell>
                                 </textField>
@@ -199,7 +199,7 @@
                                     <rect key="frame" x="18" y="106" width="458" height="43"/>
                                     <textFieldCell key="cell" sendsActionOnEndEditing="YES" id="1xJ-PJ-yZC">
                                         <font key="font" metaFont="system"/>
-                                        <color key="textColor" red="0.69707133509999997" green="0.1079657591" blue="0.05780634011" alpha="0.84999999999999998" colorSpace="calibratedRGB"/>
+                                        <color key="textColor" red="1" green="0.51816660169999995" blue="0.41000002619999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                     </textFieldCell>
                                 </textField>
