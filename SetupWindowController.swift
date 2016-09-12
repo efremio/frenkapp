@@ -523,18 +523,22 @@ class SetupWindowController: NSWindowController, NSWindowDelegate {
             box1.hidden = false
             box2.hidden = true
             box3.hidden = true
+            segmentedControl.selectedSegment = 0
         case 1:
             box1.hidden = true
             box2.hidden = false
             box3.hidden = true
+            segmentedControl.selectedSegment = 1
         case 2:
             box1.hidden = true
             box2.hidden = true
             box3.hidden = false
+            segmentedControl.selectedSegment = 2
         default:
             box1.hidden = true
             box2.hidden = true
             box3.hidden = true
+            segmentedControl.selectedSegment = 0
         }
     }
     
