@@ -214,7 +214,9 @@ class GestureManager : NSObject {
         if KeychainManager.isPasswordSet() { //unlock if password was set
             let pwd = KeychainManager.getPassword()
             
-            let unlockScript = "tell application \"System Events\"\n if name of every process contains \"ScreenSaverEngine\" then\n tell application \"ScreenSaverEngine\"\n quit\n end tell\n end if\n set pword to \""+(pwd as! String)+"\"\nrepeat 40 times\n tell application \"System Events\" to keystroke (ASCII character 8)\n end repeat\n tell application \"System Events\"\n keystroke pword\n keystroke return\n end tell\n end tell"
+            //let unlockScript = "tell application \"System Events\"\n if name of every process contains \"ScreenSaverEngine\" then\n tell application \"ScreenSaverEngine\"\n quit\n end tell\n end if\n set pword to \""+(pwd as! String)+"\"\nrepeat 40 times\n tell application \"System Events\" to keystroke (ASCII character 8)\n end repeat\n tell application \"System Events\"\n keystroke pword\n keystroke return\n end tell\n end tell"
+            
+            let unlockScript = "set my_password to \""+(pwd as! String)+"\"\n tell application \"System Events\"\n keystroke \"a\" using command down\n keystroke my_password\n delay 0.3\n key code 52\n end tell"
             
             let scriptObject = NSAppleScript(source: unlockScript)
             scriptObject?.executeAndReturnError(nil)

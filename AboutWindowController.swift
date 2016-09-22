@@ -61,8 +61,8 @@ class AboutWindowController: NSWindowController {
         aboutWindow.contentView?.layer?.contents = NSImage(named: "background3.png")*/
         
         
-        
-        aboutWindow.styleMask = NSFullSizeContentViewWindowMask | NSTitledWindowMask | NSClosableWindowMask
+        aboutWindow.styleMask = [NSFullSizeContentViewWindowMask, NSTitledWindowMask, NSClosableWindowMask]
+        //aboutWindow.styleMask = NSFullSizeContentViewWindowMask | NSTitledWindowMask | NSClosableWindowMask
         aboutWindow.titleVisibility = .Hidden
         aboutWindow.titlebarAppearsTransparent = true
         aboutWindow.movableByWindowBackground = true
@@ -92,7 +92,7 @@ class AboutWindowController: NSWindowController {
         GlobalConstants.Colors.green.set()
         //NSColor.whiteColor().set()
         let imageRect = NSRect(origin: NSZeroPoint, size: logo!.size)
-        NSRectFillUsingOperation(imageRect, NSCompositingOperation.CompositeSourceAtop)
+        NSRectFillUsingOperation(imageRect, NSCompositingOperation.SourceAtop)
         logo?.unlockFocus()
         //the logo is tinted
         

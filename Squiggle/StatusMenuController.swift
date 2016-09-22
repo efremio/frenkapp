@@ -52,12 +52,12 @@ class StatusMenuController: NSObject {
         
         //listeners for scroll
         NSEvent.addGlobalMonitorForEventsMatchingMask(
-            NSEventMask.ScrollWheelMask, handler: {(event: NSEvent) in
+            NSEventMask.ScrollWheel, handler: {(event: NSEvent) in
                 self.gestureManager.scroll(event)
         })
         
         NSEvent.addLocalMonitorForEventsMatchingMask(
-            NSEventMask.ScrollWheelMask, handler: {(event: NSEvent) in
+            NSEventMask.ScrollWheel, handler: {(event: NSEvent) in
                 self.gestureManager.scrollLocal(event)
         })
         
