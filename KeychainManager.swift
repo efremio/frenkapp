@@ -49,14 +49,18 @@ class KeychainManager {
         saveData(data)
     }
     
+    static func setBruteforcePreventionEnabled(bruteforcePrevention : Bool) {
+        let data = getData()
+        data.bruteforcePrevention = bruteforcePrevention
+        saveData(data)
+    }
+    
     static func isGestureTimeSet() -> Bool {
         return getData().gestureTime != nil
-
     }
     
     static func isPasswordSet() -> Bool {
         return getData().password != nil
-
     }
     
     static func isSequenceSet() -> Bool {
@@ -65,17 +69,18 @@ class KeychainManager {
     
     static func isLaunchAtLoginSet() -> Bool {
         return getData().launchAtLogin != nil
-        
     }
     
     static func areSoundsEnabledSet() -> Bool {
         return getData().soundsEnabled != nil
-        
     }
     
     static func isPrecisionSet() -> Bool {
         return getData().precision != nil
-        
+    }
+    
+    static func isBruteforcePreventionSet() -> Bool {
+        return getData().bruteforcePrevention != nil
     }
     
     static func getGestureTime() -> NSNumber? {
@@ -100,6 +105,10 @@ class KeychainManager {
     
     static func getPrecision() -> CGFloat? {
         return getData().precision
+    }
+    
+    static func getBruteforcePrevention() -> Bool? {
+        return getData().bruteforcePrevention
     }
     
     private static func getData() -> AppData {

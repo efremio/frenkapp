@@ -36,6 +36,10 @@ class StatusMenuController: NSObject {
             KeychainManager.setPrecision(GlobalConstants.AppSettings.defaultPrecision)
         }
         
+        if !KeychainManager.isBruteforcePreventionSet() {
+            KeychainManager.setBruteforcePreventionEnabled(GlobalConstants.AppSettings.defaultBruteforcePreventionEnabled)
+        }
+        
         gestureManager = GestureManager()
         
         super.init()
@@ -80,6 +84,7 @@ class StatusMenuController: NSObject {
     
     func unlockedEvent() {
         gestureManager.setScreenLocked(false)
+        dataShare.failedAttempts = 0
     }
     
     internal func getGestureManagerInstance() -> GestureManager {

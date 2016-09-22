@@ -13,6 +13,7 @@ class SetupWindowController: NSWindowController, NSWindowDelegate {
     let gestureInstructions1 = "Move the cursor inside this box to record your gesture sequence."
     let gestureInstructions2 = "Start recording your gesture sequence using two fingers on the trackpad!"
     
+    @IBOutlet var bruteForceTextField: NSTextField!
     @IBOutlet var settingsWindow: NSWindow!
     @IBOutlet var prova: NSView!
     @IBOutlet var timeTextField: NSTextField!
@@ -22,6 +23,7 @@ class SetupWindowController: NSWindowController, NSWindowDelegate {
     @IBOutlet var accuracyTimeSlider: NSSlider!
     @IBOutlet var updatePasswordButton: NSButtonCell!
     
+    @IBOutlet var bruteforcePrevention: NSButton!
     @IBOutlet var soundsEnabledButton: NSButton!
     @IBOutlet var launchAtLoginButton: NSButton!
     @IBOutlet var retryButton: NSButton!
@@ -156,6 +158,7 @@ class SetupWindowController: NSWindowController, NSWindowDelegate {
         countGesturesLabel.stringValue = "gestures"
         gestureInstructionsLabel.stringValue = gestureInstructions1
         confirmGestureWithPasswordLabel.hidden = true
+        bruteForceTextField.stringValue = "Disable Frenk after " + GlobalConstants.AppSettings.maxFailedAttempts.description + " failed login attempts"
         //if KeychainManager.isLaunchAtLoginSet() && KeychainManager.getLaunchAtLogin() == true {
         if LaunchAtLoginManager.applicationIsInStartUpItems() {
             launchAtLoginButton.state = NSOnState
@@ -169,6 +172,12 @@ class SetupWindowController: NSWindowController, NSWindowDelegate {
             soundsEnabledButton.state = NSOnState
         } else {
             soundsEnabledButton.state = NSOffState
+        }
+        
+        if KeychainManager.isBruteforcePreventionSet() && KeychainManager.getBruteforcePrevention()! {
+            bruteforcePrevention.state = NSOnState
+        } else {
+            bruteforcePrevention.state = NSOffState
         }
         
         
@@ -383,6 +392,14 @@ class SetupWindowController: NSWindowController, NSWindowDelegate {
             KeychainManager.setSoundsEnabled(true)
         } else {
             KeychainManager.setSoundsEnabled(false)
+        }
+    }
+    
+    @IBAction func bruteforcePreventionToggle(sender: NSButton) {
+        if bruteforcePrevention.state == NSOnState {
+            KeychainManager.setBruteforcePreventionEnabled(true)
+        } else {
+            KeychainManager.setBruteforcePreventionEnabled(false)
         }
     }
     

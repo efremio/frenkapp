@@ -1,8 +1,8 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="11201" systemVersion="16A323" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="10117"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="11201"/>
         <capability name="box content view" minToolsVersion="7.0"/>
     </dependencies>
     <objects>
@@ -13,6 +13,8 @@
                 <outlet property="box1" destination="oOB-rL-ryT" id="yMD-h6-aJQ"/>
                 <outlet property="box2" destination="7gw-ve-nDu" id="JEB-hL-Xcz"/>
                 <outlet property="box3" destination="XAK-c7-wnG" id="AlL-gO-cGv"/>
+                <outlet property="bruteForceTextField" destination="5ty-Yz-PLi" id="ShO-T0-ysg"/>
+                <outlet property="bruteforcePrevention" destination="VFA-9M-vb6" id="rt8-pF-c6k"/>
                 <outlet property="confirmGestureWithPasswordLabel" destination="FA9-Ia-R3o" id="Sym-cc-S8d"/>
                 <outlet property="continueAniwayButton" destination="usO-2N-4tC" id="k37-Wj-fSA"/>
                 <outlet property="countGesturesButton" destination="wZb-uB-FEB" id="lJA-RD-dfY"/>
@@ -43,26 +45,29 @@
         <window title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" showsToolbarButton="NO" animationBehavior="default" id="F0z-JX-Cv5">
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES"/>
             <rect key="contentRect" x="419" y="204" width="530" height="344"/>
-            <rect key="screenRect" x="0.0" y="0.0" width="1280" height="777"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="1280" height="778"/>
             <view key="contentView" id="se5-gp-TjO">
                 <rect key="frame" x="0.0" y="0.0" width="530" height="344"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <box fixedFrame="YES" title="Box" borderType="line" titlePosition="noTitle" translatesAutoresizingMaskIntoConstraints="NO" id="XAK-c7-wnG">
+                    <box fixedFrame="YES" borderType="line" title="Box" titlePosition="noTitle" translatesAutoresizingMaskIntoConstraints="NO" id="XAK-c7-wnG">
                         <rect key="frame" x="17" y="16" width="496" height="277"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <view key="contentView" ambiguous="YES" id="PZJ-NG-2Z4">
                             <rect key="frame" x="1" y="1" width="494" height="275"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             <subviews>
                                 <slider verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="USh-qH-NDc">
-                                    <rect key="frame" x="170" y="213" width="247" height="20"/>
+                                    <rect key="frame" x="170" y="220" width="247" height="19"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                     <sliderCell key="cell" continuous="YES" state="on" alignment="left" minValue="600" maxValue="1000" doubleValue="600" tickMarkPosition="above" sliderType="linear" id="yT0-gg-Gme"/>
                                     <connections>
                                         <action selector="timeChanged:" target="-2" id="A1I-i6-Ot3"/>
                                     </connections>
                                 </slider>
                                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="06o-x8-A2D">
-                                    <rect key="frame" x="18" y="206" width="148" height="34"/>
+                                    <rect key="frame" x="18" y="213" width="148" height="34"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                     <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="right" title="Time between each gesture" id="yfU-fB-tOW">
                                         <font key="font" metaFont="system"/>
                                         <color key="textColor" red="1" green="1" blue="1" alpha="0.90000000000000002" colorSpace="calibratedRGB"/>
@@ -70,7 +75,8 @@
                                     </textFieldCell>
                                 </textField>
                                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yxQ-O9-Qtf">
-                                    <rect key="frame" x="421" y="217" width="55" height="14"/>
+                                    <rect key="frame" x="421" y="224" width="55" height="14"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="left" title="100 ms" id="ZVS-Db-oBC">
                                         <font key="font" metaFont="smallSystem"/>
                                         <color key="textColor" red="1" green="1" blue="1" alpha="0.84999999999999998" colorSpace="calibratedRGB"/>
@@ -78,7 +84,8 @@
                                     </textFieldCell>
                                 </textField>
                                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aPH-n8-gpS">
-                                    <rect key="frame" x="170" y="181" width="306" height="28"/>
+                                    <rect key="frame" x="170" y="188" width="306" height="28"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                     <textFieldCell key="cell" sendsActionOnEndEditing="YES" title="The bigger it is, the more time you have between two consecutive gestures of the same sequence." id="Jd5-Uh-rhd">
                                         <font key="font" metaFont="smallSystem"/>
                                         <color key="textColor" red="1" green="1" blue="1" alpha="0.90000000000000002" colorSpace="calibratedRGB"/>
@@ -86,15 +93,26 @@
                                     </textFieldCell>
                                 </textField>
                                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xYZ-fb-Oq8">
-                                    <rect key="frame" x="18" y="97" width="148" height="16"/>
+                                    <rect key="frame" x="18" y="104" width="148" height="16"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                     <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="right" title="Sound effects" id="HWe-Zs-eNc">
                                         <font key="font" metaFont="system"/>
                                         <color key="textColor" red="1" green="1" blue="1" alpha="0.90000000000000002" colorSpace="calibratedRGB"/>
                                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                     </textFieldCell>
                                 </textField>
+                                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hFE-8W-3P1">
+                                    <rect key="frame" x="18" y="79" width="148" height="17"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                    <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="right" title="Brute force prevention" id="2Ng-HT-msY">
+                                        <font key="font" metaFont="system"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="0.90000000000000002" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                    </textFieldCell>
+                                </textField>
                                 <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tby-oX-pmN">
-                                    <rect key="frame" x="173" y="95" width="18" height="18"/>
+                                    <rect key="frame" x="173" y="102" width="18" height="18"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                     <buttonCell key="cell" type="check" bezelStyle="regularSquare" imagePosition="overlaps" inset="2" id="sH0-3e-oqh">
                                         <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                         <font key="font" metaFont="system"/>
@@ -104,7 +122,8 @@
                                     </connections>
                                 </button>
                                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Fi6-28-BR1">
-                                    <rect key="frame" x="18" y="72" width="148" height="17"/>
+                                    <rect key="frame" x="18" y="56" width="148" height="17"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                     <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="right" title="Start at login" id="xHB-zg-WH2">
                                         <font key="font" metaFont="system"/>
                                         <color key="textColor" red="1" green="1" blue="1" alpha="0.90000000000000002" colorSpace="calibratedRGB"/>
@@ -112,7 +131,8 @@
                                     </textFieldCell>
                                 </textField>
                                 <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zuO-Ap-A1s">
-                                    <rect key="frame" x="173" y="70" width="18" height="18"/>
+                                    <rect key="frame" x="173" y="54" width="18" height="18"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                     <buttonCell key="cell" type="check" bezelStyle="regularSquare" imagePosition="overlaps" inset="2" id="yJj-nU-eKw">
                                         <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                         <font key="font" metaFont="system"/>
@@ -122,7 +142,8 @@
                                     </connections>
                                 </button>
                                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dfO-1d-5C0">
-                                    <rect key="frame" x="18" y="156" width="148" height="17"/>
+                                    <rect key="frame" x="18" y="163" width="148" height="17"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                     <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="right" title="Recognition accuracy" id="zPI-tt-qF1">
                                         <font key="font" metaFont="system"/>
                                         <color key="textColor" red="1" green="1" blue="1" alpha="0.90000000000000002" colorSpace="calibratedRGB"/>
@@ -130,14 +151,16 @@
                                     </textFieldCell>
                                 </textField>
                                 <slider verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="00P-4Y-NMR">
-                                    <rect key="frame" x="170" y="154" width="247" height="20"/>
+                                    <rect key="frame" x="170" y="161" width="247" height="19"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                     <sliderCell key="cell" continuous="YES" state="on" alignment="left" minValue="70" maxValue="90" doubleValue="80" tickMarkPosition="above" sliderType="linear" id="Tbp-vo-96F"/>
                                     <connections>
                                         <action selector="accuracyChanged:" target="-2" id="pKj-xT-vhL"/>
                                     </connections>
                                 </slider>
                                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pbS-Pf-jAC">
-                                    <rect key="frame" x="173" y="121" width="303" height="28"/>
+                                    <rect key="frame" x="173" y="128" width="303" height="28"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                     <textFieldCell key="cell" sendsActionOnEndEditing="YES" title="A value between 75% and 80% gives you a good compromise between precision and security." id="Gyd-ya-9mP">
                                         <font key="font" metaFont="smallSystem"/>
                                         <color key="textColor" red="1" green="1" blue="1" alpha="0.90000000000000002" colorSpace="calibratedRGB"/>
@@ -145,7 +168,8 @@
                                     </textFieldCell>
                                 </textField>
                                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VFo-XE-4Ft">
-                                    <rect key="frame" x="173" y="36" width="303" height="28"/>
+                                    <rect key="frame" x="173" y="20" width="303" height="28"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                     <textFieldCell key="cell" sendsActionOnEndEditing="YES" title="Your Mac will not launch Frenk for you at the sistem startup. You are on your own!" id="MMd-a7-gRy">
                                         <font key="font" metaFont="smallSystem"/>
                                         <color key="textColor" red="1" green="0.51816660169999995" blue="0.41000002619999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -153,26 +177,47 @@
                                     </textFieldCell>
                                 </textField>
                                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rrw-Hc-HWq">
-                                    <rect key="frame" x="421" y="158" width="55" height="14"/>
+                                    <rect key="frame" x="421" y="165" width="55" height="14"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="left" title="70%" id="PvD-zK-bM1">
                                         <font key="font" metaFont="smallSystem"/>
                                         <color key="textColor" red="1" green="1" blue="1" alpha="0.84999999999999998" colorSpace="calibratedRGB"/>
                                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                     </textFieldCell>
                                 </textField>
+                                <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VFA-9M-vb6">
+                                    <rect key="frame" x="173" y="78" width="18" height="18"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                    <buttonCell key="cell" type="check" bezelStyle="regularSquare" imagePosition="overlaps" inset="2" id="WUo-aL-vgM">
+                                        <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                        <font key="font" metaFont="system"/>
+                                    </buttonCell>
+                                    <connections>
+                                        <action selector="bruteforcePreventionToggle:" target="-2" id="VEI-kK-oaE"/>
+                                    </connections>
+                                </button>
+                                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5ty-Yz-PLi">
+                                    <rect key="frame" x="195" y="81" width="281" height="14"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                    <textFieldCell key="cell" sendsActionOnEndEditing="YES" title="Disable Frenk after N failed login attempts" id="Tg6-s1-Qd3">
+                                        <font key="font" metaFont="smallSystem"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="0.90000000000000002" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                    </textFieldCell>
+                                </textField>
                             </subviews>
                         </view>
-                        <color key="borderColor" white="0.0" alpha="0.41999999999999998" colorSpace="calibratedWhite"/>
-                        <color key="fillColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </box>
-                    <box fixedFrame="YES" title="Box" borderType="line" titlePosition="noTitle" translatesAutoresizingMaskIntoConstraints="NO" id="7gw-ve-nDu">
+                    <box fixedFrame="YES" borderType="line" title="Box" titlePosition="noTitle" translatesAutoresizingMaskIntoConstraints="NO" id="7gw-ve-nDu">
                         <rect key="frame" x="17" y="16" width="496" height="277"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <view key="contentView" ambiguous="YES" id="RXj-VS-Ugd">
                             <rect key="frame" x="1" y="1" width="494" height="275"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             <subviews>
                                 <secureTextField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WUW-lv-gGt">
                                     <rect key="frame" x="20" y="157" width="275" height="27"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                     <secureTextFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" borderStyle="bezel" alignment="left" placeholderString="Your login password" drawsBackground="YES" usesSingleLineMode="YES" id="L0y-pu-M8a">
                                         <font key="font" metaFont="system" size="18"/>
                                         <color key="textColor" red="1" green="1" blue="1" alpha="0.90000000000000002" colorSpace="calibratedRGB"/>
@@ -187,6 +232,7 @@
                                 </secureTextField>
                                 <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gge-HB-iEa">
                                     <rect key="frame" x="301" y="154" width="175" height="32"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                     <buttonCell key="cell" type="bevel" title="Set password" bezelStyle="regularSquare" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="q5E-7m-xha">
                                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                         <font key="font" metaFont="system"/>
@@ -197,6 +243,7 @@
                                 </button>
                                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8Li-kF-7OY">
                                     <rect key="frame" x="18" y="106" width="458" height="43"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                     <textFieldCell key="cell" sendsActionOnEndEditing="YES" id="1xJ-PJ-yZC">
                                         <font key="font" metaFont="system"/>
                                         <color key="textColor" red="1" green="0.51816660169999995" blue="0.41000002619999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -205,14 +252,17 @@
                                 </textField>
                                 <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="H8S-eW-fWK">
                                     <rect key="frame" x="223" y="65" width="48" height="48"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                     <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="thumbs_up" id="4qB-NR-DeN"/>
                                 </imageView>
                                 <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ctB-kB-SzC">
                                     <rect key="frame" x="223" y="53" width="48" height="48"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                     <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="thumbs_down" id="Trq-qM-GKJ"/>
                                 </imageView>
                                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FA9-Ia-R3o">
                                     <rect key="frame" x="18" y="216" width="458" height="39"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                     <textFieldCell key="cell" sendsActionOnEndEditing="YES" title="To save the gesture you have just recorded, write your system password." id="uRA-hI-TBQ">
                                         <font key="font" metaFont="system"/>
                                         <color key="textColor" red="1" green="1" blue="1" alpha="0.90000000000000002" colorSpace="calibratedRGB"/>
@@ -221,6 +271,7 @@
                                 </textField>
                                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rBe-qo-kb3">
                                     <rect key="frame" x="18" y="106" width="458" height="43"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                     <textFieldCell key="cell" sendsActionOnEndEditing="YES" id="ntq-C4-COe">
                                         <font key="font" metaFont="system"/>
                                         <color key="textColor" red="1" green="1" blue="1" alpha="0.90000000000000002" colorSpace="calibratedRGB"/>
@@ -229,25 +280,27 @@
                                 </textField>
                             </subviews>
                         </view>
-                        <color key="borderColor" white="0.0" alpha="0.41999999999999998" colorSpace="calibratedWhite"/>
-                        <color key="fillColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </box>
-                    <box fixedFrame="YES" title="Box" borderType="line" titlePosition="noTitle" translatesAutoresizingMaskIntoConstraints="NO" id="oOB-rL-ryT">
+                    <box fixedFrame="YES" borderType="line" title="Box" titlePosition="noTitle" translatesAutoresizingMaskIntoConstraints="NO" id="oOB-rL-ryT">
                         <rect key="frame" x="17" y="16" width="496" height="277"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <view key="contentView" ambiguous="YES" id="Bay-aI-wf1">
                             <rect key="frame" x="1" y="1" width="494" height="275"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             <subviews>
                                 <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mMm-f3-H3j">
                                     <rect key="frame" x="223" y="103" width="72" height="72"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                     <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="mouse" id="3pP-TC-Ayx"/>
                                 </imageView>
                                 <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QL1-Me-z25">
                                     <rect key="frame" x="211" y="103" width="76" height="76"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                     <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="scroll" id="TQC-MJ-8WW"/>
                                 </imageView>
                                 <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wZb-uB-FEB">
                                     <rect key="frame" x="204" y="70" width="35" height="17"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                     <buttonCell key="cell" type="inline" title="0" bezelStyle="inline" alignment="center" enabled="NO" borderStyle="border" inset="2" id="qRd-e9-F1e">
                                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                         <font key="font" metaFont="smallSystemBold"/>
@@ -255,6 +308,7 @@
                                 </button>
                                 <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="usO-2N-4tC">
                                     <rect key="frame" x="184" y="98" width="130" height="32"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                     <buttonCell key="cell" type="bevel" title="Continue anyway" bezelStyle="regularSquare" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="gxM-CW-X0Z">
                                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                         <font key="font" metaFont="system"/>
@@ -265,6 +319,7 @@
                                 </button>
                                 <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xm4-vM-ELP">
                                     <rect key="frame" x="184" y="155" width="130" height="32"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                     <buttonCell key="cell" type="bevel" title="Retry" bezelStyle="regularSquare" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Hy1-V7-92c">
                                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                         <font key="font" metaFont="system"/>
@@ -275,6 +330,7 @@
                                 </button>
                                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FYt-ye-M8q">
                                     <rect key="frame" x="18" y="206" width="458" height="49"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                     <textFieldCell key="cell" sendsActionOnEndEditing="YES" title="Move the cursor inside this box and start recording your gesture sequence with two fingers on the trakpad." id="7ql-cI-Tpw">
                                         <font key="font" metaFont="system"/>
                                         <color key="textColor" red="1" green="1" blue="1" alpha="0.90000000000000002" colorSpace="calibratedRGB"/>
@@ -283,6 +339,7 @@
                                 </textField>
                                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cew-Hp-OKK">
                                     <rect key="frame" x="184" y="135" width="130" height="17"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                     <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="center" title="or" id="EVj-yZ-HSa">
                                         <font key="font" metaFont="system"/>
                                         <color key="textColor" red="1" green="1" blue="1" alpha="0.90000000000000002" colorSpace="calibratedRGB"/>
@@ -291,6 +348,7 @@
                                 </textField>
                                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Jcq-MG-tX9">
                                     <rect key="frame" x="245" y="71" width="69" height="17"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                     <textFieldCell key="cell" sendsActionOnEndEditing="YES" title="gestures" id="FXQ-bH-oUg">
                                         <font key="font" metaFont="system"/>
                                         <color key="textColor" red="1" green="1" blue="1" alpha="0.90000000000000002" colorSpace="calibratedRGB"/>
@@ -299,15 +357,15 @@
                                 </textField>
                             </subviews>
                         </view>
-                        <color key="borderColor" white="0.0" alpha="0.41999999999999998" colorSpace="calibratedWhite"/>
-                        <color key="fillColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </box>
                     <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="W3N-bl-O9F">
                         <rect key="frame" x="252" y="311" width="26" height="26"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="frenk_logo" id="F7A-Nd-Faq"/>
                     </imageView>
                     <segmentedControl verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="s2i-dr-01g">
                         <rect key="frame" x="67" y="283" width="398" height="24"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <segmentedCell key="cell" scrollable="YES" lineBreakMode="clipping" borderStyle="border" alignment="left" style="rounded" trackingMode="selectOne" id="BAv-CP-Fqw">
                             <font key="font" metaFont="system"/>
                             <segments>

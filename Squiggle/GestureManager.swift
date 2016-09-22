@@ -101,11 +101,12 @@ class GestureManager : NSObject {
         //it was the last gesture (or maybe it's a fast check)
         
         if isScreenLocked {
-            if areGesturesCorrelated() {
+            if dataShare.failedAttempts < GlobalConstants.AppSettings.maxFailedAttempts && areGesturesCorrelated() {
                 unlock()
             } else {
                 if !fastCheck {
                     SoundManager.noSound()
+                    dataShare.failedAttempts += 1
                 }
             }
         }

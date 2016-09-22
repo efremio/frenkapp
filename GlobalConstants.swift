@@ -18,6 +18,8 @@ struct GlobalConstants {
         static let defaultGestureTime = NSNumber(int: 650)
         static let defaultSoundsEnabled = false
         static let defaultPrecision: CGFloat = 0.80 //Pearson linear correlation. Close to 1 means that the two series are strongly linear correlated
+        static let defaultBruteforcePreventionEnabled = true
+        static let maxFailedAttempts = 3 //considered if brute force prevention is active
         static let minPointsForGesture = 10
         //static let urlWeb = "http://www.frenkapp.com"
         //static let urlWebVersionCheck = "http://www.frenkapp.com/update/?myVersion=" + versionNumber!
