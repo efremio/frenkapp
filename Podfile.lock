@@ -2,11 +2,21 @@ PODS:
   - Locksmith (2.0.8)
 
 DEPENDENCIES:
-  - Locksmith
+  - Locksmith (from `https://github.com/matthewpalmer/Locksmith.git`, branch `swift-3.0`)
+
+EXTERNAL SOURCES:
+  Locksmith:
+    :branch: swift-3.0
+    :git: https://github.com/matthewpalmer/Locksmith.git
+
+CHECKOUT OPTIONS:
+  Locksmith:
+    :commit: 1039eedb312f49049d13e5fcddd67879b31c74b7
+    :git: https://github.com/matthewpalmer/Locksmith.git
 
 SPEC CHECKSUMS:
   Locksmith: a8ed41ac4c06506ea8cb199d8ec8a8d3d108eb2a
 
-PODFILE CHECKSUM: 6e3fe6c2c4722460066c506b9d426514b2e5532f
+PODFILE CHECKSUM: 1525a5bd66b969aad06c839b7b9215063bb30279
 
 COCOAPODS: 1.0.0

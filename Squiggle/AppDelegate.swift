@@ -16,15 +16,15 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSUserNotificationCenterDele
     var settingsWindow = NSWindowController()
     var aboutWindow = NSWindowController()
     
-    let statusItem = NSStatusBar.systemStatusBar().statusItemWithLength(-2) //get the system status bar
+    let statusItem = NSStatusBar.system().statusItem(withLength: -2) //get the system status bar
     
-    func applicationDidFinishLaunching(aNotification: NSNotification) {
+    func applicationDidFinishLaunching(_ aNotification: Notification) {
         
-        NSUserNotificationCenter.defaultUserNotificationCenter().delegate = self
+        NSUserNotificationCenter.default.delegate = self
     
         // Insert code here to initialize your application
         let icon = NSImage(named: "statusIcon")
-        icon?.template = true
+        icon?.isTemplate = true
         
         statusItem.image = icon
         statusItem.menu = statusMenu
@@ -33,29 +33,29 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSUserNotificationCenterDele
         aboutWindow = AboutWindowController(windowNibName: "AboutWindowController")
     }
     
-    func userNotificationCenter(center: NSUserNotificationCenter, shouldPresentNotification notification: NSUserNotification) -> Bool {
+    func userNotificationCenter(_ center: NSUserNotificationCenter, shouldPresent notification: NSUserNotification) -> Bool {
         return true
     }
     
-    @IBAction func openSettings(sender: AnyObject) {
+    @IBAction func openSettings(_ sender: AnyObject) {
         settingsWindow.showWindow(sender)
     }
     
-    @IBAction func openAbout(sender: AnyObject) {
+    @IBAction func openAbout(_ sender: AnyObject) {
         aboutWindow.showWindow(sender)
     }
     
-    @IBAction func checkForUpdates(sender: NSMenuItem) {
+    @IBAction func checkForUpdates(_ sender: NSMenuItem) {
         let stringUrl = GlobalConstants.AppSettings.urlWebVersionCheck
-        let checkURL = NSURL(string: stringUrl)
+        let checkURL = URL(string: stringUrl)
         
-        NSWorkspace.sharedWorkspace().openURL(checkURL!)
+        NSWorkspace.shared().open(checkURL!)
     }
     
-    func applicationWillTerminate(aNotification: NSNotification) {
+    func applicationWillTerminate(_ aNotification: Notification) {
     }
     
-    @IBAction func menuQuit(sender: NSMenuItem) {
+    @IBAction func menuQuit(_ sender: NSMenuItem) {
         exit(0)
     }
 }

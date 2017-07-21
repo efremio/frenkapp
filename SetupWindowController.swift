@@ -53,15 +53,15 @@ class SetupWindowController: NSWindowController, NSWindowDelegate {
     @IBOutlet var gestureInstructionsLabel: NSTextField!
     @IBOutlet var orLabel: NSTextField!
     
-    let dataShare = DataShare.sharedInstance
+    let dataShare = DataShare.shared
     var mouseOverEnabled: Bool = true
     
-    override func showWindow(sender: AnyObject?) {
-        if settingsWindow != nil && settingsWindow.miniaturized { //if it is miniaturized, deminiaturize
+    override func showWindow(_ sender: Any?) {
+        if settingsWindow != nil && settingsWindow.isMiniaturized { //if it is miniaturized, deminiaturize
             settingsWindow.deminiaturize(settingsWindow)
             settingsWindow.orderFrontRegardless()
-        } else if(settingsWindow != nil && settingsWindow.visible){ //if it is somewhere already open, show to the front
-            settingsWindow.collectionBehavior = .MoveToActiveSpace
+        } else if(settingsWindow != nil && settingsWindow.isVisible){ //if it is somewhere already open, show to the front
+            settingsWindow.collectionBehavior = .moveToActiveSpace
             settingsWindow.orderFrontRegardless()
         } else {
             super.showWindow(sender)
@@ -81,9 +81,9 @@ class SetupWindowController: NSWindowController, NSWindowDelegate {
         
         //******** BLURRED BACKGROUND *************
         let visualEffectView = NSVisualEffectView(frame: NSMakeRect(0, 0, 0, 0))
-         visualEffectView.material = NSVisualEffectMaterial.Dark
-         visualEffectView.blendingMode = NSVisualEffectBlendingMode.BehindWindow
-         visualEffectView.state = NSVisualEffectState.Active
+         visualEffectView.material = NSVisualEffectMaterial.dark
+         visualEffectView.blendingMode = NSVisualEffectBlendingMode.behindWindow
+         visualEffectView.state = NSVisualEffectState.active
          
          let previousContentView = settingsWindow.contentView
          settingsWindow.contentView = visualEffectView //add the visual effect
@@ -114,23 +114,23 @@ class SetupWindowController: NSWindowController, NSWindowDelegate {
         
         
         settingsWindow.styleMask = [NSFullSizeContentViewWindowMask, NSTitledWindowMask, NSClosableWindowMask, NSMiniaturizableWindowMask]
-        settingsWindow.titleVisibility = .Hidden
+        settingsWindow.titleVisibility = .hidden
         settingsWindow.titlebarAppearsTransparent = true
-        settingsWindow.movableByWindowBackground = true
-        settingsWindow.releasedWhenClosed = false
+        settingsWindow.isMovableByWindowBackground = true
+        settingsWindow.isReleasedWhenClosed = false
         
         addLogo()
         
-        thumbsUpImageView.hidden = true
-        thumbsDownImageView.hidden = true
-        passwordField.bezeled = false
-        passwordField.bezelStyle = NSTextFieldBezelStyle.SquareBezel
+        thumbsUpImageView.isHidden = true
+        thumbsDownImageView.isHidden = true
+        passwordField.isBezeled = false
+        passwordField.bezelStyle = NSTextFieldBezelStyle.squareBezel
         
         
         //tabView.selectFirstTabViewItem(self)
-        box1.hidden = false
-        box2.hidden = true
-        box3.hidden = true
+        box1.isHidden = false
+        box2.isHidden = true
+        box3.isHidden = true
         
         
         //let bounds = gesturesTabViewItem.view?.bounds
@@ -150,22 +150,22 @@ class SetupWindowController: NSWindowController, NSWindowDelegate {
         //init
         passwordAlertTextField.stringValue = ""
         passwordOkField.stringValue = ""
-        scrollImageView.hidden = true
-        mouseImageView.hidden = false
-        countGesturesButton.hidden = true
-        countGesturesLabel.hidden = true
+        scrollImageView.isHidden = true
+        mouseImageView.isHidden = false
+        countGesturesButton.isHidden = true
+        countGesturesLabel.isHidden = true
         countGesturesButton.title = "0"
         countGesturesLabel.stringValue = "gestures"
         gestureInstructionsLabel.stringValue = gestureInstructions1
-        confirmGestureWithPasswordLabel.hidden = true
+        confirmGestureWithPasswordLabel.isHidden = true
         bruteForceTextField.stringValue = "Disable Frenk after " + GlobalConstants.AppSettings.maxFailedAttempts.description + " failed login attempts"
         //if KeychainManager.isLaunchAtLoginSet() && KeychainManager.getLaunchAtLogin() == true {
         if LaunchAtLoginManager.applicationIsInStartUpItems() {
             launchAtLoginButton.state = NSOnState
-            launchAtLoginWarning.hidden = true
+            launchAtLoginWarning.isHidden = true
         } else {
             launchAtLoginButton.state = NSOffState
-            launchAtLoginWarning.hidden = false
+            launchAtLoginWarning.isHidden = false
         }
         
         if KeychainManager.areSoundsEnabledSet() && KeychainManager.getSoundsEnabled()! {
@@ -206,7 +206,7 @@ class SetupWindowController: NSWindowController, NSWindowDelegate {
         
     }
     
-    func windowWillClose(notification: NSNotification) {
+    func windowWillClose(_ notification: Notification) {
         //reset stuff, otherwise everything is like the last time when opening the window again
         windowDidLoad()
     }
@@ -218,44 +218,44 @@ class SetupWindowController: NSWindowController, NSWindowDelegate {
         GlobalConstants.Colors.green.set()
         //NSColor.whiteColor().set()
         let imageRect = NSRect(origin: NSZeroPoint, size: logo!.size)
-        NSRectFillUsingOperation(imageRect, NSCompositingOperation.SourceAtop)
+        NSRectFillUsingOperation(imageRect, NSCompositingOperation.sourceAtop)
         logo?.unlockFocus()
         //the logo is tinted
         
         logoImageView.image = logo
-        logoImageView.imageScaling = .ScaleProportionallyUpOrDown
+        logoImageView.imageScaling = .scaleProportionallyUpOrDown
     }
     
-    @IBAction func timeChanged(sender: NSSlider) {
-        updateTimeLabel(NSNumber(int: sender.intValue)) //update label
+    @IBAction func timeChanged(_ sender: NSSlider) {
+        updateTimeLabel(NSNumber(value: sender.intValue as Int32)) //update label
         
         //if mouseUp
-        if NSApplication.sharedApplication().currentEvent?.type == NSEventType.LeftMouseUp {
-            KeychainManager.setGestureTime(NSNumber(int: sender.intValue))
+        if NSApplication.shared().currentEvent?.type == NSEventType.leftMouseUp {
+            KeychainManager.setGestureTime(NSNumber(value: sender.intValue as Int32))
         }
     }
     
-    func updateTimeLabel(time: NSNumber) {
+    func updateTimeLabel(_ time: NSNumber) {
         timeTextField.stringValue = time.description+" ms"
     }
     
-    @IBAction func accuracyChanged(sender: NSSlider) {
+    @IBAction func accuracyChanged(_ sender: NSSlider) {
         updateAccuracyLabel(CGFloat(sender.intValue)) //update label
         
         //if mouseUp
-        if NSApplication.sharedApplication().currentEvent?.type == NSEventType.LeftMouseUp {
+        if NSApplication.shared().currentEvent?.type == NSEventType.leftMouseUp {
             KeychainManager.setPrecision(CGFloat(sender.intValue)/100)
         }
     }
     
-    func updateAccuracyLabel(accuracy: CGFloat) {
+    func updateAccuracyLabel(_ accuracy: CGFloat) {
         accuracyTextField.stringValue = Int(accuracy).description+"%"
     }
     
-    @IBAction func updatePassword(sender: AnyObject) {
+    @IBAction func updatePassword(_ sender: AnyObject) {
         //check if the password is correct
-        let identity = CBUserIdentity(posixUID: getuid(), authority: CBIdentityAuthority.defaultIdentityAuthority())
-        let passOk = identity?.authenticateWithPassword(passwordField.stringValue)
+        let identity = CBUserIdentity(posixUID: getuid(), authority: CBIdentityAuthority.default())
+        let passOk = identity?.authenticate(withPassword: passwordField.stringValue)
         
         if passOk == true {
             KeychainManager.setPassword(NSString(string: passwordField.stringValue)) //store the password
@@ -272,9 +272,9 @@ class SetupWindowController: NSWindowController, NSWindowDelegate {
             updatePasswordButton.title = "Update password"
             
             //thumbs up!
-            thumbsUpImageView.hidden = false
-            thumbsDownImageView.hidden = true
-            confirmGestureWithPasswordLabel.hidden = true
+            thumbsUpImageView.isHidden = false
+            thumbsDownImageView.isHidden = true
+            confirmGestureWithPasswordLabel.isHidden = true
             
             
             if dataShare.sequenceBeingRecorded != nil { //if the user is confirming a new sequence
@@ -287,8 +287,8 @@ class SetupWindowController: NSWindowController, NSWindowDelegate {
                 notification.title = "Sequence set!"
                 notification.informativeText = "You can now unlock your mac using the sequence you've just set up."
                 
-                let notificationcenter = NSUserNotificationCenter.defaultUserNotificationCenter()
-                notificationcenter.deliverNotification(notification)
+                let notificationcenter = NSUserNotificationCenter.default
+                notificationcenter.deliver(notification)
                 
                 windowDidLoad() //reset in order to update the graphics
                 //tabView.selectTabViewItem(gesturesTabViewItem)
@@ -300,8 +300,8 @@ class SetupWindowController: NSWindowController, NSWindowDelegate {
                 notification.title = "Passowrd updated!"
                 notification.informativeText = "Your password has been securely saved. It will be used only to unlock your Mac."
                 
-                let notificationcenter = NSUserNotificationCenter.defaultUserNotificationCenter()
-                notificationcenter.deliverNotification(notification)
+                let notificationcenter = NSUserNotificationCenter.default
+                notificationcenter.deliver(notification)
             }
             
             
@@ -311,8 +311,8 @@ class SetupWindowController: NSWindowController, NSWindowDelegate {
             passwordOkField.stringValue = ""
             
             //thumbs up!
-            thumbsUpImageView.hidden = true
-            thumbsDownImageView.hidden = false
+            thumbsUpImageView.isHidden = true
+            thumbsDownImageView.isHidden = false
             
             //update buttons
             if(dataShare.sequenceBeingRecorded == nil) {
@@ -340,32 +340,32 @@ class SetupWindowController: NSWindowController, NSWindowDelegate {
     }
     
     //it's a precondition for recording the gesture
-    override func mouseEntered(theEvent: NSEvent) {
+    override func mouseEntered(with theEvent: NSEvent) {
         if mouseOverEnabled {
             dataShare.canRecord = true
             
-            mouseImageView.hidden = true
-            scrollImageView.hidden = false
-            countGesturesButton.hidden = false
-            countGesturesLabel.hidden = false
+            mouseImageView.isHidden = true
+            scrollImageView.isHidden = false
+            countGesturesButton.isHidden = false
+            countGesturesLabel.isHidden = false
             gestureInstructionsLabel.stringValue = gestureInstructions2
         }
     }
     
-    override func mouseExited(theEvent: NSEvent) {
+    override func mouseExited(with theEvent: NSEvent) {
         if mouseOverEnabled {
             dataShare.canRecord = false
             
-            mouseImageView.hidden = false
-            scrollImageView.hidden = true
-            countGesturesButton.hidden = true
-            countGesturesLabel.hidden = true
+            mouseImageView.isHidden = false
+            scrollImageView.isHidden = true
+            countGesturesButton.isHidden = true
+            countGesturesLabel.isHidden = true
             gestureInstructionsLabel.stringValue = gestureInstructions1
         }
         
     }
     
-    func updateGestureNumber(number: NSNumber) {
+    func updateGestureNumber(_ number: Int) {
         if number != 0 {
             SoundManager.yesSound()
         }
@@ -377,17 +377,17 @@ class SetupWindowController: NSWindowController, NSWindowDelegate {
         }
     }
     
-    @IBAction func startAtLoginToggle(sender: NSButton) {
+    @IBAction func startAtLoginToggle(_ sender: NSButton) {
         if launchAtLoginButton.state == NSOnState {
             LaunchAtLoginManager.setLaunchAtStartup(true)
-            launchAtLoginWarning.hidden = true
+            launchAtLoginWarning.isHidden = true
         } else {
             LaunchAtLoginManager.setLaunchAtStartup(false)
-            launchAtLoginWarning.hidden = false
+            launchAtLoginWarning.isHidden = false
         }
     }
     
-    @IBAction func soundsEnabledToggle(sender: NSButton) {
+    @IBAction func soundsEnabledToggle(_ sender: NSButton) {
         if soundsEnabledButton.state == NSOnState {
             KeychainManager.setSoundsEnabled(true)
         } else {
@@ -395,7 +395,7 @@ class SetupWindowController: NSWindowController, NSWindowDelegate {
         }
     }
     
-    @IBAction func bruteforcePreventionToggle(sender: NSButton) {
+    @IBAction func bruteforcePreventionToggle(_ sender: NSButton) {
         if bruteforcePrevention.state == NSOnState {
             KeychainManager.setBruteforcePreventionEnabled(true)
         } else {
@@ -403,7 +403,7 @@ class SetupWindowController: NSWindowController, NSWindowDelegate {
         }
     }
     
-    func errorsInGestureSequence(errors: [Message]) {
+    func errorsInGestureSequence(_ errors: [Message]) {
         mouseOverEnabled = false
         dataShare.canRecord = false
         
@@ -412,12 +412,12 @@ class SetupWindowController: NSWindowController, NSWindowDelegate {
         showSetSequenceGraphics(false)
         
         gestureInstructionsLabel.stringValue = ""
-        for (_, element) in errors.enumerate() {
+        for (_, element) in errors.enumerated() {
             gestureInstructionsLabel.stringValue += " " + (element.string as String)
         }
     }
     
-    func warningsInGestureSequence(warnings: [Message]) {
+    func warningsInGestureSequence(_ warnings: [Message]) {
         mouseOverEnabled = false
         dataShare.canRecord = false
         
@@ -426,7 +426,7 @@ class SetupWindowController: NSWindowController, NSWindowDelegate {
         showSetSequenceGraphics(false)
         
         gestureInstructionsLabel.stringValue = ""
-        for (_, element) in warnings.enumerate() {
+        for (_, element) in warnings.enumerated() {
             gestureInstructionsLabel.stringValue += " " + (element.string as String)
         }
         
@@ -452,8 +452,8 @@ class SetupWindowController: NSWindowController, NSWindowDelegate {
         //passwordTabViewItem.label = "Confirm sequence"
         segmentedControl.setLabel("Confirm sequence", forSegment: 0)
         
-        thumbsUpImageView.hidden = true
-        thumbsDownImageView.hidden = true
+        thumbsUpImageView.isHidden = true
+        thumbsDownImageView.isHidden = true
         passwordOkField.stringValue = ""
         passwordAlertTextField.stringValue = ""
         
@@ -461,16 +461,16 @@ class SetupWindowController: NSWindowController, NSWindowDelegate {
         //tabView.selectTabViewItem(passwordTabViewItem)
         switchToTab(1)
         
-        confirmGestureWithPasswordLabel.hidden = false
+        confirmGestureWithPasswordLabel.isHidden = false
         
         //focus on the password field
         passwordField.becomeFirstResponder()
         
         //init the gesture tab
-        scrollImageView.hidden = true
-        mouseImageView.hidden = false
-        countGesturesButton.hidden = true
-        countGesturesLabel.hidden = true
+        scrollImageView.isHidden = true
+        mouseImageView.isHidden = false
+        countGesturesButton.isHidden = true
+        countGesturesLabel.isHidden = true
         countGesturesButton.title = "0"
         countGesturesLabel.stringValue = "gestures"
         gestureInstructionsLabel.stringValue = gestureInstructions1
@@ -478,41 +478,41 @@ class SetupWindowController: NSWindowController, NSWindowDelegate {
         
     }
     
-    func showSetSequenceGraphics(show: Bool) {
-        scrollImageView.hidden = !show
-        mouseImageView.hidden = !show
-        countGesturesLabel.hidden = !show
-        countGesturesButton.hidden = !show
+    func showSetSequenceGraphics(_ show: Bool) {
+        scrollImageView.isHidden = !show
+        mouseImageView.isHidden = !show
+        countGesturesLabel.isHidden = !show
+        countGesturesButton.isHidden = !show
         gestureInstructionsLabel.stringValue = gestureInstructions2
     }
     
-    func showRetryContinueAnyway(show: Bool) {
+    func showRetryContinueAnyway(_ show: Bool) {
         showRetry(show)
         showContinueAnyway(show)
     }
     
-    func showRetry(show: Bool) {
-        retryButton.hidden = !show
+    func showRetry(_ show: Bool) {
+        retryButton.isHidden = !show
     }
     
-    func showContinueAnyway(show: Bool) {
-        orLabel.hidden = !show
-        continueAniwayButton.hidden = !show
+    func showContinueAnyway(_ show: Bool) {
+        orLabel.isHidden = !show
+        continueAniwayButton.isHidden = !show
     }
     
     
-    @IBAction func retryPressed(sender: AnyObject) {
+    @IBAction func retryPressed(_ sender: AnyObject) {
         showRetryContinueAnyway(false)
         showSetSequenceGraphics(true)
         //fix, the mouse is on the screen, hide the mouse icon
-        mouseImageView.hidden = true
+        mouseImageView.isHidden = true
         
         dataShare.sequenceBeingRecorded = nil
         mouseOverEnabled = true
         dataShare.canRecord = true
     }
     
-    @IBAction func continueAnywayPressed(sender: AnyObject) {
+    @IBAction func continueAnywayPressed(_ sender: AnyObject) {
         showRetryContinueAnyway(false)
         showSetSequenceGraphics(true)
         
@@ -529,32 +529,32 @@ class SetupWindowController: NSWindowController, NSWindowDelegate {
     
     @IBOutlet var segmentedControl: NSSegmentedControl!
     
-    @IBAction func segmentedControlPressed(sender: NSSegmentedCell) {
+    @IBAction func segmentedControlPressed(_ sender: NSSegmentedCell) {
         switchToTab(sender.selectedSegment)
         
     }
     
-    func switchToTab(index: Int) {
+    func switchToTab(_ index: Int) {
         switch index {
         case 0:
-            box1.hidden = false
-            box2.hidden = true
-            box3.hidden = true
+            box1.isHidden = false
+            box2.isHidden = true
+            box3.isHidden = true
             segmentedControl.selectedSegment = 0
         case 1:
-            box1.hidden = true
-            box2.hidden = false
-            box3.hidden = true
+            box1.isHidden = true
+            box2.isHidden = false
+            box3.isHidden = true
             segmentedControl.selectedSegment = 1
         case 2:
-            box1.hidden = true
-            box2.hidden = true
-            box3.hidden = false
+            box1.isHidden = true
+            box2.isHidden = true
+            box3.isHidden = false
             segmentedControl.selectedSegment = 2
         default:
-            box1.hidden = true
-            box2.hidden = true
-            box3.hidden = true
+            box1.isHidden = true
+            box2.isHidden = true
+            box3.isHidden = true
             segmentedControl.selectedSegment = 0
         }
     }

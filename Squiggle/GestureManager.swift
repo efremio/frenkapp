@@ -9,14 +9,38 @@
 import Cocoa
 import Foundation
 import Security
+// FIXME: comparison operators with optionals were removed from the Swift Standard Libary.
+// Consider refactoring the code to use the non-optional operators.
+fileprivate func < <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
+  switch (lhs, rhs) {
+  case let (l?, r?):
+    return l < r
+  case (nil, _?):
+    return true
+  default:
+    return false
+  }
+}
+
+// FIXME: comparison operators with optionals were removed from the Swift Standard Libary.
+// Consider refactoring the code to use the non-optional operators.
+fileprivate func > <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
+  switch (lhs, rhs) {
+  case let (l?, r?):
+    return l > r
+  default:
+    return rhs < lhs
+  }
+}
+
 
 class GestureManager : NSObject {
     //variables initialization
     var gestures = [Gesture]()
     
-    private var isScreenLocked = false
-    var lastGestureTimer = NSTimer.init()
-    let dataShare = DataShare.sharedInstance
+    fileprivate var isScreenLocked = false
+    var lastGestureTimer = Timer.init()
+    let dataShare = DataShare.shared
     
     var x : CGFloat = 0
     var y : CGFloat = 0
@@ -26,22 +50,22 @@ class GestureManager : NSObject {
      }*/
     
     //used to record the gesture
-    func scrollLocal(event : NSEvent) -> NSEvent {
+    func scrollLocal(_ event : NSEvent) -> NSEvent {
         if dataShare.canRecord {
-            if event.phase == NSEventPhase.Began {
+            if event.phase == NSEventPhase.began {
                 let newGesture = Gesture()
                 newGesture.timeStart = event.timestamp
                 gestures.append(newGesture)
                 lastGestureTimer.invalidate()
                 x = 0
                 y = 0
-            } else if event.phase == NSEventPhase.Changed {
+            } else if event.phase == NSEventPhase.changed {
                 x += event.deltaX
                 y += event.deltaY
                 gestures.last?.xPoints.append(x)
                 gestures.last?.yPoints.append(y)
                 
-            } else if event.phase == NSEventPhase.Ended {
+            } else if event.phase == NSEventPhase.ended {
                 gestures.last?.timeEnd = event.timestamp
                 
                 //update the graphics
@@ -49,29 +73,29 @@ class GestureManager : NSObject {
                 
                 //gesture ended, last one?
                 lastGestureTimer.invalidate()
-                lastGestureTimer = NSTimer.scheduledTimerWithTimeInterval((KeychainManager.getGestureTime() as! Double)/1000, target: self, selector: #selector(self.lastGestureRecordingTimerFired(_:)), userInfo: nil, repeats: false)
+                lastGestureTimer = Timer.scheduledTimer(timeInterval: (KeychainManager.getGestureTime() as! Double)/1000, target: self, selector: #selector(self.lastGestureRecordingTimerFired(_:)), userInfo: nil, repeats: false)
             }
         }
         return event
     }
     
-    func scroll(event : NSEvent) {
+    func scroll(_ event : NSEvent) {
         if isScreenLocked {
-            if event.phase == NSEventPhase.Began {
+            if event.phase == NSEventPhase.began {
                 let newGesture = Gesture()
                 newGesture.timeStart = event.timestamp
                 gestures.append(newGesture)
                 lastGestureTimer.invalidate()
                 x = 0
                 y = 0
-            } else if event.phase == NSEventPhase.Changed {
+            } else if event.phase == NSEventPhase.changed {
                 
                 x += event.deltaX
                 y += event.deltaY
                 gestures.last?.xPoints.append(x)
                 gestures.last?.yPoints.append(y)
                 
-            } else if event.phase == NSEventPhase.Ended {
+            } else if event.phase == NSEventPhase.ended {
                 gestures.last?.timeEnd = event.timestamp
                 
                 //print("------------------------ debug ------------------------")
@@ -86,18 +110,18 @@ class GestureManager : NSObject {
                     
                     //gesture ended, last one?
                     lastGestureTimer.invalidate()
-                    lastGestureTimer = NSTimer.scheduledTimerWithTimeInterval((KeychainManager.getGestureTime() as! Double)/1000, target: self, selector: #selector(self.lastGestureUnlockTimerFired(_:)), userInfo: nil, repeats: false)
+                    lastGestureTimer = Timer.scheduledTimer(timeInterval: (KeychainManager.getGestureTime() as! Double)/1000, target: self, selector: #selector(self.lastGestureUnlockTimerFired(_:)), userInfo: nil, repeats: false)
                     
                 //}
             }
         }
     }
     
-    @objc private func lastGestureUnlockTimerFired(timer : NSTimer!) {
+    @objc fileprivate func lastGestureUnlockTimerFired(_ timer : Timer!) {
         manageUnlock(false)
     }
     
-    func manageUnlock(fastCheck: Bool) {
+    func manageUnlock(_ fastCheck: Bool) {
         //it was the last gesture (or maybe it's a fast check)
         
         if isScreenLocked {
@@ -116,7 +140,7 @@ class GestureManager : NSObject {
     }
     
     //used to save a new gesture
-    @objc private func lastGestureRecordingTimerFired(timer : NSTimer!) {
+    @objc fileprivate func lastGestureRecordingTimerFired(_ timer : Timer!) {
         //it was the last gesture
         
         let messages = checkSequenceValidity() //it returns warnings and errors about the sequence
@@ -124,9 +148,9 @@ class GestureManager : NSObject {
         var errors = [Message]()
         var warnings = [Message]()
         for m in messages {
-            if m.messageType == MessageType.errorMEssage {
+            if m.messageType as String == MessageType.errorMEssage {
                 errors.append(m)
-            } else if m.messageType == MessageType.warningMessage {
+            } else if m.messageType as String == MessageType.warningMessage {
                 warnings.append(m)
             }
         }
@@ -155,14 +179,14 @@ class GestureManager : NSObject {
         dataShare.setupWindowControllerInstance!.updateGestureNumber(gestures.count)
     }
     
-    private func checkSequenceValidity() -> [Message] {
+    fileprivate func checkSequenceValidity() -> [Message] {
         var messages = [Message]()
         
         //check length
         if gestures.count < 1 {
-            messages.append(Message(messageType: MessageType.errorMEssage, string: "The sequence must contain at least one gesture."))
+            messages.append(Message(messageType: MessageType.errorMEssage as NSString, string: "The sequence must contain at least one gesture."))
         } else if gestures.count == 1 {
-            messages.append(Message(messageType: MessageType.warningMessage, string: "Frenk recommends to use at least two gestures in your sequence."))
+            messages.append(Message(messageType: MessageType.warningMessage as NSString, string: "Frenk recommends to use at least two gestures in your sequence."))
         }
         
         //gesture too short
@@ -175,17 +199,17 @@ class GestureManager : NSObject {
         }
         
         if notEnoughPoints {
-            messages.append(Message(messageType: MessageType.errorMEssage, string: "One or more gestures are too short."))
+            messages.append(Message(messageType: MessageType.errorMEssage as NSString, string: "One or more gestures are too short."))
         }
         
         return messages
     }
     
-    func setScreenLocked(locked : Bool) {
+    func setScreenLocked(_ locked : Bool) {
         isScreenLocked = locked
     }
     
-    private func areGesturesCorrelated() -> Bool {
+    fileprivate func areGesturesCorrelated() -> Bool {
         if !KeychainManager.isSequenceSet() || !KeychainManager.isPrecisionSet() { //no gestures or precision saved, no correlation!
             return false
         }
@@ -211,7 +235,7 @@ class GestureManager : NSObject {
         return false
     }
     
-    private func unlock() {
+    fileprivate func unlock() {
         if KeychainManager.isPasswordSet() { //unlock if password was set
             let pwd = KeychainManager.getPassword()
             

@@ -73,6 +73,8 @@
 		221CAD831C1999C500F57E62 /* StatusMenuController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StatusMenuController.swift; path = Squiggle/StatusMenuController.swift; sourceTree = "<group>"; };
 		2237D8741CEE8D7A003845B5 /* ApplicationServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ApplicationServices.framework; path = System/Library/Frameworks/ApplicationServices.framework; sourceTree = SDKROOT; };
 		2237D87A1CEE917B003845B5 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		2248A7F91F22B83C0035D61E /* Frenk.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Frenk.entitlements; sourceTree = "<group>"; };
+		2248A7FA1F22BCA10035D61E /* Locksmith */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Locksmith; sourceTree = "<group>"; };
 		225486BD1D05CDCB00BE070B /* Message.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		22593E981C18BCF9003CFCF2 /* Frenk.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Frenk.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		22593E9B1C18BCF9003CFCF2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = Squiggle/AppDelegate.swift; sourceTree = "<group>"; };
@@ -104,8 +106,6 @@
 		4BECA133996901A26BFEB9D2 /* Pods-FrenkTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FrenkTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-FrenkTests/Pods-FrenkTests.release.xcconfig"; sourceTree = "<group>"; };
 		4C4706A8B66A1454D10CA3E2 /* Pods_Frenk.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Frenk.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		62DA12C82E199479A97371F4 /* Pods-FrenkUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FrenkUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-FrenkUITests/Pods-FrenkUITests.release.xcconfig"; sourceTree = "<group>"; };
-		6E1D531A0CE4B47C5D1CDC5C /* Pods-Squiggle.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Squiggle.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Squiggle/Pods-Squiggle.debug.xcconfig"; sourceTree = "<group>"; };
-		70C4103E32840F910D79D2DB /* Pods-Squiggle.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Squiggle.release.xcconfig"; path = "Pods/Target Support Files/Pods-Squiggle/Pods-Squiggle.release.xcconfig"; sourceTree = "<group>"; };
 		98270E524F67860A4D9C19BE /* Pods-FrenkTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FrenkTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FrenkTests/Pods-FrenkTests.debug.xcconfig"; sourceTree = "<group>"; };
 		B3FB17E84A336D78BCC6BD38 /* Pods-Frenk.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Frenk.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Frenk/Pods-Frenk.debug.xcconfig"; sourceTree = "<group>"; };
 		C81F9E204842FDA61F5D5594 /* Pods_FrenkUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FrenkUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -162,6 +162,7 @@
 		22593E8F1C18BCF9003CFCF2 = {
 			isa = PBXGroup;
 			children = (
+				2248A7F91F22B83C0035D61E /* Frenk.entitlements */,
 				221BB2171CF9BC8500A78F5F /* HelperClasses */,
 				22B83AB91CF8EA010010A52B /* SetupWindowController.swift */,
 				22B83ABA1CF8EA010010A52B /* SetupWindowController.xib */,
@@ -215,6 +216,7 @@
 		5672D714A9A33E9FC6F2792E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				2248A7FA1F22BCA10035D61E /* Locksmith */,
 				0EB79640569400AA1BB936A0 /* Pods_Squiggle.framework */,
 				4C4706A8B66A1454D10CA3E2 /* Pods_Frenk.framework */,
 				D6FC2175175599A263D15781 /* Pods_FrenkTests.framework */,
@@ -226,8 +228,6 @@
 		F7364EBF0C12B77F522D73E2 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				6E1D531A0CE4B47C5D1CDC5C /* Pods-Squiggle.debug.xcconfig */,
-				70C4103E32840F910D79D2DB /* Pods-Squiggle.release.xcconfig */,
 				B3FB17E84A336D78BCC6BD38 /* Pods-Frenk.debug.xcconfig */,
 				CC98F935F22B523690B62137 /* Pods-Frenk.release.xcconfig */,
 				98270E524F67860A4D9C19BE /* Pods-FrenkTests.debug.xcconfig */,
@@ -309,15 +309,18 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0720;
-				LastUpgradeCheck = 0800;
+				LastUpgradeCheck = 0830;
 				ORGANIZATIONNAME = "Efrem Agnilleri";
 				TargetAttributes = {
 					22593E971C18BCF9003CFCF2 = {
 						CreatedOnToolsVersion = 7.2;
 						DevelopmentTeam = 7JMYX58NKQ;
-						LastSwiftMigration = 0800;
+						LastSwiftMigration = 0830;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
+							com.apple.Keychain = {
+								enabled = 1;
+							};
 							com.apple.Sandbox = {
 								enabled = 0;
 							};
@@ -330,7 +333,7 @@
 					};
 					22593EB11C18BCF9003CFCF2 = {
 						CreatedOnToolsVersion = 7.2;
-						LastSwiftMigration = 0800;
+						LastSwiftMigration = 0830;
 						TestTargetID = 22593E971C18BCF9003CFCF2;
 					};
 				};
@@ -673,14 +676,15 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Frenk.entitlements;
 				CODE_SIGN_IDENTITY = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = 7JMYX58NKQ;
 				INFOPLIST_FILE = Squiggle/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = efremius.Frenk094;
+				PRODUCT_BUNDLE_IDENTIFIER = efremius.Frenk100;
 				PRODUCT_NAME = Frenk;
-				SWIFT_VERSION = 2.3;
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -690,14 +694,15 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Frenk.entitlements;
 				CODE_SIGN_IDENTITY = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = 7JMYX58NKQ;
 				INFOPLIST_FILE = Squiggle/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = efremius.Frenk094;
+				PRODUCT_BUNDLE_IDENTIFIER = efremius.Frenk100;
 				PRODUCT_NAME = Frenk;
-				SWIFT_VERSION = 2.3;
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
@@ -740,7 +745,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = efremius.SquiggleUITests;
 				PRODUCT_NAME = Frenk;
-				SWIFT_VERSION = 2.3;
+				SWIFT_VERSION = 3.0;
 				TEST_TARGET_NAME = Squiggle;
 				USES_XCTRUNNER = YES;
 			};
@@ -755,7 +760,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = efremius.SquiggleUITests;
 				PRODUCT_NAME = Frenk;
-				SWIFT_VERSION = 2.3;
+				SWIFT_VERSION = 3.0;
 				TEST_TARGET_NAME = Squiggle;
 				USES_XCTRUNNER = YES;
 			};

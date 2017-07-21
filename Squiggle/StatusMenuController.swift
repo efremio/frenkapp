@@ -16,7 +16,7 @@ import OpenDirectory
 class StatusMenuController: NSObject {
     
     var gestureManager : GestureManager
-    let dataShare = DataShare.sharedInstance
+    let dataShare = DataShare.shared
     
     override init() {
         //set the delault values
@@ -55,25 +55,25 @@ class StatusMenuController: NSObject {
         }*/
         
         //listeners for scroll
-        NSEvent.addGlobalMonitorForEventsMatchingMask(
-            NSEventMask.ScrollWheel, handler: {(event: NSEvent) in
+        NSEvent.addGlobalMonitorForEvents(
+            matching: NSEventMask.scrollWheel, handler: {(event: NSEvent) in
                 self.gestureManager.scroll(event)
         })
         
-        NSEvent.addLocalMonitorForEventsMatchingMask(
-            NSEventMask.ScrollWheel, handler: {(event: NSEvent) in
+        NSEvent.addLocalMonitorForEvents(
+            matching: NSEventMask.scrollWheel, handler: {(event: NSEvent) in
                 self.gestureManager.scrollLocal(event)
         })
         
         //listeners for lock/unlock
-        NSDistributedNotificationCenter.defaultCenter().addObserver(self, selector: #selector(self.lockedEvent), name: "com.apple.screenIsLocked", object: nil)
+        DistributedNotificationCenter.default().addObserver(self, selector: #selector(self.lockedEvent), name: NSNotification.Name(rawValue: "com.apple.screenIsLocked"), object: nil)
         
-        NSDistributedNotificationCenter.defaultCenter().addObserver(self, selector: #selector(self.unlockedEvent), name: "com.apple.screenIsUnlocked", object: nil)
+        DistributedNotificationCenter.default().addObserver(self, selector: #selector(self.unlockedEvent), name: NSNotification.Name(rawValue: "com.apple.screenIsUnlocked"), object: nil)
     }
     
     func acquirePrivileges() -> Bool {
-        let accessEnabled = AXIsProcessTrustedWithOptions(
-            [kAXTrustedCheckOptionPrompt.takeUnretainedValue() as String: true])
+        let options: CFDictionary = [kAXTrustedCheckOptionPrompt.takeUnretainedValue() as String: true] as CFDictionary
+        let accessEnabled = AXIsProcessTrustedWithOptions(options)
         
         return accessEnabled == true
     }

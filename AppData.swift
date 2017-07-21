@@ -44,24 +44,24 @@ class AppData: NSObject, NSCoding {
         super.init()
     }
     
-    func encodeWithCoder(aCoder: NSCoder) {
-        aCoder.encodeObject(sequence, forKey: PropertyKeyAppData.sequenceKey)
-        aCoder.encodeObject(password, forKey: PropertyKeyAppData.passwordKey)
-        aCoder.encodeObject(gestureTime, forKey: PropertyKeyAppData.gestureTimeKey)
-        aCoder.encodeObject(launchAtLogin, forKey: PropertyKeyAppData.launchAtLoginKey)
-        aCoder.encodeObject(soundsEnabled, forKey: PropertyKeyAppData.soundsEnabledKey)
-        aCoder.encodeObject(precision, forKey: PropertyKeyAppData.precisionKey)
-        aCoder.encodeObject(bruteforcePrevention, forKey: PropertyKeyAppData.bruteforcePreventionKey)
+    func encode(with aCoder: NSCoder) {
+        aCoder.encode(sequence, forKey: PropertyKeyAppData.sequenceKey)
+        aCoder.encode(password, forKey: PropertyKeyAppData.passwordKey)
+        aCoder.encode(gestureTime, forKey: PropertyKeyAppData.gestureTimeKey)
+        aCoder.encode(launchAtLogin, forKey: PropertyKeyAppData.launchAtLoginKey)
+        aCoder.encode(soundsEnabled, forKey: PropertyKeyAppData.soundsEnabledKey)
+        aCoder.encode(precision, forKey: PropertyKeyAppData.precisionKey)
+        aCoder.encode(bruteforcePrevention, forKey: PropertyKeyAppData.bruteforcePreventionKey)
     }
     
     required convenience init?(coder aDecoder: NSCoder) {
-        let sequence = aDecoder.decodeObjectForKey(PropertyKeyAppData.sequenceKey) as? [Gesture]
-        let password = aDecoder.decodeObjectForKey(PropertyKeyAppData.passwordKey) as? NSString
-        let gestureTime = aDecoder.decodeObjectForKey(PropertyKeyAppData.gestureTimeKey) as? NSNumber
-        let launchAtLogin = aDecoder.decodeObjectForKey(PropertyKeyAppData.launchAtLoginKey) as? Bool
-        let soundsEnabled = aDecoder.decodeObjectForKey(PropertyKeyAppData.soundsEnabledKey) as? Bool
-        let precision = aDecoder.decodeObjectForKey(PropertyKeyAppData.precisionKey) as? CGFloat
-        let bruteforcePrevention = aDecoder.decodeObjectForKey(PropertyKeyAppData.bruteforcePreventionKey) as? Bool
+        let sequence = aDecoder.decodeObject(forKey: PropertyKeyAppData.sequenceKey) as? [Gesture]
+        let password = aDecoder.decodeObject(forKey: PropertyKeyAppData.passwordKey) as? NSString
+        let gestureTime = aDecoder.decodeObject(forKey: PropertyKeyAppData.gestureTimeKey) as? NSNumber
+        let launchAtLogin = aDecoder.decodeObject(forKey: PropertyKeyAppData.launchAtLoginKey) as? Bool
+        let soundsEnabled = aDecoder.decodeObject(forKey: PropertyKeyAppData.soundsEnabledKey) as? Bool
+        let precision = aDecoder.decodeObject(forKey: PropertyKeyAppData.precisionKey) as? CGFloat
+        let bruteforcePrevention = aDecoder.decodeObject(forKey: PropertyKeyAppData.bruteforcePreventionKey) as? Bool
         
         self.init(sequence: sequence, password: password, gestureTime: gestureTime, launchAtLogin: launchAtLogin, soundsEnabled: soundsEnabled, precision: precision, bruteforcePrevention: bruteforcePrevention)
     }

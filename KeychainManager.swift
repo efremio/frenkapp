@@ -11,45 +11,45 @@ import Locksmith
 
 class KeychainManager {
     
-    private static var cachedData : AppData?
+    fileprivate static var cachedData : AppData?
     
-    static func setGestureTime(time : NSNumber) {
+    static func setGestureTime(_ time : NSNumber) {
         let data = getData()
         data.gestureTime = time
         saveData(data)
     }
     
-    static func setPassword(password : NSString) {
+    static func setPassword(_ password : NSString) {
         let data = getData()
         data.password = password
         saveData(data)
     }
     
-    static func setSequence(sequence : [Gesture]) {
+    static func setSequence(_ sequence : [Gesture]) {
         let data = getData()
         data.sequence = sequence
         saveData(data)
     }
     
-    static func setLaunchAtLogin(launchAtLogin : Bool) {
+    static func setLaunchAtLogin(_ launchAtLogin : Bool) {
         let data = getData()
         data.launchAtLogin = launchAtLogin
         saveData(data)
     }
     
-    static func setSoundsEnabled(soundsEnabled : Bool) {
+    static func setSoundsEnabled(_ soundsEnabled : Bool) {
         let data = getData()
         data.soundsEnabled = soundsEnabled
         saveData(data)
     }
     
-    static func setPrecision(precision : CGFloat) {
+    static func setPrecision(_ precision : CGFloat) {
         let data = getData()
         data.precision = precision
         saveData(data)
     }
     
-    static func setBruteforcePreventionEnabled(bruteforcePrevention : Bool) {
+    static func setBruteforcePreventionEnabled(_ bruteforcePrevention : Bool) {
         let data = getData()
         data.bruteforcePrevention = bruteforcePrevention
         saveData(data)
@@ -111,11 +111,11 @@ class KeychainManager {
         return getData().bruteforcePrevention
     }
     
-    private static func getData() -> AppData {
+    fileprivate static func getData() -> AppData {
         if cachedData != nil { //cache is not empty
             return cachedData!
         } else { //cache is empty
-            let dictionary = Locksmith.loadDataForUserAccount("frenkapp_data")
+            let dictionary = Locksmith.loadDataForUserAccount(userAccount: "frenkapp_data")
             if(dictionary == nil) { //no keychain
                 cachedData = AppData() //create a cache
                 return cachedData!
@@ -134,8 +134,8 @@ class KeychainManager {
         }
     }
     
-    private static func saveData(data : AppData) {
-        try! Locksmith.updateData(["data": data], forUserAccount: "frenkapp_data")
+    fileprivate static func saveData(_ data : AppData) {
+        try! Locksmith.updateData(data: ["data": data], forUserAccount: "frenkapp_data")
         cachedData = data
     }
 }

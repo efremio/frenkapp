@@ -15,14 +15,14 @@ class AboutWindowController: NSWindowController {
     @IBOutlet var scrollView: NSScrollView!
     @IBOutlet var aboutTextField: NSTextField!
     
-    let checkURL = NSURL(string: GlobalConstants.AppSettings.urlWeb)
+    let checkURL = URL(string: GlobalConstants.AppSettings.urlWeb)
     
-    override func showWindow(sender: AnyObject?) {
-        if aboutWindow != nil && aboutWindow.miniaturized { //if it is miniaturized, deminiaturize
+    override func showWindow(_ sender: Any?) {
+        if aboutWindow != nil && aboutWindow.isMiniaturized { //if it is miniaturized, deminiaturize
             aboutWindow.deminiaturize(aboutWindow)
             aboutWindow.orderFrontRegardless()
-        } else if aboutWindow != nil && aboutWindow.visible { //if it is somewhere already open, show to the front
-            aboutWindow.collectionBehavior = .MoveToActiveSpace
+        } else if aboutWindow != nil && aboutWindow.isVisible { //if it is somewhere already open, show to the front
+            aboutWindow.collectionBehavior = .moveToActiveSpace
             aboutWindow.orderFrontRegardless()
         } else {
             super.showWindow(sender)
@@ -34,9 +34,9 @@ class AboutWindowController: NSWindowController {
         super.windowDidLoad()
         
         let visualEffectView = NSVisualEffectView(frame: NSMakeRect(0, 0, 0, 0))
-        visualEffectView.material = NSVisualEffectMaterial.Dark
-        visualEffectView.blendingMode = NSVisualEffectBlendingMode.BehindWindow
-        visualEffectView.state = NSVisualEffectState.Active
+        visualEffectView.material = NSVisualEffectMaterial.dark
+        visualEffectView.blendingMode = NSVisualEffectBlendingMode.behindWindow
+        visualEffectView.state = NSVisualEffectState.active
         
         let previousContentView = aboutWindow.contentView
         aboutWindow.contentView = visualEffectView //add the visual effect
@@ -63,23 +63,23 @@ class AboutWindowController: NSWindowController {
         
         aboutWindow.styleMask = [NSFullSizeContentViewWindowMask, NSTitledWindowMask, NSClosableWindowMask]
         //aboutWindow.styleMask = NSFullSizeContentViewWindowMask | NSTitledWindowMask | NSClosableWindowMask
-        aboutWindow.titleVisibility = .Hidden
+        aboutWindow.titleVisibility = .hidden
         aboutWindow.titlebarAppearsTransparent = true
-        aboutWindow.movableByWindowBackground = true
-        aboutWindow.releasedWhenClosed = false
+        aboutWindow.isMovableByWindowBackground = true
+        aboutWindow.isReleasedWhenClosed = false
         
         
         addLogo()
         
         //modify about text
         var rawText = aboutTextField.stringValue
-        rawText = rawText.stringByReplacingOccurrencesOfString("%VERSION%", withString: GlobalConstants.AppSettings.versionNumber!)
+        rawText = rawText.replacingOccurrences(of: "%VERSION%", with: GlobalConstants.AppSettings.versionNumber!)
         
-        let date = NSDate()
-        let calendar = NSCalendar.currentCalendar()
-        let components = calendar.components([.Day , .Month , .Year], fromDate: date)
+        let date = Date()
+        let calendar = Calendar.current
+        let components = (calendar as NSCalendar).components([.day , .month , .year], from: date)
         
-        rawText = rawText.stringByReplacingOccurrencesOfString("%YEAR%", withString: components.year.description)
+        rawText = rawText.replacingOccurrences(of: "%YEAR%", with: (components.year?.description)!)
 
         aboutTextField.stringValue = rawText
         
@@ -92,16 +92,16 @@ class AboutWindowController: NSWindowController {
         GlobalConstants.Colors.green.set()
         //NSColor.whiteColor().set()
         let imageRect = NSRect(origin: NSZeroPoint, size: logo!.size)
-        NSRectFillUsingOperation(imageRect, NSCompositingOperation.SourceAtop)
+        NSRectFillUsingOperation(imageRect, NSCompositingOperation.sourceAtop)
         logo?.unlockFocus()
         //the logo is tinted
         
         logoImageView.image = logo
-        logoImageView.imageScaling = .ScaleProportionallyUpOrDown
+        logoImageView.imageScaling = .scaleProportionallyUpOrDown
     }
     
-    @IBAction func goToURL(sender: AnyObject) {
-        NSWorkspace.sharedWorkspace().openURL(checkURL!)
+    @IBAction func goToURL(_ sender: AnyObject) {
+        NSWorkspace.shared().open(checkURL!)
     }
     
 }

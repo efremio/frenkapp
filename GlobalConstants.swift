@@ -15,7 +15,7 @@ struct GlobalConstants {
     }
     
     struct AppSettings {
-        static let defaultGestureTime = NSNumber(int: 650)
+        static let defaultGestureTime = NSNumber(value: 650 as Int32)
         static let defaultSoundsEnabled = false
         static let defaultPrecision: CGFloat = 0.80 //Pearson linear correlation. Close to 1 means that the two series are strongly linear correlated
         static let defaultBruteforcePreventionEnabled = true
@@ -26,6 +26,6 @@ struct GlobalConstants {
         static let urlWeb = "http://epo90.altervista.org/frenk/"
         static let urlWebVersionCheck = "http://epo90.altervista.org/frenk/update/?version=" + versionNumber!
         
-        static let versionNumber = NSBundle.mainBundle().infoDictionary?["CFBundleShortVersionString"] as? String
+        static let versionNumber = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String
     }
 }

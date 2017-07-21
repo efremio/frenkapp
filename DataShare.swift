@@ -8,16 +8,17 @@
 
 import Foundation
 
-class DataShare {
+/*class DataShare {
+    private static var __once: () = {
+            Static.instance = DataShare()
+        }()
     class var sharedInstance: DataShare {
         struct Static {
             static var instance: DataShare?
-            static var token: dispatch_once_t = 0
+            static var token: Int = 0
         }
         
-        dispatch_once(&Static.token) {
-            Static.instance = DataShare()
-        }
+        _ = DataShare.__once
         
         return Static.instance!
     }
@@ -26,4 +27,15 @@ class DataShare {
     var setupWindowControllerInstance: SetupWindowController? = nil
     var sequenceBeingRecorded: [Gesture]? = nil
     var failedAttempts: Int = 0
+}*/
+
+
+class DataShare {
+    static let shared = DataShare()
+    
+    var canRecord: Bool = false
+    var setupWindowControllerInstance: SetupWindowController? = nil
+    var sequenceBeingRecorded: [Gesture]? = nil
+    var failedAttempts: Int = 0
+    
 }

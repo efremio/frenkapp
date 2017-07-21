@@ -10,7 +10,7 @@ import Foundation
 
 private let maxDeltaFix: CGFloat = 5
 
-func getCorrelation(s1: [CGFloat], s2: [CGFloat]) -> CGFloat {
+func getCorrelation(_ s1: [CGFloat], s2: [CGFloat]) -> CGFloat {
     var a = s1
     var b = s2
     
@@ -57,7 +57,7 @@ func getCorrelation(s1: [CGFloat], s2: [CGFloat]) -> CGFloat {
     return getPearsonCorrelation(a, b: b)
 }
 
-func getPearsonCorrelation(a: [CGFloat], b: [CGFloat]) -> CGFloat {
+func getPearsonCorrelation(_ a: [CGFloat], b: [CGFloat]) -> CGFloat {
     let sumXY = getSumXY(a, b : b)
     let sumX = getSumX(a)
     let sumY = getSumX(b)
@@ -72,7 +72,7 @@ func getPearsonCorrelation(a: [CGFloat], b: [CGFloat]) -> CGFloat {
     return numerator/denominator
 }
 
-func getSumXY(a: [CGFloat], b: [CGFloat]) -> CGFloat {
+func getSumXY(_ a: [CGFloat], b: [CGFloat]) -> CGFloat {
     var sum : CGFloat = 0.0
     for index in 0...(a.count-1) {
         sum += a[index] * b[index]
@@ -81,7 +81,7 @@ func getSumXY(a: [CGFloat], b: [CGFloat]) -> CGFloat {
     return sum
 }
 
-func getSumX(a: [CGFloat]) -> CGFloat {
+func getSumX(_ a: [CGFloat]) -> CGFloat {
     var sum : CGFloat = 0.0
     for index in 0...(a.count-1) {
         sum += a[index]
@@ -90,7 +90,7 @@ func getSumX(a: [CGFloat]) -> CGFloat {
     return sum
 }
 
-func getSumXX(a: [CGFloat]) -> CGFloat {
+func getSumXX(_ a: [CGFloat]) -> CGFloat {
     var sum : CGFloat = 0.0
     for index in 0...(a.count-1) {
         sum += a[index] * a[index]
@@ -99,10 +99,10 @@ func getSumXX(a: [CGFloat]) -> CGFloat {
     return sum
 }
 
-func normalizeArray(s: [CGFloat], n: Int) -> [CGFloat] {
+func normalizeArray(_ s: [CGFloat], n: Int) -> [CGFloat] {
     //stretch out the array
-    var givenValues = [CGFloat?](count: n, repeatedValue: nil)
-    var newValues = [CGFloat](count: n, repeatedValue: 0)
+    var givenValues = [CGFloat?](repeating: nil, count: n)
+    var newValues = [CGFloat](repeating: 0, count: n)
     
     //distribute the points from s to givenValues
     for index in 0...(s.count-1) {
@@ -113,7 +113,7 @@ func normalizeArray(s: [CGFloat], n: Int) -> [CGFloat] {
     for index in 0...(givenValues.count-1) {
         if givenValues[index] == nil {
             //let's compute a value for this nil!
-            var points = [CGFloat?](count: 4, repeatedValue: nil)
+            var points = [CGFloat?](repeating: nil, count: 4)
             
             //try to find the two points before
             var i = index
