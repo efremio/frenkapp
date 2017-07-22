@@ -11,7 +11,8 @@ It's quick, secure and very handy, expecially for those MacBook without the Touc
 ![Swift 3.0+](https://img.shields.io/badge/Swift-3.0%2B-orange.svg)
 [![Donate](https://img.shields.io/badge/Donate-PayPal-blue.svg)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=3U48GEZG3BF5Y)
 [![Twitter](https://img.shields.io/badge/twitter-@efremagnilleri-green.svg?style=flat)](https://twitter.com/efremagnilleri)
-## Download
+## [Download](https://goo.gl/aoMMby)
+
 ###
 
 ### Readme under construction
